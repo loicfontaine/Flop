@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -18,9 +19,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'lastname',
+        "firstname",
+        "nickname",
         'email',
+        "phone_number",
+        "color_coins",
+        "address",
         'password',
+
     ];
 
     /**
@@ -42,4 +49,54 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
+
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function challenges()
+    {
+        return $this->hasMany(Challenge::class);
+    }
+
+    public function participations()
+    {
+        return $this->hasMany(Participation::class);
+    }
+    public function rewards()
+    {
+        return $this->hasMany(Reward::class);
+    }
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
+    public function polls()
+    {
+        return $this->hasMany(Poll::class);
+    }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class);
+    }
+
+    public function options()
+    {
+        return $this->belongsToMany(Option::class);
+    }
 }
