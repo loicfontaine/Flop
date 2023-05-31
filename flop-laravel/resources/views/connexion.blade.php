@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{asset('css/connexion.css')}}">
 @endsection
 @section('js')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{asset('js/connexion.js')}}"></script>
 @endsection
 @section('content')
@@ -37,14 +38,14 @@
       </div>
     </div>
 
-    <!--
+    
     <script>
         var bouton = document.getElementById('create');
         bouton.addEventListener('click', function() {
-            
+          window.location.href = "inscription";
         });
     </script>
-    -->
+
     
       
 
