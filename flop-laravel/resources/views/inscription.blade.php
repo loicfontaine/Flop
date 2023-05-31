@@ -53,7 +53,7 @@
 </div>
 
 
-
+<!--
   <script>
     export default {
       data() {
@@ -75,6 +75,7 @@
       }
     };
   </script>
+  -->
   @endsection
 
     
