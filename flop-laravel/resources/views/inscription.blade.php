@@ -1,16 +1,13 @@
 @extends('template')
 @section('css')
 <link rel="stylesheet" href="{{asset('css/inscription.css')}}">
-
 @endsection
+@section('js')
+<script src="{{asset('js/inscription.js')}}"></script>
 @section('content')
-<div id='img'>
-  <img src="img/RTSCouleur3.png" class='logoC3'>
-</div>
 <div class='FontInter'>
   <h1 class='titre'>Inscription</h1>
   <hr id='separation'>
-
   <div class='input-container'>
     <form>
       <input class='inscription border-placeholder' type="text" v-model="firstName">
@@ -39,35 +36,21 @@
             <input type="checkbox" class='checkbox-round' v-model="checkedOptions" value="option1">
           </label>
           <hr class='separation2'>
-        </div>
-
+      </div>
         <button a href="{{route('user.create')}}" type="submit" class='submit'>S'inscrire</button>
+    </form>
+  </div>
+</div>
 
-      </form>
-    </div>
-
-    <div class='FontInter compte'>
+<div class='FontInter compte'>
       <p class='p1'>Vous avez déjà un compte ? <a href='connexion' class='p2'>Connectez-vous</a></p>
       <p class='p1'>ou</p>
       <div class='bouton FontInter'>
         <button class='apple'>Connexion avec Apple</button>
         <button class='facebook'>Connexion avec Facebook</button>
         <button class='google'>Connexion avec Google</button>
-
       </div>
-    </form>
-  </div>
-  <div class='FontInter compte'>
-    <p class='p1'>Vous avez déjà un compte ? <a href='connexion' class='p2'>Connectez-vous</a></p>
-    <p class='p1'>ou</p>
-
-    <div class='bouton FontInter'>
-      <button class='apple'>Connexion avec Apple</button>
-      <button class='facebook'>Connexion avec Facebook</button>
-      <button class='google'>Connexion avec Google</button>
-    </div>
-
-  </div>
+</div>
 
 
 
@@ -118,5 +101,5 @@
     }
   };
   </script> -->
-  @endsection
+
 

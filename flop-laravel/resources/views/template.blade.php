@@ -57,7 +57,7 @@
                 
         </div>
     </nav>
-    <img class=".logoC3" src="RTSCouleur3.png" alt="logo couleur 3">
+    <img class="logoC3" src="img/RTSCouleur3.png" alt="logo couleur 3">
     @yield("content")
     <footer id="footer">
         <div class="footerNav">
