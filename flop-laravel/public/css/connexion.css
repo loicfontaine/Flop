@@ -1,0 +1,172 @@
+/*-------- connexion --------*/
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding-top:20px;
+    width:300px;
+    background-color: white;
+}
+
+
+input.connexion {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    height: 54.6px;
+    width: 266px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right:auto;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #E60096;
+      
+}
+
+.placeholder-haut {
+    color : grey;
+    background-color: white;
+    font-size: 10px;
+    position: relative;
+    padding-left:5px;
+    padding-right:5px;
+    top: -70px;
+    left: 30px;
+
+}
+
+hr.separation {
+    width: 226px;
+}
+
+hr.separation2 {
+    width: 226px;
+    border: 0.2px solid grey;
+    opacity: 0.5;
+}
+
+hr.separation3 {
+    width: 226px;
+    margin-top: 30px;
+}
+
+.titre {
+    font-size: 22px;
+    text-align: center;
+}
+
+.logoC3 {
+    width: 352px;
+    margin: auto;
+}
+
+
+.basForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 266px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.submit {
+    background-color: #E60096; 
+    font-size: 18px;
+    color: white;
+    border:none;
+    border-radius: 8px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: grey 3px 3px 3px;
+}
+
+#create {
+    background-color: #E60096; 
+    font-size: 18px;
+    color: white;
+    border:none;
+    border-radius: 8px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 266px;
+}
+
+#cc {
+    font-size: 10px;
+    position: relative;
+    top: -15px;
+}
+
+#img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*-------- Colors --------*/
+.rose {
+    color: #E60096;
+}
+
+.vert {
+    color: #62FFAB;
+}
+
+.noir {
+    color: #303030;
+}
+
+.gris {
+    color: #F4F1E9;
+}
+
+.p1 {
+    font-size: 20px;
+}
+
+
+.compte {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+a.p2 {
+    color: #E60096;
+}
+
+.bouton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.apple, .facebook, .google {
+    width: 226px;
+    height: 40px;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.apple-icon {
+    font-size: 24px;
+    color:black;
+  }

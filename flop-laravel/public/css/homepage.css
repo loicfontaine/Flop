@@ -1,0 +1,62 @@
+/*-------- HomePage --------*/
+
+.actualiteContainer img,
+.videoContainer img {
+  max-width: 500px;
+  max-height: 100%;
+  margin: 10px;
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+  .actualiteContainer,
+  .videoContainer {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .actualiteContainer img,
+  .videoContainer img {
+    max-width: 100%;
+  }
+
+  .videoContainer img {
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+  }
+}
+
+.actualiteContainer {
+  display: flex;
+  position: relative;
+}
+
+.videoContainer {
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+h1 {
+  text-align: center;
+}
+
+.texteInfo {
+  text-align: justify;
+  margin: 10px;
+}
+
+p.texteInfo {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.titreInfo {
+  font-family: 'Inter', sans-serif;
+  color: white;
+  font-size: 2rem;
+  margin: 10px;
+}

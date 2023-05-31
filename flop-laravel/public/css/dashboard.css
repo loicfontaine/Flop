@@ -1,0 +1,50 @@
+/*-------- Logo --------*/
+
+#img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logoC3 {
+    width: 352px;
+    margin: auto;
+}
+
+
+/*-------- Séparation --------*/
+
+hr#separation {
+    width: 226px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+/*-------- Pannel avec nombre de coins --------*/
+
+.FontInterBlack {  
+    font-family: 'Inter', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    width:300px;
+    background-color: white;
+}
+
+.titreNombreDeColorCoins {
+    font-size: 22px;
+    text-align: center;
+}
+
