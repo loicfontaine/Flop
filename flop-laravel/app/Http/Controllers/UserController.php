@@ -38,8 +38,8 @@ class UserController extends Controller
             'phone_number' => $request->input('phone'),
             'password' => Hash::make($request->input('password')),
             "color_coins" => 10,
-
         ]);
+        return view("test");
     }
 
     /**
