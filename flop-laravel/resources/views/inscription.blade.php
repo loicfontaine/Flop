@@ -9,11 +9,12 @@
   <h1 class='titre'>Inscription</h1>
   <hr id='separation'>
   <div class='input-container'>
-    <form>
+    <form method="POST" action="{{route('user.store')}}" accept-charset="UTF-8">
+    @csrf
       <input class='inscription border-placeholder' type="text" v-model="firstName">
-      <span class='placeholder-haut FontInter'>Prénom*</span>
+      <span class='placeholder-haut FontInter'>Prénom</span>
       <input class='inscription border-placeholder' type="text" v-model="lastName">
-      <span class='placeholder-haut FontInter'>Nom*</span>
+      <span class='placeholder-haut FontInter'>Nom</span>
       <input class='inscription border-placeholder' type="text" v-model="username">
       <span class='placeholder-haut FontInter'>Nom d'utilisateur*</span>
       <input class='inscription border-placeholder' type="email" v-model="email">
@@ -37,7 +38,7 @@
           </label>
           <hr class='separation2'>
       </div>
-        <button a href="{{route('user.create')}}" type="submit" class='submit'>S'inscrire</button>
+        <button type="submit" class='submit'>S'inscrire</button>
     </form>
   </div>
 </div>
