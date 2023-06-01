@@ -39,3 +39,7 @@ Route::get('/test', function () {
 });
 
 Route::resource('user', UserController::class);
+
+Route::get('/adminDashboard', function () {
+    return view('admin_dashboard');
+});
