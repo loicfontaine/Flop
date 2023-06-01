@@ -20,6 +20,10 @@ Route::get('/connexion', function () {
     return view('connexion');
 });
 
+Route::get('/boutique', function () {
+    return view('boutique_accueil');
+});
+
 Route::get('/', function () {
     return view('homePage');
 });
