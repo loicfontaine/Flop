@@ -29,6 +29,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
+        /*
         User::create([
             'lastname' => $request->input('lastname'),
             'firstname' => $request->input('firstname'),
@@ -39,6 +40,7 @@ class UserController extends Controller
             'password' => $request->input('password'),
             "color_coins" => 10,
         ]);
+        */
         return view("test");
     }
 
