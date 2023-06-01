@@ -9,6 +9,11 @@
 
     <hr id='separation'>
 
+    <div class="text-image-container">
+        <p class="left-text">Bonjour utilisateur1 !</p>
+        <img class="right-image" src="img/notification.png" alt="Image">
+    </div>
+
     <div class='input-container'>
         <div class='FontInterBlack'>
             <h2 class='titreNombreDeColorCoins'>ColorCoins</h2>
@@ -19,34 +24,38 @@
         </div>
     </div>
 
-    <div class="input-options">
 
-        <div class="input-options">
-            <div class="input-button">
-                <div class="column">
-                    <button href="">
-                        <img src="chemin/vers/votre/image.png" alt="Image bouton">Accueil
-                    </button>
-                    <button href="">
-                        <img src="chemin/vers/votre/image.png" alt="Image bouton">Boutique
-                    </button>
-                    <button href="">
-                        <img src="chemin/vers/votre/image.png" alt="Image bouton">Participations
-                    </button>
-                </div>
-                <div class="column">
-                    <button href="">
-                        <img src="chemin/vers/votre/image.png" alt="Image bouton">Rewind
-                    </button>
-                    <button href="">
-                        <img src="chemin/vers/votre/image.png" alt="Image bouton">Live
-                    </button>
-                    <button href="">
-                        <img src="chemin/vers/votre/image.png" alt="Image bouton">Réglages
-                    </button>
-                </div>
+    <div class="input-options">
+        <div class="input-button">
+            <div class="column">
+                <button class="centrage" href="">
+                    <img class="imageDansBouton" src="img/accueil.png" alt="Image bouton">
+                    <span>Accueil</span>
+                </button>
+                <button class="centrageSpecial" href="">
+                    <img src="img/boutique.png" alt="Image bouton">
+                    <span>Boutique</span>
+                </button>
+                <button class="centrage" href="">
+                    <img src="img/participation.png" alt="Image bouton">
+                    <span>Participations</span>
+                </button>
+            </div>
+            <div class="column">
+                <button class="centrage" href="">
+                    <img src="img/rewind.png" alt="Image bouton">
+                    <span>Rewind</span>
+                </button>
+                <button class="centrage" href="">
+                    <img src="img/live.png" alt="Image bouton">
+                    <span>Live</span>
+                </button>
+                <button class="centrage" href="">
+                    <img src="img/Réglage.png" alt="Image bouton">
+                    <span>Réglages</span>
+                </button>
             </div>
         </div>
+    </div>
 
-
-        @endsection
+    @endsection
