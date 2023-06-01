@@ -12,7 +12,7 @@
     <form method="POST" action="{{route('user.store')}}" accept-charset="UTF-8">
     @csrf
       <div class="form-group {!! $errors->has('firstname') ? 'has-error' :'' !!}">
-        <input class='inscription border-placeholder' type="text" name="firstname" v-model="firstName">
+        <input class='inscription border-placeholder' type="text" name="firstname" v-model="firstname">
         <span class='placeholder-haut FontInter'>Prénom</span>
         {!! $errors->first('firstname', '<small class="help-block">:message</small>') !!}
       </div>
@@ -22,7 +22,7 @@
         {!! $errors->first('lastname', '<small class="help-block">:message</small>') !!}
       </div>
       <div class="form-group {!! $errors->has('nickname') ? 'has-error' :'' !!}">
-        <input class='inscription border-placeholder' type="text" name="nickname" v-model="username">
+        <input class='inscription border-placeholder' type="text" name="nickname" v-model="nickname">
         <span class='placeholder-haut FontInter'>Nom d'utilisateur*</span>
         {!! $errors->first('nickname', '<small class="help-block">:message</small>') !!}
       </div>
@@ -32,7 +32,7 @@
         {!! $errors->first('email', '<small class="help-block">:message</small>') !!}
       </div>
       <div class="form-group {!! $errors->has('phone_number') ? 'has-error' :'' !!}">
-        <input class='inscription border-placeholder' type="tel" name="phone_number" v-model="phone">
+        <input class='inscription border-placeholder' type="tel" name="phone_number" v-model="phone_number">
         <span class='placeholder-haut FontInter'>Numéro de téléphone</span>
         {!! $errors->first('phone_number', '<small class="help-block">:message</small>') !!}
       </div>
