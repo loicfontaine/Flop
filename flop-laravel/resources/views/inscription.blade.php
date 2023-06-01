@@ -9,21 +9,43 @@
   <h1 class='titre'>Inscription</h1>
   <hr id='separation'>
   <div class='input-container'>
-    <form>
-      <input class='inscription border-placeholder' type="text" v-model="firstName">
-      <span class='placeholder-haut FontInter'>Prénom*</span>
-      <input class='inscription border-placeholder' type="text" v-model="lastName">
-      <span class='placeholder-haut FontInter'>Nom*</span>
-      <input class='inscription border-placeholder' type="text" v-model="username">
-      <span class='placeholder-haut FontInter'>Nom d'utilisateur*</span>
-      <input class='inscription border-placeholder' type="email" v-model="email">
-      <span class='placeholder-haut FontInter'>Adresse e-mail*</span>
-      <input class='inscription border-placeholder' type="tel" v-model="phone">
-      <span class='placeholder-haut FontInter'>Numéro de téléphone</span>
-      <input class='inscription border-placeholder' type="password" v-model="password">
-      <span class='placeholder-haut FontInter'>Mot de passe*</span>
-      <input class='inscription border-placeholder' type="text" v-model="address">
-      <span class='placeholder-haut FontInter'>Adresse</span>
+    <form method="POST" action="{{route('user.store')}}" accept-charset="UTF-8">
+    @csrf
+      <div class="form-group {!! $errors->has('firstname') ? 'has-error' :'' !!}">
+        <input class='inscription border-placeholder' type="text" name="firstname" v-model="firstname">
+        <span class='placeholder-haut FontInter'>Prénom</span>
+        {!! $errors->first('firstname', '<small class="help-block">:message</small>') !!}
+      </div>
+      <div class="form-group {!! $errors->has('lastname') ? 'has-error' :'' !!}">
+        <input class='inscription border-placeholder' type="text" name="lastname" v-model="lastName">
+        <span class='placeholder-haut FontInter'>Nom</span>
+        {!! $errors->first('lastname', '<small class="help-block">:message</small>') !!}
+      </div>
+      <div class="form-group {!! $errors->has('nickname') ? 'has-error' :'' !!}">
+        <input class='inscription border-placeholder' type="text" name="nickname" v-model="nickname">
+        <span class='placeholder-haut FontInter'>Nom d'utilisateur*</span>
+        {!! $errors->first('nickname', '<small class="help-block">:message</small>') !!}
+      </div>
+      <div class="form-group {!! $errors->has('email') ? 'has-error' :'' !!}">
+        <input class='inscription border-placeholder' type="email" name="email" v-model="email">
+        <span class='placeholder-haut FontInter'>Adresse e-mail*</span>
+        {!! $errors->first('email', '<small class="help-block">:message</small>') !!}
+      </div>
+      <div class="form-group {!! $errors->has('phone_number') ? 'has-error' :'' !!}">
+        <input class='inscription border-placeholder' type="tel" name="phone_number" v-model="phone_number">
+        <span class='placeholder-haut FontInter'>Numéro de téléphone</span>
+        {!! $errors->first('phone_number', '<small class="help-block">:message</small>') !!}
+      </div>
+      <div class="form-group {!! $errors->has('password') ? 'has-error' :'' !!}">
+        <input class='inscription border-placeholder' type="password" name="password" v-model="password">
+        <span class='placeholder-haut FontInter'>Mot de passe*</span>
+        {!! $errors->first('password', '<small class="help-block">:message</small>') !!}
+      </div>
+      <div class="form-group {!! $errors->has('address') ? 'has-error' :'' !!}">
+        <input class='inscription border-placeholder' type="text" name="address" v-model="address">
+        <span class='placeholder-haut FontInter'>Adresse</span>
+        {!! $errors->first('address', '<small class="help-block">:message</small>') !!}
+    </div>
       <div class='basForm'>
         <div class='condition'>
           <label class='checkbox'>
@@ -37,7 +59,7 @@
           </label>
           <hr class='separation2'>
       </div>
-        <button a href="{{route('user.create')}}" type="submit" class='submit'>S'inscrire</button>
+        <button type="submit" class='submit'>S'inscrire</button>
     </form>
   </div>
 </div>

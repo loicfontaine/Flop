@@ -33,6 +33,10 @@ Route::get('/connexion', function () {
     return view('connexion');
 });
 
+Route::post('/inscription', function () {
+    return view('inscription');
+});
+
 
 Route::get('/test', function () {
     return view('test');

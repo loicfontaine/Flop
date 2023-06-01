@@ -17,7 +17,36 @@
         <div class="FontInterBlack">
             <h2 class="nombreDeColorCoins">75</h2>
         </div>
-
-
     </div>
-    @endsection
+
+    <div class="input-options">
+
+        <div class="input-options">
+            <div class="input-button">
+                <div class="column">
+                    <button href="">
+                        <img src="chemin/vers/votre/image.png" alt="Image bouton">Accueil
+                    </button>
+                    <button href="">
+                        <img src="chemin/vers/votre/image.png" alt="Image bouton">Boutique
+                    </button>
+                    <button href="">
+                        <img src="chemin/vers/votre/image.png" alt="Image bouton">Participations
+                    </button>
+                </div>
+                <div class="column">
+                    <button href="">
+                        <img src="chemin/vers/votre/image.png" alt="Image bouton">Rewind
+                    </button>
+                    <button href="">
+                        <img src="chemin/vers/votre/image.png" alt="Image bouton">Live
+                    </button>
+                    <button href="">
+                        <img src="chemin/vers/votre/image.png" alt="Image bouton">Réglages
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        @endsection
