@@ -49,7 +49,9 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('dashboard', compact('user'));
     }
 
     /**
@@ -57,7 +59,9 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        //return view('edit', compact('user'));
     }
 
     /**
@@ -65,7 +69,8 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        User::findOrFail($id)->update($request->all());
+        return view('dashboard')->withOk("L'utilisateur " . $request->input('name') . " a été modifié");
     }
 
     /**
@@ -73,6 +78,7 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        User::findOrFail($id)->delete();
+        return redirect()->back();
     }
 }
