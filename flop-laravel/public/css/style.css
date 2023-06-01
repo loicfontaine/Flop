@@ -8,7 +8,14 @@ code couleur gris : #F4F1E9
 */
 
 /*-------- responsive font-size --------*/
-body {font-size: 100%}
+html,
+body{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 100%;
+}
 
 h1 {
     font-size: 3em;
@@ -55,7 +62,6 @@ p {font-size: 1.5em;}
 p {
     font-size: 1.5em;
     line-height: 1.3em;
- 
  }
  
  h1, h2, h3 {line-height: 1.2em;}
@@ -110,6 +116,8 @@ body {
     justify-content: space-between;
     background-color: #303030;
     height: auto;
+    position: fixed;
+    z-index: 1;
     width: 100%;
     top: 0;
     left: 0;
@@ -128,7 +136,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top:30px;
-    
+    padding-top: 5.5em;
 }
 
 #footer{
@@ -165,3 +173,22 @@ body {
 .footerIcons{
     margin: 0 2.5em 0 2.5em;
 }
+
+@media screen and (min-width: 50em) {
+    body {
+          font-size: 75%;
+      }
+      .footerNav{
+        height: 4em;
+    }
+    
+    .footerNavLast{
+        height: 6em;
+    }
+
+    .footerIconsItem{
+        width: 45px;
+        height: 45px;
+    }
+   }
+

@@ -20,6 +20,10 @@ Route::get('/connexion', function () {
     return view('connexion');
 });
 
+Route::get('/boutique', function () {
+    return view('boutique_accueil');
+});
+
 Route::get('/', function () {
     return view('homePage');
 });
@@ -33,9 +37,17 @@ Route::get('/connexion', function () {
     return view('connexion');
 });
 
+Route::post('/inscription', function () {
+    return view('inscription');
+});
+
 
 Route::get('/test', function () {
     return view('test');
 });
 
 Route::resource('user', UserController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

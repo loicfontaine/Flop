@@ -7,13 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Poll extends Model
 {
+    public $timestamps = false;
     use HasFactory;
 
     protected $fillable = [
         'title',
         "description",
         "user_id",
-        "duration"
+        "duration",
+        "start_date"
     ];
 
     public function options()
