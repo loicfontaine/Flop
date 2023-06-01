@@ -11,7 +11,7 @@
 
     <div class="text-image-container">
         <p class="left-text">Bonjour utilisateur1 !</p>
-        <img class="right-image" src="img/notification.png" alt="Image">
+        <img class="right-image" src="img/notification.svg" alt="Image">
     </div>
 
     <div class='input-container'>
@@ -29,29 +29,29 @@
         <div class="input-button">
             <div class="column">
                 <button class="centrage" href="">
-                    <img class="imageDansBouton" src="img/accueil.png" alt="Image bouton">
+                    <img class="imageDansBouton" src="img/accueil.svg" alt="Image bouton">
                     <span>Accueil</span>
                 </button>
                 <button class="centrageSpecial" href="">
-                    <img src="img/boutique.png" alt="Image bouton">
+                    <img src="img/boutique.svg" alt="Image bouton">
                     <span>Boutique</span>
                 </button>
                 <button class="centrage" href="">
-                    <img src="img/participation.png" alt="Image bouton">
+                    <img src="img/participation.svg" alt="Image bouton">
                     <span>Participations</span>
                 </button>
             </div>
             <div class="column">
                 <button class="centrage" href="">
-                    <img src="img/rewind.png" alt="Image bouton">
+                    <img src="img/rewind.svg" alt="Image bouton">
                     <span>Rewind</span>
                 </button>
                 <button class="centrage" href="">
-                    <img src="img/live.png" alt="Image bouton">
+                    <img src="img/live.svg" alt="Image bouton">
                     <span>Live</span>
                 </button>
                 <button class="centrage" href="">
-                    <img src="img/Réglage.png" alt="Image bouton">
+                    <img src="img/réglage.svg" alt="Image bouton">
                     <span>Réglages</span>
                 </button>
             </div>
