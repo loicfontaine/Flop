@@ -30,12 +30,12 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         User::create([
-            'lastname' => $request->input('lastName'),
-            'firstname' => $request->input('firstName'),
-            'nickname' => $request->input('username'),
+            'lastname' => $request->input('lastname'),
+            'firstname' => $request->input('firstname'),
+            'nickname' => $request->input('nickname'),
             'address' => $request->input('address'),
             'email' => $request->input('email'),
-            'phone_number' => $request->input('phone'),
+            'phone_number' => $request->input('phone-number'),
             'password' => Hash::make($request->input('password')),
             "color_coins" => 10,
         ]);
