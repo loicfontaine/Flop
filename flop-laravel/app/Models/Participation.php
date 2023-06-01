@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Participation extends Model
 {
+
+    public $timestamps = false;
     use HasFactory;
 
 
