@@ -26,10 +26,9 @@
         <span class='placeholder-haut FontInter'>Nom d'utilisateur*</span>
         {!! $errors->first('nickname', '<small class="help-block">:message</small>') !!}
       </div>
-      <div class="form-group {!! $errors->has('email') ? 'has-error' :'' !!}">
-        <input class='inscription border-placeholder' type="email" name="email" v-model="email">
-        <span class='placeholder-haut FontInter'>Adresse e-mail*</span>
-        {!! $errors->first('email', '<small class="help-block">:message</small>') !!}
+      <div class="form-group {!! $errors->has('email') ? 'has-error' : '' !!}">
+      <input type="email" name="email" placeholder="Email" class="inscription border-placeholder form-control">
+      {!! $errors->first('email', '<small class="helpblock">:message</small>') !!}
       </div>
       <div class="form-group {!! $errors->has('phone_number') ? 'has-error' :'' !!}">
         <input class='inscription border-placeholder' type="tel" name="phone_number" v-model="phone_number">
