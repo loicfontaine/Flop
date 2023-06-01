@@ -11,41 +11,35 @@
   <div class='input-container'>
     <form method="POST" action="{{route('user.store')}}" accept-charset="UTF-8">
     @csrf
-      <div class="form-group {!! $errors->has('firstname') ? 'has-error' :'' !!}">
-        <input class='inscription border-placeholder' type="text" name="firstname" v-model="firstname">
-        <span class='placeholder-haut FontInter'>Prénom</span>
-        {!! $errors->first('firstname', '<small class="help-block">:message</small>') !!}
-      </div>
-      <div class="form-group {!! $errors->has('lastname') ? 'has-error' :'' !!}">
-        <input class='inscription border-placeholder' type="text" name="lastname" v-model="lastName">
-        <span class='placeholder-haut FontInter'>Nom</span>
-        {!! $errors->first('lastname', '<small class="help-block">:message</small>') !!}
-      </div>
+      <input class='inscription border-placeholder' type="text" name="firstname" v-model="firstname">
+      <span class='placeholder-haut FontInter'>Prénom</span>
+
+      <input class='inscription border-placeholder' type="text" name="lastname" v-model="lastName">
+      <span class='placeholder-haut FontInter'>Nom</span>
+
       <div class="form-group {!! $errors->has('nickname') ? 'has-error' :'' !!}">
         <input class='inscription border-placeholder' type="text" name="nickname" v-model="nickname">
         <span class='placeholder-haut FontInter'>Nom d'utilisateur*</span>
         {!! $errors->first('nickname', '<small class="help-block">:message</small>') !!}
       </div>
+
       <div class="form-group {!! $errors->has('email') ? 'has-error' : '' !!}">
-      <input type="email" name="email"  class="inscription border-placeholder form-control">
-      {!! $errors->first('email', '<small class="helpblock">:message</small>') !!}
-      <span class='placeholder-haut FontInter'>E-mail</span>
+        <input type="email" name="email"  class="inscription border-placeholder form-control">
+        {!! $errors->first('email', '<small class="help-block">:message</small>') !!}
+        <span class='placeholder-haut FontInter'>E-mail*</span>
       </div>
-      <div class="form-group {!! $errors->has('phone_number') ? 'has-error' :'' !!}">
-        <input class='inscription border-placeholder' type="tel" name="phone_number" v-model="phone_number">
-        <span class='placeholder-haut FontInter'>Numéro de téléphone</span>
-        {!! $errors->first('phone_number', '<small class="help-block">:message</small>') !!}
-      </div>
+
+      <input class='inscription border-placeholder' type="tel" name="phone_number" v-model="phone_number">
+      <span class='placeholder-haut FontInter'>Numéro de téléphone</span>
+
       <div class="form-group {!! $errors->has('password') ? 'has-error' :'' !!}">
         <input class='inscription border-placeholder' type="password" name="password" v-model="password">
         <span class='placeholder-haut FontInter'>Mot de passe*</span>
-        {!! $errors->first('password', '<small class="help-block">:message</small>') !!}
+        {!! $errors->first('password', '<small class="help-block">:message</small>') !!} 
       </div>
-      <div class="form-group {!! $errors->has('address') ? 'has-error' :'' !!}">
-        <input class='inscription border-placeholder' type="text" name="address" v-model="address">
-        <span class='placeholder-haut FontInter'>Adresse</span>
-        {!! $errors->first('address', '<small class="help-block">:message</small>') !!}
-    </div>
+
+      <input class='inscription border-placeholder' type="text" name="address" v-model="address">
+      <span class='placeholder-haut FontInter'>Adresse</span>
       <div class='basForm'>
         <div class='condition'>
           <label class='checkbox'>
