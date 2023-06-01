@@ -13,7 +13,8 @@ class Poll extends Model
         'title',
         "description",
         "user_id",
-        "duration"
+        "duration",
+        "start_date"
     ];
 
     public function options()
