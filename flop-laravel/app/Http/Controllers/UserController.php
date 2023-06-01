@@ -35,8 +35,8 @@ class UserController extends Controller
             'nickname' => $request->input('nickname'),
             'address' => $request->input('address'),
             'email' => $request->input('email'),
-            'phone_number' => $request->input('phone-number'),
-            'password' => Hash::make($request->input('password')),
+            'phone_number' => $request->input('phone_number'),
+            'password' => $request->input('password'),
             "color_coins" => 10,
         ]);
         return view("test");
