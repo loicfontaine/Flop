@@ -16,6 +16,7 @@
         <div class='FontInterBlack'>
             <h2 class='titreNombreDeColorCoins'>ColorCoins</h2>
         </div>
+        <h1>test</h1>
 
 
     </div>
