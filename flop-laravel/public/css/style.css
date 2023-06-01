@@ -55,7 +55,6 @@ p {font-size: 1.5em;}
 p {
     font-size: 1.5em;
     line-height: 1.3em;
- 
  }
  
  h1, h2, h3 {line-height: 1.2em;}
@@ -110,6 +109,8 @@ body {
     justify-content: space-between;
     background-color: #303030;
     height: auto;
+    position: fixed;
+    z-index: 1;
     width: 100%;
     top: 0;
     left: 0;
@@ -128,7 +129,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top:30px;
-    
+    padding-top: 5.5em;
 }
 
 #footer{

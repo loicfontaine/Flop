@@ -11,19 +11,19 @@
   <div class='input-container'>
     <form method="POST" action="{{route('user.store')}}" accept-charset="UTF-8">
     @csrf
-      <input class='inscription border-placeholder' type="text" v-model="firstName">
+      <input class='inscription border-placeholder' type="text" name="firstname" v-model="firstName">
       <span class='placeholder-haut FontInter'>Prénom</span>
-      <input class='inscription border-placeholder' type="text" v-model="lastName">
+      <input class='inscription border-placeholder' type="text" name="lastname" v-model="lastName">
       <span class='placeholder-haut FontInter'>Nom</span>
-      <input class='inscription border-placeholder' type="text" v-model="username">
+      <input class='inscription border-placeholder' type="text" name="nickname" v-model="username">
       <span class='placeholder-haut FontInter'>Nom d'utilisateur*</span>
-      <input class='inscription border-placeholder' type="email" v-model="email">
+      <input class='inscription border-placeholder' type="email" name="email" v-model="email">
       <span class='placeholder-haut FontInter'>Adresse e-mail*</span>
-      <input class='inscription border-placeholder' type="tel" v-model="phone">
+      <input class='inscription border-placeholder' type="tel" name="phone-number" v-model="phone">
       <span class='placeholder-haut FontInter'>Numéro de téléphone</span>
-      <input class='inscription border-placeholder' type="password" v-model="password">
+      <input class='inscription border-placeholder' type="password" name="password" v-model="password">
       <span class='placeholder-haut FontInter'>Mot de passe*</span>
-      <input class='inscription border-placeholder' type="text" v-model="address">
+      <input class='inscription border-placeholder' type="text" name="address" v-model="address">
       <span class='placeholder-haut FontInter'>Adresse</span>
       <div class='basForm'>
         <div class='condition'>
