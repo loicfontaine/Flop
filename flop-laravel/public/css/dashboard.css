@@ -36,6 +36,7 @@ hr#separation {
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
+    margin-bottom: 70px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
@@ -72,8 +73,7 @@ hr#separation {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 70px;
-    margin-bottom: 30px;
+    margin-top: 0px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
