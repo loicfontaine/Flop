@@ -8,7 +8,14 @@ code couleur gris : #F4F1E9
 */
 
 /*-------- responsive font-size --------*/
-body {font-size: 100%}
+html,
+body{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 100%;
+}
 
 h1 {
     font-size: 3em;
@@ -166,3 +173,22 @@ body {
 .footerIcons{
     margin: 0 2.5em 0 2.5em;
 }
+
+@media screen and (min-width: 50em) {
+    body {
+          font-size: 75%;
+      }
+      .footerNav{
+        height: 4em;
+    }
+    
+    .footerNavLast{
+        height: 6em;
+    }
+
+    .footerIconsItem{
+        width: 45px;
+        height: 45px;
+    }
+   }
+
