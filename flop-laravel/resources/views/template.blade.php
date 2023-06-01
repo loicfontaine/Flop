@@ -18,7 +18,7 @@
 <body>
     <nav id="navigationHeader" class="noir">
         <div class="navigationHeaderItem">
-            <a href="/connexion">
+            <a href="/dashbord">
                 <svg width="35" height="35" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_31_161)">
                     <path d="M12.2648 5.78668H12.7358C14.2713 5.78668 15.5165 7.03191 15.5165 8.5674V10.921C15.5165 12.4565 14.2713 13.7017 12.7358 13.7017H12.2648C10.7294 13.7017 9.48413 12.4565 9.48413 10.921V8.5674C9.48413 7.03182 10.7288 5.78668 12.2648 5.78668Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
@@ -63,24 +63,24 @@
     @yield("content")
     <footer id="footer">
         <div class="footerNav">
-            <a class="footerLink FontMonserrat" href="">Aide et support</a>
+            <a class="footerLink FontMonserrat" href="/help">Aide et support</a>
         </div>
         <div class="footerNav">
-            <a class="footerLink FontMonserrat" href="">Mon compte</a>
+            <a class="footerLink FontMonserrat" href="/dashboard">Mon compte</a>
         </div>
         <div class="footerNav">
-            <a class="footerLink FontMonserrat" href="">Retour en haut</a>
+            <a class="footerLink FontMonserrat" href="#top">Retour en haut</a>
         </div>
         <div class="footerNav footerNavLast">
-            <a class="footerIcons" href="">
-                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a class="footerIcons" href="https://www.youtube.com/@Couleur3" target="blank">
+                <svg class="footerIconsItem" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="27" height="27" rx="8" fill="#6E6C6F"/>
                 <rect x="3" y="3" width="21" height="21" rx="2.30928" fill="#6E6C6F"/>
                 <path d="M22.1017 8.98712C21.8922 8.17993 21.277 7.5456 20.4943 7.32952C19.0754 6.9375 13.3895 6.9375 13.3895 6.9375C13.3895 6.9375 7.70365 6.9375 6.28629 7.32952C5.50353 7.5456 4.8884 8.17993 4.67886 8.98712C4.29871 10.4487 4.29871 13.5 4.29871 13.5C4.29871 13.5 4.29871 16.5513 4.67886 18.0129C4.8884 18.8201 5.50353 19.4544 6.28629 19.6705C7.70365 20.0625 13.3895 20.0625 13.3895 20.0625C13.3895 20.0625 19.0754 20.0625 20.4928 19.6705C21.2755 19.4544 21.8907 18.8201 22.1002 18.0129C22.4804 16.5513 22.4804 13.5 22.4804 13.5C22.4804 13.5 22.4804 10.4487 22.1002 8.98712H22.1017ZM11.5711 16.3121V10.6879L16.2946 13.5L11.5711 16.3121Z" fill="white"/>
                 </svg>
             </a>
-            <a class="footerIcons" href="">
-                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a class="footerIcons" href="https://www.instagram.com/couleur3/" target="blank">
+                <svg class="footerIconsItem" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="27" height="27" rx="8" fill="#6E6C6F"/>
                 <rect x="3" y="3" width="21" height="21" rx="2.4375" fill="#6E6C6F"/>
                 <rect x="5.59741" y="5.625" width="15.5843" height="15.7501" rx="3.65625" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
@@ -88,8 +88,8 @@
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M18.1327 9.73368C18.694 9.73368 19.1491 9.27379 19.1491 8.7065C19.1491 8.1392 18.694 7.67932 18.1327 7.67932C17.5714 7.67932 17.1163 8.1392 17.1163 8.7065C17.1163 9.27379 17.5714 9.73368 18.1327 9.73368Z" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>                    
             </a>
-            <a class="footerIcons" href="">
-                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a class="footerIcons" href="https://twitter.com/Couleur3" target="blank">
+                <svg class="footerIconsItem" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="27" height="27" rx="8" fill="#6E6C6F"/>
                 <rect x="3" y="3" width="21" height="21" rx="2.30928" fill="#6E6C6F"/>
                 <g clip-path="url(#clip0_0_1)">
@@ -102,8 +102,8 @@
                 </defs>
                 </svg>                    
             </a>
-            <a class="footerIcons" href="">
-                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a class="footerIcons" href="https://www.facebook.com/couleur3" target="blank">
+                <svg class="footerIconsItem" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="27" height="27" rx="8" fill="#6E6C6F"/>
                 <rect x="3" y="3" width="21" height="21" rx="2.30928" fill="#6E6C6F"/>
                 <g clip-path="url(#clip0_0_1)">
