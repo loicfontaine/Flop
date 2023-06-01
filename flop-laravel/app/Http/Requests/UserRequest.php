@@ -30,7 +30,7 @@ class UserRequest extends FormRequest
             "address" => "string|max:255",
             "email" => "email|required",
             "phone" => "string|max:20",
-            "password" => "required|password",
+            "password" => "required",
         ];
     }
 }
