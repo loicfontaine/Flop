@@ -35,6 +35,7 @@
 }
 
 .videoContainer {
+  position: relative;
   white-space: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -59,4 +60,28 @@ p.texteInfo {
   color: white;
   font-size: 2rem;
   margin: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+button{
+  width: 211px;
+  padding: 12px 25px;
+border-radius: 50px;
+font-family: 'Montserrat';
+font-weight: 3000;
+font-size: 18px;
+border-radius: 50px;
+
+}
+
+button a {
+  color: #E60096;
+  text-decoration: none;
+  font-weight: bold;
 }

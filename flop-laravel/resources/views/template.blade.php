@@ -7,7 +7,7 @@
     
 <!-- mettre css et js -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <script src="{{asset('js/main.js')}}"></script>
+   @vite(['resources/js/app.js'])
     @yield('css')
     @yield('js')
 
@@ -58,7 +58,9 @@
         </div>
     </nav>
     <img class="logoC3" src="img/RTSCouleur3.png" alt="logo couleur 3">
-    @yield("content")
+    <div id="app">
+    </div>
+        @yield("content")
     <footer id="footer">
         <div class="footerNav">
             <a class="footerLink FontMonserrat" href="">Aide et support</a>
