@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -11,7 +14,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('inscription');
     }
 
     /**
@@ -19,15 +21,25 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('inscription');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        User::create([
+            'lastname' => $request->input('lastName'),
+            'firstname' => $request->input('firstName'),
+            'nickname' => $request->input('username'),
+            'address' => $request->input('address'),
+            'email' => $request->input('email'),
+            'phone_number' => $request->input('phone'),
+            'password' => Hash::make($request->input('password')),
+            "color_coins" => 10,
+
+        ]);
     }
 
     /**
