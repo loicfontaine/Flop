@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
             "firstName" => "min:3|max:20|alpha_dash",
             "username" => "min:3|max:20|alpha_dash",
             "address" => "string|max:255",
-            "email" => "email|required|unique:users,email",
+            "email" => "email|required",
             "phone" => "string|max:20",
             "password" => "required|min:8|confirmed",
         ];
