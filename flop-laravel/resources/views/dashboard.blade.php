@@ -4,9 +4,6 @@
 
 @endsection
 @section('content')
-<div id='img'>
-    <img src="img/RTSCouleur3.png" class='logoC3'>
-</div>
 
 <div class='FontInter'>
 
@@ -16,7 +13,10 @@
         <div class='FontInterBlack'>
             <h2 class='titreNombreDeColorCoins'>ColorCoins</h2>
         </div>
-        <h1>test</h1>
+        <img src="img/Icone-ColorCoins.png" class="ColorCoinsImage">
+        <div class="FontInterBlack">
+            <h2 class="nombreDeColorCoins">75</h2>
+        </div>
 
 
     </div>
