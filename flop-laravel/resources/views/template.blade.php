@@ -17,9 +17,10 @@
 </head>
 <body>
     <div id="app"></div>
-    <nav id="navigationHeader" class="noir">
+        <nav id="navigationHeader" class="noir">
+        @if (Auth::check())
         <div class="navigationHeaderItem">
-            <a href="/dashbord">
+            <a href="/dashboard">
                 <svg width="35" height="35" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_31_161)">
                     <path d="M12.2648 5.78668H12.7358C14.2713 5.78668 15.5165 7.03191 15.5165 8.5674V10.921C15.5165 12.4565 14.2713 13.7017 12.7358 13.7017H12.2648C10.7294 13.7017 9.48413 12.4565 9.48413 10.921V8.5674C9.48413 7.03182 10.7288 5.78668 12.2648 5.78668Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
@@ -34,6 +35,24 @@
                     </svg>
             </a>
         </div>
+        @else
+        <div class="navigationHeaderItem">
+            <a href="/login">
+                <svg width="35" height="35" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_31_161)">
+                    <path d="M12.2648 5.78668H12.7358C14.2713 5.78668 15.5165 7.03191 15.5165 8.5674V10.921C15.5165 12.4565 14.2713 13.7017 12.7358 13.7017H12.2648C10.7294 13.7017 9.48413 12.4565 9.48413 10.921V8.5674C9.48413 7.03182 10.7288 5.78668 12.2648 5.78668Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
+                    <path d="M12.5 15.9286C15.6054 15.9286 17.9389 18.0492 17.9988 20.4692L17.2793 23.1263C17.2345 23.1443 17.1853 23.1637 17.1322 23.1844C16.8266 23.3031 16.39 23.4622 15.8709 23.6212C14.8225 23.9424 13.4807 24.25 12.2154 24.25C10.9578 24.25 9.7815 23.9455 8.90851 23.6324C8.47471 23.4768 8.12268 23.3215 7.88144 23.2065C7.84675 23.1899 7.81439 23.1742 7.78444 23.1595L7.00135 20.4626C7.06534 18.0446 9.39738 15.9286 12.5 15.9286Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
+                    <path d="M24.25 12.5C24.25 18.9893 18.9893 24.25 12.5 24.25C6.01065 24.25 0.75 18.9893 0.75 12.5C0.75 6.01065 6.01065 0.75 12.5 0.75C18.9893 0.75 24.25 6.01065 24.25 12.5Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_31_161">
+                    <rect width="25" height="25" fill="white"/>
+                    </clipPath>
+                    </defs>
+                    </svg>
+            </a>
+        </div>
+        @endif
         <div class="navigationHeaderItem">
             <a href="/">
                 <svg width="91" height="33" viewBox="0 0 91 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +88,11 @@
             <a class="footerLink FontMonserrat" href="/help">Aide et support</a>
         </div>
         <div class="footerNav">
+            @if (Auth::check())
             <a class="footerLink FontMonserrat" href="/dashboard">Mon compte</a>
+            @else
+            <a class="footerLink FontMonserrat" href="/login">Mon compte</a>
+            @endif
         </div>
         <div class="footerNav">
             <a class="footerLink FontMonserrat" href="#top">Retour en haut</a>
