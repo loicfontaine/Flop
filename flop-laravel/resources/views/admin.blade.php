@@ -3,19 +3,16 @@
 
 @section("content")
 <div class="title m-b-md">
-    Laravel
     @can('isAdmin')
-    tu es admin
+    {{Auth::user()->nickname}} est un admin
     @endcan
 
     @can('isUser')
-    tu es user
+    {{Auth::user()->nickname}} est un user
     @endcan
-    Auth
+    All Auth info:
+    <br>
     {{Auth::user()}}
-    {{Auth::user()->firstname}}
-    User
-    {{session("user")}}
 
 
 </div>
