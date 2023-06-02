@@ -14,6 +14,11 @@
     <br>
     {{Auth::user()}}
 
+    <br>
+    @if (Auth::check())
+    tu es loggé
+    @endif
+
 
 </div>
 @endsection
