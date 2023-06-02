@@ -7,7 +7,7 @@
     
 <!-- mettre css et js -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-   @vite(['resources/js/app.js'])
+   @vite('resources/js/app.js')
     @yield('css')
     @yield('js')
 
@@ -16,6 +16,7 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="app"></div>
     <nav id="navigationHeader" class="noir">
         <div class="navigationHeaderItem">
             <a href="/dashbord">

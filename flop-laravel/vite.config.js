@@ -22,6 +22,7 @@ export default defineConfig({
                     includeAbsolute: false,
                 },
             },
+        }),
         laravel({
             input: [
                 'resources/sass/app.scss',
