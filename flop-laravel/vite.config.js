@@ -22,15 +22,13 @@ export default defineConfig({
                     includeAbsolute: false,
                 },
             },
-<<<<<<< HEAD
-=======
+        }),
         laravel({
             input: [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
             ],
             refresh: true,
->>>>>>> 269f1a1c32a7657c5ffe472c118a960d6a9bc0a7
         }),
     ],
 });

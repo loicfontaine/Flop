@@ -4,9 +4,9 @@
  @endsection
      
  @section('content')
+<countdown><countdown/>
 
 <div>
-<countdown />
 
   <h1 class="FontInter">Actualité</h1>
   <div class="actualiteContainer">
