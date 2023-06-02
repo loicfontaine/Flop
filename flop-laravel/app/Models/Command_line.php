@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Command_line extends Model
 {
+    public $timestamps = false;
     use HasFactory;
     protected $fillable = [
         'quantity',

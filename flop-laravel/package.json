@@ -6,7 +6,13 @@
         "build": "vite build"
     },
     "devDependencies": {
+<<<<<<< HEAD
         "@vitejs/plugin-vue": "^4.2.3",
+=======
+
+        "@vitejs/plugin-vue": "^4.2.3",
+        "@popperjs/core": "^2.11.6",
+>>>>>>> 269f1a1c32a7657c5ffe472c118a960d6a9bc0a7
         "axios": "^1.1.2",
         "bootstrap": "^5.2.3",
         "laravel-vite-plugin": "^0.7.5",
@@ -14,5 +20,10 @@
     },
     "dependencies": {
         "vue": "^3.3.4"
+<<<<<<< HEAD
+=======
+        "sass": "^1.56.1",
+        "vite": "^4.0.0"
+>>>>>>> 269f1a1c32a7657c5ffe472c118a960d6a9bc0a7
     }
 }
