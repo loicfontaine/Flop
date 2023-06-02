@@ -3,18 +3,20 @@
 <link rel="stylesheet" href="{{asset('css/boutique_accueil.css')}}">
 @endsection
 @section('content')
-@if (session('status'))
+
 <div class='FontInter header' >
     <hr class='separation'>
     <h1 class='titre'>Bienvenu.e sur la boutique</h1>
     <div class='input-container'>
             <h2 class='titreNombreDeColorCoins black'>ColorCoins</h2>
             <img src="img/Icone-ColorCoins.png" class="ColorCoinsImage">
-            <h2 class="nombreDeColorCoins black">    @can('isUser')
-    <!--  pour récupérer une info d'un utilisateur loggé-->
-    {{Auth::user()->coins}} 
-    @endcan</h2>
+            @if (Auth::check())
+            <h2 class="nombreDeColorCoins black">{{Auth::user()->color_coins}} </h2>
+            @else 
+            <h2 class="nombreDeColorCoins black">0</h2>
+            @endif
     </div>
+    
         <button id='compte'>Voir mon compte</button>
 </div>
 <div class="centre">
