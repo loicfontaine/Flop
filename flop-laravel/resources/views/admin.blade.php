@@ -16,7 +16,6 @@
     {{Auth::user()->firstname}}
     User
     {{session("user")}}
-    {{session("user")->firstname}}
 
 
 </div>
