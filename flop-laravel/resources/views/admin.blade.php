@@ -11,5 +11,13 @@
     @can('isUser')
     tu es user
     @endcan
+    Auth
+    {{Auth::user()}}
+    {{Auth::user()->firstname}}
+    User
+    {{session("user")}}
+    {{session("user")->firstname}}
+
+
 </div>
 @endsection
