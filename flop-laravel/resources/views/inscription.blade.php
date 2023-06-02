@@ -59,7 +59,7 @@
 </div>
 
 <div class='FontInter compte'>
-      <p class='p1'>Vous avez déjà un compte ? <a href='connexion' class='p2'>Connectez-vous</a></p>
+      <p class='p1'>Vous avez déjà un compte ? <a href='login' class='p2'>Connectez-vous</a></p>
       <p class='p1'>ou</p>
       <div class='bouton FontInter'>
         <button class='apple'>Connexion avec Apple</button>
