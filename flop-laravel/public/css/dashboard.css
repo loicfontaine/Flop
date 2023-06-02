@@ -128,34 +128,66 @@ hr#separation {
     justify-content: center;
     text-align: center;
   }
-
-  .centrageSpecial {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
   
-  .centrage img {
+  .centrage svg {
     width: 30px; 
     height: 30px;
-    margin-bottom: 12px; 
-  }
-
-  .centrageSpecial img {
-    width: 36px; 
-    height: 36px;
     margin-bottom: 8px; 
   }
   
   .centrage span {
     font-size: 14px;
+    margin-top: 4px;
   }
 
-  .centrageSpecial span {
-    font-size: 14px;
-  }
+/*-------- Panneau message de login et renvoie --------*/
+
+.messageLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.middle-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.right-text {
+  font-size: 16px;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.renvoiLogin {
+  background-color: #E60096; 
+    font-size: 18px;
+    color: white;
+    border:none;
+    border-radius: 8px;
+    height: 40px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    box-shadow: grey 3px 3px 3px;
+}
+
+.imgLogin {
+  width: 80px;
+}
+
+
 
 
 
