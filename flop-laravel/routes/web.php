@@ -33,9 +33,7 @@ Route::get('/inscription', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-Route::get('/connexion', function () {
-    return view('connexion');
-});
+
 
 Route::post('/inscription', function () {
     return view('inscription');
@@ -46,8 +44,15 @@ Route::get('/test', function () {
     return view('test');
 });
 
+Route::get('/admin', function () {
+    return view('admin');
+});
+
+Route::get('logout', [LoginController::class, 'logout']);
+
 Route::resource('user', UserController::class);
 
 Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
