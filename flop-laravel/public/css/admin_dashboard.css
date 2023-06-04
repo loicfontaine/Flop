@@ -1,0 +1,52 @@
+body{
+    color: #FFFFFF;
+}
+
+.adminDashboardMenuItems{
+    background-color: #303030;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 50px 20px 50px;
+    justify-content: center;
+    height: auto;
+    display: flex;
+    cursor: pointer;
+}
+
+.adminDashboardMenuItemsLabel{
+    margin: 0;
+    text-align: center;
+    font-size: 2.5em;
+    align-self: center;
+}
+
+.adminDashboardMenuItemsIcons{
+    align-self: center;
+    margin-right: 15px;
+}
+
+.adminDashboardContent{
+    padding: 20px;
+    margin: 20px 50px 20px 50px;
+    justify-content: center;
+    height: 3em;
+    display: flex;
+}
+
+#adminDashboardContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+#adminDashboardMenu{
+    width: 50%;
+}
+
+#adminDashboardContent{
+    width: 50%;
+}
+
+/* Active section appears in pink */
+.active{
+    background-color:#E60096;
+}

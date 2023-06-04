@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .titre {
     font-size: 22px;
     text-align: center;
@@ -21,6 +23,7 @@
 .titreNombreDeColorCoins {
     font-size: 22px;
     text-align: center;
+    margin-top: 15px;
     margin-bottom: 8px;
 }
 
@@ -101,5 +104,35 @@ hr.separation {
     background-color: white;
     width: 173px;
     border-radius: 8px;
+    margin-bottom:15px;
+}
+
+.item-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom : 0px;
+    height: min-content;
+}
+
+.cc {
+    width: 82px;
+    height: 46px;
+
+}
+
+.price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+
+    
+}
+
+.item-price {
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
 
 }

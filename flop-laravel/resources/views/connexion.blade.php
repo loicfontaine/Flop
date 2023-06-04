@@ -10,11 +10,10 @@
 <div class='FontInter'>
     <h1 class='titre'>Connexion</h1>
     <hr class='separation'>
-
     <div class='input-container'>
-      <form>
-        <input class='connexion border-placeholder' type="text" v-model="username">
-        <span class='placeholder-haut FontInter'>Nom d'utilisateur</span>
+      <form method="POST">
+        <input class='connexion border-placeholder' type="text" v-model="e-mail">
+        <span class='placeholder-haut FontInter'>E-mail</span>
         <input class='connexion border-placeholder' type="password" v-model="password">
         <span class='placeholder-haut FontInter'>Mot de passe</span>
 

@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\UserRequest;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use App\Models\Challenge;
 
-class UserController extends Controller
+class ChallengeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        //
     }
 
     /**
@@ -21,16 +20,15 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('inscription');
+        //return view('creation_challenge');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
-
-        User::create([
+        Challenge::create([
             'lastname' => $request->input('lastname'),
             'firstname' => $request->input('firstname'),
             'nickname' => $request->input('nickname'),
@@ -49,9 +47,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $user = User::findOrFail($id);
-
-        return view('dashboard', compact('user'));
+        //
     }
 
     /**
@@ -59,9 +55,7 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        $user = User::findOrFail($id);
-
-        //return view('edit', compact('user'));
+        //
     }
 
     /**
@@ -69,8 +63,7 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        User::findOrFail($id)->update($request->all());
-        //return view('dashboard')->withOk("L'utilisateur " . $request->input('name') . " a été modifié");
+        //
     }
 
     /**
@@ -78,7 +71,6 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        User::findOrFail($id)->delete();
-        return redirect()->back();
+        //
     }
 }
