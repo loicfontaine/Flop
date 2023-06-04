@@ -4,27 +4,9 @@
  @endsection
      
  @section('content')
+<countdown><countdown/>
 
 <div>
-<div class="square-container">
-  <div class="square">
-  
-    <img src="{{asset('img/directAudio.jpg')}}" alt="Image" class="square-image">
-    <div class="gray-bar gris">
-      <img src="{{asset('img/iconeDirectAudio.png')}}"/>
-      <p class="text FontMonserrat">Direct audio</p>
-    </div>
-  </div>
-  <div class="square">
-
-    <img src="{{asset('img/directVideo.jpg')}}" alt="Image" class="square-image">
-    <div class="gray-bar gris"> 
-    <img src="{{asset('img/iconeDirectVideo.png')}}"/>
-      <p class="text FontMonserrat">Direct vidéo</p>
-    </div>
-  </div>
-</div>
-
 
   <h1 class="FontInter">Actualité</h1>
   <div class="actualiteContainer">
@@ -57,7 +39,7 @@
 </div>
 <div class="buttonContainer">
 <button class="FontMontserrat rose"><a href="https://www.youtube.com/@Couleur3">Toutes les vidéos</a></button>
-</div></div>
+</div> </div>
 @endsection
 
 
