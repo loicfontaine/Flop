@@ -16,7 +16,6 @@
     <title>Document</title>
 </head>
 <body>
-    <nav id="navigationHeader" class="noir">
     <div id="app"></div>
         <nav id="navigationHeader" class="noir">
         @if (Auth::check())
@@ -83,7 +82,6 @@
     <img class="logoC3" src="img/RTSCouleur3.png" alt="logo couleur 3">
     <div id="app">
     </div>
-    <div id="app"></div>
         @yield("content")
     <footer id="footer">
         <div class="footerNav">
