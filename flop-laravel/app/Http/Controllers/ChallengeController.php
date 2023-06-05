@@ -7,7 +7,6 @@ use App\Models\Challenge;
 
 use App\Http\Requests\ChallengeRequest;
 use App\Models\Reward;
-=======
 
 
 class ChallengeController extends Controller
@@ -17,7 +16,9 @@ class ChallengeController extends Controller
      */
     public function index()
     {
-        //
+
+        $challenges = Challenge::where("end_time", ">", date("Y-m-d H:i:s"))->get();
+        return view("emission", compact("challenges"));
     }
 
     /**
@@ -58,6 +59,8 @@ class ChallengeController extends Controller
                     ]
                 );
             }
+            //foreach types
+            //challenge->attach($request->input("participation_types"));
         }
 
 
@@ -94,5 +97,14 @@ class ChallengeController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+
+    public function endChallenge(string $id)
+    {
+        //$participations = participation.show($id)
+        //$winner = rand(1, participation.count()));
+        //rewards->participation_id = $participation[$winner]->id 
+        //return view("endChallenge", compact("winner"));
     }
 }
