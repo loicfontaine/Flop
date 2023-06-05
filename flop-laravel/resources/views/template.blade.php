@@ -16,7 +16,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app"></div>
         <nav id="navigationHeader" class="noir">
         @if (Auth::check())
         <div class="navigationHeaderItem">

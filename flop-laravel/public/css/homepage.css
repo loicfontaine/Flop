@@ -85,3 +85,45 @@ button a {
   text-decoration: none;
   font-weight: bold;
 }
+.square-container {
+  width: 359px;
+  margin-top: 35px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.square {
+  width: 45%;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.square-image {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.gray-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  background-color: #303030;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  color: #fff;
+  font-size: 14px;
+}
+
+.square .gray-bar img {
+  height: 40%;
+  margin-right: 10px;
+}
+
