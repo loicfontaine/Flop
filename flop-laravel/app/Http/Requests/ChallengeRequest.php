@@ -25,7 +25,9 @@ class ChallengeRequest extends FormRequest
             "title" => "required|string",
             "description" => "required|string",
             "start_time" => "required|date",
+
             "end_time" => "required|date",
+
             "ColorCoins" => "numeric|required",
             "is_contest" => "boolean|required",
         ];
