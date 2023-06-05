@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Challenge;
+use App\Http\Requests\ChallengeRequest;
+use App\Models\Reward;
 
 class ChallengeController extends Controller
 {
@@ -26,19 +28,33 @@ class ChallengeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ChallengeRequest $request)
     {
         Challenge::create([
-            'lastname' => $request->input('lastname'),
-            'firstname' => $request->input('firstname'),
-            'nickname' => $request->input('nickname'),
-            'address' => $request->input('address'),
-            'email' => $request->input('email'),
-            'phone_number' => $request->input('phone_number'),
-            'password' => $request->input('password'),
-            "color_coins" => 10,
-        ]);
 
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'start_time' => $request->input('start_time'),
+            'end_time' => $request->input('end_time'),
+            'ColorCoins' => $request->input('ColorCoins_earned_by_participation'),
+            'is_contest' => $request->input('is_contest'),
+        ]);
+        //foreach reward
+        if ($request->input("is_contest") == "1" && $request->input("rewards")) {
+
+            $rewards = explode("&", $request->input("rewards"));
+            foreach ($rewards as $reward) {
+                $reward = explode("=", $reward);
+                Reward::create(
+                    [
+                        "quantity" => $reward[0],
+                        "article_id" => $reward[1],
+                        "user_id" => $request->input("user_id"),
+                        "challenge_id" => $request->input("challenge_id"),
+                    ]
+                );
+            }
+        }
         return view("test");
     }
 

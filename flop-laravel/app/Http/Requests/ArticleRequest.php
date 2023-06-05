@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ChallengeRequest extends FormRequest
+class ArticleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,13 @@ class ChallengeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "title" => "required|string",
-            "description" => "required|string",
-            "start_time" => "required|date",
-            "end_time" => "required|date",
-            "ColorCoins" => "numeric|required",
-            "is_contest" => "boolean|required",
+            "name" => "required|string",
+            "description" => "string",
+            "image" => "string",
+            "price" => "integer|required",
+            "nb_stock" => "integer|required",
+            "is_displayed" => "boolean|required",
+
         ];
     }
 }
