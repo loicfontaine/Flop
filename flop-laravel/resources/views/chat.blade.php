@@ -5,9 +5,4 @@
 @endsection
 @section('content')
 
-<div id="chat">
-    <h1>dasdsad</h1>
-</div>
-
-
 @endsection
