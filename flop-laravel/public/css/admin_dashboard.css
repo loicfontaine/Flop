@@ -10,7 +10,6 @@ body{
     justify-content: center;
     height: auto;
     display: flex;
-    cursor: pointer;
 }
 
 .adminDashboardMenuItemsLabel{
@@ -26,11 +25,9 @@ body{
 }
 
 .adminDashboardContent{
-    padding: 20px;
-    margin: 20px 50px 20px 50px;
     justify-content: center;
-    height: 3em;
     display: flex;
+    width: 50%;
 }
 
 #adminDashboardContainer{
@@ -42,11 +39,157 @@ body{
     width: 50%;
 }
 
-#adminDashboardContent{
-    width: 50%;
-}
-
 /* Active section appears in pink */
 .active{
     background-color:#E60096;
+}
+
+.adminDashboardContentItems{
+    background-color: #303030;
+    border-radius: 10px;
+    justify-content: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin: 20px 50px 20px 50px;
+}
+
+.adminDashboardContentItemsTitle{
+    margin-top: 20px;
+}
+
+/** Formulaire */
+input.form {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    height: 54.6px;
+    width: 266px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right:auto;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #E60096;
+      
+}
+
+.placeholder-haut {
+    color : grey;
+    background-color: white;
+    font-size: 10px;
+    position: relative;
+    padding-left:5px;
+    padding-right:5px;
+    top: -70px;
+    left: 30px;
+
+}
+
+hr#separation {
+    width: 226px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr.separation2 {
+    width: 226px;
+    border: 0.2px solid grey;
+    opacity: 0.5;
+}
+
+.titre {
+    font-size: 22px;
+    text-align: center;
+}
+
+
+.checkbox {
+    font-size: 10px;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.submit {
+    background-color: #E60096; 
+    font-size: 18px;
+    color: white;
+    border:none;
+    border-radius: 8px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: grey 3px 3px 3px;
+}
+
+.condition {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/** Checkbox */
+.checkbox-group {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.checkbox-group-legend {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #9c9c9c;
+	text-align: center;
+	margin-bottom: 1.25rem;
+}
+
+.checkbox-input {
+    display: none;
+    &:checked + .checkbox-tile {
+		background-color: #E60096;
+	}
+}
+
+fieldset {
+    border: none;
+}   
+
+#createChallenge {
+    padding: 4em;
+}
+
+.checkbox-tile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 13rem;
+	height: 8rem;
+	border-radius: 0.5rem;
+	background-color: #585956;
+	transition: 0.15s ease;
+	cursor: pointer;
+	position: relative;
+    margin: 0.5rem;
+
+	&:hover {
+        scale: 1.03;
+	}
+}
+.checkbox-label {
+	color: #F4F1E9;
+    font-size: 1.4rem;
+	transition: .375s ease;
+	text-align: center;
+}
+
+.formLabel {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
 }
