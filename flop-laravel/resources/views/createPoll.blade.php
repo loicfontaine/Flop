@@ -1,49 +1,34 @@
-@extends('layouts.home')
-
+@extends('template')
 @section('content')
 <div class="container">
     <div class="row">
-        <h2 class="center">New Poll</h2>
+        <h2 style="color: white" class="center">Créer un sondage</h2>
         <form class="col s12" method="post" action="{{route('poll.store')}}">
 
         @csrf
         <div class="row">
         </div>
             <div class="row">
-                <div class="input-field col s4">
+                <div>
+                    <label style="color: white" for="title">Titre</label>
                     <input required="required" name="title" id="title" type="text" class="validate">
-                    <label for="title">Title</label>
                     @error('title')
                     {{$message}}
                     @enderror
                 </div>
 
-
-                <div class="input-field col s4">
-                    <input required="required" type="text" class="datepicker" placeholder="start date" name="start_date">
-                    <label for="title">start date</label>
-                    @error('start_at')
-                    {{$message}}
-                    @enderror
-                </div>
-                <div class="input-field col s4">
-                    <input required="required" type="text" class="timepicker" placeholder="start time" name="start_time">
-                    <label for="title">start time</label>
-                </div>
-                <div class="input-field col s4">
-                    <input required="required" type="text" class="datepicker" placeholder="end date" name="end_date">
-                    <label for="title">end date</label>
-                </div>
-
-                <div class="input-field col s4">
-                    <input required="required" type="text" class="timepicker" placeholder="end time" name="end_time">
-                    <label for="title">end time</label>
-                    @error('end_at')
+                <div>
+                    <label style="color: white" for="description">Description</label>
+                    <input required="required" name="description" id="description" type="text" class="validate">
+                    @error('description')
                     {{$message}}
                     @enderror
                 </div>
 
-
+                <div>
+                    <label style="color: white" for="title">Heure de début</label>
+                    <input required="required" type="datetime-local" class="timepicker" placeholder="start time" name="start_time">
+                </div>
             </div>
 
             @php
@@ -52,7 +37,7 @@
             <div class="row col s12" x-data="{
                 optionsNumber:2
             }">
-                <h4>
+                <h4 style="color: white">
                     Options
                 </h4>
                 <template x-for="i,index in optionsNumber">
@@ -60,20 +45,14 @@
                         <div class="col s6">
                             <input required="required" name="options[][content]" id="title" type="text" class="validate" :placeholder="`Option` + i">
                         </div>
-
+                        
                         <div class="col s6">
-                            <button
-                                x-on:click="optionsNumber > 2 ? optionsNumber-- : alert('poll must has at least 2 options')"
-                                class="waves-effect waves-light btn red darken-4" type="button">
-                                remove
-                            </button>
+                                <button type="button" id="i" onclick="document.body.removeChild(this.parentNode)">Supprimer</button>
                         </div>
                     </div>
             </div>
             </template>
-            <button x-on:click="optionsNumber++" class="waves-effect waves-light btn info darken-2" type="button">
-                add option
-            </button>
+            <button type="button" id="i" onclick="document.body.template.appendChild(this.parentNode)">Ajouter un champ</button>
             <hr>
             <div class="center">
 
@@ -87,11 +66,5 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var dates = document.querySelectorAll('.datepicker');
-        var instances = M.Datepicker.init(dates);
-        var tiems = document.querySelectorAll('.timepicker');
-        var instances = M.Timepicker.init(tiems);
-      });
 </script>
 @endsection

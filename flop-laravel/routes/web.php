@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PollController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +15,6 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
 
 Route::get('/connexion', function () {
     return view('connexion');
@@ -43,3 +43,17 @@ Route::get('/test', function () {
 });
 
 Route::resource('user', UserController::class);
+
+Route::resource('poll', PollController::class);
+
+Route::prefix('poll')->group(function () {
+    Route::view('create', 'createPoll');
+    Route::post('create', [PollController::class, 'store'])->name('poll.store');
+    Route::get('/', [PollController::class, 'index'])->name('poll.index');
+    Route::get('/update/{poll}', [PollController::class, 'edit'])->name('poll.edit');
+    Route::put('/update/{poll}', [PollController::class, 'update'])->name('poll.update');
+    Route::get('delete/{poll}', [PollController::class, 'delete'])->name('poll.delete');
+
+    Route::get('/{poll}', [PollController::class, 'show'])->name('poll.show');
+    Route::post('/{poll}/vote', [PollController::class, 'vote'])->name('poll.vote');
+});

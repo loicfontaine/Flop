@@ -87,7 +87,7 @@ class User extends Authenticatable
 
     public function polls()
     {
-        return $this->hasMany(Poll::class);
+        return $this->hasMany(Poll::class, 'created_by');
     }
 
     public function groups()

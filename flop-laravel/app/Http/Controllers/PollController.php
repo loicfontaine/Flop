@@ -2,31 +2,76 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatePollRequest;
+use Illuminate\Http\Request;
 use App\Models\Poll;
 
 class PollController extends Controller
 {
-    public function store(CreatePollRequest $request)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
+        return view('createPoll');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        Poll::create([
+            'lastname' => $request->input('lastname'),
+            'firstname' => $request->input('firstname'),
+            'nickname' => $request->input('nickname'),
+        ]);
+
         $poll = auth()->user()->polls()->create($request->safe()->except('options'));
 
-        $poll->options()->createMany([$request->options]);
+        $options = $poll->options()->createMany([$request->options]);
 
-        dd($request->options);
+        dd($request->validated());
         return back();
     }
 
-    public function index()
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        $polls = auth()->user()->polls()->select('title', 'description')->paginate(10);
-
-        return view('polls.list', compact('poll'));
+        //
     }
 
-    public function edit(Poll $poll)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
     {
         $poll = $poll->load('options');
         return view('polls.update', compact('poll'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

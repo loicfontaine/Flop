@@ -15,8 +15,7 @@ class CreatePollRequest extends FormRequest
     public function prepareForValidation()
     {
         $this->merge([
-            'created_by' => auth()->user()->id,
-            'start_date' => now()->format('Y-m-d H:i:s'),
+            'start_date' => now()->toDateTimeString(),
             'end_date' => Carbon::parse(($this->start_date)->addMinutes($this->duration)->format('Y-m-d H:i:s'))->toDateTimeString(),
         ]);
         dd($this->all());
@@ -27,9 +26,11 @@ class CreatePollRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'start_date' => 'required|timestamp|after_or_equal:now|min:1',
             'duration' => 'required|integer|min:1',
             'options' => 'required|array|min:2',
+            'user_id' => 'required|integer|exists:users,id',
+            'start_date' => 'required|timestamp|after_or_equal:now|min:1',
+            'end_date' => 'required|timestamp|after:start_date|min:1',
         ];
     }
 }
