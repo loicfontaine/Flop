@@ -16,12 +16,7 @@
     text-align: center;
 
 }
-</style>
 
-
-h1 {
-    color: red;
-}
 </style>
 
 
