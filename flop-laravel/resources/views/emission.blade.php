@@ -24,23 +24,26 @@
         Accéder au chat
     </button>
 </div>
-<div class='hidden chat'>
+<div class='hidden chatTest'>
     <h1 class='blanc'>Chat</h1>
 </div>
 
-<div id='emission hidden'>
+<div id='chat' class='hidden'>
 </div>
 
 
 <script>
     var bouton = document.getElementById('accesChat');
-    var chat = document.querySelector('.chat');
+    var chatTest = document.querySelector('.chatTest');
+    var chat = document.getElementById('chat');
 
     bouton.addEventListener('click', function() {
-        if(chat.classList.contains('hidden')) {
+        if(chatTest.classList.contains('hidden')) {
+            chatTest.classList.remove('hidden');
             chat.classList.remove('hidden');
             bouton.innerHTML = 'Fermer le chat';
         } else {
+            chatTest.classList.add('hidden');
             chat.classList.add('hidden');
             bouton.innerHTML = 'Accéder au chat';
         }

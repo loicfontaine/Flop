@@ -1,4 +1,5 @@
 <template>
+    <h1>Activé</h1>
 
 </template>
 
@@ -7,4 +8,11 @@
 
 
 </script>
+
+<style>
+h1 {
+    color: red;
+}
+</style>
+
 
