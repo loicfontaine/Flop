@@ -50,6 +50,11 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
+Route::get('/admin_dashboard', function () {
+    return view('admin_dashboard');
+});
+
+Route::get('logout', [LoginController::class, 'logout']);
 
 Route::resource('user', UserController::class);
 

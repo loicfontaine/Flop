@@ -50,10 +50,70 @@
         </div>
     </div>
     <div class="adminDashboardContent">
-        <h1 class="FontInter adminDashboardMenuItemsLabel">Bonjour Julie !</h1>
+        <!--
+        <div id="welcomeMessage">
+            @if (Auth::check())
+            <h1 class="FontInter adminDashboardMenuItemsLabel">Bonjour {{Auth::user()->nickname}} !</h1>
+            @else
+            <h1 class="FontInter adminDashboardMenuItemsLabel">Bonjour utilisateur.trice anonyme !</h1>
+            @endif
+        </div>
+        <div class="adminDashboardContentItems">
+            <div id="createPoll">
+
+            </div>
+        </div>
+    -->
+        <!-- FORMULAIRE CHALLENGE -->
+        <div class="adminDashboardContentItems">
+            <div id="createChallenge">
+                <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un défi</h2>
+                <form method="POST" action="{{route('user.store')}}" accept-charset="UTF-8">
+                    @csrf
+                    <span class='FontInter'>Nom</span>
+                    <input class='form border-placeholder' type="text" name="name" v-model="name">
+
+                    <span class='FontInter'>Description</span>
+                    <input class='form border-placeholder' type="text-area" name="description" v-model="description">
+                    
+                    <fieldset>
+                        <legend>Format</legend>
+                    
+                        <div>
+                          <input type="checkbox" id="scales" name="scales" checked>
+                          <label for="scales">Texte</label>
+                        </div>
+                    
+                        <div>
+                          <input type="checkbox" id="horns" name="horns">
+                          <label for="horns">Photo</label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" id="horns" name="horns">
+                            <label for="horns">Vidéo</label>
+                          </div>
+
+                          <div>
+                            <input type="checkbox" id="horns" name="horns">
+                            <label for="horns">Audio</label>
+                          </div>
+                    </fieldset>
+                
+                    <button type="submit" class='submit'>Créer un défi</button>
+                </form>
+            </div>
+        </div> 
+        <!--
+        <div class="adminDashboardContentItems">
+            <div id="createContest">
+
+            </div>
+        </div> 
+    -->
     </div>
-    <!-- Composants qui s'affichent et se cachent ici -->
 </div>
+    <!-- Composants qui s'affichent et se cachent ici -->
 
 <script>
     console.log("salut");
@@ -63,5 +123,7 @@
         menuItems.classList.add("active");
     }
 </script>
-
 @endsection
+
+
+
