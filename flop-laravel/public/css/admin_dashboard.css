@@ -130,3 +130,66 @@ hr.separation2 {
     flex-direction: column;
     align-items: center;
 }
+
+/** Checkbox */
+.checkbox-group {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.checkbox-group-legend {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #9c9c9c;
+	text-align: center;
+	margin-bottom: 1.25rem;
+}
+
+.checkbox-input {
+    display: none;
+    &:checked + .checkbox-tile {
+		background-color: #E60096;
+	}
+}
+
+fieldset {
+    border: none;
+}   
+
+#createChallenge {
+    padding: 4em;
+}
+
+.checkbox-tile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 13rem;
+	height: 8rem;
+	border-radius: 0.5rem;
+	background-color: #585956;
+	transition: 0.15s ease;
+	cursor: pointer;
+	position: relative;
+    margin: 0.5rem;
+
+	&:hover {
+        scale: 1.03;
+	}
+}
+.checkbox-label {
+	color: #F4F1E9;
+    font-size: 1.4rem;
+	transition: .375s ease;
+	text-align: center;
+}
+
+.formLabel {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}

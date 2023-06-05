@@ -29,6 +29,7 @@
 </div>
 
 <div id='chat' class='hidden'>
+
     <div class="card">
         <div class="card-header">Chats</div>
         <div class="card-body">
@@ -38,19 +39,24 @@
             <chat-form v-on:messagesent="addMessage" :user="{{ Auth::user() }}"></chat-form>
         </div>
     </div>
+
 </div>
 
 
 
 <script>
-    var bouton = document.getElementById('accesChat');
+
+    var chatTest = document.querySelector('.chatTest');
+
     var chat = document.getElementById('chat');
 
     bouton.addEventListener('click', function() {
-        if(chat.classList.contains('hidden')) {
+        if(chatTest.classList.contains('hidden')) {
+            chatTest.classList.remove('hidden');
             chat.classList.remove('hidden');
             bouton.innerHTML = 'Fermer le chat';
         } else {
+            chatTest.classList.add('hidden');
             chat.classList.add('hidden');
             bouton.innerHTML = 'Accéder au chat';
         }

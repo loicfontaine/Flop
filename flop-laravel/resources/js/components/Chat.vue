@@ -1,5 +1,6 @@
 <template>
 <h1 class="test">Activé</h1>
+    <h1>Activé</h1>
 
 </template>
 
@@ -9,10 +10,19 @@
 </script>
 
 <style>
+
 .test{
     color:red;
     text-align: center;
 
 }
 </style>
+
+
+h1 {
+    color: red;
+}
+</style>
+
+
 
