@@ -70,36 +70,51 @@
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un défi</h2>
                 <form method="POST" action="{{route('user.store')}}" accept-charset="UTF-8">
                     @csrf
-                    <span class='FontInter'>Nom</span>
-                    <input class='form border-placeholder' type="text" name="name" v-model="name">
+                    <span class='FontInter formLabel'>Nom</span>
+                    <input class='form' required="required" type="text" name="name" v-model="name">
 
-                    <span class='FontInter'>Description</span>
-                    <input class='form border-placeholder' type="text-area" name="description" v-model="description">
+                    <span class='FontInter formLabel'>Description</span>
+                    <input class='form' required="required" type="text-area" name="description" v-model="description">
                     
-                    <fieldset>
-                        <legend>Format</legend>
-                    
-                        <div>
-                          <input type="checkbox" id="scales" name="scales" checked>
-                          <label for="scales">Texte</label>
+                    <span class='FontInter formLabel'>Type</span>
+                    <fieldset class="checkbox-group">
+                        <div class="checkbox">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" class="checkbox-input" />
+                                <span class="checkbox-tile">
+                                    <span class="checkbox-label FontMonserrat">Texte</span>
+                                </span>
+                            </label>
                         </div>
-                    
-                        <div>
-                          <input type="checkbox" id="horns" name="horns">
-                          <label for="horns">Photo</label>
+                        <div class="checkbox">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" class="checkbox-input" />
+                                <span class="checkbox-tile">
+                                    <span class="checkbox-label FontMonserrat">Photo</span>
+                                </span>
+                            </label>
                         </div>
-
-                        <div>
-                            <input type="checkbox" id="horns" name="horns">
-                            <label for="horns">Vidéo</label>
-                          </div>
-
-                          <div>
-                            <input type="checkbox" id="horns" name="horns">
-                            <label for="horns">Audio</label>
-                          </div>
+                        <div class="checkbox">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" class="checkbox-input" />
+                                <span class="checkbox-tile">
+                                    <span class="checkbox-label FontMonserrat">Vidéo</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" class="checkbox-input" />
+                                <span class="checkbox-tile">
+                                    <span class="checkbox-label FontMonserrat">Audio</span>
+                                </span>
+                            </label>
+                        </div>
                     </fieldset>
-                
+                        
+                    <span class='FontInter formLabel'>Date de fin</span>
+                    <input id="challenge_endTime" required="required" type="datetime-local" class="form" placeholder="durée" name="duration">
+
                     <button type="submit" class='submit'>Créer un défi</button>
                 </form>
             </div>
@@ -117,11 +132,22 @@
 
 <script>
     console.log("salut");
-    const menuItems = document.getElementsByClassName(".adminDashboardMenuItems");
-    menuItems.addEventListener("click", select());
-    function select() {
-        menuItems.classList.add("active");
-    }
+    //const menuItems = document.getElementsByClassName(".adminDashboardMenuItems");
+    //menuItems.addEventListener("click", select());
+    //function select() {
+    //    menuItems.classList.add("active");
+    //}
+
+    // Set value to actual time
+    window.addEventListener('load', () => {
+    var now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+
+    now.setMilliseconds(null)
+    now.setSeconds(null)
+
+    document.getElementById('challenge_endTime').value = now.toISOString().slice(0, -1);
+});
 </script>
 @endsection
 
