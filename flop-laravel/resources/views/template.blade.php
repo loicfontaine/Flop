@@ -20,6 +20,9 @@
 <body>
     <div id="app"></div>
     <nav id="navigationHeader" class="noir">
+
+        <nav id="navigationHeader" class="noir">
+main
         @if (Auth::check())
         <div class="navigationHeaderItem">
             <a href="/dashboard">
