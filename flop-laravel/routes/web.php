@@ -54,10 +54,8 @@ Route::get('/admin', function () {
 
 Route::get('/admin_dashboard', function () {
 
-    if (Auth::is_admin()) {
-        return view('admin_dashboard');
-    } else
-        return view('test');
+
+    return view('admin_dashboard');
 });
 
 
