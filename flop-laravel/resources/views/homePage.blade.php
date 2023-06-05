@@ -6,6 +6,7 @@
  @section('content')
 
 <div>
+  <div id="app"></div>
 <div class="square-container">
   <div class="square">
   
