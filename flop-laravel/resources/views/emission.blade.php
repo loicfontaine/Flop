@@ -29,12 +29,25 @@
 </div>
 
 <div id='chat' class='hidden'>
+
+    <div class="card">
+        <div class="card-header">Chats</div>
+        <div class="card-body">
+            <chat-messages :messages="messages"></chat-messages>
+        </div>
+        <div class="card-footer">
+            <chat-form v-on:messagesent="addMessage" :user="{{ Auth::user() }}"></chat-form>
+        </div>
+    </div>
+
 </div>
 
 
+
 <script>
-    var bouton = document.getElementById('accesChat');
+
     var chatTest = document.querySelector('.chatTest');
+
     var chat = document.getElementById('chat');
 
     bouton.addEventListener('click', function() {
