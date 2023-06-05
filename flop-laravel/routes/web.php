@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +71,4 @@ Route::get('/chat', function () {
 Route::get('/emission', function () {
     return view('emission');
 });
+

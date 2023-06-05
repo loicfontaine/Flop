@@ -24,17 +24,27 @@
         Accéder au chat
     </button>
 </div>
-<div class='hidden chat'>
+<div class='hidden chatTest'>
     <h1 class='blanc'>Chat</h1>
 </div>
 
-<div id='emission hidden'>
+<div id='chat' class='hidden'>
+    <div class="card">
+        <div class="card-header">Chats</div>
+        <div class="card-body">
+            <chat-messages :messages="messages"></chat-messages>
+        </div>
+        <div class="card-footer">
+            <chat-form v-on:messagesent="addMessage" :user="{{ Auth::user() }}"></chat-form>
+        </div>
+    </div>
 </div>
+
 
 
 <script>
     var bouton = document.getElementById('accesChat');
-    var chat = document.querySelector('.chat');
+    var chat = document.getElementById('chat');
 
     bouton.addEventListener('click', function() {
         if(chat.classList.contains('hidden')) {
