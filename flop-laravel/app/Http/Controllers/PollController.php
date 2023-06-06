@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatePollRequest;
 use Illuminate\Http\Request;
 use App\Models\Poll;
 
@@ -12,7 +13,7 @@ class PollController extends Controller
      */
     public function index()
     {
-        return view('createPoll');
+        //
     }
 
     /**
@@ -20,25 +21,19 @@ class PollController extends Controller
      */
     public function create()
     {
-        //
+        return view('createPoll');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreatePollRequest $request)
     {
-        Poll::create([
-            'lastname' => $request->input('lastname'),
-            'firstname' => $request->input('firstname'),
-            'nickname' => $request->input('nickname'),
-        ]);
-
         $poll = auth()->user()->polls()->create($request->safe()->except('options'));
 
-        $options = $poll->options()->createMany([$request->options]);
+        $options = [];
 
-        dd($request->validated());
+        dd($request->options);
         return back();
     }
 

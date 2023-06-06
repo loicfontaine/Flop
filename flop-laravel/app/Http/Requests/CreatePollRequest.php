@@ -15,8 +15,8 @@ class CreatePollRequest extends FormRequest
     public function prepareForValidation()
     {
         $this->merge([
-            'start_date' => now()->toDateTimeString(),
-            'end_date' => Carbon::parse(($this->start_date)->addMinutes($this->duration)->format('Y-m-d H:i:s'))->toDateTimeString(),
+            'start_time' => now()->toDateTimeString(),
+            'end_time' => now()->addMinutes($this->duration)->toDateTimeString(),
         ]);
         dd($this->all());
     }

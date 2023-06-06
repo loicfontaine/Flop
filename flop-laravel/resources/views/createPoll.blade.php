@@ -26,45 +26,60 @@
                 </div>
 
                 <div>
-                    <label style="color: white" for="title">Heure de début</label>
-                    <input required="required" type="datetime-local" class="timepicker" placeholder="start time" name="start_time">
+                    <label style="color: white" for="title">Durée en minutes</label>
+                    <input required="required" type="integer" class="timepicker" name="duration" value="">
                 </div>
             </div>
-
-            @php
-            $a=[1,2,3,4];
-            @endphp
-            <div class="row col s12" x-data="{
-                optionsNumber:2
-            }">
-                <h4 style="color: white">
-                    Options
-                </h4>
-                <template x-for="i,index in optionsNumber">
-                    <div class="row">
-                        <div class="col s6">
-                            <input required="required" name="options[][content]" id="title" type="text" class="validate" :placeholder="`Option` + i">
-                        </div>
-                        
-                        <div class="col s6">
-                                <button type="button" id="i" onclick="document.body.removeChild(this.parentNode)">Supprimer</button>
-                        </div>
-                    </div>
+        
+            <label>Options :</label>
+            <div id="conteneur-options">
+              <input type="text" name="options[]" placeholder="Option" required>
             </div>
-            </template>
-            <button type="button" id="i" onclick="document.body.template.appendChild(this.parentNode)">Ajouter un champ</button>
-            <hr>
-            <div class="center">
+        
+            <button type="button" onclick="ajouterOption()">Ajouter une option</button>
+            <button type="button" onclick="supprimerOption()">Supprimer une option</button>
+        
+            <button type="submit">Soumettre</button>
 
-                <button class="waves-effect waves-light btn cyan darken-2" type="submit">
-                    Create
-                </button>
-            </div>
     </div>
     </form>
 </div>
 </div>
 
 <script>
-</script>
+    function ajouterOption() {
+      var conteneurOptions = document.getElementById('conteneur-options');
+
+      // Créer un nouvel élément de champ de texte
+      var nouvelInput = document.createElement('input');
+      nouvelInput.type = 'text';
+      nouvelInput.name = 'options[]';
+      nouvelInput.placeholder = 'Option';
+
+      // Ajouter le nouvel élément au conteneur d'options
+      conteneurOptions.appendChild(nouvelInput);
+    }
+
+     // Vérifier si le champ de texte de l'option est vide
+     var optionsVides = Array.from(conteneurOptions.querySelectorAll('input')).some(function(input) {
+        return input.value.trim() === '';
+      });
+
+      if (!optionsVides) {
+        conteneurOptions.appendChild(nouvelInput);
+      } else {
+        alert("Veuillez remplir toutes les options existantes avant d'en ajouter une nouvelle.");
+      }
+    
+
+    function supprimerOption() {
+      var conteneurOptions = document.getElementById('conteneur-options');
+      
+      // Vérifier s'il y a plus d'une option
+      if (conteneurOptions.children.length > 1) {
+        // Supprimer le dernier élément de champ de texte
+        conteneurOptions.removeChild(conteneurOptions.lastChild);
+      }
+    }
+  </script>
 @endsection
