@@ -11,9 +11,9 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-
+        $route = $request->route()->getName();
 
         //return all articles
         $articles = Article::all();
