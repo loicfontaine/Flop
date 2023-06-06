@@ -15,7 +15,9 @@ class ChallengeController extends Controller
      */
     public function index()
     {
-        //
+
+        $challenges = Challenge::where("end_time", ">", date("Y-m-d H:i:s"))->get();
+        return view("emission", compact("challenges"));
     }
 
     /**
@@ -30,10 +32,22 @@ class ChallengeController extends Controller
      * Store a newly created resource in storage.
      */
 
-    public function store(ChallengeRequest $request)
+    public function store(Request $request)
     {
-        Challenge::create([
+        /*
+        "title" => "dsa"
+        "description" => "sd"
+        "type-photo" => "on"
+        "type-video" => "on"
+        "type-audio" => "on"
+        "end_time" => "2023-06-05T14:58"
+        */
 
+        dd($request->all());
+
+
+
+        $challenge = Challenge::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'start_time' => $request->input('start_time'),
@@ -41,6 +55,22 @@ class ChallengeController extends Controller
             'ColorCoins' => $request->input('ColorCoins_earned_by_participation'),
             'is_contest' => $request->input('is_contest'),
         ]);
+        if ($request->input("type-audio") == "on") {
+            $challenge->types()->attach(1);
+        }
+
+        if ($request->input("type-photo") == "on") {
+            $challenge->types()->attach(2);
+        }
+        if ($request->input("type-video") == "on") {
+            $challenge->types()->attach(3);
+        }
+        if ($request->input("type-text") == "on") {
+            $challenge->types()->attach(4);
+        }
+
+
+
         //foreach reward
         if ($request->input("is_contest") == "1" && $request->input("rewards")) {
 
@@ -56,6 +86,8 @@ class ChallengeController extends Controller
                     ]
                 );
             }
+            //foreach types
+            //challenge->attach($request->input("participation_types"));
         }
 
 
@@ -92,5 +124,15 @@ class ChallengeController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+
+
+    public function endChallenge(string $id)
+    {
+        //$participations = participation.show($id)
+        //$winner = rand(1, participation.count()));
+        //rewards->participation_id = $participation[$winner]->id 
+        //return view("endChallenge", compact("winner"));
     }
 }

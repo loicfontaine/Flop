@@ -11,7 +11,6 @@ class Participation_type extends Model
     use HasFactory;
     protected $fillable = [
         'title',
-        "content"
     ];
 
     public function participations()

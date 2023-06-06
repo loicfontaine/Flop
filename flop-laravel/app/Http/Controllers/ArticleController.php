@@ -11,24 +11,19 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($section)
+    public function index()
     {
-        switch ($section) {
-            case "concours":
-                $articles = Article::all();
-                break;
-            case "boutique":
-                $articles = Article::where("is_displayed", 1)->get();
-                break;
-            case "boutique-achetable":
-                $articles = Article::where("is_displayed", 1)->where("nb_stock", ">", 0)->get();
-                break;
-            default:
-                $articles = Article::all();
-                break;
-        }
-        return view("articles", compact("articles"));
+
+
+        //return all articles
+        $articles = Article::all();
+
+        return view("boutique_accueil", compact("articles"));
     }
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
