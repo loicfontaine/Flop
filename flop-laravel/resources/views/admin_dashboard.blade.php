@@ -174,6 +174,7 @@
                     </fieldset>
 
                     <div>
+                        {{ dd($articles) }}
                     </div>
 
                     <span class='FontInter formLabel'>Date de fin</span>
@@ -190,7 +191,7 @@
 <!-- Composants qui s'affichent et se cachent ici -->
 
 <script>
-    dd($articles);
+   console.log($articles);
 
     // Select menu item
     var menuItems = document.getElementsByClassName('adminDashboardMenuItems');
