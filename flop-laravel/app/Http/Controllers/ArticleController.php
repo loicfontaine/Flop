@@ -18,7 +18,7 @@ class ArticleController extends Controller
         //return all articles
         $articles = Article::all();
 
-        return view("articles", compact("articles"));
+        return view("boutique", compact("articles"));
     }
 
 
