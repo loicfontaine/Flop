@@ -16,18 +16,20 @@ class ArticleController extends Controller
         switch ($section) {
             case "concours":
                 $articles = Article::all();
+                return view("admin_dashboard", compact("articles"));
                 break;
             case "boutique":
                 $articles = Article::where("is_displayed", 1)->get();
+                return view("boutique_accueil", compact("articles"));
                 break;
             case "boutique-achetable":
                 $articles = Article::where("is_displayed", 1)->where("nb_stock", ">", 0)->get();
+                return view("boutique_accueil", compact("articles"));
                 break;
             default:
                 $articles = Article::all();
                 break;
         }
-        return view("articles", compact("articles"));
     }
 
     /**
