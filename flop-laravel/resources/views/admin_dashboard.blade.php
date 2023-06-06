@@ -190,7 +190,7 @@
 <!-- Composants qui s'affichent et se cachent ici -->
 
 <script>
-    console.log("salut");
+    dd($articles);
 
     // Select menu item
     var menuItems = document.getElementsByClassName('adminDashboardMenuItems');
