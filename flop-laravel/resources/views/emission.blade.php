@@ -23,44 +23,88 @@
     <button id='accesChat'>
         Accéder au chat
     </button>
-</div>
-<div class='hidden chatTest'>
-    <h1 class='blanc'>Chat</h1>
-</div>
-
-<div id='chat' class='hidden'>
-
-    <div class="card">
-        <div class="card-header">Chats</div>
-        <div class="card-body">
-            <chat-messages :messages="messages"></chat-messages>
-        </div>
-        <div class="card-footer">
-            <chat-form v-on:messagesent="addMessage" :user="{{ Auth::user() }}"></chat-form>
+    <div class='chatTest hidden'>
+        <div class='container-chat'>
+            <div class='container-message'>
+            <h1 class='titre-chat'>Chat en direct</h1>
+            <div class='viewer'>
+                <!--<img src="img/profil.png" alt="profil" class='profil' height="18.74px" weight="18px"/>-->
+                <p>1,2K viewers</p>
+            </div>
+            <div class='message'>
+                <p class='pseudo'>Bedia : </p>
+                <p class='texte'>Hahahahah trop drôle !</p>
+            </div>
+            <div class='message'>
+                <p class='pseudo'>Loup-anonyme </p>
+                <p class='texte'>Hello tout le monde comment ca va ?</p>
+            </div>
+            <div class='message'>
+                <p class='pseudo'>Squeezie : </p>
+                <p class='texte'>Est-ce que c'est bon pour vous ?</p>
+            </div>
+            <div class='message'>
+                <p class='pseudo'>Maghla : </p>
+                <p class='texte'>Bonje dois y aller, ciaoooo tout le monde</p>
+            </div>
+            <div class='message'>
+                <p class='pseudo'>Hamilton : </p>
+                <p class='texte'>J'adore les voitures</p>
+            </div>
+            <div class='message'>
+                <p class='pseudo'>R7: </p>
+                <p class='texte'>Suiiiiii</p>
+            </div>
+      </div>
+            <input type='text' placeholder='Chattez publiquement' class='input-message'></input>
+            <button class='bouton-chat'>Envoyer</button>
         </div>
     </div>
-
 </div>
+
+
+
+
+
 
 
 
 <script>
 
+    var bouton = document.getElementById('accesChat');
     var chatTest = document.querySelector('.chatTest');
 
-    var chat = document.getElementById('chat');
+
 
     bouton.addEventListener('click', function() {
         if(chatTest.classList.contains('hidden')) {
-            chatTest.classList.remove('hidden');
-            chat.classList.remove('hidden');
+           chatTest.classList.remove('hidden');
             bouton.innerHTML = 'Fermer le chat';
         } else {
             chatTest.classList.add('hidden');
-            chat.classList.add('hidden');
             bouton.innerHTML = 'Accéder au chat';
         }
     });
+
+    //ajouter un message
+    var boutonChat = document.querySelector('.bouton-chat');
+    //container-chat
+    var containerChat = document.querySelector('.container-message');
+
+
+    //quand on clique sur le bouton envoyer
+    boutonChat.addEventListener('click', function() {
+        //ajouter le message dans le chat
+        var inputMessage = document.querySelector('.input-message').value;
+
+        const html = `<div class='message'>
+                <p class='pseudo'>Moi : </p>
+                <p class='texte'>${inputMessage}</p>
+            </div>`;
+        
+        containerChat.innerHTML += html;
+    });
+
       
 
 

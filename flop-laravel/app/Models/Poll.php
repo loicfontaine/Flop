@@ -10,6 +10,8 @@ class Poll extends Model
     public $timestamps = false;
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $fillable = [
         'title',
         "description",

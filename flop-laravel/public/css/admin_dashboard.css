@@ -10,6 +10,7 @@ body{
     justify-content: center;
     height: auto;
     display: flex;
+    cursor: pointer;
 }
 
 .adminDashboardMenuItemsLabel{
@@ -44,18 +45,40 @@ body{
     background-color:#E60096;
 }
 
-.adminDashboardContentItems{
+.adminDashboardContentItems.display{
     background-color: #303030;
     border-radius: 10px;
     justify-content: center;
     display: flex;
-    height: 100%;
+    height: auto;
     width: 100%;
     margin: 20px 50px 20px 50px;
+    padding: 5em;
+}
+
+.adminDashboardMenuChat{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+}
+
+.adminDashboardContentItems{
+    display: none;
 }
 
 .adminDashboardContentItemsTitle{
-    margin-top: 20px;
+    margin-top: 0;
+}
+
+#welcomeMessage{
+    background-color: #000000;
+    padding-top: -4em;
+}
+
+.adminDashboardContentItems#welcomeMessage{
+    padding: 0;
 }
 
 /** Formulaire */
@@ -63,8 +86,8 @@ input.form {
     display:flex;
     flex-direction: column;
     align-items: center;
-    height: 54.6px;
-    width: 266px;
+    height: 3em;
+    width: 100%;
     margin-top: 5px;
     margin-left: auto;
     margin-right:auto;
@@ -119,10 +142,12 @@ hr.separation2 {
     color: white;
     border:none;
     border-radius: 8px;
-    height: 40px;
+    height: 3em;
+    width: 80%;
     margin-top: 20px;
     margin-bottom: 20px;
     box-shadow: grey 3px 3px 3px;
+    cursor: pointer;
 }
 
 .condition {
@@ -160,9 +185,6 @@ fieldset {
     border: none;
 }   
 
-#createChallenge {
-    padding: 4em;
-}
 
 .checkbox-tile {
 	display: flex;

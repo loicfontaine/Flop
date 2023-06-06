@@ -8,7 +8,6 @@ use App\Models\Challenge;
 use App\Http\Requests\ChallengeRequest;
 use App\Models\Reward;
 
-
 class ChallengeController extends Controller
 {
     /**
@@ -126,6 +125,7 @@ class ChallengeController extends Controller
     {
         //
     }
+
 
 
     public function endChallenge(string $id)
