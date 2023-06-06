@@ -24,10 +24,8 @@ use App\Http\Controllers\ChallengeController;
 Route::get('/connexion', function () {
     return view('connexion');
 });
-
-Route::get('/boutique', function () {
-    return view('boutique_accueil');
-});
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+Route::get('/boutique', [App\Http\Controllers\ArticleController::class, 'index']);
 
 Route::get('/', function () {
     return view('homePage');
@@ -68,7 +66,7 @@ Route::get('logout', [LoginController::class, 'logout']);
 Route::resource('user', UserController::class);
 
 Route::resource('challenge', ChallengeController::class);
-Route::resource('Article', ArticleController::class);
+Route::resource('article', ArticleController::class);
 
 Auth::routes();
 

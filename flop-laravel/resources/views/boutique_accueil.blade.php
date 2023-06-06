@@ -23,7 +23,7 @@
     <div class="column-container">
         <div class='column-item'>
             <div class='item'>
-                <img src="img/badges.png" class='img-item'>
+                <img src="{{dd($articles)}}" class='img-item'>
                 <h1 class='item-title'>Badges</h1>
                 <div class='item-price'>
                     <h1 class='price'>75</h1>
@@ -31,6 +31,8 @@
                 </div>
             </div>
         </div>
+
+        
         <div class='column-item'>
             <div class='item'>
                 <img src="img/stickers.png" class='img-item'>
