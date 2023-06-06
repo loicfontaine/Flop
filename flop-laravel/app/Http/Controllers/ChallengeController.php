@@ -7,8 +7,6 @@ use App\Models\Challenge;
 
 use App\Http\Requests\ChallengeRequest;
 use App\Models\Reward;
-=======
-
 
 class ChallengeController extends Controller
 {

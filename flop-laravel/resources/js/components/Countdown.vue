@@ -1,7 +1,7 @@
 <template>
-  <div class="countdown-container" :class="{ 'expanded': isExpanded }" @click="toggleExpand">
-    <div class="arrow-container">
-      <i class="arrow-icon" :class="{ 'expanded': isExpanded }"></i>
+  <div class="countdown-container" :class="{ 'expanded': isExpanded }" >
+    <div class="arrow-container" @click="toggleExpand">
+      <i class="arrow-icon" :class="{ 'expanded': isExpanded }" @click="isArrowClicked = true"></i>
     </div>
     <div class="image-container">
       <img src="img/défis.png" alt="Image">
@@ -9,13 +9,12 @@
     <div class="text-container">
       <p class="countdown FontInter rose">{{ formatTime(countdown) }}</p>
       <div class="titre FontInter">Participe au défi en cours !</div>
-      
     </div>
-  <div class="expanded-content" v-if="isExpanded">
-        <button class="expanded-button">Cliquez ici</button>
-        <input class="expanded-input" type="text" placeholder="Remplissez le champ">
-      </div>
-      </div>
+    <div class="expanded-content expanded-wrapper" v-if="isExpanded">
+      <input class="expanded-input" type="text" placeholder="Remplissez le champ" ref="expandedInput">
+      <button class="expanded-button">Cliquez ici</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -24,7 +23,8 @@ export default {
     return {
       countdown: 0,
       intervalId: null,
-      isExpanded: false
+      isExpanded: false,
+      isArrowClicked: false
     };
   },
   created() {
@@ -57,8 +57,14 @@ export default {
       return String(number).padStart(2, '0');
     },
     toggleExpand() {
-      this.isExpanded = !this.isExpanded;
-    }
+if (this.isExpanded) {
+  this.isExpanded = false;
+} else {
+  this.isExpanded = true;
+}
+console.log("test")
+}
+
   }
 };
 </script>
@@ -82,6 +88,7 @@ export default {
 .countdown-container.expanded {
   height: 330px;
   align-items: flex-start;
+  padding-bottom: 20px;
 }
 
 .arrow-container {
@@ -142,15 +149,26 @@ export default {
   margin-bottom: 10px;
 }
 
-.expanded-content {
-  padding: 20px;}
+/* .expanded-content {
+  padding: 20px;} */
 
 .expanded-button {
   margin-bottom: 10px;
 }
 
 .expanded-input {
-  width: 100%;
+  width: 85%;
   padding: 8px;
 }
+
+.expanded-wrapper {
+  position: absolute;
+  width: 100%;
+  bottom: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 </style>
