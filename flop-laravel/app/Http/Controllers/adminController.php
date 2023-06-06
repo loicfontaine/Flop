@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 
-class adminController extends Controller
+class AdminController extends Controller
 {
 
 
