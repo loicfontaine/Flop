@@ -10,6 +10,8 @@ class Option extends Model
     public $timestamps = false;
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $fillable = [
         'title',
         "poll_id",
