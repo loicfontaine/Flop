@@ -24,10 +24,10 @@ use App\Http\Controllers\ChallengeController;
 Route::get('/connexion', function () {
     return view('connexion');
 });
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+//example of a route sending a variable to a controller
 
-Route::get('/boutique', function () {
-    return view('boutique_accueil');
-});
+Route::get('/boutique', [App\Http\Controllers\ArticleController::class, 'index']);
 
 Route::get('/', function () {
     return view('homePage');

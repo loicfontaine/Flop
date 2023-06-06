@@ -11,8 +11,19 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($section)
+    public function index()
     {
+
+    
+        //return all articles
+        $articles = Article::all();
+
+                return view("articles", compact("articles"));
+
+        }
+        
+    
+
         switch ($section) {
             case "concours":
                 $articles = Article::all();
@@ -31,6 +42,7 @@ class ArticleController extends Controller
                 break;
         }
     }
+
 
     /**
      * Show the form for creating a new resource.
