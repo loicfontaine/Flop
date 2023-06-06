@@ -66,7 +66,7 @@ Route::get('logout', [LoginController::class, 'logout']);
 Route::resource('user', UserController::class);
 
 Route::resource('challenge', ChallengeController::class);
-Route::resource('Article', ArticleController::class);
+Route::resource('article', ArticleController::class);
 
 Auth::routes();
 
