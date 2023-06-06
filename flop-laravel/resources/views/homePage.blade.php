@@ -4,10 +4,29 @@
  @endsection
      
  @section('content')
-<!--  <div id='img'>
-<img src="img/logoCouleur3.jpg" class='logoC3'>
-</div> -->
+
 <div>
+  <div id="app"></div>
+<div class="square-container">
+  <div class="square">
+  
+    <img src="{{asset('img/directAudio.jpg')}}" alt="Image" class="square-image">
+    <div class="gray-bar gris">
+      <img src="{{asset('img/iconeDirectAudio.png')}}"/>
+      <p class="text FontMonserrat">Direct audio</p>
+    </div>
+  </div>
+  <div class="square">
+
+    <img src="{{asset('img/directVideo.jpg')}}" alt="Image" class="square-image">
+    <div class="gray-bar gris"> 
+    <img src="{{asset('img/iconeDirectVideo.png')}}"/>
+      <p class="text FontMonserrat">Direct vidéo</p>
+    </div>
+  </div>
+</div>
+
+
   <h1 class="FontInter">Actualité</h1>
   <div class="actualiteContainer">
     <!-- Afficher les images des articles -->
@@ -27,10 +46,19 @@
   <div>
     <h1 class="FontInter">Vidéos</h1>
     <div class="videoContainer">
+    <a href="https://www.youtube.com/watch?v=ftQmxlv3sUU&pp=ygUcY291bGV1ciAzIGJvbiBiZW4gdm9pbGEgbmV3cw%3D%3D">
     <img src="{{asset('img/video1.jpg')}}" alt="Vidéo 1">
+</a>
+
+<a href="https://www.youtube.com/watch?v=x8oiLuEG9sw&pp=ygUOY291bGV1cjMgZGlzaXo%3D">
     <img src="{{asset('img/video2.jpg')}}" alt="Vidéo 2">
+</a>
+
+
 </div>
-  </div>
+<div class="buttonContainer">
+<button class="FontMontserrat rose"><a href="https://www.youtube.com/@Couleur3">Toutes les vidéos</a></button>
+</div></div>
 @endsection
 
 

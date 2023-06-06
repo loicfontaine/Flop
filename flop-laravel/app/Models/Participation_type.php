@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Participation_type extends Model
 {
+    public $timestamps = false;
     use HasFactory;
     protected $fillable = [
         'title',
-        "content"
     ];
 
     public function participations()

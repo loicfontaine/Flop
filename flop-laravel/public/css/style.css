@@ -79,7 +79,7 @@ p {
 /*-------- Typo & Background --------*/
 
 body {
-    background-color:#000000;
+    background-color:#000000 !important;
     margin: 0;
 }
 
@@ -145,6 +145,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0px;
+    margin-top: 5em;
     position: relative;
     left: 0;
     bottom: 0;

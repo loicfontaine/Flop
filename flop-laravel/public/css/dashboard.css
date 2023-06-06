@@ -1,18 +1,26 @@
-/*-------- Logo --------*/
+/*-------- Utilisateur et notif --------*/
 
-#img {
+.text-image-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 0px;
+    margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.logoC3 {
-    width: 352px;
-    margin: auto;
-}
-
+    border-radius: 8px;
+    width: 359px;
+  }
+  
+  .left-text {
+    font-size: 20px;
+  }
+  
+  .right-image {
+    width: auto;
+    display: flex;
+    align-items: center;
+  }
 
 /*-------- Séparation --------*/
 
@@ -36,15 +44,150 @@ hr#separation {
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
+    margin-bottom: 70px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
-    width:300px;
+    width: 359px;
     background-color: white;
 }
 
 .titreNombreDeColorCoins {
     font-size: 22px;
     text-align: center;
+    margin-bottom: 8px;
 }
+
+.ColorCoinsImage {
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+}
+
+.nombreDeColorCoins {
+    font-size: 22px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 22px;
+}
+
+/*-------- Pannel les options --------*/
+
+.input-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    width: 359px;
+    background-color: #303030;
+  }
+  
+  .input-button {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 14px;
+    margin-top: 0;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+  }
+  
+  .input-button button {
+    background-color: #E60099; 
+    width: 100%;
+    height: 100px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border : none;
+  }
+
+  .centrage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .centrage svg {
+    width: 30px; 
+    height: 30px;
+    margin-bottom: 8px; 
+  }
+  
+  .centrage span {
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+/*-------- Panneau message de login et renvoie --------*/
+
+.messageLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.middle-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.right-text {
+  font-size: 16px;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.renvoiLogin {
+  background-color: #E60096; 
+    font-size: 18px;
+    color: white;
+    border:none;
+    border-radius: 8px;
+    height: 40px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    box-shadow: grey 3px 3px 3px;
+}
+
+.imgLogin {
+  width: 80px;
+}
+
+
+
+
 
