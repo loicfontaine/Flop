@@ -24,16 +24,16 @@
         @foreach($articles as $article)
         <div class='column-item'>
             <div class='item'>
-                <img src="{{article->image}}" class='img-item'>
-                <h1 class='item-title'>{{article->name}}</h1>
+                <img src="{{$article->image}}" class='img-item'>
+                <h1 class='item-title'>{{$article->name}}</h1>
                 <div class='item-price'>
-                    <h1 class='price'>{{article->price}}</h1>
+                    <h1 class='price'>{{$article->price}}</h1>
                     <img src="img/Icone-ColorCoins.png" class='cc'>  
                 </div>
             </div>
         </div>
 @endforeach
-        
+
         <!-- <div class='column-item'>
             <div class='item'>
                 <img src="img/stickers.png" class='img-item'>
