@@ -104,3 +104,85 @@ p.p1 {
 .blanc {
     color: white;
 }
+
+.container-chat
+{
+    background-color: #303030;
+    width: 360px;
+    margin: 15px;
+    padding-top: 10px;
+    padding-left: 20px;
+    border-radius: 8px;
+    padding-bottom: 20px;
+}
+
+.titre-chat {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    text-align: left;
+    color: white;
+}
+
+.viewer {
+    display: flex;
+    flex-direction: row;
+    position: top;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+    color: white;
+}
+
+.viewer p {
+    top: 20px;
+    font-size: 14px;
+}
+
+hr {
+    color: white;
+    /* centrer le hr */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.message {
+    display:flex;
+    flex-direction: row;
+
+}
+
+.message p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color:white;
+}
+
+p.pseudo {
+    /*texte sur une ligne */
+    white-space: nowrap;
+    font-family: 'Montserrat', sans-serif;
+    color : #E60096;
+    margin-right: 10px;
+}
+
+.input-message {
+    border:none;
+    border-radius: 8px;
+    height: 57px;
+    width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bouton-chat {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    background-color: #E60096;
+    border:none;
+    border-radius: 8px;
+    width: 340px;
+    height: 60px;
+}

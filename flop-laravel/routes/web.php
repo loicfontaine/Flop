@@ -82,3 +82,5 @@ Route::get('/emission', function () {
     return view('emission');
 });
 
+Route::get('/messages', [MessageController::class, 'index']);
+Route::post('/messages', [MessageController::class, 'store']);
