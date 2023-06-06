@@ -13,6 +13,17 @@ body{
     cursor: pointer;
 }
 
+.adminDashboardMenuChat{
+    background-color: #303030;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 50px 20px 50px;
+    justify-content: center;
+    height: auto;
+    display: flex;
+    cursor: pointer;
+}
+
 .adminDashboardMenuItemsLabel{
     margin: 0;
     text-align: center;
@@ -56,14 +67,6 @@ body{
     padding: 5em;
 }
 
-.adminDashboardMenuChat{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3em;
-}
-
 .adminDashboardContentItems{
     display: none;
 }
@@ -88,28 +91,22 @@ input.form {
     align-items: center;
     height: 3em;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 0.4em;
     margin-left: auto;
     margin-right:auto;
-    margin-bottom: 5px;
+    margin-bottom: 2em;
     border-radius: 8px;
     box-shadow: none;
-    outline: none;
-    border: 1px solid #E60096;
-      
+    border: none;
+    background-color: #000000;
+    color: #F4F1E9;
 }
 
-.placeholder-haut {
-    color : grey;
-    background-color: white;
-    font-size: 10px;
-    position: relative;
-    padding-left:5px;
-    padding-right:5px;
-    top: -70px;
-    left: 30px;
+input.form:focus {
+    outline: none !important;
+    border:2px solid #E60096;
+  }
 
-}
 
 hr#separation {
     width: 226px;
@@ -128,14 +125,6 @@ hr.separation2 {
     text-align: center;
 }
 
-
-.checkbox {
-    font-size: 10px;
-    color: black;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 .submit {
     background-color: #E60096; 
     font-size: 18px;
@@ -146,8 +135,14 @@ hr.separation2 {
     width: 80%;
     margin-top: 20px;
     margin-bottom: 20px;
-    box-shadow: grey 3px 3px 3px;
     cursor: pointer;
+}
+
+.form-submit {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .condition {
@@ -185,7 +180,6 @@ fieldset {
     border: none;
 }   
 
-
 .checkbox-tile {
 	display: flex;
 	flex-direction: column;
@@ -204,6 +198,7 @@ fieldset {
         scale: 1.03;
 	}
 }
+
 .checkbox-label {
 	color: #F4F1E9;
     font-size: 1.4rem;
@@ -211,7 +206,21 @@ fieldset {
 	text-align: center;
 }
 
-.formLabel {
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
+span.formLabel {
+    font-size: 2em;
+    font-weight: bold;
 }
+
+button.buttonLabel {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/** date and time */
+input[type="datetime-local"] {
+     color: #FFFFFF;
+     background-color: #000000;
+     border: none;
+     font-size: 2em;
+     cursor: pointer;
+    }
