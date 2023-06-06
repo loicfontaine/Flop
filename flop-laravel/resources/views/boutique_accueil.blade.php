@@ -24,7 +24,7 @@
         @foreach($articles as $article)
         <div class='column-item'>
             <div class='item'>
-                <img src="public/img/articles/{{$article->image}}" class='img-item'>
+                <img src="img/articles/{{$article->image}}" class='img-item'>
                 <h1 class='item-title'>{{$article->name}}</h1>
                 <div class='item-price'>
                     <h1 class='price'>{{$article->price}}</h1>
