@@ -13,15 +13,17 @@ class ArticleController extends Controller
      */
     public function index()
     {
-    
+
+
         //return all articles
         $articles = Article::all();
 
-                return view("articles", compact("articles"));
+        return view("boutique_accueil", compact("articles"));
+    }
 
-        }
-        
-    
+
+
+
 
     /**
      * Show the form for creating a new resource.
