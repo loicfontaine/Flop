@@ -56,8 +56,10 @@
                 <p class='texte'>Suiiiiii</p>
             </div>
       </div>
+      <div class='container-input'>
             <input type='text' placeholder='Chattez publiquement' class='input-message'></input>
             <button class='bouton-chat'>Envoyer</button>
+      </div>
         </div>
     </div>
 </div>
