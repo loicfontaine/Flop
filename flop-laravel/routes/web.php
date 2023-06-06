@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
+use App\Http\Controllers\MessageController;
+
+use App\Http\Controllers\ChallengeController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +47,7 @@ Route::post('/inscription', function () {
 });
 
 
+
 Route::get('/test', function () {
     return view('test');
 });
@@ -51,18 +57,30 @@ Route::get('/admin', function () {
 });
 
 Route::get('/admin_dashboard', function () {
+
+
     return view('admin_dashboard');
 });
+
 
 Route::get('logout', [LoginController::class, 'logout']);
 
 Route::resource('user', UserController::class);
 
+Route::resource('challenge', ChallengeController::class);
+Route::resource('article', ArticleController::class);
+
 Auth::routes();
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/chat', function () {
     return view('chat');
 });
+
+Route::get('/emission', function () {
+    return view('emission');
+});
+
+Route::get('/messages', [MessageController::class, 'index']);
+Route::post('/messages', [MessageController::class, 'store']);
