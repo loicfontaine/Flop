@@ -43,7 +43,7 @@ class PollController extends Controller
      */
     public function store(CreatePollRequest $request)
     {
-        $poll = Poll::create([
+        Poll::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'duration' => $request->input('duration'),
@@ -51,12 +51,13 @@ class PollController extends Controller
             'start_date' => $request->input('start_date'),
         ]);
 
-        foreach ($request->input('option') as $option) {
+        foreach ($request->input('options') as $option) {
             Option::create([
                 'title' => $option,
             ]);
         }
 
+        dd($request->input('options'));
         return redirect()->route('poll.create');
     }
 
