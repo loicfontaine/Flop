@@ -34,7 +34,6 @@ class PollController extends Controller
      */
     public function create()
     {
-        dd('create');
         return view('pollCreate');
     }
 
@@ -57,6 +56,7 @@ class PollController extends Controller
             ]);
         }
 
+        dd($request->all());
         return redirect()->route('poll.create');
     }
 
