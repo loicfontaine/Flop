@@ -41,6 +41,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('/connexion', function () {
+    return view('connexion');
+});
 
 Route::post('/inscription', function () {
     return view('inscription');
@@ -63,6 +66,8 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::resource('user', UserController::class);
 
 Route::resource('poll', PollController::class);
+
+Route::post('pollsend', [PollController::class, 'store'])->name('pollsend');
 
 Route::resource('challenge', ChallengeController::class);
 Route::resource('article', ArticleController::class);

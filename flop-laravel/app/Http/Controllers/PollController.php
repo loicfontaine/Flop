@@ -16,7 +16,7 @@ class PollController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {/*
         $dernierSondage = Poll::orderByDesc('id')->first();
         $start_date = $start_date = Carbon::parse($dernierSondage->start_date);
         $duration = $dernierSondage->duration;
@@ -29,6 +29,8 @@ class PollController extends Controller
             // Si le sondage n'est pas en cours, retourner une vue pour l'édition d'un nouveau sondage
             return redirect()->route('poll.create');
         }
+        */
+        return redirect()->route('poll.create');
     }
 
     /**
@@ -63,10 +65,7 @@ class PollController extends Controller
             ]);
         }
 
-        dd($options);
-
-        return "fine";
-        // return redirect()->route('poll.create');
+        return dd($options);
     }
 
     /**
