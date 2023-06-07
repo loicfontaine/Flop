@@ -56,7 +56,7 @@ class ChallengeController extends Controller
         }
 
         $challenge = Challenge::create([
-            'title' => $request->input('title'),
+            'name' => $request->input('title'),
             'description' => $request->input('description'),
             'end_time' => $request->input('end_time'),
             'colorCoins' => $request->input('ColorCoins_earned_by_participation'),
