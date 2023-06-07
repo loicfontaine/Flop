@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Poll;
 use App\Models\Option;
 use Carbon\Carbon;
+use App\Models\OptionUser;
 
 class PollController extends Controller
 {
@@ -17,12 +18,12 @@ class PollController extends Controller
     {
         $dernierSondage = Poll::orderByDesc('id')->first();
         $start_date = $start_date = Carbon::parse($dernierSondage->start_date);
-        $duration = $dernierSondage->duration * 60000;
+        $duration = $dernierSondage->duration;
         $pollId = $dernierSondage->id;
         // Vérifier si le sondage est en cours
         if ($start_date->addMinutes($duration)->toDateTime() > now()) {
             // Si le sondage est en cours, retourner une vue pour l'édition du sondage en cours
-            //return redirect()->route('poll.edit', ['poll' => $pollId], compact('dernierSondage'));
+            return redirect()->route('poll.edit', ['poll' => $pollId], compact('dernierSondage'));
         } else {
             // Si le sondage n'est pas en cours, retourner une vue pour l'édition d'un nouveau sondage
             return redirect()->route('poll.create');
@@ -51,15 +52,12 @@ class PollController extends Controller
         // Enregistrez le sondage dans la base de données
         $poll->save();
 
-        // Insérez les options du sondage
-        $options = $request->input('options');
-
         foreach ($options as $option) {
             // Création de chaque option
             $option = new Option;
             $option->poll_id = $poll->id; // Utilisation de l'ID du sondage
             $option->title = $option;
-            $option->save();
+            $option->$option->save();
         }
 
         return redirect()->route('poll.create');
