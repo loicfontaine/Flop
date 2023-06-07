@@ -46,23 +46,21 @@ class ChallengeController extends Controller
         "type-audio" => "on"
         "end_time" => "2023-06-05T14:58"
         "quantity-4" => "1" 
-
         */
 
         //if $request contains a string begining with "quantity-"
         if (preg_grep("/^quantity-/", array_keys($request->all()))) {
-            dd("ok");
+            $contest = true;
         } else {
-            dd("pas ok");
+            $contest = false;
         }
-
 
         $challenge = Challenge::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'end_time' => $request->input('end_time'),
             'colorCoins' => $request->input('ColorCoins_earned_by_participation'),
-            'is_contest' => $request->input('is_contest'),
+            'is_contest' => $contest,
         ]);
         if ($request->input("type-audio") == "on") {
             $challenge->types()->attach(1);
@@ -80,21 +78,21 @@ class ChallengeController extends Controller
 
 
 
-        //foreach reward
-        Article::all()->each(function ($article) use ($request, $challenge) {
-            if ($request->input("quantity-" . $article->id)) {
-                Reward::create(
-                    [
-                        "quantity" => $request->input("quantity-" . $article->id),
-                        "article_id" => $article->id,
-                        "challenge_id" => $challenge->id,
-                    ]
-                );
-            }
-        });
 
-        //foreach types
-        //challenge->attach($request->input("participation_types"));
+        if ($contest) {
+            Article::all()->each(function ($article) use ($request, $challenge) {
+                if ($request->input("quantity-" . $article->id)) {
+                    Reward::create(
+                        [
+                            "quantity" => $request->input("quantity-" . $article->id),
+                            "article_id" => $article->id,
+                            "challenge_id" => $challenge->id,
+                        ]
+                    );
+                }
+            });
+        }
+
 
 
 
