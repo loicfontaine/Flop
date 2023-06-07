@@ -6,6 +6,7 @@ use App\Http\Requests\CreatePollRequest;
 use Illuminate\Http\Request;
 use App\Models\Poll;
 use App\Models\Option;
+use Carbon\Carbon;
 
 class PollController extends Controller
 {
@@ -15,11 +16,11 @@ class PollController extends Controller
     public function index()
     {
         $dernierSondage = Poll::orderByDesc('id')->first();
-        $start_date = $dernierSondage->start_date;
+        $start_date = $start_date = Carbon::parse($dernierSondage->start_date);
         $duration = $dernierSondage->duration * 60000;
 
         // Vérifier si le sondage est en cours
-        if (($start_date->addMinutes($duration)->toDateTimeString()) > now()) {
+        if ($start_date->addMinutes($duration)->toDateTimeString() > now()) {
             // Si le sondage est en cours, retourner une vue pour l'édition du sondage en cours
             return view('poll.edit', compact('dernierSondage'));
         } else {
