@@ -107,14 +107,9 @@
 
 
     <script>
-        var bouton = document.getElementById('btnBoutique');
+        var bouton = document.getElementByClassName('boutique');
         bouton.addEventListener('click', function() {
             window.location.href = "boutique";
-        });
-
-        var bouton3 = document.getElementById('live');
-        bouton3.addEventListener('click', function() {
-            window.location.href = "emission";
         });
 
 
