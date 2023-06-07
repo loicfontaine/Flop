@@ -13,7 +13,7 @@ class Participation_type extends Model
         'title',
     ];
 
-    public function participations()
+    public function contents()
     {
         return $this->belongsToMany(Participation::class);
     }
