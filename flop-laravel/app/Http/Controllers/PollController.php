@@ -54,7 +54,7 @@ class PollController extends Controller
             'start_date' => $request->input('start_date'),
         ]);
 
-        $options = $request->input('options[]');
+        $options = $request->input('options');
         $result = DB::table('polls')->orderBy('id', 'desc')->first();
         $lastId = $result->id;
 
