@@ -235,6 +235,7 @@ hr#separation {
 #bouton-modifier {
   font-family: 'Inter', sans-serif;
   font-size: 18px;
+  padding-top:15px;
   color:#E60096;
   background-color: transparent;
   text-decoration: underline;
@@ -302,5 +303,9 @@ hr#separation {
 
 .centrer {
   display:flex;
+  flex-direction:column;
+  align-items: center;
   justify-content: center;
+  margin-left:auto;
+  margin-right:auto;
 }
