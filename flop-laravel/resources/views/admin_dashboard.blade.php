@@ -119,6 +119,9 @@
                     <span class='FontInter formLabel'>Date de fin</span>
                     <input required="required" type="datetime-local" class="form challenge_endTime" name="end_time">
 
+                    <span class='FontInter formLabel'>Récompense en ColorCoins</span>
+                    <input type="number" id="quantity" name="colorCoins" min="0" max="50" value="10">
+
                     <div class="form-submit">
                         <button type="submit" class='submit buttonLabel'>Créer un défi</button>
                     </div>
@@ -241,6 +244,9 @@
 
                     <span class='FontInter formLabel'>Date de fin</span>
                     <input required="required" type="datetime-local" class="form challenge_endTime" name="end_time">
+
+                    <span class='FontInter formLabel'>Récompense en ColorCoins</span>
+                    <input type="number" id="quantity" name="colorCoins" min="0" max="50" value="10">
 
                     <div class="form-submit">
                         <button type="submit" class='submit buttonLabel'>Créer un concours</button>
