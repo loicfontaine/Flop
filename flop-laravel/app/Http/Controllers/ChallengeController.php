@@ -8,6 +8,7 @@ use App\Models\Challenge;
 use App\Http\Requests\ChallengeRequest;
 use App\Models\Reward;
 use App\Models\Article;
+use App\Models\Participation_type;
 
 class ChallengeController extends Controller
 {
@@ -63,17 +64,17 @@ class ChallengeController extends Controller
             'is_contest' => $contest,
         ]);
         if ($request->input("type-audio") == "on") {
-            $challenge->types()->attach(1);
+            $challenge->participation_types()->attach(1);
         }
 
         if ($request->input("type-photo") == "on") {
-            $challenge->types()->attach(2);
+            $challenge->participation_types()->attach(2);
         }
         if ($request->input("type-video") == "on") {
-            $challenge->types()->attach(3);
+            $challenge->participation_types()->attach(3);
         }
         if ($request->input("type-text") == "on") {
-            $challenge->types()->attach(4);
+            $challenge->participation_types()->attach(4);
         }
 
 
