@@ -117,7 +117,7 @@
         var bouton5 = document.getElementById('accueil');
         {
             bouton5.addEventListener('click', function() {
-                window.location.href = "";
+                window.location.href = "/";
             });
         }
 
@@ -128,7 +128,7 @@
             });  
         }
     </script>
-    
+
     <script>
     var bouton2 = document.getElementById('renvoiSurLogin');
         bouton2.addEventListener('click', function() {
