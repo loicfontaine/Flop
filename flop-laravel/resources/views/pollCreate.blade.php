@@ -38,7 +38,7 @@
       <div id="conteneur-options">
         <input type="text" name="options[]" placeholder="Option" required>
       </div>
-
+      
       <section>
         <button type="button" onclick="ajouterOption()">Ajouter une option</button>
         <button type="button" onclick="supprimerOption()">Supprimer une option</button>

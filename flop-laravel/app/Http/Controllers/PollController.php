@@ -22,10 +22,10 @@ class PollController extends Controller
         // Vérifier si le sondage est en cours
         if ($start_date->addMinutes($duration)->toDateTimeString() > now()) {
             // Si le sondage est en cours, retourner une vue pour l'édition du sondage en cours
-            return redirect('poll.edit', compact('dernierSondage'));
+            return redirect()->route('poll.edit', compact('dernierSondage'));
         } else {
             // Si le sondage n'est pas en cours, retourner une vue pour l'édition d'un nouveau sondage
-            return redirect('poll.create', compact('dernierSondage'));
+            return redirect()->route('poll.create', compact('dernierSondage'));
         }
     }
 
@@ -56,15 +56,14 @@ class PollController extends Controller
 
         foreach ($options as $optionData) {
             $option = new Option;
-            $option->libelle = $optionData['libelle'];
+            $option->title = $optionData;
+            $option->poll_id = $poll->id;
             // Définissez les autres propriétés de l'option si nécessaire
 
             // Associez l'option au sondage
-            $poll->options()->save($option);
+            $options->save();
         }
-        $options->save();
 
-        dd($request->options);
         return view('dashboard');
     }
 
