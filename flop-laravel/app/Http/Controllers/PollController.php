@@ -43,7 +43,7 @@ class PollController extends Controller
      */
     public function store(CreatePollRequest $request)
     {
-        Poll::create([
+        $poll = Poll::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'duration' => $request->input('duration'),
