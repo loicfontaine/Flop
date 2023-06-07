@@ -131,6 +131,7 @@
         var bouton6 = document.getElementById('logout');
         {
             bouton6.addEventListener('click', function() {
+                console.log("logout")
                 window.location.href = "logout";
             });  
         }
