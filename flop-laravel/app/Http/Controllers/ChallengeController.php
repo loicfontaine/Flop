@@ -44,9 +44,11 @@ class ChallengeController extends Controller
         "type-video" => "on"
         "type-audio" => "on"
         "end_time" => "2023-06-05T14:58"
+        "quantity-4" => "1" 
+
         */
 
-
+        dd($request->all());
 
         $challenge = Challenge::create([
             'title' => $request->input('title'),
