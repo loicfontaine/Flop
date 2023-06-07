@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PollController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ChallengeController;
 
@@ -22,10 +24,10 @@ use App\Http\Controllers\ChallengeController;
 Route::get('/connexion', function () {
     return view('connexion');
 });
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+//example of a route sending a variable to a controller
 
-Route::get('/boutique', function () {
-    return view('boutique_accueil');
-});
+Route::get('/boutique', [App\Http\Controllers\ArticleController::class, 'index'])->name("boutique");
 
 Route::get('/', function () {
     return view('homePage');
@@ -54,11 +56,7 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
-Route::get('/admin_dashboard', function () {
-
-
-    return view('admin_dashboard');
-});
+Route::get('/admin_dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
 
 Route::get('logout', [LoginController::class, 'logout']);

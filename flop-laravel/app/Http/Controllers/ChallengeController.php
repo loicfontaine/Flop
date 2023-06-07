@@ -8,7 +8,6 @@ use App\Models\Challenge;
 use App\Http\Requests\ChallengeRequest;
 use App\Models\Reward;
 
-
 class ChallengeController extends Controller
 {
     /**
@@ -43,8 +42,6 @@ class ChallengeController extends Controller
         "type-audio" => "on"
         "end_time" => "2023-06-05T14:58"
         */
-
-        dd($request->all());
 
 
 
@@ -124,14 +121,16 @@ class ChallengeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Challenge::findOrFail($id)->delete();
+        return redirect()->back();
     }
 
 
-    public function endChallenge(string $id)
+
+    public function endChallenge(string $idChallenge)
     {
-        //$participations = participation.show($id)
-        //$winner = rand(1, participation.count()));
+        //$participations = participation . show($id);
+        //$winner = rand(1, $participation . count());
         //rewards->participation_id = $participation[$winner]->id 
         //return view("endChallenge", compact("winner"));
     }
