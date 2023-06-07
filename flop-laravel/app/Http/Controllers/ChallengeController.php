@@ -97,7 +97,7 @@ class ChallengeController extends Controller
 
 
 
-        return view("admin_dashboard");
+        return redirect()->route("admin.dashboard");
     }
 
     /**
