@@ -112,14 +112,6 @@
             window.location.href = "boutique";
         });
 
-
-        var bouton5 = document.getElementById('accueil');
-        {
-            bouton5.addEventListener('click', function() {
-                window.location.href = "/";
-            });
-        }
-
         var bouton6 = document.getElementById('logout');
         {
             bouton6.addEventListener('click', function() {
