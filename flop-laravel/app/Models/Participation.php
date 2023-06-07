@@ -31,6 +31,6 @@ class Participation extends Model
 
     public function contents()
     {
-        return $this->belongsToMany(Content::class);
+        return $this->hasMany(Content::class);
     }
 }
