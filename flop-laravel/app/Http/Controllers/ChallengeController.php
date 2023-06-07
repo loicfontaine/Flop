@@ -48,7 +48,7 @@ class ChallengeController extends Controller
 
         */
 
-        dd($request->all());
+
 
         $challenge = Challenge::create([
             'title' => $request->input('title'),
@@ -72,7 +72,7 @@ class ChallengeController extends Controller
             $challenge->types()->attach(4);
         }
 
-
+        dd($request->all());
 
         //foreach reward
         if ($request->input("is_contest") == "1" && $request->input("rewards")) {
