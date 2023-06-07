@@ -133,8 +133,6 @@ hr.separation2 {
     border-radius: 8px;
     height: 3em;
     width: 80%;
-    margin-top: 20px;
-    margin-bottom: 20px;
     cursor: pointer;
 }
 
@@ -216,6 +214,85 @@ button.buttonLabel {
     font-weight: bold;
 }
 
+/** Contest items */
+.column-item {
+    margin: auto;
+    margin-top: 0.4em;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.img-item {
+    width: 100%;
+    /**height: 183px;
+    width: 173px;*/
+    border-radius: 1em 1em 0px 0px;
+}
+
+.centre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item {
+    background-color: white;
+    width: 30%;
+    border-radius: 1em;
+    margin-bottom:15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5em;
+}
+
+.item-title {
+    color: #000000;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom : 0px;
+    height: min-content;
+}
+
+.cc {
+    width: 2em;
+    height: 2em;
+    margin-left: 0.4em;
+}
+
+.price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #000000;
+    margin: 0;
+    margin-right: 0.4em;
+}
+
+.item-price {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: center;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
+
+.articlesQuantity{
+    width: 60%;
+    height: 1.5em;
+    margin-top: 0.4em;
+    position: absolute;
+    align-self: center;
+    border: none;
+    text-align: center;
+    border-radius: 0.4em;
+}
+
 /** date and time */
 input[type="datetime-local"] {
      color: #FFFFFF;
@@ -224,3 +301,4 @@ input[type="datetime-local"] {
      font-size: 2em;
      cursor: pointer;
     }
+
