@@ -58,8 +58,8 @@ class PollController extends Controller
 
         for ($i = 0; $i < count($options); $i++) {
             Option::create([
-                'id' => $lastId,
                 'title' => $options[$i],
+                'poll_id' => $lastId,
             ]);
         }
 
@@ -70,7 +70,7 @@ class PollController extends Controller
             dd($request->all());
         }
 
-        return back();
+        return "fine";
         // return redirect()->route('poll.create');
     }
 
