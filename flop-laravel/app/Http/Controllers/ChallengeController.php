@@ -7,6 +7,8 @@ use App\Models\Challenge;
 
 use App\Http\Requests\ChallengeRequest;
 use App\Models\Reward;
+use App\Models\Article;
+use App\Models\Participation_type;
 
 class ChallengeController extends Controller
 {
@@ -17,7 +19,10 @@ class ChallengeController extends Controller
     {
 
         $challenges = Challenge::where("end_time", ">", date("Y-m-d H:i:s"))->get();
-        return view("emission", compact("challenges"));
+        $types = $challenges->participation_types;
+
+
+        return view("emission", compact("challenges, types"));
     }
 
     /**
@@ -41,55 +46,58 @@ class ChallengeController extends Controller
         "type-video" => "on"
         "type-audio" => "on"
         "end_time" => "2023-06-05T14:58"
+        "quantity-4" => "1" 
         */
 
-
+        //if $request contains a string begining with "quantity-"
+        if (preg_grep("/^quantity-/", array_keys($request->all()))) {
+            $contest = true;
+        } else {
+            $contest = false;
+        }
 
         $challenge = Challenge::create([
-            'title' => $request->input('title'),
+            'name' => $request->input('title'),
             'description' => $request->input('description'),
-            'start_time' => $request->input('start_time'),
             'end_time' => $request->input('end_time'),
-            'ColorCoins' => $request->input('ColorCoins_earned_by_participation'),
-            'is_contest' => $request->input('is_contest'),
+            'colorCoins' => $request->input('ColorCoins_earned_by_participation'),
+            'is_contest' => $contest,
         ]);
         if ($request->input("type-audio") == "on") {
-            $challenge->types()->attach(1);
+            $challenge->participation_types()->attach(1);
         }
 
         if ($request->input("type-photo") == "on") {
-            $challenge->types()->attach(2);
+            $challenge->participation_types()->attach(2);
         }
         if ($request->input("type-video") == "on") {
-            $challenge->types()->attach(3);
+            $challenge->participation_types()->attach(3);
         }
         if ($request->input("type-text") == "on") {
-            $challenge->types()->attach(4);
+            $challenge->participation_types()->attach(4);
         }
 
 
 
-        //foreach reward
-        if ($request->input("is_contest") == "1" && $request->input("rewards")) {
 
-            $rewards = explode("&", $request->input("rewards"));
-            foreach ($rewards as $reward) {
-                $reward = explode("=", $reward);
-                Reward::create(
-                    [
-                        "quantity" => $reward[0],
-                        "article_id" => $reward[1],
-                        "user_id" => $request->input("user_id"),
-                        "challenge_id" => $request->input("challenge_id"),
-                    ]
-                );
-            }
-            //foreach types
-            //challenge->attach($request->input("participation_types"));
+        if ($contest) {
+            Article::all()->each(function ($article) use ($request, $challenge) {
+                if ($request->input("quantity-" . $article->id)) {
+                    Reward::create(
+                        [
+                            "quantity" => $request->input("quantity-" . $article->id),
+                            "article_id" => $article->id,
+                            "challenge_id" => $challenge->id,
+                        ]
+                    );
+                }
+            });
         }
 
 
-        return view("test");
+
+
+        return redirect()->route("admin.dashboard");
     }
 
     /**
@@ -127,11 +135,13 @@ class ChallengeController extends Controller
 
 
 
-    public function endChallenge(string $idChallenge)
+    public function endContest(Request $request)
     {
-        //$participations = participation . show($id);
-        //$winner = rand(1, $participation . count());
-        //rewards->participation_id = $participation[$winner]->id 
-        //return view("endChallenge", compact("winner"));
+        $challenge = Challenge::findOrFail($request->input("challenge_id"));
+        $winner = $request->input("winner");
+        $challenge->reward->user_id = $winner;
+        $challenge->reward->save();
+        $challenge->start_time = $challenge->end_time;
+        $challenge->save();
     }
 }

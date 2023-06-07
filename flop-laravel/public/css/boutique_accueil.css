@@ -118,9 +118,10 @@ hr.separation {
     height: min-content;
 }
 
-.cc {
-    width: 82px;
-    height: 46px;
+#cc {
+    width: 22px;
+    height: min-content;
+    margin-left: 10px;
 
 }
 

@@ -10,9 +10,25 @@
       <p class="countdown FontInter rose">{{ formatTime(countdown) }}</p>
       <div class="titre FontInter">Participe au défi en cours !</div>
     </div>
-    <div class="expanded-content expanded-wrapper" v-if="isExpanded">
-      <input class="expanded-input" type="text" placeholder="Remplissez le champ" ref="expandedInput">
-      <button class="expanded-button">Cliquez ici</button>
+    <div class="expanded-content" v-if="isExpanded">
+      <label for="video-upload" class="custom-file-upload">
+        Choisir une vidéo
+        <input id="video-upload" class="expanded-input FontMonserrat champsVideo" type="file" accept="video/*">
+      </label>
+
+      <label for="image-upload" class="custom-file-upload">
+        Choisir une image
+        <input id="image-upload" class="expanded-input FontMonserrat champsImage" type="file" accept="image/*">
+      </label>
+      <audio v-if="audioBlob" controls>
+        <source :src="audioUrl" type="audio/webm">
+        Votre navigateur ne prend pas en charge la lecture audio.
+      </audio>
+      <button class="expanded-button audio FontMonserrat" @click="startRecording" v-if="!isRecording">Enregistrer</button>
+      <button class="expanded-button audio FontMonserrat" @click="stopRecording" v-if="isRecording">Arrêter l'enregistrement</button>
+      <input class="expanded-input FontMonserrat champsTexte" type="text" placeholder="Envoyer un message..." ref="expandedInput">
+      <button class="expanded-button envoi FontMonserrat">Envoyer</button>
+      
     </div>
   </div>
 </template>
@@ -24,7 +40,11 @@ export default {
       countdown: 0,
       intervalId: null,
       isExpanded: false,
-      isArrowClicked: false
+      isArrowClicked: false,
+      isRecording: false,
+      mediaRecorder: null,
+      chunks: [],
+      audioBlob: null,
     };
   },
   created() {
@@ -57,15 +77,45 @@ export default {
       return String(number).padStart(2, '0');
     },
     toggleExpand() {
-if (this.isExpanded) {
-  this.isExpanded = false;
-} else {
-  this.isExpanded = true;
-}
-console.log("test")
-}
+      if (this.isExpanded) {
+        this.isExpanded = false;
+      } else {
+        this.isExpanded = true;
+      }
+    },
+    startRecording() {
+      this.isRecording = true;
+      this.chunks = [];
 
-  }
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then((stream) => {
+          this.mediaRecorder = new MediaRecorder(stream);
+          this.mediaRecorder.addEventListener('dataavailable', this.onDataAvailable);
+          this.mediaRecorder.addEventListener('stop', this.onRecordingStop);
+          this.mediaRecorder.start();
+        })
+        .catch((error) => {
+          console.error('Erreur lors de l\'accès à l\'enregistrement audio :', error);
+        });
+    },
+    stopRecording() {
+      this.isRecording = false;
+      this.mediaRecorder.stop();
+    },
+    onDataAvailable(event) {
+      if (event.data.size > 0) {
+        this.chunks.push(event.data);
+      }
+    },
+    onRecordingStop() {
+      this.audioBlob = new Blob(this.chunks, { type: 'audio/webm' });
+    },
+  },
+  computed: {
+    audioUrl() {
+      return this.audioBlob ? URL.createObjectURL(this.audioBlob) : '';
+    },
+  },
 };
 </script>
 
@@ -83,12 +133,15 @@ console.log("test")
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+
 }
 
 .countdown-container.expanded {
-  height: 330px;
+  height: auto;
   align-items: flex-start;
   padding-bottom: 20px;
+  display: flex; /* Ajouter cette ligne */
+  flex-direction: column;
 }
 
 .arrow-container {
@@ -120,7 +173,7 @@ console.log("test")
 }
 
 .image-container {
-  padding-top: 35px;
+  padding-top: 36px;
   padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
@@ -129,6 +182,11 @@ console.log("test")
 .image-container img {
   width: 100px;
   height: auto;
+  border-radius: 8px;
+}
+
+.countdown-container.expanded .image-container {
+  padding: 0px;
 }
 
 .text-container {
@@ -149,9 +207,6 @@ console.log("test")
   margin-bottom: 10px;
 }
 
-/* .expanded-content {
-  padding: 20px;} */
-
 .expanded-button {
   margin-bottom: 10px;
 }
@@ -159,16 +214,42 @@ console.log("test")
 .expanded-input {
   width: 85%;
   padding: 8px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
 }
 
-.expanded-wrapper {
-  position: absolute;
+.expanded-content {
   width: 100%;
   bottom: 40px;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  
+}
+.expanded-button.envoi{
+  border-radius: 8px;
+  background-color: #E60099;
+  font-weight: bold;
+  border: none;
+  width: 90%;
+  font-size: 18px;
 }
 
+.custom-file-upload {
+  width: 85%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
+  background-color: #E60099;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+#image-upload, #video-upload {
+  display: none;
+}
 </style>
