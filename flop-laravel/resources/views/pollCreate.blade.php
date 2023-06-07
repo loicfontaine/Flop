@@ -6,8 +6,8 @@
 <div class="container">
   <div class="row">
     <h2 class="center">Créer un sondage</h2>
-    <form class="col s12" method="post" action="{{route('poll.store')}}">
-
+    <form method="POST" action="{{route('poll.store')}}" accept-charset="UTF-8">
+      
       @csrf
       <div class="row">
       </div>

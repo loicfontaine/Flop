@@ -25,8 +25,6 @@ class CreatePollRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'duration' => 'required|integer|min:1',
-            'user_id' => 'required|integer|exists:users,id',
-            'start_date' => 'required|date|after_or_equal:now|min:1',
         ];
     }
 }
