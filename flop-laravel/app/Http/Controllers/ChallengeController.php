@@ -17,7 +17,10 @@ class ChallengeController extends Controller
     {
 
         $challenges = Challenge::where("end_time", ">", date("Y-m-d H:i:s"))->get();
-        return view("emission", compact("challenges"));
+        $types = $challenges->participation_types;
+
+
+        return view("emission", compact("challenges, types"));
     }
 
     /**
@@ -127,11 +130,13 @@ class ChallengeController extends Controller
 
 
 
-    public function endChallenge(string $idChallenge)
+    public function endContest(Request $request)
     {
-        //$participations = participation . show($id);
-        //$winner = rand(1, $participation . count());
-        //rewards->participation_id = $participation[$winner]->id 
-        //return view("endChallenge", compact("winner"));
+        $challenge = Challenge::findOrFail($request->input("challenge_id"));
+        $winner = $request->input("winner");
+        $challenge->reward->user_id = $winner;
+        $challenge->reward->save();
+        $challenge->start_time = $challenge->end_time;
+        $challenge->save();
     }
 }
