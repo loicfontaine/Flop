@@ -15,8 +15,7 @@ class CreatePollRequest extends FormRequest
     public function prepareForValidation()
     {
         $this->merge([
-            'start_time' => now()->toDateTimeString(),
-            'end_time' => now()->addMinutes($this->duration)->toDateTimeString(),
+            'start_date' => now()->toDateTimeString(),
         ]);
         dd($this->all());
     }
