@@ -28,4 +28,9 @@ class Poll extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function command_lines()
+    {
+        return $this->belongsToMany(Command_line::class);
+    }
 }
