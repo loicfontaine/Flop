@@ -7,6 +7,7 @@ use App\Models\Challenge;
 
 use App\Http\Requests\ChallengeRequest;
 use App\Models\Reward;
+use App\Models\Article;
 
 class ChallengeController extends Controller
 {
@@ -48,14 +49,19 @@ class ChallengeController extends Controller
 
         */
 
+        //if $request contains a string begining with "quantity-"
+        if (preg_grep("/^quantity-/", array_keys($request->all()))) {
+            dd("ok");
+        } else {
+            dd("pas ok");
+        }
 
 
         $challenge = Challenge::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'start_time' => $request->input('start_time'),
             'end_time' => $request->input('end_time'),
-            'ColorCoins' => $request->input('ColorCoins_earned_by_participation'),
+            'colorCoins' => $request->input('ColorCoins_earned_by_participation'),
             'is_contest' => $request->input('is_contest'),
         ]);
         if ($request->input("type-audio") == "on") {
@@ -72,26 +78,24 @@ class ChallengeController extends Controller
             $challenge->types()->attach(4);
         }
 
-        dd($request->all());
+
 
         //foreach reward
-        if ($request->input("is_contest") == "1" && $request->input("rewards")) {
-
-            $rewards = explode("&", $request->input("rewards"));
-            foreach ($rewards as $reward) {
-                $reward = explode("=", $reward);
+        Article::all()->each(function ($article) use ($request, $challenge) {
+            if ($request->input("quantity-" . $article->id)) {
                 Reward::create(
                     [
-                        "quantity" => $reward[0],
-                        "article_id" => $reward[1],
-                        "user_id" => $request->input("user_id"),
-                        "challenge_id" => $request->input("challenge_id"),
+                        "quantity" => $request->input("quantity-" . $article->id),
+                        "article_id" => $article->id,
+                        "challenge_id" => $challenge->id,
                     ]
                 );
             }
-            //foreach types
-            //challenge->attach($request->input("participation_types"));
-        }
+        });
+
+        //foreach types
+        //challenge->attach($request->input("participation_types"));
+
 
 
         return view("test");
