@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreatePollRequest;
 use Illuminate\Http\Request;
 use App\Models\Poll;
+use App\Models\Option;
 
 class PollController extends Controller
 {
@@ -13,7 +14,16 @@ class PollController extends Controller
      */
     public function index()
     {
-        //
+        $dernierSondage = Poll::orderByDesc('id')->first();
+
+        // Vérifier si le sondage est en cours
+        if (($dernierSondage->start_date->addMinutes($dernierSondage->duration)->toDateTimeString()) > now()) {
+            // Si le sondage est en cours, retourner une vue pour l'édition du sondage en cours
+            return view('poll.edit', compact('dernierSondage'));
+        } else {
+            // Si le sondage n'est pas en cours, retourner une vue pour l'édition d'un nouveau sondage
+            return view('poll.create', compact('dernierSondage'));
+        }
     }
 
     /**
@@ -21,7 +31,7 @@ class PollController extends Controller
      */
     public function create()
     {
-        return view('createPoll');
+        return view('pollCreate');
     }
 
     /**
@@ -29,9 +39,18 @@ class PollController extends Controller
      */
     public function store(CreatePollRequest $request)
     {
-        $poll = auth()->user()->polls()->create($request->safe()->except('options'));
+        Poll::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'duration' => $request->duration,
+        ]);
 
-        $options = [];
+        foreach ($request->options as $option) {
+            Option::create([
+                'poll_id' => $poll->id,
+                'name' => $option,
+            ]);
+        }
 
         dd($request->options);
         return back();
@@ -50,8 +69,10 @@ class PollController extends Controller
      */
     public function edit(string $id)
     {
-        $poll = $poll->load('options');
-        return view('polls.update', compact('poll'));
+        $dernierSondage = Poll::latest()->first();
+
+        // Passer le sondage à la vue pour l'affichage dans le formulaire d'édition
+        return view('pollEdit', compact('dernierSondage'));
     }
 
     /**
