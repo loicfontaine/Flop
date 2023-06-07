@@ -8,6 +8,7 @@ use App\Models\Poll;
 use App\Models\Option;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PollController extends Controller
 {
@@ -43,60 +44,33 @@ class PollController extends Controller
      */
     public function store(CreatePollRequest $request)
     {
-
-        $user = Auth::user();
-
-        $duration = $request->input('duration');
-
-        $type = $request->input('type');
-
-        $title = $request->input('title');
-
-        $options = $request->input('options[]');
-
-        if ($request->hasFile('files')) {
-            $pictures = [];
-
-            foreach ($request->file('files') as $file) {
-                $path = $file->storePublicly('public/images');
-                $pictures[] = Storage::url($path);
-            }
-        }
-
         Poll::create([
-            'user_id' => $user->id,
-            'title' => $title,
-            'type' => $type,
-            'duration' => now()->addMinutes($duration),
-            'created_at' => now(),
-            'updated_at' => now(),
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'duration' => $request->input('duration'),
+            'user_id' => Auth::user()->id,
+            'start_date' => $request->input('start_date'),
         ]);
 
+        $options = $request->input('options[]');
         $result = DB::table('polls')->orderBy('id', 'desc')->first();
         $lastId = $result->id;
 
         for ($i = 0; $i < count($options); $i++) {
             Option::create([
-                'id' => $lastId,
                 'title' => $options[$i],
+                'poll_id' => $lastId,
             ]);
         }
-
-        Poll::create([
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'duration' => $request->input('duration'),
-            'user_id' => $request->input('user_id'),
-            'start_date' => $request->input('start_date'),
-        ]);
 
         foreach ($request->input('options') as $option) {
             Option::create([
                 'title' => $option,
             ]);
+            dd($request->all());
         }
 
-        return dd($request->all());
+        return "fine";
         // return redirect()->route('poll.create');
     }
 
