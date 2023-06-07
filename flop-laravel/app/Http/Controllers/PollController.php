@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Poll;
 use App\Models\Option;
 use Carbon\Carbon;
-use App\Models\OptionUser;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class PollController extends Controller
 {
@@ -43,21 +45,31 @@ class PollController extends Controller
      */
     public function store(CreatePollRequest $request)
     {
-        Poll::create([
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'duration' => $request->input('duration'),
-            'user_id' => $request->input('user_id'),
-            'start_date' => $request->input('start_date'),
-        ]);
+        // Création du sondage
+        $poll = new Poll;
+        $poll->title = $request->input('titre');
+        $poll->description = $request->input('description');
+        $poll->duration = $request->input('duration');
+        $poll->user_id = $request->input('user_id');
+        $poll->start_date = $request->input('start_date');
+        $poll->save();
 
+        // Récupération des options du sondage
+        $options = $request->input('options');
 
-        foreach ($options as $option) {
-            Option::create([
-                'poll_id' => $poll->id,
-                'title' => $option,
-            ]);
+        foreach ($options as $optionText) {
+            // Création de chaque option
+            $option = new Option;
+            $option->texte = $optionText;
+            $option->save();
+
+            // Association de l'option au sondage
+            $poll->options()->attach($option->id);
         }
+
+        // Association de l'utilisateur au sondage
+        $user = Auth::user();
+        $user->polls()->attach($poll->id);
 
         return redirect()->route('poll.create');
     }
