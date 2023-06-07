@@ -13,9 +13,9 @@ class Participation_type extends Model
         'title',
     ];
 
-    public function participations()
+    public function contents()
     {
-        return $this->belongsToMany(Participation::class);
+        return $this->hasMany(Content::class);
     }
 
     public function challenges()

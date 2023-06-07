@@ -43,8 +43,6 @@ class ChallengeController extends Controller
         "end_time" => "2023-06-05T14:58"
         */
 
-        dd($request->all());
-
 
 
         $challenge = Challenge::create([
@@ -123,15 +121,16 @@ class ChallengeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Challenge::findOrFail($id)->delete();
+        return redirect()->back();
     }
 
 
 
-    public function endChallenge(string $id)
+    public function endChallenge(string $idChallenge)
     {
-        //$participations = participation.show($id)
-        //$winner = rand(1, participation.count()));
+        //$participations = participation . show($id);
+        //$winner = rand(1, $participation . count());
         //rewards->participation_id = $participation[$winner]->id 
         //return view("endChallenge", compact("winner"));
     }

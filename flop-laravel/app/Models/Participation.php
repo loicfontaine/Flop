@@ -29,8 +29,8 @@ class Participation extends Model
         return $this->hasMany(Reward::class);
     }
 
-    public function participation_types()
+    public function contents()
     {
-        return $this->belongsToMany(Participation_type::class);
+        return $this->hasMany(Content::class);
     }
 }
