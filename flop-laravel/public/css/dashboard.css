@@ -195,19 +195,20 @@ hr#separation {
   color: white;
   border:none;
   border-radius: 8px;
+  width:290px;
   height: 40px;
   margin-top: 0px;
   margin-bottom: 20px;
 }
 
 .bloc h1 {
-  font-size:1.25rem;
+  font-size:20px;
   color:#E60096;
   font-family: 'Inter', sans-serif;
 }
 
 .bloc p {
-  font-size: 1.125rem;
+  font-size: 18px;
   font-family:'Montserrat', sans-serif;
   color:black;
 }
@@ -225,7 +226,7 @@ hr#separation {
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 22px;
   font-family: 'Inter', sans-serif;
   color: white;
   margin-bottom: 10px;
@@ -233,7 +234,7 @@ hr#separation {
 
 #bouton-modifier {
   font-family: 'Inter', sans-serif;
-  font-size: 1.125rem;
+  font-size: 18px;
   color:#E60096;
   background-color: transparent;
   text-decoration: underline;
@@ -250,11 +251,11 @@ hr#separation {
 }
 
 #informations {
-  width:240px;
+  width:340px;
 }
 
 #participation {
-  width:240px;
+  width:340px;
 }
 
 .coins span {
@@ -286,4 +287,20 @@ hr#separation {
   font-size: 1.125rem;
   font-family:'Montserrat', sans-serif;
   color:black;
+}
+
+.description p {
+  font-size: 1.125rem;
+  font-family:'Montserrat', sans-serif;
+  color:black;
+}
+
+.block {
+  padding:2px;
+  height:55px;
+}
+
+.centrer {
+  display:flex;
+  justify-content: center;
 }
