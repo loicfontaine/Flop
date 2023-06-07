@@ -63,12 +63,7 @@ class PollController extends Controller
             ]);
         }
 
-        foreach ($request->input('options') as $option) {
-            Option::create([
-                'title' => $option,
-            ]);
-            dd($request->all());
-        }
+        dd($options);
 
         return "fine";
         // return redirect()->route('poll.create');
