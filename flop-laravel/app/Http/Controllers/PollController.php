@@ -22,7 +22,7 @@ class PollController extends Controller
         // Vérifier si le sondage est en cours
         if ($start_date->addMinutes($duration)->toDateTime() > now()) {
             // Si le sondage est en cours, retourner une vue pour l'édition du sondage en cours
-            $url = route('poll.edit', ['poll' => $poll]);
+            $url = route('poll.edit', ['poll' => $dernierSondage->id]);
 
             return redirect()->route($url, compact('dernierSondage'));
         } else {
