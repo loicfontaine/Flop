@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Poll;
 use App\Models\Option;
 use Carbon\Carbon;
-use App\Models\OptionUser;
 
 class PollController extends Controller
 {
@@ -35,6 +34,7 @@ class PollController extends Controller
      */
     public function create()
     {
+        dd('create');
         return view('pollCreate');
     }
 
@@ -57,7 +57,6 @@ class PollController extends Controller
             ]);
         }
 
-        dd($request->input('options'));
         return redirect()->route('poll.create');
     }
 

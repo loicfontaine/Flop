@@ -13,7 +13,7 @@ class Poll extends Model
     protected $guarded = [];
 
     protected $fillable = [
-        'title',
+        "title",
         "description",
         "user_id",
         "duration",
