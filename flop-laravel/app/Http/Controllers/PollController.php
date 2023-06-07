@@ -16,9 +16,10 @@ class PollController extends Controller
     {
         $dernierSondage = Poll::orderByDesc('id')->first();
         $start_date = $dernierSondage->start_date;
+        $duration = $dernierSondage->duration * 60000;
 
         // Vérifier si le sondage est en cours
-        if (($start_date->addMinutes($dernierSondage->duration)->toDateTimeString()) > now()) {
+        if (($start_date->addMinutes($duration)->toDateTimeString()) > now()) {
             // Si le sondage est en cours, retourner une vue pour l'édition du sondage en cours
             return view('poll.edit', compact('dernierSondage'));
         } else {
