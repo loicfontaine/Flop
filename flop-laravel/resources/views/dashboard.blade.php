@@ -26,7 +26,6 @@
             <h2 class='titreNombreDeColorCoins'>ColorCoins</h2>
         </div>
         <img src="img/Icone-ColorCoins.png" class="ColorCoinsImage">
-        <button class='boutique' type='submit'>Visiter la boutique</button>
         @else
         <div class="messageLogin">
             <div class="top-container">
@@ -50,58 +49,60 @@
             @if (Auth::check())
             <h2 class="nombreDeColorCoins">{{Auth::user()->color_coins}}</h2>
         </div>
+        <button class='boutique' type='submit'>Visiter la boutique</button>
     </div>
 
-    <div id="informations">
-        <div id="titre">
-            <h1 class="title">Mes informations</h1>
-            <bouton class="bouton" id="bouton-modifier">Modifier</bouton>
-        </div>
-        <div id="container-infos">
-            <div class="bloc">
-                <h1>E-mail</h1>
-                <p>{{Auth::user()->email}}</p>
+    <div class="centrer">
+        <div id="informations">
+            <div id="titre">
+                <h1 class="title">Mes informations</h1>
+                <bouton class="bouton" id="bouton-modifier">Modifier</bouton>
             </div>
-            <div class="bloc">
-                <h1>Prénom</h1>
-                <p>{{Auth::user()->prenom}}</p>
-            </div>
-            <div class="bloc">
-                <h1>Nom</h1>
-                <p>{{Auth::user()->nom}}</p>
-            </div>
-            <div class="bloc">
-                <h1>Adresse</h1>
-                <p>{{Auth::user()->adresse}}</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="participation">
-        <h1 class="title">Mes informations</h1>
-        <div class="container-participation">
-            <div class="bloc-participation">
-                <div class="entete">
-                    <h1>Type de participation</h1>
-                    <p>Date de participation</p>
+            <div id="container-infos">
+                <div class="bloc">
+                    <h1>E-mail</h1>
+                    <p>{{Auth::user()->email}}</p>
                 </div>
-                <div>
-                    <div class="row">
-                        <div class="description">
-                            <h2>Nom concours</h2>
-                            <p>description</p>
-                        </div>
-                        <div class="coins">
-                            <span>Nombre de color coins</span>
-                            <svg class="cc" xmlns="http://www.w3.org/2000/svg" class="cc" viewBox="0 0 1061.26 1061.27"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#e84a97;}.cls-3{fill:#7cf5ac;}</style></defs><g id="Calque_1-2"><path class="cls-1" d="m530.34,80.55c-250.04,0-452.74,202.68-452.74,452.71s202.7,452.74,452.74,452.74,452.71-202.7,452.71-452.74S780.37,80.55,530.34,80.55Zm.29,102.68v144.44c-34.7.34-64.05,22.95-74.47,54.2l-138.63-45.02c29.69-89.25,113.87-153.62,213.1-153.62Zm0,692.32c-123.13,0-222.95-99.81-222.95-222.92,0-23.99,3.8-47.04,10.8-68.69l137.6,44.7c-2.58,7.8-3.96,16.11-3.96,24.76,0,43.8,35.5,79.3,79.28,79.3s79.28-35.5,79.28-79.3c0-11.86-2.6-23.14-7.3-33.25-12.55-27.16-40.06-46.03-71.98-46.03-.27,0-.5,0-.77.03v-144.44c25.21,0,49.48,4.19,72.09,11.91,47.75,16.32,88.19,48.37,115.14,90,22.58,34.86,35.69,76.41,35.69,121.01,0,123.11-99.81,222.92-222.92,222.92Z"/><path class="cls-2" d="m530.63,0C237.56,0,0,237.57,0,530.64s237.56,530.63,530.63,530.63,530.63-237.56,530.63-530.63S823.67,0,530.63,0Zm-.29,986c-250.04,0-452.74-202.7-452.74-452.74S280.3,80.55,530.34,80.55s452.71,202.68,452.71,452.71-202.68,452.74-452.71,452.74Z"/><path class="cls-3" d="m530.63,183.23v144.44c-34.7.34-64.05,22.95-74.47,54.2l-138.63-45.02c29.69-89.25,113.87-153.62,213.1-153.62Z"/><path class="cls-3" d="m753.55,652.63c0,123.11-99.81,222.92-222.92,222.92s-222.95-99.81-222.95-222.92c0-23.99,3.8-47.04,10.8-68.69l137.6,44.7c-2.58,7.8-3.96,16.11-3.96,24.76,0,43.8,35.5,79.3,79.28,79.3s79.28-35.5,79.28-79.3c0-11.86-2.6-23.14-7.3-33.25-12.55-27.16-40.06-46.03-71.98-46.03-.27,0-.5,0-.77.03v-144.44c25.21,0,49.48,4.19,72.09,11.91,47.75,16.32,88.19,48.37,115.14,90,22.58,34.86,35.69,76.41,35.69,121.01Z"/></g></svg>
-                        </div>
-                    </div>    
+                <div class="bloc">
+                    <h1>Prénom</h1>
+                    <p>{{Auth::user()->prenom}}</p>
+                </div>
+                <div class="bloc">
+                    <h1>Nom</h1>
+                    <p>{{Auth::user()->nom}}</p>
+                </div>
+                <div class="bloc">
+                    <h1>Adresse</h1>
+                    <p>{{Auth::user()->adresse}}</p>
                 </div>
             </div>
         </div>
-    </div>
+
+        <div id="participation">
+            <h1 class="title">Mes participations</h1>
+            <div id="container-participation">
+                <div class="bloc-participation">
+                    <div class="entete">
+                        <h1>Type de participation</h1>
+                        <p>Date de participation</p>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="description">
+                                <h2>Nom concours</h2>
+                                <p>description</p>
+                            </div>
+                            <div class="coins">
+                                <span>Nombre de color coins</span>
+                                <svg class="cc" xmlns="http://www.w3.org/2000/svg" class="cc" viewBox="0 0 1061.26 1061.27"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#e84a97;}.cls-3{fill:#7cf5ac;}</style></defs><g id="Calque_1-2"><path class="cls-1" d="m530.34,80.55c-250.04,0-452.74,202.68-452.74,452.71s202.7,452.74,452.74,452.74,452.71-202.7,452.71-452.74S780.37,80.55,530.34,80.55Zm.29,102.68v144.44c-34.7.34-64.05,22.95-74.47,54.2l-138.63-45.02c29.69-89.25,113.87-153.62,213.1-153.62Zm0,692.32c-123.13,0-222.95-99.81-222.95-222.92,0-23.99,3.8-47.04,10.8-68.69l137.6,44.7c-2.58,7.8-3.96,16.11-3.96,24.76,0,43.8,35.5,79.3,79.28,79.3s79.28-35.5,79.28-79.3c0-11.86-2.6-23.14-7.3-33.25-12.55-27.16-40.06-46.03-71.98-46.03-.27,0-.5,0-.77.03v-144.44c25.21,0,49.48,4.19,72.09,11.91,47.75,16.32,88.19,48.37,115.14,90,22.58,34.86,35.69,76.41,35.69,121.01,0,123.11-99.81,222.92-222.92,222.92Z"/><path class="cls-2" d="m530.63,0C237.56,0,0,237.57,0,530.64s237.56,530.63,530.63,530.63,530.63-237.56,530.63-530.63S823.67,0,530.63,0Zm-.29,986c-250.04,0-452.74-202.7-452.74-452.74S280.3,80.55,530.34,80.55s452.71,202.68,452.71,452.71-202.68,452.74-452.71,452.74Z"/><path class="cls-3" d="m530.63,183.23v144.44c-34.7.34-64.05,22.95-74.47,54.2l-138.63-45.02c29.69-89.25,113.87-153.62,213.1-153.62Z"/><path class="cls-3" d="m753.55,652.63c0,123.11-99.81,222.92-222.92,222.92s-222.95-99.81-222.95-222.92c0-23.99,3.8-47.04,10.8-68.69l137.6,44.7c-2.58,7.8-3.96,16.11-3.96,24.76,0,43.8,35.5,79.3,79.28,79.3s79.28-35.5,79.28-79.3c0-11.86-2.6-23.14-7.3-33.25-12.55-27.16-40.06-46.03-71.98-46.03-.27,0-.5,0-.77.03v-144.44c25.21,0,49.48,4.19,72.09,11.91,47.75,16.32,88.19,48.37,115.14,90,22.58,34.86,35.69,76.41,35.69,121.01Z"/></g></svg>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
             @endif
-
+    </div>
 
 
 
