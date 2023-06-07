@@ -62,9 +62,10 @@ class PollController extends Controller
             // Associez l'option au sondage
             $poll->options()->save($option);
         }
+        $options->save();
 
         dd($request->options);
-        return view();
+        return view('dashboard');
     }
 
     /**
