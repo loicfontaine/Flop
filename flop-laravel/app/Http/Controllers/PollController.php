@@ -43,24 +43,22 @@ class PollController extends Controller
      */
     public function store(CreatePollRequest $request)
     {
-        $poll = new Poll;
-        $poll->titre = $request->input('titre');
-        $poll->description = $request->input('description');
-        $poll->duration = $request->input('duration');
-        $poll->start_date = $request->input('start_date');
-
-        // Enregistrez le sondage dans la base de données
-        $poll->save();
+        Poll::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'duration' => $request->input('duration'),
+            'user_id' => $request->input('user_id'),
+            'start_date' => $request->input('start_date'),
+        ]);
 
         foreach ($options as $option) {
-            // Création de chaque option
-            $option = new Option;
-            $option->poll_id = $poll->id; // Utilisation de l'ID du sondage
-            $option->title = $option;
-            $option->$option->save();
-        }
+            Option::create([
+                'poll_id' => $poll->id,
+                'title' => $option,
+            ]);
 
-        return redirect()->route('poll.create');
+            return redirect()->route('poll.create');
+        }
     }
 
     /**
