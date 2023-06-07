@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Poll;
 use App\Models\Option;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class PollController extends Controller
 {
@@ -42,6 +43,45 @@ class PollController extends Controller
      */
     public function store(CreatePollRequest $request)
     {
+
+        $user = Auth::user();
+
+        $duration = $request->input('duration');
+
+        $type = $request->input('type');
+
+        $title = $request->input('title');
+
+        $options = $request->input('options[]');
+
+        if ($request->hasFile('files')) {
+            $pictures = [];
+
+            foreach ($request->file('files') as $file) {
+                $path = $file->storePublicly('public/images');
+                $pictures[] = Storage::url($path);
+            }
+        }
+
+        Poll::create([
+            'user_id' => $user->id,
+            'title' => $title,
+            'type' => $type,
+            'duration' => now()->addMinutes($duration),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $result = DB::table('polls')->orderBy('id', 'desc')->first();
+        $lastId = $result->id;
+
+        for ($i = 0; $i < count($options); $i++) {
+            Option::create([
+                'id' => $lastId,
+                'title' => $options[$i],
+            ]);
+        }
+
         Poll::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
@@ -56,8 +96,8 @@ class PollController extends Controller
             ]);
         }
 
-        dd($request->all());
-        return redirect()->route('poll.create');
+        return dd($request->all());
+        // return redirect()->route('poll.create');
     }
 
     /**
