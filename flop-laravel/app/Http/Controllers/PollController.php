@@ -54,17 +54,15 @@ class PollController extends Controller
         // Insérez les options du sondage
         $options = $request->input('options');
 
-        foreach ($options as $optionData) {
+        foreach ($options as $option) {
+            // Création de chaque option
             $option = new Option;
-            $option->title = $optionData;
-            $option->poll_id = $poll->id;
-            // Définissez les autres propriétés de l'option si nécessaire
-
-            // Associez l'option au sondage
-            $options->save();
+            $option->poll_id = $poll->id; // Utilisation de l'ID du sondage
+            $option->title = $option;
+            $option->save();
         }
 
-        return view('dashboard');
+        return redirect()->route('poll.create');
     }
 
     /**
