@@ -51,14 +51,15 @@ class PollController extends Controller
             'start_date' => $request->input('start_date'),
         ]);
 
+
         foreach ($options as $option) {
             Option::create([
                 'poll_id' => $poll->id,
                 'title' => $option,
             ]);
-
-            return redirect()->route('poll.create');
         }
+
+        return redirect()->route('poll.create');
     }
 
     /**
