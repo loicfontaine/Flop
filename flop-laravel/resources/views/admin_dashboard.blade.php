@@ -178,7 +178,7 @@
 
                     @foreach($articles as $article)
                         <div class='item'>
-                            <input class="articlesQuantity" type="number" id="quantity" name="quantity-1" min="0" value="0">
+                            <input class="articlesQuantity" type="number" id="quantity" name="quantity-{{ $article->id }}" min="0" value="0">
                             <img src="img/articles/{{$article->image}}" class='img-item'>
                             <h1 class='item-title FontMonserrat'>{{$article->name}}</h1>
                             <div class='item-price'>
