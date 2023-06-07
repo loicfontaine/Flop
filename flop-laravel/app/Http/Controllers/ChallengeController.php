@@ -97,7 +97,7 @@ class ChallengeController extends Controller
 
 
 
-        return view("test");
+        return view("admin_dashboard");
     }
 
     /**

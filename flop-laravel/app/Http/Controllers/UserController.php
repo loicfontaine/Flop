@@ -42,7 +42,7 @@ class UserController extends Controller
             "color_coins" => 10,
         ]);
 
-        return view("test");
+        return view("dashboard");
     }
 
     /**
