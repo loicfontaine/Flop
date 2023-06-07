@@ -175,6 +175,10 @@ body {
     margin: 0 2.5em 0 2.5em;
 }
 
+#home-icon {
+    padding-top: 5px;
+}
+
 @media screen and (min-width: 50em) {
     body {
           font-size: 75%;
