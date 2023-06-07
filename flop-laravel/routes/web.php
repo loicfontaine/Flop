@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PollController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\AdminController;
 
 
 use App\Http\Controllers\MessageController;
@@ -27,7 +29,7 @@ Route::get('/connexion', function () {
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
 //example of a route sending a variable to a controller
 
-Route::get('/boutique', [App\Http\Controllers\ArticleController::class, 'index']);
+Route::get('/boutique', [App\Http\Controllers\ArticleController::class, 'index'])->name("boutique");
 
 Route::get('/', function () {
     return view('homePage');
@@ -56,11 +58,7 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
-Route::get('/admin_dashboard', function () {
-
-
-    return view('admin_dashboard');
-});
+Route::get('/admin_dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
 
 Route::get('logout', [LoginController::class, 'logout']);
@@ -80,7 +78,7 @@ Route::prefix('poll')->group(function () {
     Route::get('/{poll}', [PollController::class, 'show'])->name('poll.show');
     Route::post('/{poll}/vote', [PollController::class, 'vote'])->name('poll.vote');
 });
- 
+
 Route::resource('challenge', ChallengeController::class);
 Route::resource('article', ArticleController::class);
 
