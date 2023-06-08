@@ -58,10 +58,9 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request)
+    public function edit(string $id)
     {
-        dd($request->all());
-        $user = User::findOrFail(1);
+        $user = User::findOrFail($id);
 
         //return view('edit', compact('user'));
     }
@@ -69,9 +68,11 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        User::findOrFail($id)->update($request->all());
+
+        dd($request->all());
+        User::findOrFail(1)->update($request->all());
         //return view('dashboard')->withOk("L'utilisateur " . $request->input('name') . " a été modifié");
     }
 
