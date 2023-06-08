@@ -17,11 +17,10 @@
 <p>{{$title}}</p>
 <p>{{$description}}</p>
 
-@foreach($options as $option)
-<label>{{$reponse->option}}</label>
-<input type="radio" name="options[]" value="{{$option->id}}">
-</label>
-<br>
+@foreach ($questions as $question) 
+    <label>{{$question->question}}</label>
+        <input type="radio" name="questions[]" value="{{$question->id}}">
+    </label>
 @endforeach
 
 <input type="submit" value="Valider">
