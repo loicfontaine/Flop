@@ -16,11 +16,7 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-
-
-        if (auth()->user()->is_admin) {
-            $articles = Article::all();
-            return view("admin_dashboard", compact("articles"));
-        }
+        $articles = Article::all();
+        return view("admin_dashboard", compact("articles"));
     }
 }
