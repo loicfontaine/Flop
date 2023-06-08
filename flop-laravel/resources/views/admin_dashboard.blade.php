@@ -92,9 +92,9 @@
                       <input type="text" name="options[]" placeholder="Option" class="form" required="required">
                     </div>
                     
-                    <section>
-                      <button class="submit buttonLabel" type="button" onclick="ajouterOption()">Ajouter une option</button>
-                      <button class="submit buttonLabel" type="button" onclick="supprimerOption()">Supprimer une option</button>
+                    <section class="addDeleteOptions">
+                      <button class="submit optionButtonLabel" type="button" onclick="ajouterOption()">Ajouter une option</button>
+                      <button class="submit optionButtonLabel" type="button" onclick="supprimerOption()">Supprimer une option</button>
                     </section>
               
                     <section>

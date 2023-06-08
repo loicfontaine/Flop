@@ -3,7 +3,7 @@
     <div class="arrow-container" @click="toggleExpand">
       <i class="arrow-icon" :class="{ 'expanded': isExpanded }" @click="isArrowClicked = true"></i>
     </div>
-    <div class="image-container">
+    <div class="image-container-title">
       <img src="img/défis.png" alt="Image">
     </div>
     <div class="text-container">
@@ -11,14 +11,16 @@
       <div class="titre FontInter">Participe au défi en cours !</div>
     </div>
     <div class="expanded-content" v-if="isExpanded">
-      <label for="video-upload" class="custom-file-upload">
+      <label for="video-upload" class="custom-file-upload FontMonserrat">
         Choisir une vidéo
-        <input id="video-upload" class="expanded-input FontMonserrat champsVideo" type="file" accept="video/*">
+        <input id="video-upload" class="expanded-input FontMonserrat champsVideo" type="file" accept="video/*" @change="handleVideoUpload">
+        <video class="selectedMedia" v-if="selectedVideo" :src="selectedVideo" controls></video>
       </label>
 
-      <label for="image-upload" class="custom-file-upload">
+      <label for="image-upload" class="custom-file-upload FontMonserrat">
         Choisir une image
-        <input id="image-upload" class="expanded-input FontMonserrat champsImage" type="file" accept="image/*">
+        <input id="image-upload" class="expanded-input FontMonserrat champsImage" type="file" accept="image/*" @change="handleImageUpload">
+        <img class="selectedMedia" v-if="selectedImage" :src="selectedImage" alt="Image">
       </label>
       <audio v-if="audioBlob" controls>
         <source :src="audioUrl" type="audio/webm">
@@ -27,7 +29,7 @@
       <button class="expanded-button audio FontMonserrat" @click="startRecording" v-if="!isRecording">Enregistrer</button>
       <button class="expanded-button audio FontMonserrat" @click="stopRecording" v-if="isRecording">Arrêter l'enregistrement</button>
       <input class="expanded-input FontMonserrat champsTexte" type="text" placeholder="Envoyer un message..." ref="expandedInput">
-      <button class="expanded-button envoi FontMonserrat">Envoyer</button>
+      <button class="expanded-button envoi FontMonserrat">Envoyer ma participation</button>
       
     </div>
   </div>
@@ -110,6 +112,14 @@ export default {
     onRecordingStop() {
       this.audioBlob = new Blob(this.chunks, { type: 'audio/webm' });
     },
+    handleImageUpload(event) {
+      const file = event.target.files[0];
+      this.selectedImage = URL.createObjectURL(file);
+    },
+    handleVideoUpload(event) {
+      const file = event.target.files[0];
+      this.selectedVideo = URL.createObjectURL(file);
+    },
   },
   computed: {
     audioUrl() {
@@ -172,21 +182,27 @@ export default {
   transform: rotate(-90deg);
 }
 
-.image-container {
+.image-container-title {
   padding-top: 36px;
   padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.image-container img {
+.image-container-title img {
   width: 100px;
   height: auto;
   border-radius: 8px;
 }
 
-.countdown-container.expanded .image-container {
+.countdown-container.expanded .image-container-title {
   padding: 0px;
+  height: 20%;
+}
+
+.countdown-container.expanded .image-container-title img {
+  border-radius: 0px;
+  width: 100%;
 }
 
 .text-container {
@@ -217,6 +233,7 @@ export default {
   border-radius: 8px;
   border: none;
   margin-bottom: 10px;
+  color: black;
 }
 
 .expanded-content {
@@ -227,7 +244,7 @@ export default {
   flex-direction: column;
   
 }
-.expanded-button.envoi{
+.expanded-button{
   border-radius: 8px;
   background-color: #E60099;
   font-weight: bold;
@@ -247,9 +264,17 @@ export default {
   font-weight: bold;
   text-align: center;
   cursor: pointer;
+  font-size: 18px;
+
 }
 
-#image-upload, #video-upload {
-  display: none;
+.selectedMedia {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
+
+ #image-upload, #video-upload {
+  display: none;
+} 
 </style>
