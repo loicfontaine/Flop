@@ -102,7 +102,7 @@ input.form {
 }
 
 input.optionForm {
-    margin-top: 0;
+    margin-bottom: 0.1em;
 }
 
 input.form:focus {
