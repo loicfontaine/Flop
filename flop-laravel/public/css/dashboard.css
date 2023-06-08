@@ -357,3 +357,14 @@ hr#separation {
 .description {
   margin-left:5px;
 }
+
+.bloc {
+  padding:2px;
+  height:55px;
+  border-bottom: 1px #E60096;
+}
+
+hr {
+  border: 1px solid #E60096;
+  margin: 0px;
+}

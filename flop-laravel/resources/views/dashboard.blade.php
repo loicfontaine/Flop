@@ -38,18 +38,22 @@
                     <h1>E-mail</h1>
                     <p>{{Auth::user()->email}}</p>
                 </div>
+                <hr>
                 <div class="bloc">
                     <h1>Prénom</h1>
                     <p>{{Auth::user()->firstname}}</p>
                 </div>
+                <hr>
                 <div class="bloc">
                     <h1>Nom</h1>
                     <p>{{Auth::user()->lastname}}</p>
                 </div>
+                <hr>
                 <div class="bloc">
                     <h1>Adresse</h1>
                     <p>{{Auth::user()->address}}</p>
                 </div>
+                <hr>
                 <div class="bloc">
                     <h1>Numéro de téléphone</h1>
                     <p>{{Auth::user()->phone_number}}</p>
