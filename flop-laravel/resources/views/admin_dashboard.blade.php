@@ -93,8 +93,9 @@
                     </div>
                     <section class="addDeleteOptions">
                         <button class="submit optionButtonLabel" type="button" onclick="ajouterOption()">Ajouter une option</button>
-                        <button class="submit optionButtonLabel" type="button" onclick="supprimerOption()">Supprimer une option</button>
-                      </section>
+                        <button class="submit optionButtonLabel" type="button" onclick="supprimerOption()">Supprimer une option
+                        </button>
+                    </section>
               
                     <div class="form-submit">
                         <button type="submit" class='submit buttonLabel'>Créer un sondage</button>
