@@ -68,9 +68,6 @@
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un sondage</h2>
                 <form method="POST" action="{{route('poll.store')}}" accept-charset="UTF-8">
                     @csrf
-                
-                    <span class='FontInter formLabel'>Nom</span>
-                    <input class='form' required="required" type="text" name="title" v-model="name">
                     
                     <span class='FontInter formLabel'>Titre</span>
                     <input required="required" name="title" id="title" type="text" class="validate form">
