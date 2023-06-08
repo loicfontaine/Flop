@@ -56,6 +56,15 @@ export default {
   created() {
     this.startCountdown();
   },
+  mounted() {
+    axios.get('/api/home')
+        .then(response => {
+            console.log(response.challenges);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+},
   methods: {
     startCountdown() {
       const currentDate = new Date();
@@ -129,6 +138,7 @@ export default {
     audioUrl() {
       return this.audioBlob ? URL.createObjectURL(this.audioBlob) : '';
     },
+    
   },
 };
 </script>
