@@ -143,6 +143,21 @@ hr.separation2 {
     align-items: center;
 }
 
+.addDeleteOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.optionButtonLabel{
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 40%;
+    margin: 5em;
+}
+
 .condition {
     display: flex;
     flex-direction: column;
