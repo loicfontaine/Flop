@@ -85,7 +85,7 @@
                     <h1>Numéro de téléphone</h1>
                     <input type="text" name="phone_number" value="{{Auth::user()->phone_number}}">
                 </div>
-                <button class="bouton" type="submit" class="bouton" id="bouton-valider">Valider</button>
+                <button class="bouton" type="submit" id="bouton-valider">Valider</button>
             </form>
         </div>
 
