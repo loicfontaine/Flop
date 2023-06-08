@@ -13,6 +13,7 @@ use App\Http\Controllers\ParticipationController;
 
 
 
+
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ChallengeController;
 
@@ -32,6 +33,8 @@ use App\Http\Controllers\ChallengeController;
 //example of a route sending a variable to a controller
 
 Route::get('/boutique', [App\Http\Controllers\ArticleController::class, 'index'])->name("boutique");
+
+
 
 Route::get('/', function () {
     return redirect('/home');
