@@ -29,8 +29,8 @@ class HomeController extends Controller
     public function getInfo()
     {
         $challenges = Challenge::where("end_time", ">", date("Y-m-d H:i:s"))->get();
-        $types = $challenges->participation_types;
+        //$types = $challenges->participation_types;
 
-        return view("homePage", compact("challenges, types"));
+        return response()->json($challenges);
     }
 }

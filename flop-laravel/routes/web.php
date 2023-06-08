@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
@@ -8,6 +9,8 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ParticipationController;
+
 
 
 
@@ -31,9 +34,16 @@ use App\Http\Controllers\ChallengeController;
 
 Route::get('/boutique', [App\Http\Controllers\ArticleController::class, 'index'])->name("boutique");
 
+
+
 Route::get('/', function () {
-    return view('homePage');
+    return redirect('/home');
 });
+
+Route::get('/home', function () {
+    return view('homePage');
+})->name('home');
+
 Route::get('/inscription', function () {
     return view('inscription');
 });
@@ -72,10 +82,11 @@ Route::post('pollsend', [PollController::class, 'store'])->name('pollsend');
 
 Route::resource('challenge', ChallengeController::class);
 Route::resource('article', ArticleController::class);
+Route::resource('participation', ParticipationController::class);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/chat', function () {
     return view('chat');
 });

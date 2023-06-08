@@ -119,6 +119,13 @@ p.p1 {
     padding-bottom: 20px;
 }
 
+.container-chat hr {
+    border-color: white;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
 .titre-chat {
     font-family: 'Inter', sans-serif;
     font-size: 22px;
@@ -162,17 +169,19 @@ p.p1 {
     margin-bottom: 0em;
 }
 
-hr {
-    color: white;
+.hrTop {
+    border-color: orange;
     /* centrer le hr */
-    margin-left: auto;
-    margin-right: auto;
+}
+
+.hrBottom{
+    border-color: red;
+    /* centrer le hr */
 }
 
 .message {
     display:flex;
     flex-direction: row;
-
 }
 
 .message p {
@@ -222,6 +231,7 @@ p.nomUtil {
 .nomDeUtilisateur {
     display: flex;
     align-items: center;
+    margin-bottom: 0;
     gap: 1em;
 }
 
@@ -235,5 +245,26 @@ input[type="text"]::placeholder {
     text-indent: 10px; /* Décalage vers la droite */
 }
 
+.connexion {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.texteDeConnexion {
+    font-size: 18px;
+    text-align: center;
+    color: white;
+}
+
+.submit {
+    background-color: #E60096; 
+    font-size: 18px;
+    color: white;
+    border:none;
+    border-radius: 8px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}       
 
 
