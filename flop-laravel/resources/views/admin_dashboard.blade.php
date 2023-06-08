@@ -356,7 +356,7 @@
 
 
   function supprimerOption() {
-    var conteneurOptions = document.getElementById('conteneur-options');
+    var conteneurOptions = document.querySelector('#conteneur-options');
 
     // Vérifier s'il y a plus d'une option
     if (conteneurOptions.children.length > 1) {
