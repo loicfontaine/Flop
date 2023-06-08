@@ -8,8 +8,9 @@
 <p id="alert" style="display:none;">Pas de sondage disponible</p>
 <div class="sondage">
 <p>Durée du sondage</p>
+<p id="duree" style="display:none;">{{$duration}}</p>
 
-<p>{{$question}}</p>
+<p>{{$title}}</p>
 
 @foreach($reponses as $reponse)
 <label>{{$reponse->answer}} 
@@ -25,6 +26,6 @@
 </form>
 </div>
 
-
+@else
 <p>Pas de sondage disponible</p>
 @endsection
