@@ -368,3 +368,7 @@ hr {
   border: 1px solid #E60096;
   margin: 0px;
 }
+
+.hidden {
+  display: none;
+}
