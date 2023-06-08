@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 
-<div class='FontInter'>
+<div class='authentificated FontInter'>
     <hr id='separation'>
     <div class="text-image-container">
         @if (Auth::check())
@@ -22,95 +22,91 @@
     </div>
 
     <div class='input-container'>
-        <div class='FontInterBlack'>
-            <h2 class='titreNombreDeColorCoins'>ColorCoins</h2>
-        </div>
+        <h2 class='titreNombreDeColorCoins'>ColorCoins</h2>
         <img src="img/Icone-ColorCoins.png" class="ColorCoinsImage">
-        @else
-        <div class="messageLogin">
-            <div class="top-container">
-                <svg class="imgLogin" width="75" height="85" viewBox="0 0 75 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M27.6507 43.2755C27.8975 43.0281 28.1906 42.8319 28.5133 42.698C28.836 42.564 29.182 42.4951 29.5314 42.4951C29.8807 42.4951 30.2267 42.564 30.5494 42.698C30.8721 42.8319 31.1652 43.0281 31.412 43.2755L37.5001 49.3689L43.5882 43.2755C44.087 42.7767 44.7635 42.4965 45.4689 42.4965C46.1742 42.4965 46.8507 42.7767 47.3495 43.2755C47.8483 43.7743 48.1285 44.4507 48.1285 45.1561C48.1285 45.8615 47.8483 46.538 47.3495 47.0367L41.256 53.1249L47.3495 59.213C47.8483 59.7118 48.1285 60.3882 48.1285 61.0936C48.1285 61.799 47.8483 62.4755 47.3495 62.9742C46.8507 63.473 46.1742 63.7532 45.4689 63.7532C44.7635 63.7532 44.087 63.473 43.5882 62.9742L37.5001 56.8808L31.412 62.9742C30.9132 63.473 30.2367 63.7532 29.5314 63.7532C28.826 63.7532 28.1495 63.473 27.6507 62.9742C27.152 62.4755 26.8718 61.799 26.8718 61.0936C26.8718 60.3882 27.152 59.7118 27.6507 59.213L33.7442 53.1249L27.6507 47.0367C27.4034 46.79 27.2071 46.4969 27.0732 46.1742C26.9393 45.8515 26.8704 45.5055 26.8704 45.1561C26.8704 44.8067 26.9393 44.4608 27.0732 44.1381C27.2071 43.8154 27.4034 43.5222 27.6507 43.2755Z" fill="white" />
-                    <path d="M37.5 5.3125C41.0224 5.3125 44.4005 6.71177 46.8913 9.20249C49.382 11.6932 50.7812 15.0713 50.7812 18.5938V21.25H24.2188V18.5938C24.2188 15.0713 25.618 11.6932 28.1087 9.20249C30.5995 6.71177 33.9776 5.3125 37.5 5.3125ZM56.0938 21.25V18.5938C56.0938 13.6624 54.1348 8.93299 50.6478 5.44598C47.1608 1.95898 42.4314 0 37.5 0C32.5686 0 27.8392 1.95898 24.3522 5.44598C20.8652 8.93299 18.9063 13.6624 18.9062 18.5938V21.25H0.3125V74.375C0.3125 77.1929 1.43192 79.8954 3.42449 81.888C5.41706 83.8806 8.11957 85 10.9375 85H64.0625C66.8804 85 69.5829 83.8806 71.5755 81.888C73.5681 79.8954 74.6875 77.1929 74.6875 74.375V21.25H56.0938ZM5.625 26.5625H69.375V74.375C69.375 75.784 68.8153 77.1352 67.819 78.1315C66.8227 79.1278 65.4715 79.6875 64.0625 79.6875H10.9375C9.52854 79.6875 8.17728 79.1278 7.18099 78.1315C6.18471 77.1352 5.625 75.784 5.625 74.375V26.5625Z" fill="white" />
-                </svg>
-            </div>
-            <div class="middle-container">
-                <h2 class="right-text">Vous n'êtes actuellement pas connecté ! <br> Créez un compte ou connectez-vous pour pouvoir accéder à votre Dashboard !</h2>
-            </div>
-            <div class="bottom-container">
-                <div class="btnRenvoiLogin">
-                    <button id="renvoiSurLogin" class="renvoiLogin">Connectez-vous</button>
-                </div>
-            </div>
-        </div>
-
-        @endif
-        <div class="FontInterBlack">
-            @if (Auth::check())
-            <h2 class="nombreDeColorCoins">{{Auth::user()->color_coins}}</h2>
-        </div>
+        <h2 class="nombreDeColorCoins">{{Auth::user()->color_coins}}</h2>
         <button class='boutique' type='submit'>Visiter la boutique</button>
     </div>
 
-    <div class="centrer">
-        <div id="informations">
-            <div id="titre">
-                <h1 class="title">Mes informations</h1>
-                <bouton class="bouton" id="bouton-modifier">Modifier</bouton>
+    <div id="informations">
+        <div id="titre">
+            <h1 class="title">Mes informations</h1>
+            <bouton class="bouton" id="bouton-modifier">Modifier</bouton>
+        </div>
+        <div id="container-infos">
+            <div class="bloc">
+                <h1>E-mail</h1>
+                <p>{{Auth::user()->email}}</p>
             </div>
-            <div id="container-infos">
-                <div class="bloc">
-                    <h1>E-mail</h1>
-                    <p>{{Auth::user()->email}}</p>
-                </div>
-                <div class="bloc">
-                    <h1>Prénom</h1>
-                    <p>{{Auth::user()->prenom}}</p>
-                </div>
-                <div class="bloc">
-                    <h1>Nom</h1>
-                    <p>{{Auth::user()->nom}}</p>
-                </div>
-                <div class="bloc">
-                    <h1>Adresse</h1>
-                    <p>{{Auth::user()->adresse}}</p>
-                </div>
+            <div class="bloc">
+                <h1>Prénom</h1>
+                <p>{{Auth::user()->prenom}}</p>
+            </div>
+            <div class="bloc">
+                <h1>Nom</h1>
+                <p>{{Auth::user()->nom}}</p>
+            </div>
+            <div class="bloc">
+                <h1>Adresse</h1>
+                <p>{{Auth::user()->adresse}}</p>
             </div>
         </div>
-
-        <div id="participation">
-            <h1 class="title">Mes participations</h1>
-            <div id="container-participation">
-                <div class="bloc-participation">
-                    <div class="entete">
-                        <h1>Type de participation</h1>
-                        <p>Date de participation</p>
-                    </div>
-                    <div>
-                        <div class="row">
-                            <div class="description">
-                                <h2>Nom concours</h2>
-                                <p>description</p>
-                            </div>
-                            <div class="coins">
-                                <span>Nombre de color coins</span>
-                                <svg class="cc" xmlns="http://www.w3.org/2000/svg" class="cc" viewBox="0 0 1061.26 1061.27"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#e84a97;}.cls-3{fill:#7cf5ac;}</style></defs><g id="Calque_1-2"><path class="cls-1" d="m530.34,80.55c-250.04,0-452.74,202.68-452.74,452.71s202.7,452.74,452.74,452.74,452.71-202.7,452.71-452.74S780.37,80.55,530.34,80.55Zm.29,102.68v144.44c-34.7.34-64.05,22.95-74.47,54.2l-138.63-45.02c29.69-89.25,113.87-153.62,213.1-153.62Zm0,692.32c-123.13,0-222.95-99.81-222.95-222.92,0-23.99,3.8-47.04,10.8-68.69l137.6,44.7c-2.58,7.8-3.96,16.11-3.96,24.76,0,43.8,35.5,79.3,79.28,79.3s79.28-35.5,79.28-79.3c0-11.86-2.6-23.14-7.3-33.25-12.55-27.16-40.06-46.03-71.98-46.03-.27,0-.5,0-.77.03v-144.44c25.21,0,49.48,4.19,72.09,11.91,47.75,16.32,88.19,48.37,115.14,90,22.58,34.86,35.69,76.41,35.69,121.01,0,123.11-99.81,222.92-222.92,222.92Z"/><path class="cls-2" d="m530.63,0C237.56,0,0,237.57,0,530.64s237.56,530.63,530.63,530.63,530.63-237.56,530.63-530.63S823.67,0,530.63,0Zm-.29,986c-250.04,0-452.74-202.7-452.74-452.74S280.3,80.55,530.34,80.55s452.71,202.68,452.71,452.71-202.68,452.74-452.71,452.74Z"/><path class="cls-3" d="m530.63,183.23v144.44c-34.7.34-64.05,22.95-74.47,54.2l-138.63-45.02c29.69-89.25,113.87-153.62,213.1-153.62Z"/><path class="cls-3" d="m753.55,652.63c0,123.11-99.81,222.92-222.92,222.92s-222.95-99.81-222.95-222.92c0-23.99,3.8-47.04,10.8-68.69l137.6,44.7c-2.58,7.8-3.96,16.11-3.96,24.76,0,43.8,35.5,79.3,79.28,79.3s79.28-35.5,79.28-79.3c0-11.86-2.6-23.14-7.3-33.25-12.55-27.16-40.06-46.03-71.98-46.03-.27,0-.5,0-.77.03v-144.44c25.21,0,49.48,4.19,72.09,11.91,47.75,16.32,88.19,48.37,115.14,90,22.58,34.86,35.69,76.41,35.69,121.01Z"/></g></svg>
-                            </div>
-                        </div>    
-                    </div>
-                </div>
-            </div>
-        </div>
-            @endif
     </div>
 
+    <div id="participation">
+        <h1 class="title">Mes participations</h1>
+        <div id="container-participation">
+            <div class="entete">
+                <h1>Type de participation</h1>
+                <p>Date de participation</p>
+            </div>
+            <div class="row">
+                <div class="description">
+                    <h2>Nom concours</h2>
+                    <p>description</p>
+                </div>
+                <div class="coins">
+                    <span>Nombre de color coins</span>
+                    <svg class="cc" xmlns="http://www.w3.org/2000/svg" class="cc" viewBox="0 0 1061.26 1061.27"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#e84a97;}.cls-3{fill:#7cf5ac;}</style></defs><g id="Calque_1-2"><path class="cls-1" d="m530.34,80.55c-250.04,0-452.74,202.68-452.74,452.71s202.7,452.74,452.74,452.74,452.71-202.7,452.71-452.74S780.37,80.55,530.34,80.55Zm.29,102.68v144.44c-34.7.34-64.05,22.95-74.47,54.2l-138.63-45.02c29.69-89.25,113.87-153.62,213.1-153.62Zm0,692.32c-123.13,0-222.95-99.81-222.95-222.92,0-23.99,3.8-47.04,10.8-68.69l137.6,44.7c-2.58,7.8-3.96,16.11-3.96,24.76,0,43.8,35.5,79.3,79.28,79.3s79.28-35.5,79.28-79.3c0-11.86-2.6-23.14-7.3-33.25-12.55-27.16-40.06-46.03-71.98-46.03-.27,0-.5,0-.77.03v-144.44c25.21,0,49.48,4.19,72.09,11.91,47.75,16.32,88.19,48.37,115.14,90,22.58,34.86,35.69,76.41,35.69,121.01,0,123.11-99.81,222.92-222.92,222.92Z"/><path class="cls-2" d="m530.63,0C237.56,0,0,237.57,0,530.64s237.56,530.63,530.63,530.63,530.63-237.56,530.63-530.63S823.67,0,530.63,0Zm-.29,986c-250.04,0-452.74-202.7-452.74-452.74S280.3,80.55,530.34,80.55s452.71,202.68,452.71,452.71-202.68,452.74-452.71,452.74Z"/><path class="cls-3" d="m530.63,183.23v144.44c-34.7.34-64.05,22.95-74.47,54.2l-138.63-45.02c29.69-89.25,113.87-153.62,213.1-153.62Z"/><path class="cls-3" d="m753.55,652.63c0,123.11-99.81,222.92-222.92,222.92s-222.95-99.81-222.95-222.92c0-23.99,3.8-47.04,10.8-68.69l137.6,44.7c-2.58,7.8-3.96,16.11-3.96,24.76,0,43.8,35.5,79.3,79.28,79.3s79.28-35.5,79.28-79.3c0-11.86-2.6-23.14-7.3-33.25-12.55-27.16-40.06-46.03-71.98-46.03-.27,0-.5,0-.77.03v-144.44c25.21,0,49.48,4.19,72.09,11.91,47.75,16.32,88.19,48.37,115.14,90,22.58,34.86,35.69,76.41,35.69,121.01Z"/></g></svg>
+                </div>  
+            </div>
+        </div>
+    </div>   
+</div>
+@else
+<div class="FontInter">
+    <div class="messageLogin">
+        <div class="top-container">
+            <svg class="imgLogin" width="75" height="85" viewBox="0 0 75 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M27.6507 43.2755C27.8975 43.0281 28.1906 42.8319 28.5133 42.698C28.836 42.564 29.182 42.4951 29.5314 42.4951C29.8807 42.4951 30.2267 42.564 30.5494 42.698C30.8721 42.8319 31.1652 43.0281 31.412 43.2755L37.5001 49.3689L43.5882 43.2755C44.087 42.7767 44.7635 42.4965 45.4689 42.4965C46.1742 42.4965 46.8507 42.7767 47.3495 43.2755C47.8483 43.7743 48.1285 44.4507 48.1285 45.1561C48.1285 45.8615 47.8483 46.538 47.3495 47.0367L41.256 53.1249L47.3495 59.213C47.8483 59.7118 48.1285 60.3882 48.1285 61.0936C48.1285 61.799 47.8483 62.4755 47.3495 62.9742C46.8507 63.473 46.1742 63.7532 45.4689 63.7532C44.7635 63.7532 44.087 63.473 43.5882 62.9742L37.5001 56.8808L31.412 62.9742C30.9132 63.473 30.2367 63.7532 29.5314 63.7532C28.826 63.7532 28.1495 63.473 27.6507 62.9742C27.152 62.4755 26.8718 61.799 26.8718 61.0936C26.8718 60.3882 27.152 59.7118 27.6507 59.213L33.7442 53.1249L27.6507 47.0367C27.4034 46.79 27.2071 46.4969 27.0732 46.1742C26.9393 45.8515 26.8704 45.5055 26.8704 45.1561C26.8704 44.8067 26.9393 44.4608 27.0732 44.1381C27.2071 43.8154 27.4034 43.5222 27.6507 43.2755Z" fill="white" />
+                <path d="M37.5 5.3125C41.0224 5.3125 44.4005 6.71177 46.8913 9.20249C49.382 11.6932 50.7812 15.0713 50.7812 18.5938V21.25H24.2188V18.5938C24.2188 15.0713 25.618 11.6932 28.1087 9.20249C30.5995 6.71177 33.9776 5.3125 37.5 5.3125ZM56.0938 21.25V18.5938C56.0938 13.6624 54.1348 8.93299 50.6478 5.44598C47.1608 1.95898 42.4314 0 37.5 0C32.5686 0 27.8392 1.95898 24.3522 5.44598C20.8652 8.93299 18.9063 13.6624 18.9062 18.5938V21.25H0.3125V74.375C0.3125 77.1929 1.43192 79.8954 3.42449 81.888C5.41706 83.8806 8.11957 85 10.9375 85H64.0625C66.8804 85 69.5829 83.8806 71.5755 81.888C73.5681 79.8954 74.6875 77.1929 74.6875 74.375V21.25H56.0938ZM5.625 26.5625H69.375V74.375C69.375 75.784 68.8153 77.1352 67.819 78.1315C66.8227 79.1278 65.4715 79.6875 64.0625 79.6875H10.9375C9.52854 79.6875 8.17728 79.1278 7.18099 78.1315C6.18471 77.1352 5.625 75.784 5.625 74.375V26.5625Z" fill="white" />
+            </svg>
+        </div>
+        <div class="middle-container">
+            <h2 class="right-text">Vous n'êtes actuellement pas connecté ! <br> Créez un compte ou connectez-vous pour pouvoir accéder à votre Dashboard !</h2>
+        </div>
+        <div class="bottom-container">
+            <div class="btnRenvoiLogin">
+                <button id="renvoiSurLogin" class="renvoiLogin">Connectez-vous</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-    <script>
-        var bouton = document.getElementByClassName('boutique');
-        bouton.addEventListener('click', function() {
-            window.location.href = "boutique";
-        });
+@endif
+     
+
+   
+
+
+
+
+<script>
+    var bouton = document.getElementByClassName('boutique');
+    bouton.addEventListener('click', function() {
+         window.location.href = "boutique";
+    });
 
         var bouton6 = document.getElementById('logout');
         {
@@ -118,13 +114,13 @@
                 window.location.href = "logout";
             });  
         }
-    </script>
+</script>
 
-    <script>
+<script>
     var bouton2 = document.getElementById('renvoiSurLogin');
         bouton2.addEventListener('click', function() {
             window.location.href = "login";
         });
-    </script>
+</script>
 
     @endsection
