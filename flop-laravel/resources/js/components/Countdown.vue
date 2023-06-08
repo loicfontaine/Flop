@@ -1,39 +1,43 @@
 <template>
-  <div class="countdown-container" :class="{ 'expanded': isExpanded }" >
-    <div class="arrow-container" @click="toggleExpand">
-      <i class="arrow-icon" :class="{ 'expanded': isExpanded }" @click="isArrowClicked = true"></i>
-    </div>
-    <div class="image-container-title">
-      <img src="img/défis.png" alt="Image">
-    </div>
-    <div class="text-container">
-      <p class="countdown FontInter rose">{{ formatTime(countdown) }}</p>
-      <div class="titre FontInter">Participe au défi en cours !</div>
-    </div>
-    <div class="expanded-content" v-if="isExpanded">
-      <label for="video-upload" class="custom-file-upload FontMonserrat">
-        Choisir une vidéo
-        <input id="video-upload" class="expanded-input FontMonserrat champsVideo" type="file" accept="video/*" @change="handleVideoUpload">
-        <video class="selectedMedia" v-if="selectedVideo" :src="selectedVideo" controls></video>
-      </label>
+  <form method="POST" action="{{route('participation.store')}}" accept-charset="UTF-8">
+    <div class="countdown-container" :class="{ 'expanded': isExpanded }" >
+      <div class="arrow-container" @click="toggleExpand">
+        <i class="arrow-icon" :class="{ 'expanded': isExpanded }" @click="isArrowClicked = true"></i>
+      </div>
+      <div class="image-container-title">
+        <img src="img/défis.png" alt="Image">
+      </div>
+      <div class="text-container">
+        <p class="countdown FontInter rose">{{ formatTime(countdown) }}</p>
+        <div class="titre FontInter">Participe au défi en cours !</div>
+      </div>
+      <div class="expanded-content" v-if="isExpanded">
+        <label for="video-upload" class="custom-file-upload FontMonserrat">
+          Choisir une vidéo
+          <input id="video-upload" class="expanded-input FontMonserrat champsVideo" type="file" accept="video/*" name="video" @change="handleVideoUpload">
+          <video class="selectedMedia" v-if="selectedVideo" :src="selectedVideo" controls></video>
+        </label>
 
-      <label for="image-upload" class="custom-file-upload FontMonserrat">
-        Choisir une image
-        <input id="image-upload" class="expanded-input FontMonserrat champsImage" type="file" accept="image/*" @change="handleImageUpload">
-        <img class="selectedMedia" v-if="selectedImage" :src="selectedImage" alt="Image">
-      </label>
-      <audio v-if="audioBlob" controls>
-        <source :src="audioUrl" type="audio/webm">
-        Votre navigateur ne prend pas en charge la lecture audio.
-      </audio>
-      <button class="expanded-button audio FontMonserrat" @click="startRecording" v-if="!isRecording">Enregistrer</button>
-      <button class="expanded-button audio FontMonserrat" @click="stopRecording" v-if="isRecording">Arrêter l'enregistrement</button>
-      <input class="expanded-input FontMonserrat champsTexte" type="text" placeholder="Envoyer un message..." ref="expandedInput">
-      <button class="expanded-button envoi FontMonserrat">Envoyer ma participation</button>
-      
+        <label for="image-upload" class="custom-file-upload FontMonserrat">
+          Choisir une image
+          <input id="image-upload" class="expanded-input FontMonserrat champsImage" type="file" accept="image/*" name="image" @change="handleImageUpload">
+          <img class="selectedMedia" v-if="selectedImage" :src="selectedImage" alt="Image">
+        </label>
+        <audio v-if="audioBlob" controls>
+          <source :src="audioUrl" type="audio/webm">
+          Votre navigateur ne prend pas en charge la lecture audio.
+        </audio>
+        <button class="expanded-button audio FontMonserrat" @click="startRecording" v-if="!isRecording">Enregistrer</button>
+        <button class="expanded-button audio FontMonserrat" @click="stopRecording" v-if="isRecording">Arrêter l'enregistrement</button>
+        <input class="expanded-input FontMonserrat champsTexte" type="text" placeholder="Envoyer un message..." name="message" ref="expandedInput">
+        <input type="hidden" name="audioBlob" v-model="audioBlob">
+        <button class="expanded-button envoi FontMonserrat" type="submit">Envoyer ma participation</button>
+        
+      </div>
     </div>
-  </div>
+  </form>
 </template>
+
 
 <script>
 export default {
