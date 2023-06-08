@@ -17,7 +17,7 @@
 <p>{{$title}}</p>
 <p>{{$description}}</p>
 
-@foreach ($questions as $question) 
+@foreach ({{$questions}} as $question) 
     <label>{{$question->question}}</label>
         <input type="radio" name="questions[]" value="{{$question->id}}">
     </label>
