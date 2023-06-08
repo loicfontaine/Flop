@@ -80,15 +80,6 @@
 </div>
 @endif
 
-
-
-     
-
-   
-
-
-
-
 <script>
     var bouton = document.getElementById('boutique');
     bouton.addEventListener('click', function() {
