@@ -1,4 +1,10 @@
-@section('contenu')
+@extends('template')
+@section('css')
+<link rel="stylesheet" href="{{asset('css/inscription.css')}}">
+@endsection
+@section('js')
+<script src="{{asset('js/inscription.js')}}"></script>
+@section('content')
 <!-- Vérification côté serveur si jamais la personne a desactivé JavaScript -->
 <form method="post" action="{{route('answer.store')}}" accept-charset="UTF-8">
         @csrf
