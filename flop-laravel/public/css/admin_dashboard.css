@@ -59,7 +59,6 @@ body{
 .adminDashboardContentItems.display{
     background-color: #303030;
     border-radius: 10px;
-    justify-content: center;
     display: flex;
     height: auto;
     width: 100%;
