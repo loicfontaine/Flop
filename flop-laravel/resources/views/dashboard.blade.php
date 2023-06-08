@@ -59,7 +59,7 @@
                     <p>{{Auth::user()->phone_number}}</p>
                 </div>
             </div>
-            <form method="POST" id="container-modif-infos" class="hidden" action="{{route('user.edit')}}" accept-charset="UTF-8">
+            <form method="POST" id="container-modif-infos" class="hidden"  accept-charset="UTF-8">
                 <div class="bloc">
                     <h1>E-mail</h1>
                     <input type="text" name="email" value="{{Auth::user()->email}}">
