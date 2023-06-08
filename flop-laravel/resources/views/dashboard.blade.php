@@ -59,6 +59,33 @@
                     <p>{{Auth::user()->phone_number}}</p>
                 </div>
             </div>
+            <div id="container-modif-infos" class="hidden">
+                <div class="bloc">
+                    <h1>E-mail</h1>
+                    <input type="text" name="email" value="{{Auth::user()->email}}">
+                </div>
+                <hr>
+                <div class="bloc">
+                    <h1>Prénom</h1>
+                    <input type="text" name="firstname" value="{{Auth::user()->firstname}}">
+                </div>
+                <hr>
+                <div class="bloc">
+                    <h1>Nom</h1>
+                    <input type="text" name="lastname" value="{{Auth::user()->lastname}}">
+                </div>
+                <hr>
+                <div class="bloc">
+                    <h1>Adresse</h1>
+                    <input type="text" name="address" value="{{Auth::user()->address}}">
+                    <hr>
+                </div>
+                <div class="bloc">
+                    <h1>Numéro de téléphone</h1>
+                    <input type="text" name="phone_number" value="{{Auth::user()->phone_number}}">
+                </div>
+                <button class="bouton" type="submit" class="bouton" id="bouton-valider">Valider</button>
+            </div>   
         </div>
 
         <div id="participation">
@@ -96,5 +123,16 @@
                 window.location.href = "logout";
             });  
         }
+
+    var divContainerInfos = document.getElementById('container-infos');
+    var divContainerModif = document.getElementById('container-modif');
+    var btnModifier=document.getElementById('container-modif-infos');
+
+    btnModifier.addEventListener('click', function() {
+        divContainerInfos.style.display = "none";
+        divContainerModif.style.display = "block";
+        btnModifier.style.display = "none"; 
+    });
+        
 </script>
 @endsection
