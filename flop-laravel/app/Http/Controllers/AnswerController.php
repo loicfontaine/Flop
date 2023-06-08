@@ -66,11 +66,6 @@ class AnswerController extends Controller
             $delai = 0;
         }
 
-        //
-        // FIN BONUS
-        //
-
-        // affiches toute les questions
         return view('pollAnswer')->with('question', $dernierSondage->title)->with('duree', $delai)
             ->with('reponses', $reponseTab);
     }
