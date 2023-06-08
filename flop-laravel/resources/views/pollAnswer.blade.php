@@ -17,10 +17,12 @@
 <p>{{$title}}</p>
 <p>{{$description}}</p>
 
-@foreach ({{$questions}} as $question) 
-    <label for="nom">1 :</label>
-    <span id="nom">{{ $question }}</span>
-    <input type="radio" name="questions[]" value="{{$question->id}}">
+@foreach ($questions as $index => $option)
+    <label>
+        <input type="radio" name="option" value="{{ $index }}">
+        {{ $option }}
+    </label>
+    <br>
 @endforeach
 
 <input type="submit" value="Valider">
