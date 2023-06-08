@@ -31,13 +31,15 @@ class AnswerController extends Controller
         $dernierSondage = DB::table('polls')->orderBy('id', 'desc')->first();
         $reponses = DB::table('options')->where('poll_id', $dernierSondage->id)->get();
         $reponseTab = [];
+        $titre = $dernierSondage->title;
+        $duration =  $dernierSondage->duration;
+        $reponses = $reponseTab;
 
         foreach ($reponses as $reponse) {
             $reponseTab[] = $reponse;
         }
 
-        return view('pollAnswer')->with('question', $dernierSondage->title)->with('duree', $dernierSondage->duration)
-            ->with('reponses', $reponseTab);
+        return view('pollAnswer')->with(compact('dernierSondage', 'titre', 'duration', 'reponses'));
     }
 
     /**
