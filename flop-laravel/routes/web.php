@@ -36,7 +36,7 @@ Route::get('/boutique', [App\Http\Controllers\ArticleController::class, 'index']
 Route::get('/', function () {
     return redirect('/home');
 });
-Route::get('/admin_dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
 Route::get('/home', [HomeController::class, 'getInfo'])->name('home');
 
 Route::get('/inscription', function () {
