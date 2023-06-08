@@ -8,7 +8,6 @@
 <p id="alert" style="display:none;">Pas de sondage disponible</p>
 <div class="sondage">
 <p>Durée du sondage</p>
-<p id="duree" style="display:none;">{{$duree}}</p>
 
 <p>{{$question}}</p>
 
