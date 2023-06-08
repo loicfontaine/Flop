@@ -67,45 +67,38 @@
             <div id="createPoll">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un sondage</h2>
                 <form method="POST" action="{{route('poll.store')}}" accept-charset="UTF-8">
-      
                     @csrf
-                    <div class="row">
-                    </div>
-                    <div class="row">
-                      <div>
-                        <label for="title">Titre</label>
-                        <input required="required" name="title" id="title" type="text" class="validate">
-                        @error('title')
-                        {{$message}}
-                        @enderror
-                      </div>
+                
+                    <span class='FontInter formLabel'>Nom</span>
+                    <input class='form' required="required" type="text" name="title" v-model="name">
+                    
+                    <span class='FontInter formLabel'>Titre</span>
+                    <input required="required" name="title" id="title" type="text" class="validate form">
+                    @error('title')
+                    {{$message}}
+                    @enderror
               
-                      <div>
-                        <label for="description">Description</label>
-                        <input required="required" name="description" id="description" type="text" class="validate">
-                        @error('description')
-                        {{$message}}
-                        @enderror
-                      </div>
+                    <span class='FontInter formLabel'>Description</span>
+                    <input required="required" name="description" id="description" type="text" class="validate form">
+                    @error('description')
+                    {{$message}}
+                    @enderror
               
-                      <div>
-                        <label for="title">Durée en minutes</label>
-                        <input required="required" type="integer" class="timepicker" name="duration" value="">
-                      </div>
-                    </div>
+                    <span class='FontInter formLabel'>Durée en minutes</span>
+                    <input required="required" type="integer" class="timepicker form" name="duration" value="0">
               
-                    <label>Options :</label>
+                    <span class='FontInter formLabel'>Options</span>
                     <div id="conteneur-options">
-                      <input type="text" name="options[]" placeholder="Option" required>
+                      <input type="text" name="options[]" placeholder="Option" class="form" required="required">
                     </div>
                     
                     <section>
-                      <button type="button" onclick="ajouterOption()">Ajouter une option</button>
-                      <button type="button" onclick="supprimerOption()">Supprimer une option</button>
+                      <button class="submit buttonLabel" type="button" onclick="ajouterOption()">Ajouter une option</button>
+                      <button class="submit buttonLabel" type="button" onclick="supprimerOption()">Supprimer une option</button>
                     </section>
               
                     <section>
-                      <button type="submit">Soumettre</button>
+                      <button class="submit buttonLabel" type="submit">Soumettre</button>
                     </section>
               
                 </div>
