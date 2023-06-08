@@ -17,9 +17,15 @@ class AdminController extends Controller
 
     public function dashboard()
     {
+        //si authentifier et admin return dashboard
+        if ($this->middleware('admin')) {
+            $articles = Article::all();
+            return view("admin_dashboard", compact("articles"));
+        } else {
+            return view("/");
+        }
 
         //get all articles
-        $articles = Article::all();
-        return view("admin_dashboard", compact("articles"));
+
     }
 }
