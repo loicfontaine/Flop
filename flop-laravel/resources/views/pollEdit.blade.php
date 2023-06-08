@@ -1,7 +1,7 @@
 @extends('template')
 @section('content')
 <!-- Afficher les éléments du sondage -->
-<form action="{{ route('sondage.update', $dernierSondage->id) }}" method="POST">
+<form action="{{ route('poll.update', $dernierSondage->id) }}" method="POST">
 @foreach ($dernierSondage->elements as $element)
     <div>
         <label style="color: white" for="title">Titre</label>

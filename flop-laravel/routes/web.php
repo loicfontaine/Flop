@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\Auth\LoginController;
 
 
@@ -66,6 +66,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::resource('user', UserController::class);
 
 Route::resource('poll', PollController::class);
+Route::resource('answerPoll', AnswerController::class);
 
 Route::post('pollsend', [PollController::class, 'store'])->name('pollsend');
 
