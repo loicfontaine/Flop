@@ -242,6 +242,10 @@ hr#separation {
   border-radius : 8px;
 }
 
+.bloc input {
+  border:none;
+}
+
 #container-participation {
   border-radius : 8px;
   width:340px;
