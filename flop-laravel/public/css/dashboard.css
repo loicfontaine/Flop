@@ -218,6 +218,11 @@ hr#separation {
   border-radius : 8px;
   width:340px;
   background-color: white;
+  margin-bottom: 20px;
+}
+
+#container-modif-infos {
+  margin-bottom:2
 }
 
 #container-participation {
@@ -371,4 +376,8 @@ hr {
 
 .hidden {
   display: none;
+}
+
+hr#separation {
+  color:white;
 }
