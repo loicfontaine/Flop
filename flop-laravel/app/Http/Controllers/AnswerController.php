@@ -25,10 +25,10 @@ class AnswerController extends Controller
     public function create()
     {
         // Récupère le dernier id de la table survey pour l'insérer dans la table answer pour survey_id
-        $dernierSondage = DB::table('surveys')->orderBy('id', 'desc')->first();
+        $dernierSondage = DB::table('polls')->orderBy('id', 'desc')->first();
         $sondageId = $dernierSondage->id;
 
-        $reponses = DB::table('answers')->where('survey_id', $sondageId)->get();
+        $reponses = DB::table('options')->where('poll_id', $sondageId)->get();
 
         $reponseTab = [];
 
@@ -38,14 +38,12 @@ class AnswerController extends Controller
 
         $delai = $dernierSondage->duration;
 
-
         /*
         BONUS - Vérification du délai du sondage pour ne pas l'afficher
         si jamais il est dépassé par rapport à l'heure actuelle
         au moment du chargement de la page et que l'utilisateur
         a désactivé JavaScript.
         */
-
 
         // Convertir la date actuelle en timestamp
         $nowTimestamp = now()->timestamp;
@@ -61,7 +59,7 @@ class AnswerController extends Controller
         // Si l'utilisateur a déjà répondu au dernier sondage, la variable délai sera a 0
         // et le sondage ne s'affichera plus
         $user = Auth::user();
-        $userAnswers = $user->answers()->where('survey_id', $sondageId)->get();
+        $userAnswers = $user->answers()->where('poll_id', $sondageId)->get();
         if ($userAnswers->count() > 0) {
             $delai = 0;
         }
