@@ -20,8 +20,6 @@ class ChallengeController extends Controller
 
         $challenges = Challenge::where("end_time", ">", date("Y-m-d H:i:s"))->get();
         $types = $challenges->participation_types;
-
-
         return view("emission", compact("challenges, types"));
     }
 
@@ -79,6 +77,17 @@ class ChallengeController extends Controller
 
 
 
+        Article::all()->each(function ($article) use ($request, $challenge) {
+            if ($request->input("quantity-" . $article->id)) {
+                Reward::create(
+                    [
+                        "quantity" => $request->input("quantity-" . $article->id),
+                        "article_id" => $article->id,
+                        "challenge_id" => $challenge->id,
+                    ]
+                );
+            }
+        });
 
         if ($contest) {
             Article::all()->each(function ($article) use ($request, $challenge) {
