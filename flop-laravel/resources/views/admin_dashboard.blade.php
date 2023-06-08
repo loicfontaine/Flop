@@ -95,10 +95,10 @@
                         <button class="submit optionButtonLabel" type="button" onclick="supprimerOption()">Supprimer une option</button>
                       </section>
                     </div>
-                    
-                    
               
-                    <button class="submit buttonLabel" type="submit">Soumettre</button>
+                    <div class="form-submit">
+                        <button type="submit" class='submit buttonLabel'>Créer un sondage</button>
+                    </div>
               
                 </form>
             </div>
