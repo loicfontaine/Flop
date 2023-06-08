@@ -27,19 +27,13 @@ class AnswerController extends Controller
      */
     public function create()
     {
-        // Récupère le dernier id de la table survey pour l'insérer dans la table answer pour survey_id
         $dernierSondage = DB::table('polls')->orderBy('id', 'desc')->first();
         $reponses = DB::table('options')->where('poll_id', $dernierSondage->id)->get();
-        $options = [];
         $title = $dernierSondage->title;
         $description = $dernierSondage->description;
         $duration =  $dernierSondage->duration;
 
-        foreach ($reponses as $reponse) {
-            $options[] = $reponse;
-        }
-
-        return view('pollAnswer')->with(compact('dernierSondage', 'title', 'duration', 'options', 'description'));
+        return view('pollAnswer')->with(compact('dernierSondage', 'title', 'duration', 'reponses', 'description'));
     }
 
     /**
