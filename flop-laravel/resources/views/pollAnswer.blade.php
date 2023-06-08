@@ -10,10 +10,10 @@
 <p>{{$title}}</p>
 <p>{{$description}}</p>
 
-@foreach ($options as $index => $option)
+@foreach ($reponses as $index => $reponse)
     <label>
         <input type="radio" name="option" value="{{ $index }}">
-        {{ $option }}
+        {{ $reponse }}
     </label>
     <br>
 @endforeach
