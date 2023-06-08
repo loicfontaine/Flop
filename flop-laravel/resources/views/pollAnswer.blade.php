@@ -19,8 +19,7 @@
 
 @foreach ({{$questions}} as $question) 
     <label>{{$question->question}}</label>
-        <input type="radio" name="questions[]" value="{{$question->id}}">
-    </label>
+    <input type="radio" name="questions[]" value="{{$question->id}}">
 @endforeach
 
 <input type="submit" value="Valider">
