@@ -1,6 +1,5 @@
 @section('contenu')
 <!-- Vérification côté serveur si jamais la personne a desactivé JavaScript -->
-@if ($duree > 0)
 
 <form method="post" action="{{route('answer.store')}}" accept-charset="UTF-8">
         @csrf
@@ -27,7 +26,6 @@
 </form>
 </div>
 
-@else
+
 <p>Pas de sondage disponible</p>
-@endif
 @endsection
