@@ -73,7 +73,7 @@
         </div>
     </div>   
 </div>
-@else
+<!-- @else
 <div class="FontInter">
     <div class="messageLogin">
         <div class="top-container">
@@ -91,7 +91,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 @endif
