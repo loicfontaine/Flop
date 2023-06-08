@@ -1,8 +1,3 @@
-@extends("template")
-@section('css')
-<link rel="stylesheet" href="{{asset('css/admin_dashboard.css')}}">
-@endsection
-@section('content')
 <div class="container">
   <div class="row">
     <h2 class="center">Créer un sondage</h2>
@@ -52,41 +47,3 @@
   </form>
 </div>
 </div>
-
-<script>
-  function ajouterOption() {
-    var conteneurOptions = document.getElementById('conteneur-options');
-
-    // Créer un nouvel élément de champ de texte
-    var nouvelInput = document.createElement('input');
-    nouvelInput.type = 'text';
-    nouvelInput.name = 'options[]';
-    nouvelInput.placeholder = 'Option';
-
-    // Ajouter le nouvel élément au conteneur d'options
-    conteneurOptions.appendChild(nouvelInput);
-  }
-
-  // Vérifier si le champ de texte de l'option est vide
-  var optionsVides = Array.from(conteneurOptions.querySelectorAll('input')).some(function(input) {
-    return input.value.trim() === '';
-  });
-
-  if (!optionsVides) {
-    conteneurOptions.appendChild(nouvelInput);
-  } else {
-    alert("Veuillez remplir toutes les options existantes avant d'en ajouter une nouvelle.");
-  }
-
-
-  function supprimerOption() {
-    var conteneurOptions = document.getElementById('conteneur-options');
-
-    // Vérifier s'il y a plus d'une option
-    if (conteneurOptions.children.length > 1) {
-      // Supprimer le dernier élément de champ de texte
-      conteneurOptions.removeChild(conteneurOptions.lastChild);
-    }
-  }
-</script>
-@endsection
