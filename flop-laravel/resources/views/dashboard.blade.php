@@ -85,7 +85,7 @@
                     <input type="text" name="phone_number" value="{{Auth::user()->phone_number}}">
                 </div>
                 <button class="bouton" type="submit" class="bouton" id="bouton-valider">Valider</button>
-            </div>   
+            </form>   
         </div>
 
         <div id="participation">
