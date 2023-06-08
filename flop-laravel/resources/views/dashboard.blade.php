@@ -59,7 +59,7 @@
                     <p>{{Auth::user()->phone_number}}</p>
                 </div>
             </div>
-            <form method="POST" id="container-modif-infos" action="{{route('user.index')}}" class="hidden" accept-charset="UTF-8">
+            <form method="POST" id="container-modif-infos" action="{{route('user.update(1)')}}" class="hidden" accept-charset="UTF-8">
                 @csrf
                 <div class="bloc">
                     <h1>E-mail</h1>
