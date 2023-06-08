@@ -29,6 +29,8 @@ class ParticipationController extends Controller
      */
     public function store(Request $request)
     {
+
+        dd($request->all());
         $participation = Participation::create([
             "user_id" => $request->input("user_id"),
             "event_id" => $request->input("event_id"),
