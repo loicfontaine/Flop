@@ -66,7 +66,7 @@
         <div class="adminDashboardContentItems">
             <div id="createPoll">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un sondage</h2>
-                @include('poll.create')
+                @include('pollCreate')
             </div>
         </div>
         <!-- FORMULAIRE CHALLENGE -->
