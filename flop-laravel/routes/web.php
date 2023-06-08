@@ -1,14 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\Auth\LoginController;
+
 
 
 use App\Http\Controllers\MessageController;
-
 use App\Http\Controllers\ChallengeController;
 
 
@@ -23,9 +26,6 @@ use App\Http\Controllers\ChallengeController;
 |
 */
 
-Route::get('/connexion', function () {
-    return view('connexion');
-});
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
 //example of a route sending a variable to a controller
 
@@ -40,6 +40,7 @@ Route::get('/inscription', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
 Route::get('/connexion', function () {
     return view('connexion');
 });
@@ -60,30 +61,21 @@ Route::get('/admin', function () {
 
 Route::get('/admin_dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
+//Route::get('/admin_dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
-Route::get('logout', [LoginController::class, 'logout']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::resource('user', UserController::class);
 
 Route::resource('poll', PollController::class);
+Route::resource('answerPoll', AnswerController::class);
 
-Route::prefix('poll')->group(function () {
-    Route::view('create', 'createPoll');
-    Route::post('create', [PollController::class, 'store'])->name('poll.store');
-    Route::get('/', [PollController::class, 'index'])->name('poll.index');
-    Route::get('/update/{poll}', [PollController::class, 'edit'])->name('poll.edit');
-    Route::put('/update/{poll}', [PollController::class, 'update'])->name('poll.update');
-    Route::get('delete/{poll}', [PollController::class, 'delete'])->name('poll.delete');
-
-    Route::get('/{poll}', [PollController::class, 'show'])->name('poll.show');
-    Route::post('/{poll}/vote', [PollController::class, 'vote'])->name('poll.vote');
-});
+Route::post('pollsend', [PollController::class, 'store'])->name('pollsend');
 
 Route::resource('challenge', ChallengeController::class);
 Route::resource('article', ArticleController::class);
 
 Auth::routes();
-
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/chat', function () {

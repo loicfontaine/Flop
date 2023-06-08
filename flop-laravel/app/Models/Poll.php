@@ -13,7 +13,7 @@ class Poll extends Model
     protected $guarded = [];
 
     protected $fillable = [
-        'title',
+        "title",
         "description",
         "user_id",
         "duration",
@@ -27,5 +27,10 @@ class Poll extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function command_lines()
+    {
+        return $this->belongsToMany(Command_line::class);
     }
 }

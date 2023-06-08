@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -41,7 +42,7 @@ class UserController extends Controller
             "color_coins" => 10,
         ]);
 
-        return view("test");
+        return view("admin_dashboard");
     }
 
     /**
@@ -80,5 +81,18 @@ class UserController extends Controller
     {
         User::findOrFail($id)->delete();
         return redirect()->back();
+    }
+
+
+    public function getParticipations()
+    {
+        $userId = Auth::user()->id;
+        if ($userId == null) {
+            return redirect()->back();
+        } else {
+            $participations = User::findOrFail($userId)->participations;
+
+            return view("mes-participations", compact("participations"));
+        }
     }
 }

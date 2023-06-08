@@ -28,6 +28,8 @@ hr#separation {
     width: 226px;
     margin-top: 25px;
     margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -43,12 +45,13 @@ hr#separation {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
-    margin-bottom: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
     width: 359px;
+    padding-top: 20px;
     background-color: white;
 }
 
@@ -180,14 +183,140 @@ hr#separation {
     height: 40px;
     margin-top: 0px;
     margin-bottom: 20px;
-    box-shadow: grey 3px 3px 3px;
 }
 
 .imgLogin {
   width: 80px;
 }
 
+.boutique {
+  background-color: #E60096; 
+  font-size: 18px;
+  color: white;
+  border:none;
+  border-radius: 8px;
+  width:290px;
+  height: 40px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
 
+.bloc h1 {
+  font-size:20px;
+  color:#E60096;
+  font-family: 'Inter', sans-serif;
+}
 
+.bloc p {
+  font-size: 18px;
+  font-family:'Montserrat', sans-serif;
+  color:black;
+}
 
+#container-infos {
+  border-radius : 8px;
+  width:340px;
+  background-color: white;
+}
 
+#container-participation {
+  border-radius : 8px;
+  width:340px;
+  background-color: white;
+}
+
+.title {
+  font-size: 22px;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  margin-bottom: 10px;
+}
+
+#bouton-modifier {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  padding-top:15px;
+  color:#E60096;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+#titre {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cc {
+  width: 22px;
+  height: 22px;
+}
+
+#informations {
+  width:340px;
+}
+
+#participation {
+  width:340px;
+}
+
+.coins span {
+  font-size: 1.125rem;
+  font-family:'Montserrat', sans-serif;
+  color:black;
+
+}
+
+.entete {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.entete h1 {
+  font-size: 1.5rem;
+  font-family: 'Inter', sans-serif;
+  color:  #E60096;
+}
+
+.entete p {
+  font-size: 1.125rem;
+  font-family:'Montserrat', sans-serif;
+  color:black;
+}
+
+.description h2 {
+  font-size: 1.125rem;
+  font-family:'Montserrat', sans-serif;
+  color:black;
+}
+
+.description p {
+  font-size: 1.125rem;
+  font-family:'Montserrat', sans-serif;
+  color:black;
+}
+
+.bloc {
+  padding:2px;
+  height:55px;
+  border-bottom: 1px #E60096;
+}
+
+.centrer {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.row {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  padding-right: 5px;
+  padding-left: 5px;
+}

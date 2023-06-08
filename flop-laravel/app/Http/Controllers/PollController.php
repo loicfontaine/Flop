@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreatePollRequest;
 use Illuminate\Http\Request;
 use App\Models\Poll;
+use App\Models\Option;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PollController extends Controller
 {
@@ -12,8 +16,21 @@ class PollController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {/*
+        $dernierSondage = Poll::orderByDesc('id')->first();
+        $start_date = $start_date = Carbon::parse($dernierSondage->start_date);
+        $duration = $dernierSondage->duration;
+        $pollId = $dernierSondage->id;
+        // Vérifier si le sondage est en cours
+        if ($start_date->addMinutes($duration)->toDateTime() > now()) {
+            // Si le sondage est en cours, retourner une vue pour l'édition du sondage en cours
+            return redirect()->route('poll.edit', ['poll' => $pollId], compact('dernierSondage'));
+        } else {
+            // Si le sondage n'est pas en cours, retourner une vue pour l'édition d'un nouveau sondage
+            return redirect()->route('poll.create');
+        }
+        */
+        return redirect()->route('poll.create');
     }
 
     /**
@@ -21,7 +38,7 @@ class PollController extends Controller
      */
     public function create()
     {
-        return view('createPoll');
+        return view('pollCreate');
     }
 
     /**
@@ -29,11 +46,25 @@ class PollController extends Controller
      */
     public function store(CreatePollRequest $request)
     {
-        $poll = auth()->user()->polls()->create($request->safe()->except('options'));
+        Poll::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'duration' => $request->input('duration'),
+            'user_id' => Auth::user()->id,
+            'start_date' => $request->input('start_date'),
+        ]);
 
-        $options = [];
+        $options = $request->input('options');
+        $result = DB::table('polls')->orderBy('id', 'desc')->first();
+        $lastId = $result->id;
 
-        dd($request->options);
+        for ($i = 0; $i < count($options); $i++) {
+            Option::create([
+                'title' => $options[$i],
+                'poll_id' => $lastId,
+            ]);
+        }
+
         return back();
     }
 
@@ -50,8 +81,10 @@ class PollController extends Controller
      */
     public function edit(string $id)
     {
-        $poll = $poll->load('options');
-        return view('polls.update', compact('poll'));
+        $dernierSondage = Poll::latest()->first();
+
+        // Passer le sondage à la vue pour l'affichage dans le formulaire d'édition
+        return view('pollEdit', compact('dernierSondage'));
     }
 
     /**

@@ -8,13 +8,24 @@ use App\Models\Article;
 class AdminController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'index']);
+        $this->middleware('admin', ['only' => 'destroy']);
+    }
 
 
     public function dashboard()
     {
+        //si authentifier et admin return dashboard
+        //sinon return accueil
 
-        //get all articles
-        $articles = Article::all();
-        return view("admin_dashboard", compact("articles"));
+        dd(auth()->user()->is_admin);
+        if (auth()->user()->is_admin) {
+            $articles = Article::all();
+            return view("admin_dashboard", compact("articles"));
+        } else {
+            return view("/");
+        }
     }
 }
