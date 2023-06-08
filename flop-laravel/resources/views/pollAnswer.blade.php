@@ -18,7 +18,8 @@
 <p>{{$description}}</p>
 
 @foreach ({{$questions}} as $question) 
-    <label>{{$question->question}}</label>
+    <label for="nom">1 :</label>
+    <span id="nom">{{ $question }}</span>
     <input type="radio" name="questions[]" value="{{$question->id}}">
 @endforeach
 
