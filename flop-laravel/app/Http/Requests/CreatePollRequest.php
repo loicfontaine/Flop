@@ -17,7 +17,6 @@ class CreatePollRequest extends FormRequest
         $this->merge([
             'start_date' => now()->toDateTimeString(),
         ]);
-        dd($this->all());
     }
 
     public function rules(): array
@@ -26,10 +25,6 @@ class CreatePollRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'duration' => 'required|integer|min:1',
-            'options' => 'required|array|min:2',
-            'user_id' => 'required|integer|exists:users,id',
-            'start_date' => 'required|timestamp|after_or_equal:now|min:1',
-            'end_date' => 'required|timestamp|after:start_date|min:1',
         ];
     }
 }

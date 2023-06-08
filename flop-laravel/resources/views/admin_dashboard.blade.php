@@ -119,6 +119,9 @@
                     <span class='FontInter formLabel'>Date de fin</span>
                     <input required="required" type="datetime-local" class="form challenge_endTime" name="end_time">
 
+                    <span class='FontInter formLabel'>Récompense en ColorCoins</span>
+                    <input type="number" id="quantity" name="colorCoins" min="0" max="50" value="10">
+
                     <div class="form-submit">
                         <button type="submit" class='submit buttonLabel'>Créer un défi</button>
                     </div>
@@ -178,7 +181,7 @@
 
                     @foreach($articles as $article)
                         <div class='item'>
-                            <input class="articlesQuantity" type="number" id="quantity" name="quantity-1" min="0" value="0">
+                            <input class="articlesQuantity" type="number" id="quantity" name="quantity-{{ $article->id }}" min="0" value="0">
                             <img src="img/articles/{{$article->image}}" class='img-item'>
                             <h1 class='item-title FontMonserrat'>{{$article->name}}</h1>
                             <div class='item-price'>
@@ -241,6 +244,9 @@
 
                     <span class='FontInter formLabel'>Date de fin</span>
                     <input required="required" type="datetime-local" class="form challenge_endTime" name="end_time">
+
+                    <span class='FontInter formLabel'>Récompense en ColorCoins</span>
+                    <input type="number" id="quantity" name="colorCoins" min="0" max="50" value="10">
 
                     <div class="form-submit">
                         <button type="submit" class='submit buttonLabel'>Créer un concours</button>

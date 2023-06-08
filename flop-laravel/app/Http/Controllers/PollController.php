@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Poll;
 use App\Models\Option;
 use Carbon\Carbon;
-use App\Models\OptionUser;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PollController extends Controller
 {
@@ -15,7 +16,7 @@ class PollController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {/*
         $dernierSondage = Poll::orderByDesc('id')->first();
         $start_date = $start_date = Carbon::parse($dernierSondage->start_date);
         $duration = $dernierSondage->duration;
@@ -28,6 +29,8 @@ class PollController extends Controller
             // Si le sondage n'est pas en cours, retourner une vue pour l'édition d'un nouveau sondage
             return redirect()->route('poll.create');
         }
+        */
+        return redirect()->route('poll.create');
     }
 
     /**
@@ -43,24 +46,26 @@ class PollController extends Controller
      */
     public function store(CreatePollRequest $request)
     {
-        $poll = new Poll;
-        $poll->titre = $request->input('titre');
-        $poll->description = $request->input('description');
-        $poll->duration = $request->input('duration');
-        $poll->start_date = $request->input('start_date');
+        Poll::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'duration' => $request->input('duration'),
+            'user_id' => Auth::user()->id,
+            'start_date' => $request->input('start_date'),
+        ]);
 
-        // Enregistrez le sondage dans la base de données
-        $poll->save();
+        $options = $request->input('options');
+        $result = DB::table('polls')->orderBy('id', 'desc')->first();
+        $lastId = $result->id;
 
-        foreach ($options as $option) {
-            // Création de chaque option
-            $option = new Option;
-            $option->poll_id = $poll->id; // Utilisation de l'ID du sondage
-            $option->title = $option;
-            $option->$option->save();
+        for ($i = 0; $i < count($options); $i++) {
+            Option::create([
+                'title' => $options[$i],
+                'poll_id' => $lastId,
+            ]);
         }
 
-        return redirect()->route('poll.create');
+        return back();
     }
 
     /**
