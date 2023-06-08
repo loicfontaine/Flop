@@ -1,21 +1,4 @@
-@extends("template")
-@section('css')
-<link rel="stylesheet" href="{{asset('css/admin_dashboard.css')}}">
-@endsection
-@section('content')
-@section('title')
-<title>Vote</title>
-
-@vite('resources/js/vote.js')
-
-@endsection
-
-@section('header')
-<h1 class="page-header"><a href="">Vote</a></h1>
-@endsection
-
 @section('contenu')
-
 <!-- Vérification côté serveur si jamais la personne a desactivé JavaScript -->
 @if ($duree > 0)
 
