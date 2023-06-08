@@ -1,5 +1,5 @@
 <template>
-  <form method="POST" action="{{route('participation.store')}}" accept-charset="UTF-8">
+  <form @submit.prevent="submit">
     <div class="countdown-container" :class="{ 'expanded': isExpanded }" >
       <div class="arrow-container" @click="toggleExpand">
         <i class="arrow-icon" :class="{ 'expanded': isExpanded }" @click="isArrowClicked = true"></i>
@@ -40,6 +40,7 @@
 
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -51,6 +52,14 @@ export default {
       mediaRecorder: null,
       chunks: [],
       audioBlob: null,
+      selectedVideo: null,
+      selectedImage: null,
+      form: {
+        video: null,
+        image: null,
+        message: null,
+        audioBlob: null,
+      },
     };
   },
   created() {
@@ -66,6 +75,10 @@ export default {
         });
 },
   methods: {
+    async submit() {
+      this.$emit('submit', this.form)
+      console.log(this.form)
+    },
     startCountdown() {
       const currentDate = new Date();
       const targetDate = new Date(currentDate.getFullYear(), 5, 16, 0, 0, 0); // 1er juin (mois indexé à partir de zéro)
@@ -134,6 +147,7 @@ export default {
       this.selectedVideo = URL.createObjectURL(file);
     },
   },
+  
   computed: {
     audioUrl() {
       return this.audioBlob ? URL.createObjectURL(this.audioBlob) : '';
