@@ -106,7 +106,7 @@ hr#separation {
     width: 150px;
   }
 
-  .button {
+  #bouton-valider{
     background-color: #E60099; 
     width: 100%;
     height: 100px;
