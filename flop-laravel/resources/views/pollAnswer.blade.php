@@ -22,7 +22,4 @@
 </form>
 </div>
 
-@else
-<p>Pas de sondage disponible</p>
-
 @endsection
