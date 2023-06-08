@@ -54,7 +54,7 @@
                 <div class='viewer'>
                     <p>1,2K viewers</p>
                 </div>
-                <hr>
+                <hr class="hrTop">
                 <div class="boxMessage">
                     <div class='message'>
                         <p class='pseudo'>Bedia : </p>
@@ -77,11 +77,11 @@
                         <p class='texte'>J'adore les voitures</p>
                     </div>
                     <div class='message'>
-                        <p class='pseudo'>R7: </p>
+                        <p class='pseudo'>R7 : </p>
                         <p class='texte'>Suiiiiii</p>
                     </div>
                 </div>
-                <hr>
+                <hr class="hrBottom">
                 @if (Auth::check())
                 <div class="nomDeUtilisateur">
                     <div class="svgg">
@@ -97,26 +97,29 @@
             </div>
             <input type='text' placeholder='Chattez publiquement' class='input-message'></input>
             <button class='bouton-chat'>Envoyer</button>
-      </div>
-        </div>
-        @else
-        <div class="nomDeUtilisateur">
-            <div class="svgg">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 15C24 16.5913 23.3679 18.1174 22.2426 19.2426C21.1174 20.3679 19.5913 21 18 21C16.4087 21 14.8826 20.3679 13.7574 19.2426C12.6321 18.1174 12 16.5913 12 15C12 13.4087 12.6321 11.8826 13.7574 10.7574C14.8826 9.63214 16.4087 9 18 9C19.5913 9 21.1174 9.63214 22.2426 10.7574C23.3679 11.8826 24 13.4087 24 15Z" fill="white" />
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.388 32.988C9.38775 32.667 3 26.079 3 18C3 9.7155 9.7155 3 18 3C26.2845 3 33 9.7155 33 18C33 26.2845 26.2845 33 18 33C17.9315 33.0004 17.863 33.0004 17.7945 33C17.6587 33 17.523 32.9955 17.388 32.988ZM8.3745 27.465C8.26235 27.1429 8.22417 26.7997 8.26281 26.4609C8.30145 26.122 8.4159 25.7963 8.59768 25.5077C8.77946 25.2191 9.0239 24.9752 9.31284 24.7941C9.60179 24.6129 9.92782 24.4992 10.2668 24.4613C16.1138 23.814 19.9222 23.8725 25.7407 24.4748C26.0801 24.5101 26.407 24.6224 26.6964 24.8032C26.9858 24.9839 27.2301 25.2283 27.4108 25.5178C27.5915 25.8072 27.7037 26.1341 27.739 26.4735C27.7742 26.8129 27.7316 27.1558 27.6143 27.4762C30.108 24.9532 31.5045 21.5475 31.5 18C31.5 10.5443 25.4557 4.5 18 4.5C10.5443 4.5 4.5 10.5443 4.5 18C4.5 21.687 5.97825 25.029 8.3745 27.465Z" fill="white" />
-                </svg>
-            </div>
-            <div class="nomutilchat">
-                <p class="nomUtil">Utilisateur anonyme</p>
-            </div>
         </div>
     </div>
-    <input type='text' placeholder='Chattez publiquement' class='input-message'></input>
-    <button class='bouton-chat'>Envoyer</button>
+    @else
+    <div class="nomDeUtilisateur">
+        <div class="svgg">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 15C24 16.5913 23.3679 18.1174 22.2426 19.2426C21.1174 20.3679 19.5913 21 18 21C16.4087 21 14.8826 20.3679 13.7574 19.2426C12.6321 18.1174 12 16.5913 12 15C12 13.4087 12.6321 11.8826 13.7574 10.7574C14.8826 9.63214 16.4087 9 18 9C19.5913 9 21.1174 9.63214 22.2426 10.7574C23.3679 11.8826 24 13.4087 24 15Z" fill="white" />
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M17.388 32.988C9.38775 32.667 3 26.079 3 18C3 9.7155 9.7155 3 18 3C26.2845 3 33 9.7155 33 18C33 26.2845 26.2845 33 18 33C17.9315 33.0004 17.863 33.0004 17.7945 33C17.6587 33 17.523 32.9955 17.388 32.988ZM8.3745 27.465C8.26235 27.1429 8.22417 26.7997 8.26281 26.4609C8.30145 26.122 8.4159 25.7963 8.59768 25.5077C8.77946 25.2191 9.0239 24.9752 9.31284 24.7941C9.60179 24.6129 9.92782 24.4992 10.2668 24.4613C16.1138 23.814 19.9222 23.8725 25.7407 24.4748C26.0801 24.5101 26.407 24.6224 26.6964 24.8032C26.9858 24.9839 27.2301 25.2283 27.4108 25.5178C27.5915 25.8072 27.7037 26.1341 27.739 26.4735C27.7742 26.8129 27.7316 27.1558 27.6143 27.4762C30.108 24.9532 31.5045 21.5475 31.5 18C31.5 10.5443 25.4557 4.5 18 4.5C10.5443 4.5 4.5 10.5443 4.5 18C4.5 21.687 5.97825 25.029 8.3745 27.465Z" fill="white" />
+            </svg>
+        </div>
+        <div class="nomutilchat">
+            <p class="nomUtil">Utilisateur anonyme</p>
+        </div>
+    </div>
+</div>
+<input type='text' placeholder='Chattez publiquement' class='input-message hidden'></input>
+<button class='bouton-chat hidden'>Envoyer</button>
+<div class="connexion">
     <div>
-        <p class="texteDeConnexion">Vous n'êtes actuellement pas connecté. Créez un compte ou connectez-vous pour pouvoir accéder au chat !</h1>
+        <p class="texteDeConnexion">Vous n'êtes actuellement pas connecté. Connectez-vous pour pouvoir intéragir sur le chat</h1>
     </div>
+    <button type="submit" class='submit'>Se connecter</button>
+</div>
 </div>
 @endif
 </div>

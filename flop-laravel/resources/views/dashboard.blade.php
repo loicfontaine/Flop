@@ -59,7 +59,8 @@
                     <p>{{Auth::user()->phone_number}}</p>
                 </div>
             </div>
-            <div id="container-modif-infos" class="hidden">
+            <form method="POST" id="container-modif-infos" action="{{route('user.index')}}"class="hidden"  accept-charset="UTF-8">
+            @csrf
                 <div class="bloc">
                     <h1>E-mail</h1>
                     <input type="text" name="email" value="{{Auth::user()->email}}">
@@ -85,7 +86,7 @@
                     <input type="text" name="phone_number" value="{{Auth::user()->phone_number}}">
                 </div>
                 <button class="bouton" type="submit" class="bouton" id="bouton-valider">Valider</button>
-            </div>   
+            </form>   
         </div>
 
         <div id="participation">
@@ -125,8 +126,8 @@
         }
 
     var divContainerInfos = document.getElementById('container-infos');
-    var divContainerModif = document.getElementById('container-modif');
-    var btnModifier=document.getElementById('container-modif-infos');
+    var divContainerModif = document.getElementById('container-modif-infos');
+    var btnModifier=document.getElementById('bouton-modifier');
 
     btnModifier.addEventListener('click', function() {
         divContainerInfos.style.display = "none";

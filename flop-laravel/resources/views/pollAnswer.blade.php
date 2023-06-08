@@ -1,10 +1,3 @@
-@extends('template')
-@section('css')
-<link rel="stylesheet" href="{{asset('css/inscription.css')}}">
-@endsection
-@section('js')
-<script src="{{asset('js/inscription.js')}}"></script>
-@section('content')
 <!-- Vérification côté serveur si jamais la personne a desactivé JavaScript -->
 <form method="post" action="{{route('answer.store')}}" accept-charset="UTF-8">
         @csrf
@@ -17,13 +10,14 @@
 <p>{{$title}}</p>
 <p>{{$description}}</p>
 
-@foreach ({{$questions}} as $question) 
-    <label>{{$question->question}}</label>
-    <input type="radio" name="questions[]" value="{{$question->id}}">
+@foreach ($options as $index => $option)
+    <label>
+        <input type="radio" name="option" value="{{ $index }}">
+        {{ $option }}
+    </label>
+    <br>
 @endforeach
 
 <input type="submit" value="Valider">
 </form>
 </div>
-
-@endsection
