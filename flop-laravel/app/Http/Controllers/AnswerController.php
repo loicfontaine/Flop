@@ -19,7 +19,7 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        return view('pollAnswer');
+        return redirect()->route('answer.create');
     }
 
     /**
