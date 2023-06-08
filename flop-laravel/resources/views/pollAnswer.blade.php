@@ -17,7 +17,7 @@
 <p>{{$title}}</p>
 <p>{{$description}}</p>
 
-@foreach ($options as $index => $option)
+@foreach ({{$options}} as $index => $option)
     <label>
         <input type="radio" name="option" value="{{ $index }}">
         {{ $option }}
