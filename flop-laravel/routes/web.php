@@ -61,14 +61,12 @@ Route::get('/admin', function () {
 
 Route::get('/admin_dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
-//Route::get('/admin_dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::resource('user', UserController::class);
 
 Route::resource('poll', PollController::class);
-Route::resource('answerPoll', AnswerController::class);
+Route::resource('answer', AnswerController::class);
 
 Route::post('pollsend', [PollController::class, 'store'])->name('pollsend');
 
