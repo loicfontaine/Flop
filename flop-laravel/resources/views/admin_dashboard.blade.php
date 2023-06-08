@@ -337,7 +337,7 @@
     nouvelInput.type = 'text';
     nouvelInput.name = 'options[]';
     nouvelInput.placeholder = 'Option';
-    nouvelInput.classList.add('form').add('optionForm');
+    nouvelInput.classList.add('form', 'optionForm');
 
     // Ajouter le nouvel élément au conteneur d'options
     conteneurOptions.appendChild(nouvelInput);
