@@ -72,7 +72,7 @@ class UserController extends Controller
     {
         User::findOrFail($id)->update($request->all());
         // return view('dashboard')->withOk("L'utilisateur " . $request->input('name') . " a été modifié");
-        return view('dashboard');
+        return redirect('dashboard');
     }
 
     /**

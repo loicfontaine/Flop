@@ -49,7 +49,7 @@ Route::get('/inscription', function () {
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->name('dashboard');
 
 Route::get('/connexion', function () {
     return view('connexion');
