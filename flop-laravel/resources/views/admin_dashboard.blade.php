@@ -90,11 +90,11 @@
                     <span class='FontInter formLabel'>Options</span>
                     <div id="conteneur-options">
                       <input type="text" name="options[]" placeholder="Option" class="form optionForm" required="required">
-                      <section class="addDeleteOptions">
+                    </div>
+                    <section class="addDeleteOptions">
                         <button class="submit optionButtonLabel" type="button" onclick="ajouterOption()">Ajouter une option</button>
                         <button class="submit optionButtonLabel" type="button" onclick="supprimerOption()">Supprimer une option</button>
                       </section>
-                    </div>
               
                     <div class="form-submit">
                         <button type="submit" class='submit buttonLabel'>Créer un sondage</button>
@@ -336,7 +336,7 @@
     nouvelInput.type = 'text';
     nouvelInput.name = 'options[]';
     nouvelInput.placeholder = 'Option';
-    nouvelInput.classList.add('form');
+    nouvelInput.classList.add('optionForm');
 
     // Ajouter le nouvel élément au conteneur d'options
     conteneurOptions.appendChild(nouvelInput);
