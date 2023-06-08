@@ -61,6 +61,7 @@
             </div>
             <form method="POST" id="container-modif-infos" action="{{route('user.update', [Auth::user()->id])}}" class="hidden" accept-charset="UTF-8">
                 @csrf
+                @method('PUT')
                 <div class="bloc">
                     <h1>E-mail</h1>
                     <input type="text" name="email" value="{{Auth::user()->email}}">
@@ -85,7 +86,7 @@
                     <h1>Numéro de téléphone</h1>
                     <input type="text" name="phone_number" value="{{Auth::user()->phone_number}}">
                 </div>
-                <button class="bouton" type="submit" class="bouton" id="bouton-valider">Valider</button>
+                <button class="bouton" type="submit" id="bouton-valider">Valider</button>
             </form>
         </div>
 
