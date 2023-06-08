@@ -61,6 +61,7 @@
             </div>
             <form method="POST" id="container-modif-infos" action="{{route('user.update', [Auth::user()->id])}}" class="hidden" accept-charset="UTF-8">
                 @csrf
+                @method('PUT')
                 <div class="bloc">
                     <h1>E-mail</h1>
                     <input type="text" name="email" value="{{Auth::user()->email}}">
