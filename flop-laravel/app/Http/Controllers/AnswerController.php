@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use App\Models\Option;
+
 
 class AnswerController extends Controller
 {
@@ -26,45 +29,14 @@ class AnswerController extends Controller
     {
         // Récupère le dernier id de la table survey pour l'insérer dans la table answer pour survey_id
         $dernierSondage = DB::table('polls')->orderBy('id', 'desc')->first();
-        $sondageId = $dernierSondage->id;
-
-        $reponses = DB::table('options')->where('poll_id', $sondageId)->get();
-
+        $reponses = DB::table('options')->where('poll_id', $dernierSondage->id)->get();
         $reponseTab = [];
 
         foreach ($reponses as $reponse) {
             $reponseTab[] = $reponse;
         }
 
-        $delai = $dernierSondage->duration;
-
-        /*
-        BONUS - Vérification du délai du sondage pour ne pas l'afficher
-        si jamais il est dépassé par rapport à l'heure actuelle
-        au moment du chargement de la page et que l'utilisateur
-        a désactivé JavaScript.
-        */
-
-        // Convertir la date actuelle en timestamp
-        $nowTimestamp = now()->timestamp;
-
-        // Convertir le délai en timestamp
-        $delaiTimestamp = strtotime($delai);
-
-        // Vérifier si la date actuelle est supérieure au délai
-        if ($nowTimestamp > $delaiTimestamp) {
-            $delai = 0;
-        }
-
-        // Si l'utilisateur a déjà répondu au dernier sondage, la variable délai sera a 0
-        // et le sondage ne s'affichera plus
-        $user = Auth::user();
-        $userAnswers = $user->answers()->where('poll_id', $sondageId)->get();
-        if ($userAnswers->count() > 0) {
-            $delai = 0;
-        }
-
-        return view('pollAnswer')->with('question', $dernierSondage->title)->with('duree', $delai)
+        return view('pollAnswer')->with('question', $dernierSondage->title)->with('duree', $dernierSondage->duration)
             ->with('reponses', $reponseTab);
     }
 
@@ -73,27 +45,22 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {
-        /*
-         * Récupérer les données du formulaire 
-         * Enregistrer dans la table answers
-         * Enregistrer dans la table answer_user
-         * Enregistrer dans la table survey
-         * */
+        if (Auth::check()) {
+            $userId = Auth::user()->id;
+            $user = User::find($userId);
+            $answers = $request->input('option_user');
 
-        $user = Auth::user();
+            for ($i = 0; $i < count($answers); $i++) {
+                if ($request->input('option_user')[$i] == "on") {
+                    $user->options()->attach($i);
+                }
+            }
+            $user->options;
 
-        $answers = $request->input('option_user');
-
-        $dernierSondage = DB::table('polls')->orderBy('id', 'desc')->first();
-
-        // intvval sert à convertir en int
-        foreach ($answers as $answerId) {
-            $user->answers()->attach(intval($answerId), [
-                'user_id' => Auth::id(),
-                'option_id' => $dernierSondage->id,
-            ]);
+            return "Votre vote a bien été pris en compte";
+        } else {
+            return "Vous devez être connecté pour voter";
         }
-        return "Votre vote a bien été pris en compte";
     }
 
     /**
