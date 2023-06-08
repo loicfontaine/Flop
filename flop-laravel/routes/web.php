@@ -56,7 +56,11 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
-Route::get('/admin_dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/admin_dashboard', function () {
+    return view('admin_dashboard');
+});
+
+//Route::get('/admin_dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
