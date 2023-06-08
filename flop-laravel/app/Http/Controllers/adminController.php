@@ -19,6 +19,8 @@ class AdminController extends Controller
     {
         //si authentifier et admin return dashboard
         //sinon return accueil
+
+        dd(auth()->user()->is_admin);
         if (auth()->user()->is_admin) {
             $articles = Article::all();
             return view("admin_dashboard", compact("articles"));
