@@ -6,7 +6,7 @@
 <!-- Question sur une durée type number -->
 <div class="sondage">
 <p>Durée du sondage</p>
-<p id="duree" style="display:none;">{{$duree}}</p>
+<p id="duree" style="display:none;">{{$duration}}</p>
 
 <p>{{$title}}</p>
 <p>{{$description}}</p>
