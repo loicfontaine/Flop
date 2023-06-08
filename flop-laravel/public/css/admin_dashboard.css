@@ -101,6 +101,10 @@ input.form {
     color: #F4F1E9;
 }
 
+input.optionForm {
+    margin-top: 0;
+}
+
 input.form:focus {
     outline: none !important;
     border:2px solid #E60096;

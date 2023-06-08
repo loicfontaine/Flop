@@ -89,7 +89,7 @@
               
                     <span class='FontInter formLabel'>Options</span>
                     <div id="conteneur-options">
-                      <input type="text" name="options[]" placeholder="Option" class="form" required="required">
+                      <input type="text" name="options[]" placeholder="Option" class="form optionForm" required="required">
                       <section class="addDeleteOptions">
                         <button class="submit optionButtonLabel" type="button" onclick="ajouterOption()">Ajouter une option</button>
                         <button class="submit optionButtonLabel" type="button" onclick="supprimerOption()">Supprimer une option</button>
