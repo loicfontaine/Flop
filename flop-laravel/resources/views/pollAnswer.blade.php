@@ -14,8 +14,8 @@
 <p>Durée du sondage</p>
 <p id="duree" style="display:none;">{{$duration}}</p>
 
-<p>$title</p>
-<p>$description</p>
+<p>{{$title}}</p>
+<p>{{$description}}</p>
 
 @foreach ($options as $index => $option)
     <label>
