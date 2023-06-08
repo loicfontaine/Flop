@@ -67,7 +67,13 @@
             <div id="createPoll">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un sondage</h2>
                 @php
-                use App\Models\Poll;
+                    use App\Http\Requests\CreatePollRequest;
+use Illuminate\Http\Request;
+use App\Models\Poll;
+use App\Models\Option;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
                     $dernierSondage = Poll::orderByDesc('id')->first();
         $start_date = $start_date = Carbon::parse($dernierSondage->start_date);
         $duration = $dernierSondage->duration;
@@ -78,7 +84,7 @@
             return redirect()->route('poll.edit', ['poll' => $pollId], compact('dernierSondage'));
         } else {
             // Si le sondage n'est pas en cours, retourner une vue pour l'édition d'un nouveau sondage
-            return redirect()->route('poll.create');
+            @include('pollCreate');
         }
                 @endphp
             </div>
