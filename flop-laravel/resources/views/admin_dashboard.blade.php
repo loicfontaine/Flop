@@ -66,27 +66,7 @@
         <div class="adminDashboardContentItems">
             <div id="createPoll">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un sondage</h2>
-                @php
-                    use App\Http\Requests\CreatePollRequest;
-use Illuminate\Http\Request;
-use App\Models\Poll;
-use App\Models\Option;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-                    $dernierSondage = Poll::orderByDesc('id')->first();
-        $start_date = $start_date = Carbon::parse($dernierSondage->start_date);
-        $duration = $dernierSondage->duration;
-        $pollId = $dernierSondage->id;
-        // Vérifier si le sondage est en cours
-        if ($start_date->addMinutes($duration)->toDateTime() > now()) {
-            // Si le sondage est en cours, retourner une vue pour l'édition du sondage en cours
-            return redirect()->route('poll.edit', ['poll' => $pollId], compact('dernierSondage'));
-        } else {
-            // Si le sondage n'est pas en cours, retourner une vue pour l'édition d'un nouveau sondage
-            @include('pollCreate');
-        }
-                @endphp
+                @include('pollCreate')
             </div>
         </div>
         <!-- FORMULAIRE CHALLENGE -->
@@ -201,7 +181,7 @@ use Illuminate\Support\Facades\DB;
                     <div class='column-item'>
 
                     
-                   {{--  @foreach($articles as $article)
+                     @foreach($articles as $article)
                         <div class='item'>
                             <input class="articlesQuantity" type="number" id="quantity" name="quantity-{{ $article->id }}" min="0" value="0">
                             <img src="img/articles/{{$article->image}}" class='img-item'>
@@ -211,7 +191,8 @@ use Illuminate\Support\Facades\DB;
                                 <svg xmlns="http://www.w3.org/2000/svg" class="cc" viewBox="0 0 1061.26 1061.27"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#e84a97;}.cls-3{fill:#7cf5ac;}</style></defs><g id="Calque_1-2"><path class="cls-1" d="m530.34,80.55c-250.04,0-452.74,202.68-452.74,452.71s202.7,452.74,452.74,452.74,452.71-202.7,452.71-452.74S780.37,80.55,530.34,80.55Zm.29,102.68v144.44c-34.7.34-64.05,22.95-74.47,54.2l-138.63-45.02c29.69-89.25,113.87-153.62,213.1-153.62Zm0,692.32c-123.13,0-222.95-99.81-222.95-222.92,0-23.99,3.8-47.04,10.8-68.69l137.6,44.7c-2.58,7.8-3.96,16.11-3.96,24.76,0,43.8,35.5,79.3,79.28,79.3s79.28-35.5,79.28-79.3c0-11.86-2.6-23.14-7.3-33.25-12.55-27.16-40.06-46.03-71.98-46.03-.27,0-.5,0-.77.03v-144.44c25.21,0,49.48,4.19,72.09,11.91,47.75,16.32,88.19,48.37,115.14,90,22.58,34.86,35.69,76.41,35.69,121.01,0,123.11-99.81,222.92-222.92,222.92Z"/><path class="cls-2" d="m530.63,0C237.56,0,0,237.57,0,530.64s237.56,530.63,530.63,530.63,530.63-237.56,530.63-530.63S823.67,0,530.63,0Zm-.29,986c-250.04,0-452.74-202.7-452.74-452.74S280.3,80.55,530.34,80.55s452.71,202.68,452.71,452.71-202.68,452.74-452.71,452.74Z"/><path class="cls-3" d="m530.63,183.23v144.44c-34.7.34-64.05,22.95-74.47,54.2l-138.63-45.02c29.69-89.25,113.87-153.62,213.1-153.62Z"/><path class="cls-3" d="m753.55,652.63c0,123.11-99.81,222.92-222.92,222.92s-222.95-99.81-222.95-222.92c0-23.99,3.8-47.04,10.8-68.69l137.6,44.7c-2.58,7.8-3.96,16.11-3.96,24.76,0,43.8,35.5,79.3,79.28,79.3s79.28-35.5,79.28-79.3c0-11.86-2.6-23.14-7.3-33.25-12.55-27.16-40.06-46.03-71.98-46.03-.27,0-.5,0-.77.03v-144.44c25.21,0,49.48,4.19,72.09,11.91,47.75,16.32,88.19,48.37,115.14,90,22.58,34.86,35.69,76.41,35.69,121.01Z"/></g></svg> 
                             </div>
                         </div>
-                    @endforeach --}}
+                    @endforeach
+                    <!--
                         <div class='item'>
                             <input class="articlesQuantity" type="number" id="quantity" name="quantity-1" min="0" value="0">
                             <img src="img/articles/badge2.png" class='img-item'>
@@ -260,7 +241,7 @@ use Illuminate\Support\Facades\DB;
                                 <h1 class='price'>12</h1>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="cc" viewBox="0 0 1061.26 1061.27"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#e84a97;}.cls-3{fill:#7cf5ac;}</style></defs><g id="Calque_1-2"><path class="cls-1" d="m530.34,80.55c-250.04,0-452.74,202.68-452.74,452.71s202.7,452.74,452.74,452.74,452.71-202.7,452.71-452.74S780.37,80.55,530.34,80.55Zm.29,102.68v144.44c-34.7.34-64.05,22.95-74.47,54.2l-138.63-45.02c29.69-89.25,113.87-153.62,213.1-153.62Zm0,692.32c-123.13,0-222.95-99.81-222.95-222.92,0-23.99,3.8-47.04,10.8-68.69l137.6,44.7c-2.58,7.8-3.96,16.11-3.96,24.76,0,43.8,35.5,79.3,79.28,79.3s79.28-35.5,79.28-79.3c0-11.86-2.6-23.14-7.3-33.25-12.55-27.16-40.06-46.03-71.98-46.03-.27,0-.5,0-.77.03v-144.44c25.21,0,49.48,4.19,72.09,11.91,47.75,16.32,88.19,48.37,115.14,90,22.58,34.86,35.69,76.41,35.69,121.01,0,123.11-99.81,222.92-222.92,222.92Z"/><path class="cls-2" d="m530.63,0C237.56,0,0,237.57,0,530.64s237.56,530.63,530.63,530.63,530.63-237.56,530.63-530.63S823.67,0,530.63,0Zm-.29,986c-250.04,0-452.74-202.7-452.74-452.74S280.3,80.55,530.34,80.55s452.71,202.68,452.71,452.71-202.68,452.74-452.71,452.74Z"/><path class="cls-3" d="m530.63,183.23v144.44c-34.7.34-64.05,22.95-74.47,54.2l-138.63-45.02c29.69-89.25,113.87-153.62,213.1-153.62Z"/><path class="cls-3" d="m753.55,652.63c0,123.11-99.81,222.92-222.92,222.92s-222.95-99.81-222.95-222.92c0-23.99,3.8-47.04,10.8-68.69l137.6,44.7c-2.58,7.8-3.96,16.11-3.96,24.76,0,43.8,35.5,79.3,79.28,79.3s79.28-35.5,79.28-79.3c0-11.86-2.6-23.14-7.3-33.25-12.55-27.16-40.06-46.03-71.98-46.03-.27,0-.5,0-.77.03v-144.44c25.21,0,49.48,4.19,72.09,11.91,47.75,16.32,88.19,48.37,115.14,90,22.58,34.86,35.69,76.41,35.69,121.01Z"/></g></svg>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
 
                     <span class='FontInter formLabel'>Date de fin</span>
