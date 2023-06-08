@@ -97,11 +97,8 @@
                       <button class="submit optionButtonLabel" type="button" onclick="supprimerOption()">Supprimer une option</button>
                     </section>
               
-                    <section>
-                      <button class="submit buttonLabel" type="submit">Soumettre</button>
-                    </section>
+                    <button class="submit buttonLabel" type="submit">Soumettre</button>
               
-                </div>
                 </form>
             </div>
         </div>
