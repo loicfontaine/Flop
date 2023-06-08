@@ -125,8 +125,8 @@
         }
 
     var divContainerInfos = document.getElementById('container-infos');
-    var divContainerModif = document.getElementById('container-modif');
-    var btnModifier=document.getElementById('container-modif-infos');
+    var divContainerModif = document.getElementById('container-modif-infos');
+    var btnModifier=document.getElementById('bouton-modifier');
 
     btnModifier.addEventListener('click', function() {
         divContainerInfos.style.display = "none";
