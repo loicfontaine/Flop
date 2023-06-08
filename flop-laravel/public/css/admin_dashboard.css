@@ -316,3 +316,7 @@ input[type="datetime-local"] {
      cursor: pointer;
     }
 
+/** poll */
+#createPoll {
+    width: 100%;
+}
