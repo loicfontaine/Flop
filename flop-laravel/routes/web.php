@@ -37,7 +37,9 @@ Route::get('/', function () {
     return redirect('/home');
 });
 
-Route::get('/home', [HomeController::class, 'getInfo'])->name('home');
+Route::get('/home', function () {
+    return view('homePage');
+})->name('home');
 
 Route::get('/inscription', function () {
     return view('inscription');
