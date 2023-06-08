@@ -18,7 +18,7 @@ class AdminController extends Controller
     public function dashboard()
     {
         //si authentifier et admin return dashboard
-        //sinon return accueil
+        //sinon return accueil ss authentification
 
         dd(auth()->user()->is_admin);
         if (auth()->user()->is_admin) {
