@@ -97,6 +97,7 @@
             </div>
             <input type='text' placeholder='Chattez publiquement' class='input-message'></input>
             <button class='bouton-chat'>Envoyer</button>
+      </div>
         </div>
         @else
         <div class="nomDeUtilisateur">
