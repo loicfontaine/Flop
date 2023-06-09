@@ -221,7 +221,7 @@ hr#separation {
 
 #container-infos {
   border-radius : 8px;
-  width:80%;
+  width:100%;
   background-color: white;
   margin-bottom: 20px;
 }
@@ -234,7 +234,7 @@ hr#separation {
 
 #container-participation {
   border-radius : 8px;
-  width:80%;
+  width:100%;
   background-color: white;
 }
 
@@ -269,7 +269,7 @@ hr#separation {
 }
 
 #participation {
-  width:340px;
+  width:80%;
 }
 
 .coins span {
