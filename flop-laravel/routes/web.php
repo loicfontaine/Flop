@@ -76,7 +76,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::resource('user', UserController::class);
 
 Route::resource('poll', PollController::class);
-Route::get('/createMusic', [PollController::class, 'createMusic'])->name('poll.createMusic');
+Route::post('/createMusic', [PollController::class, 'createMusic'])->name('poll.createMusic');
 
 Route::resource('answer', AnswerController::class);
 
