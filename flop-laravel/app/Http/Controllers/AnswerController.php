@@ -48,8 +48,6 @@ class AnswerController extends Controller
             // Retourne le tableau option_user qui contient l'ID de l'utilisateur concerné uniquement
             $existingVotes = DB::table('option_user')->where('user_id', $userId);
 
-            // Si l'utilisateur a déjà voté pour une des options de ce sondage
-
             if ($existingVotes->count() > 0) {
                 // On récupère les ID des options pour lesquelles l'utilisateur a déjà voté
                 $existingVotes = $existingVotes->pluck('option_id');
@@ -62,8 +60,7 @@ class AnswerController extends Controller
                     return "Vous avez déjà voté pour ce sondage";
                 }else {
                     $user->options()->attach($answers);
-
-                    return redirect()->route('answer.index');
+                    return "Votre vote a bien été pris en compte";
                 }
             } 
         } else {
