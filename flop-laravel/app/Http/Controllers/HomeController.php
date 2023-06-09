@@ -36,6 +36,6 @@ class HomeController extends Controller
             array_push($types, $challenge->participation_types);
         }
 
-        return response()->json(array($challenges, $types));
+        return response()->json($challenges);
     }
 }
