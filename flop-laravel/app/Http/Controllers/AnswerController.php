@@ -47,10 +47,10 @@ class AnswerController extends Controller
             foreach ($answers as $answer) {
                 if ($existingVotes->where('option_id', $answer)->exists()) {
                     return "Vous avez déjà voté pour cette option.";
-                }else{
-                    $user->options()->attach($answer);
                 }
             }
+            
+            $user->options()->attach($answers);
             
             return "Votre vote a bien été pris en compte.";
         } else {
