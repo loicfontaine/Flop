@@ -115,7 +115,9 @@ class PollController extends Controller
 
         // add random songs to the options array
         for ($i = 0; $i < count($songs); $i++) {
+
             $option = $songs[rand(1,count($songs))];
+
             if (!in_array($option, $options)) {
                 array_push($options, $option);
             }
@@ -129,6 +131,6 @@ class PollController extends Controller
         //     ]);
         // }
 
-        return dd($songs);
+        return dd($options);
     }
 }
