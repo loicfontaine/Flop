@@ -42,13 +42,14 @@ class AnswerController extends Controller
         if (Auth::check()) {
             $userId = Auth::user()->id;
             $user = User::find($userId);
-            $answers = $request->input('option');
+            $answers = $request->input('options');
 
             for ($i = 0; $i < count($answers); $i++) {
                 if ($request->input('option_user')[$i] == "on") {
                     $user->options()->attach($i);
                 }
             }
+
             $user->options;
 
             return "Votre vote a bien été pris en compte";
