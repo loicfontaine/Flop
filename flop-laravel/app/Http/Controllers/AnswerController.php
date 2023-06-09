@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Option;
 use Carbon\Carbon;
+use App\Models\Polls;
 
 class AnswerController extends Controller
 {
@@ -40,9 +41,10 @@ class AnswerController extends Controller
             $userId = Auth::user()->id;
             $user = User::find($userId);
             $answers = $request->input('options');
-            $pollId = $request->input('poll_id');
+            $pollID = DB::table('polls')->orderBy('id', 'desc')->first()->id;
+
     
-            $existingVotes = $user->options()->whereIn('poll_id', [$pollId])->pluck('option_id')->toArray();
+            $existingVotes = $user->options()->whereIn('poll_id', [$pollID])->pluck('option_id')->toArray();
     
             foreach ($answers as $answer) {
                 if (in_array($answer, $existingVotes)) {
@@ -52,7 +54,7 @@ class AnswerController extends Controller
             }
     
             foreach ($answers as $answer) {
-                $user->options()->attach($answer, ['poll_id' => $pollId]);
+                $user->options()->attach($answer);
             }
     
             return "Votre vote a bien été pris en compte";
