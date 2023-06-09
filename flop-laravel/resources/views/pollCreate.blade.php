@@ -47,3 +47,9 @@
   </form>
 </div>
 </div>
+
+// form that contains a button to ceate a MusicPoll through the method poll.createMusic
+
+<form method="POST" action="{{route('poll.createMusic')}}" accept-charset="UTF-8">
+    <button type="submit">Créer un sondage de musique</button>
+</form>
