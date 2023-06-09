@@ -39,48 +39,20 @@ class AnswerController extends Controller
     if (Auth::check()) {
         $userId = Auth::user()->id;
         $user = User::find($userId);
-        $optionUser = DB::table('option_user')->where('user_id', $userId)->get();
         $answers = $request->input('options');
 
-        $matchingOptions = [];
-
-        foreach ($optionUser as $optionUserItem) {
-            foreach ($answers as $answerItem) {
-                if ($optionUserItem->option_id === $answerItem) {
-                    $matchingOptions[] = $optionUserItem->option_id;
-                }
-            }
-        }
-
-        if (count($matchingOptions) > 0) {
-            $matchingOption = Option::where('id', $matchingOptions[0])->first();
-
-            if ($matchingOption) {
+        foreach ($answers as $answer) {
+            if ($user->options()->where('id', $answer)->exists()) {
+                $matchingOption = Option::find($answer);
                 return "Vous avez déjà voté pour l'option : " . $matchingOption->title;
             } else {
-                return "L'option correspondante n'a pas été trouvée.";
+                $user->options()->attach($answer);
             }
-        } else {
-            foreach ($answers as $answer) {
-                if ($answer != null) {
-                    $option = Option::where('id', $answer)->first();
-
-                    if ($option) {
-                        if ($user->options()->where($option->getTable() . '.id', $option->id)->exists()) {
-                            return "L'option '" . $option->title . "' est déjà sélectionnée.";
-                        }
-
-                        $user->options()->attach($option);
-                    }
-                }
-            }
-
-            $userOptions = $user->options;
-
-            return "Votre vote a bien été pris en compte.";
         }
+
+        return "Votre vote a bien été pris en compte";
     } else {
-        return "Vous devez être connecté pour voter.";
+        return "Vous devez être connecté pour voter";
     }
 }
 
