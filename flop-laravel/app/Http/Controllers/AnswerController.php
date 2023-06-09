@@ -35,26 +35,27 @@ class AnswerController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    if (Auth::check()) {
-        $userId = Auth::user()->id;
-        $user = User::find($userId);
-        $answers = $request->input('options');
-
-        foreach ($answers as $answer) {
-            if ($user->options()->where('id', $answer)->exists()) {
-                $matchingOption = Option::find($answer);
-                return "Vous avez déjà voté pour l'option : " . $matchingOption->title;
-            } else {
-                $user->options()->attach($answer);
+    {
+        if (Auth::check()) {
+            $userId = Auth::user()->id;
+            $user = User::find($userId);
+            $answers = $request->input('options');
+    
+            foreach ($answers as $answer) {
+                if ($user->options()->where('options.id', $answer)->exists()) {
+                    $matchingOption = Option::find($answer);
+                    return "Vous avez déjà voté pour l'option : " . $matchingOption->title;
+                } else {
+                    $user->options()->attach($answer);
+                }
             }
+    
+            return "Votre vote a bien été pris en compte";
+        } else {
+            return "Vous devez être connecté pour voter";
         }
-
-        return "Votre vote a bien été pris en compte";
-    } else {
-        return "Vous devez être connecté pour voter";
     }
-}
+    
 
 
     /**
