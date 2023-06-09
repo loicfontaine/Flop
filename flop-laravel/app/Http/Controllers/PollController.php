@@ -65,6 +65,7 @@ class PollController extends Controller
             ]);
         }
 
+        dd($options);
         return back();
     }
 
