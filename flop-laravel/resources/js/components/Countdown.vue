@@ -78,6 +78,7 @@ export default {
     async submit() {
       this.$emit('submit', this.form)
       console.log(this.form)
+      console.log("test")
     },
     startCountdown() {
       const currentDate = new Date();
