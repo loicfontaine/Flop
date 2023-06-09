@@ -56,8 +56,6 @@ class AnswerController extends Controller
                 }
             }       
 
-            dd($matchingOptions);
-
             if (count($matchingOptions) > 0) {
                 return "Vous avez déjà voté";
             } else {
@@ -69,6 +67,10 @@ class AnswerController extends Controller
                     }
                 }
                 $user->options;
+
+                
+                dd($matchingOptions);
+
                 return "Votre vote a bien été pris en compte";
             }
         }else{
