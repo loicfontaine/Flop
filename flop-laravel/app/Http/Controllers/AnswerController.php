@@ -66,7 +66,7 @@ class AnswerController extends Controller
                     $option = Option::where('id', $answer)->first();
 
                     if ($option) {
-                        if ($user->options()->where('id', $option->id)->exists()) {
+                        if ($user->options()->where($option->getTable() . '.id', $option->id)->exists()) {
                             return "L'option '" . $option->title . "' est déjà sélectionnée.";
                         }
 
