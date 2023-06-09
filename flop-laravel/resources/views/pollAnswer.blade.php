@@ -11,7 +11,7 @@
 @for ($i = 0; $i < count($reponses); $i++)
     <label>Option {{ $i }}</label>
       <div id="conteneur-options">
-        <input type="radio" name="options[]" value="{{ $i }}" required>
+        <input type="radio" name="options[]" value="{{ $reponses[$i]->id }}" required>
         {{ $reponses[$i]->title }}
       </div>
       <br>
