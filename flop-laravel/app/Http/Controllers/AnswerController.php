@@ -46,31 +46,37 @@ class AnswerController extends Controller
             $optionUser = DB::table('option_user')->where('user_id', Auth::user()->id)->get();
             $answers = $request->input('options');
 
-            $matchingOptions = [];
-
-            foreach ($optionUser as $optionUserItem) {
-                foreach ($answers as $answerItem) {
-                    if ($optionUserItem->option_id === $answerItem) {
-                        $matchingOptions[] = $optionUserItem->option_id;
-                    }
-                }
-            }
-
             if (count($matchingOptions) > 0) {
-                // get l'option dans la table option avec l'id de l'option_user
-                $matchingOption = DB::table('options')->where('id', $matchingOptions[0])->get();
-                return "Vous avez déjà voté pour l'option : " . $matchingOption->title;
+                // Obtenir l'option correspondante dans la table 'options' en utilisant l'id de 'option_user'
+                $matchingOption = Option::find($matchingOptions[0]);
+            
+                if ($matchingOption) {
+                    return "Vous avez déjà voté pour l'option : " . $matchingOption->title;
+                } else {
+                    return "L'option correspondante n'a pas été trouvée.";
+                }
             } else {
-                for ($i = 0; $i < count($answers); $i++) {
-                    if($answers[$i] != null){
-                        $user->options()->attach($answers[$i]);
+                foreach ($answers as $answer) {
+                    if ($answer != null) {
+                        $option = Option::find($answer);
+            
+                        if ($option) {
+                            // Vérifier si l'option est déjà attachée à l'utilisateur
+                            if ($user->options()->where('id', $option->id)->exists()) {
+                                // L'option est déjà attachée à l'utilisateur, renvoyer un message
+                                return "L'option '" . $option->title . "' est déjà sélectionnée.";
+                            }
+            
+                            // Attacher l'option à l'utilisateur
+                            $user->options()->attach($option);
+                        }
                     }
                 }
-                $user->options;
-
-                dd($matchingOptions);
-
-                return "Votre vote a bien été pris en compte";
+            
+                // Récupérer les options attachées à l'utilisateur
+                $userOptions = $user->options;
+            
+                return "Votre vote a bien été pris en compte.";
             }
         }else{
             return "Vous devez être connecté pour voter";
