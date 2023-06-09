@@ -129,6 +129,8 @@ svg {
 .price {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
+    margin-bottom:0px;
+    margin-bottom: 0px;
 
     
 }
@@ -138,4 +140,10 @@ svg {
     flex-direction: row;
     padding-left: 50px;
 
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:10px;
 }
