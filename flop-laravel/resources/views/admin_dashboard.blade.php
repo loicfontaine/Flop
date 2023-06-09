@@ -99,11 +99,8 @@
                     </div>
               
                 </form>
-                <form method="POST" action="{{route('createMusic')}}" accept-charset="UTF-8">
-                    <div class="form-submit">
-                        <button type="submit" class='submit buttonLabel'>Créer un sondage de musique</button>
-                    </div>
-                </form>
+                <a href="{{ route('createMusic') }}" class="submit buttonLabel">Créer un sondage de musique</a>
+
             </div>
         </div>
         <!-- FORMULAIRE CHALLENGE -->
