@@ -33,7 +33,7 @@ class AnswerController extends Controller
         $description = $dernierSondage->description;
         $duration =  $dernierSondage->duration;
 
-        return view('pollAnswer')->with(compact('dernierSondage', 'title', 'duration', 'reponses', 'description'));
+        return view('pollAnswer')->with(compact('dernierSondage', 'reponses', 'title', 'description', 'duration'));
     }
 
     /**
