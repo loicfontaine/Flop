@@ -40,18 +40,28 @@ class AnswerController extends Controller
     public function store(Request $request)
     {
         if (Auth::check()) {
+            // option_user getter
             $userId = Auth::user()->id;
             $user = User::find($userId);
+            $optionUser = DB::table('option_user')->where('user_id', Auth::user()->id)->get();
             $answers = $request->input('options');
 
-            for ($i = 0; $i < count($answers); $i++) {
-                $user->options()->attach($answers[$i]);
+            $matchingOptions = array_intersect($optionUser, $answers);
+            
+            if (count($matchingOptions) > 0) {
+                return "Vous avez déjà voté";
+            } else {
+                for ($i = 0; $i < count($answers); $i++) {
+                    if($answers[$i] == null){
+                        return "Vous devez répondre à toutes les questions";
+                    }else{
+                        $user->options()->attach($answers[$i]);
+                    }
+                }
+                $user->options;
+                return "Votre vote a bien été pris en compte";
             }
-
-            $user->options;
-
-            return "Votre vote a bien été pris en compte";
-        } else {
+        }else{
             return "Vous devez être connecté pour voter";
         }
     }
