@@ -40,17 +40,19 @@ class AnswerController extends Controller
             $userId = Auth::user()->id;
             $user = User::find($userId);
             $answers = $request->input('options');
+            $pollId = $request->input('poll_id');
     
-            $existingOptions = Option::whereIn('id', $answers)->get();
+            $existingVotes = $user->options()->whereIn('poll_id', [$pollId])->pluck('option_id')->toArray();
     
-            foreach ($existingOptions as $option) {
-                if ($user->options()->where('options.id', $option->id)->exists()) {
-                    return "Vous avez déjà voté pour l'option : " . $option->title;
-                }else{
-                    foreach ($answers as $answer) {
-                        $user->options()->attach($answer);
-                    }
+            foreach ($answers as $answer) {
+                if (in_array($answer, $existingVotes)) {
+                    $existingOption = Option::find($answer);
+                    return "Vous avez déjà voté pour l'option : " . $existingOption->title;
                 }
+            }
+    
+            foreach ($answers as $answer) {
+                $user->options()->attach($answer, ['poll_id' => $pollId]);
             }
     
             return "Votre vote a bien été pris en compte";
@@ -58,6 +60,7 @@ class AnswerController extends Controller
             return "Vous devez être connecté pour voter";
         }
     }
+    
     
     
 
