@@ -25,7 +25,7 @@
         </label>
         <audio v-if="audioBlob" controls>
           <source :src="audioUrl" type="audio/webm">
-          Votre navigateur ne prend pas en charge la lecture audio.
+          Votre navigateur ne prend pas en charge la lecture audio
         </audio>
         <button class="expanded-button audio FontMonserrat" @click="startRecording" v-if="!isRecording">Enregistrer</button>
         <button class="expanded-button audio FontMonserrat" @click="stopRecording" v-if="isRecording">Arrêter l'enregistrement</button>
