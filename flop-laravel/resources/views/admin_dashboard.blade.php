@@ -99,7 +99,12 @@
                     </div>
               
                 </form>
-                <a href="{{ route('createMusic') }}" class="submit buttonLabel">Créer un sondage de musique</a>
+                <form method="POST" action="{{ route('createMusic') }}">
+                    @csrf
+                    <div class="form-submit">
+                        <button type="submit" class="submit buttonLabel">Créer un sondage de musique</button>
+                    </div>
+                </form>
 
             </div>
         </div>
