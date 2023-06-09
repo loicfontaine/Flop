@@ -46,6 +46,16 @@ class AnswerController extends Controller
             $optionUser = DB::table('option_user')->where('user_id', Auth::user()->id)->get();
             $answers = $request->input('options');
 
+            $matchingOptions = [];
+
+            foreach ($optionUser as $optionUserItem) {
+                foreach ($answers as $answerItem) {
+                    if ($optionUserItem->option_id === $answerItem) {
+                        $matchingOptions[] = $optionUserItem->option_id;
+                    }
+                }
+            }
+
             if (count($matchingOptions) > 0) {
                 // Obtenir l'option correspondante dans la table 'options' en utilisant l'id de 'option_user'
                 $matchingOption = Option::find($matchingOptions[0]);
