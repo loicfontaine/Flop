@@ -63,11 +63,8 @@ class PollController extends Controller
     {
         $dernierSondage = DB::table('polls')->orderBy('id', 'desc')->first();
         $reponses = DB::table('options')->where('poll_id', $dernierSondage->id)->get();
-        $title = $dernierSondage->title;
-        $description = $dernierSondage->description;
-        $duration =  $dernierSondage->duration;
 
-        return view('pollList')->with(compact('dernierSondage', 'reponses', 'title', 'description', 'duration', 'polls'));
+        return view('pollList')->with(compact('dernierSondage', 'reponses'));
     }
 
     /**
