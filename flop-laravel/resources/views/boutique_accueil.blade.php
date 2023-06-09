@@ -23,7 +23,6 @@ Boutique | Couleur 3 Interact
 </div>
 
     <div class="grid-container">
-        <div class="row">
             @foreach($articles as $article)
                 <div class='item'>
                 <img src="img/articles/{{$article->image}}" class='img-item'>
@@ -34,7 +33,6 @@ Boutique | Couleur 3 Interact
                     </div>
                 </div>
             @endforeach
-        </div>
     </div>
 
 
