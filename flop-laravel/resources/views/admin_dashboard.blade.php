@@ -100,7 +100,9 @@
               
                 </form>
                 <form method="POST" action="{{route('poll.createMusic')}}" accept-charset="UTF-8">
-                    <button type="submit">Créer un sondage de musique</button>
+                    <div class="form-submit">
+                        <button type="submit" class='submit buttonLabel'>Créer un sondage de musique</button>
+                    </div>
                 </form>
             </div>
         </div>
