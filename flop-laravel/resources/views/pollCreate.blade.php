@@ -28,6 +28,11 @@
           <input required="required" type="integer" class="timepicker" name="duration" value="">
         </div>
       </div>
+
+      <label>Options :</label>
+      <div id="conteneur-options">
+        <input type="text" name="options[]" placeholder="Option" required>
+      </div>
       
       <section>
         <button type="button" onclick="ajouterOption()">Ajouter une option</button>
@@ -40,17 +45,5 @@
 
   </div>
   </form>
-  <form method="POST" action="{{ route('createMusic') }}">
-    @csrf
-    <div class="form-submit">
-        <button type="submit" class="submit buttonLabel">Créer un sondage de musique</button>
-    </div>
-</form>
 </div>
 </div>
-
-// form that contains a button to ceate a MusicPoll through the method poll.createMusic
-
-<form method="POST" action="{{route('poll.createMusic')}}" accept-charset="UTF-8">
-    <button type="submit">Créer un sondage de musique</button>
-</form>
