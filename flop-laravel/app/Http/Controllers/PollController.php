@@ -18,7 +18,10 @@ class PollController extends Controller
      */
     public function index()
     {
-        return redirect()->route('poll.create');
+        $polls = DB::table('polls')->where('start_date', '<=', Carbon::now())->get();
+        $reponses = DB::table('options')->get();
+
+        return view('pollList')->with(compact('polls', 'reponses'));
     }
 
     /**
@@ -27,6 +30,42 @@ class PollController extends Controller
     public function create()
     {
         return view('pollCreate');
+    }
+
+    /**
+     * Crée un poll de musique automatique
+     */
+    public function createMusic()
+    {
+        Poll::create([
+            'title' => 'Prochaine musique',
+            'description' => 'Choisissez la prochaine musique grâce à ce sondage automatique :D',
+            'duration' => '5',
+            'user_id' => Auth::user()->id,
+            'start_date' => now(),
+        ]);
+
+        $result = DB::table('polls')->orderBy('id', 'desc')->first();
+        $songs = DB::table('songs')->get();
+        $options = array();
+
+        // add random songs to the options array
+        for ($i = 0; $i < count($songs); $i++) {
+            $option = $songs[rand(1,count($songs))];
+            if (!in_array($option, $options)) {
+                array_push($options, $option);
+            }
+        }
+
+        for ($i = 0; $i < count($options); $i++) {
+            Option::create([
+                'title' => $options[$i]->title,
+                'poll_id' => $result->id,
+                'song_id' => $options[$i]->id,
+            ]);
+        }
+
+        return back();
     }
 
     /**
@@ -42,14 +81,13 @@ class PollController extends Controller
             'start_date' => $request->input('start_date'),
         ]);
 
-        $options = $request->input('options');
         $result = DB::table('polls')->orderBy('id', 'desc')->first();
-        $lastId = $result->id;
+        $options = $request->input('options');
 
         for ($i = 0; $i < count($options); $i++) {
             Option::create([
                 'title' => $options[$i],
-                'poll_id' => $lastId,
+                'poll_id' => $result->id,
             ]);
         }
 
@@ -61,13 +99,10 @@ class PollController extends Controller
      */
     public function show(string $id)
     {
-        $dernierSondage = DB::table('polls')->orderBy('id', 'desc')->first();
-        $reponses = DB::table('options')->where('poll_id', $dernierSondage->id)->get();
-        $title = $dernierSondage->title;
-        $description = $dernierSondage->description;
-        $duration =  $dernierSondage->duration;
+        $poll = DB::table('polls')->where('id', $id)->first();
+        $reponses = DB::table('options')->where('poll_id', $id)->get();
 
-        return view('pollList')->with(compact('dernierSondage', 'reponses', 'title', 'description', 'duration', 'polls'));
+        return view('pollList')->with(compact('poll', 'reponses'));
     }
 
     /**
