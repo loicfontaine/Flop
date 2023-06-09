@@ -50,11 +50,12 @@ class AnswerController extends Controller
 
             foreach ($optionUser as $optionUserItem) {
                 foreach ($answers as $answerItem) {
-                    if ($optionUserItem->option_id === $answerItem) {
+                    if ($optionUserItem->option_id == $answerItem->content) {
                         $matchingOptions[] = $optionUserItem->option_id;
                     }
                 }
             }       
+
             dd($matchingOptions);
             if (count($matchingOptions) > 0) {
                 return "Vous avez déjà voté";
