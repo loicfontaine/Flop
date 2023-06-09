@@ -44,8 +44,6 @@ class AnswerController extends Controller
             $user = User::find($userId);
             $answers = $request->input('options');
 
-            dd($answers);
-
             for ($i = 0; $i < count($answers); $i++) {
                 if ($request->input('option_user')[$i] == "on") {
                     $user->options()->attach($i);
