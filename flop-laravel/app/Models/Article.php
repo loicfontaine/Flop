@@ -18,7 +18,6 @@ class Article extends Model
         "nb_stock",
         "is_displayed",
         "user_id",
-        "challenge_id",
     ];
 
     public function user()
