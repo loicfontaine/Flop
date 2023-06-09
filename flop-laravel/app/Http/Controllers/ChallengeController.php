@@ -82,7 +82,7 @@ class ChallengeController extends Controller
                         [
                             "quantity" => $request->input("quantity-" . $article->id),
                             "article_id" => $article->id,
-                            "challenge_id" => $challenge->id,
+                            "challenge_id" => 1,
                         ]
                     );
                 }
