@@ -10,7 +10,7 @@
 
 @for ($i = 0; $i < count($reponses); $i++)
     <label>
-        <input type="radio" name="option" value="{{ $i }}">
+        <input type="radio" name="options[]" value="{{ $i }}">
         {{ $reponses[$i]->title }}
     </label>
     <br>
