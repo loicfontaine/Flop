@@ -33,43 +33,6 @@ class PollController extends Controller
     }
 
     /**
-     * Crée un poll de musique automatique
-     */
-    public function createMusic()
-    {
-        Poll::create([
-            'title' => 'Prochaine musique',
-            'description' => 'Choisissez la prochaine musique grâce à ce sondage automatique :D',
-            'duration' => '5',
-            'user_id' => Auth::user()->id,
-            'start_date' => now(),
-        ]);
-
-        $result = DB::table('polls')->orderBy('id', 'desc')->first();
-        $songs = DB::table('songs')->get();
-        $options = array();
-
-        // add random songs to the options array
-        for ($i = 0; $i < count($songs); $i++) {
-            $option = $songs[rand(1,count($songs))];
-            if (!in_array($option, $options)) {
-                array_push($options, $option);
-            }
-        }
-
-        for ($i = 0; $i < count($options); $i++) {
-            Option::create([
-                'title' => $options[$i]->title,
-                'poll_id' => $result->id,
-                'song_id' => $options[$i]->id,
-            ]);
-        }
-
-        dd($options);
-        return view('admin_dashboard');
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(CreatePollRequest $request)
@@ -131,5 +94,41 @@ class PollController extends Controller
         $poll = DB::table('polls')->orderBy('id', 'desc')->first();
         $pollId = $poll->id;
         DB::table('polls')->where('id', $pollId)->delete();
+    }
+
+    /**
+     * Crée un poll de musique automatique
+     */
+    public function createMusic()
+    {
+        Poll::create([
+            'title' => 'Prochaine musique',
+            'description' => 'Choisissez la prochaine musique grâce à ce sondage automatique :D',
+            'duration' => '5',
+            'user_id' => Auth::user()->id,
+            'start_date' => now(),
+        ]);
+
+        $result = DB::table('polls')->orderBy('id', 'desc')->first();
+        $songs = DB::table('songs')->get();
+        $options = array();
+
+        // add random songs to the options array
+        for ($i = 0; $i < count($songs); $i++) {
+            $option = $songs[rand(1,count($songs))];
+            if (!in_array($option, $options)) {
+                array_push($options, $option);
+            }
+        }
+
+        for ($i = 0; $i < count($options); $i++) {
+            Option::create([
+                'title' => $options[$i]->title,
+                'poll_id' => $result->id,
+                'song_id' => $options[$i]->id,
+            ]);
+        }
+
+        return dd($options);;
     }
 }
