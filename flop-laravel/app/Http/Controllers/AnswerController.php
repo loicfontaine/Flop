@@ -42,7 +42,7 @@ class AnswerController extends Controller
         if (Auth::check()) {
             $userId = Auth::user()->id;
             $user = User::find($userId);
-            $answers = $request->input('options');
+            $answers = $request->input('option');
 
             for ($i = 0; $i < count($answers); $i++) {
                 if ($request->input('option_user')[$i] == "on") {
