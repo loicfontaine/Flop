@@ -16,7 +16,7 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
-    width: 359px;
+    width: 80%;
     background-color: white;
 }
 
@@ -55,7 +55,7 @@
     margin-right: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 266px;
+    width: 70%;
 }
 
 .bouton {
@@ -78,7 +78,7 @@ hr.separation {
 }
 
 .column-container {
-    width: 359px;
+    width: 80%;
     column-count: 2; /* Nombre de colonnes */
     column-gap: 20px;
 }
