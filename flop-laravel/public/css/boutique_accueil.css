@@ -77,10 +77,9 @@ hr.separation {
     color:white;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-rows: 100px 100px;
-    grid-template-columns: 100px 100px 100px;
+.row {
+    display:flex;
+    flex-direction: row;
 }
 
 .column-item {
@@ -104,6 +103,7 @@ hr.separation {
 .item {
     background-color: white;
     width: 173px;
+    height: fit-content;
     border-radius: 8px;
     margin-bottom:15px;
 }
