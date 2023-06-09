@@ -50,15 +50,17 @@ class AnswerController extends Controller
 
             foreach ($optionUser as $optionUserItem) {
                 foreach ($answers as $answerItem) {
-                    if ($optionUserItem->option_id == $answerItem->content) {
+                    if ($optionUserItem->option_id === $answerItem->id) {
                         $matchingOptions[] = $optionUserItem->option_id;
                     }
                 }
-            }       
+            }
 
             dd($matchingOptions);
             if (count($matchingOptions) > 0) {
-                return "Vous avez déjà voté";
+                // get l'option dans la table option avec l'id de l'option_user
+                $matchingOption = DB::table('options')->where('id', $matchingOptions[0])->get();
+                return "Vous avez déjà voté pour l'option : " . $matchingOption->title;
             } else {
                 for ($i = 0; $i < count($answers); $i++) {
                     if($answers[$i] != null){
