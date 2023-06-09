@@ -29,8 +29,8 @@
         </audio>
         <button class="expanded-button audio FontMonserrat" @click="startRecording" v-if="!isRecording">Enregistrer</button>
         <button class="expanded-button audio FontMonserrat" @click="stopRecording" v-if="isRecording">Arrêter l'enregistrement</button>
-        <input class="expanded-input FontMonserrat champsTexte" type="text" placeholder="Envoyer un message..." name="message" ref="expandedInput">
-        <input type="hidden" name="audioBlob" v-model="audioBlob">
+        <input class="expanded-input FontMonserrat champsTexte" type="text" placeholder="Envoyer un message..." name="message" v-model="form.message" ref="expandedInput">
+        <input type="hidden" name="audioBlob">
         <button class="expanded-button envoi FontMonserrat" type="submit">Envoyer ma participation</button>
         
       </div>
@@ -54,6 +54,7 @@ export default {
       audioBlob: null,
       selectedVideo: null,
       selectedImage: null,
+      audioUrl: null,
       form: {
         video: null,
         image: null,
@@ -137,14 +138,18 @@ export default {
       }
     },
     onRecordingStop() {
-      this.audioBlob = new Blob(this.chunks, { type: 'audio/webm' });
+     
+      this.audioBlob = new Blob(this.chunks, { type: 'audio/webm' }); 
+      this.form.audioBlob = this.audioBlob;
     },
     handleImageUpload(event) {
       const file = event.target.files[0];
+      this.form.image = file;
       this.selectedImage = URL.createObjectURL(file);
     },
     handleVideoUpload(event) {
       const file = event.target.files[0];
+      this.form.video = file;
       this.selectedVideo = URL.createObjectURL(file);
     },
   },
