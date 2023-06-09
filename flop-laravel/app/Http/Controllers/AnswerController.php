@@ -50,7 +50,7 @@ class AnswerController extends Controller
 
             foreach ($optionUser as $optionUserItem) {
                 foreach ($answers as $answerItem) {
-                    if ($optionUserItem->option_id === $answerItem->id) {
+                    if ($optionUserItem->option_id === $answerItem) {
                         $matchingOptions[] = $optionUserItem->option_id;
                     }
                 }
