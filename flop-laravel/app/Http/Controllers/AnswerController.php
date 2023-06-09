@@ -56,7 +56,6 @@ class AnswerController extends Controller
                 }
             }
 
-            dd($matchingOptions);
             if (count($matchingOptions) > 0) {
                 // get l'option dans la table option avec l'id de l'option_user
                 $matchingOption = DB::table('options')->where('id', $matchingOptions[0])->get();
