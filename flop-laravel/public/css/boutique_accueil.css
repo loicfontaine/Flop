@@ -77,10 +77,10 @@ hr.separation {
     color:white;
 }
 
-.column-container {
-    width: 80%;
-    column-count: 2; /* Nombre de colonnes */
-    column-gap: 20px;
+.grid-container {
+    display: grid;
+    grid-template-rows: 100px 100px;
+    grid-template-columns: 100px 100px 100px;
 }
 
 .column-item {
