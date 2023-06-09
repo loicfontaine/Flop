@@ -28,11 +28,6 @@
           <input required="required" type="integer" class="timepicker" name="duration" value="">
         </div>
       </div>
-
-      <label>Options :</label>
-      <div id="conteneur-options">
-        <input type="text" name="options[]" placeholder="Option" required>
-      </div>
       
       <section>
         <button type="button" onclick="ajouterOption()">Ajouter une option</button>
@@ -45,6 +40,12 @@
 
   </div>
   </form>
+  <form method="POST" action="{{ route('createMusic') }}">
+    @csrf
+    <div class="form-submit">
+        <button type="submit" class="submit buttonLabel">Créer un sondage de musique</button>
+    </div>
+</form>
 </div>
 </div>
 
