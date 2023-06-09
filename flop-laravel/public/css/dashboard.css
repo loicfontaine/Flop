@@ -25,6 +25,7 @@
 /*-------- Séparation --------*/
 
 hr#separation {
+  color:white !important;
     width: 226px;
     margin-top: 25px;
     margin-bottom: 25px;
@@ -384,11 +385,12 @@ hr {
   display: none;
 }
 
-hr#separation {
-  color:white;
+button {
+  cursor:pointer;
 }
 
 input {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
+  width: 98%;
 }
