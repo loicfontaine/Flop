@@ -13,7 +13,7 @@
 @foreach ($reponses as $index => $reponse)
     <label>
         <input type="radio" name="option" value="{{ $index }}">
-        {{ $reponse }}
+        {{ $reponse->content }}
     </label>
     <br>
 @endforeach
