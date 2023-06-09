@@ -1,4 +1,4 @@
-@foreach ($polls as $poll)
+@foreach ($sondage as $poll)
     <form method="POST" action="{{route('poll.destroy', $poll->id)}}" accept-charset="UTF-8">
         @csrf
     <p>{{$poll->title}}</p>
