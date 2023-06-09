@@ -9,6 +9,7 @@ use App\Models\Option;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\Cast\Bool_;
 
 class PollController extends Controller
 {
@@ -60,7 +61,9 @@ class PollController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // List all the polls in the DB
+        $polls = DB::table('polls')->get();	
+        return view('pollList')->with(compact('polls'));
     }
 
     /**
@@ -84,6 +87,9 @@ class PollController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Remove the last poll in db
+        $poll = DB::table('polls')->orderBy('id', 'desc')->first();
+        $pollId = $poll->id;
+        DB::table('polls')->where('id', $pollId)->delete();
     }
 }
