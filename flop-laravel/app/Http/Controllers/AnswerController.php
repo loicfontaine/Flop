@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Survey;
-use App\Models\Answer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\Option;
 use Carbon\Carbon;
@@ -56,7 +53,7 @@ class AnswerController extends Controller
         }
 
         if (count($matchingOptions) > 0) {
-            $matchingOption = Option::find($matchingOptions[0]);
+            $matchingOption = Option::where('id', $matchingOptions[0])->first();
 
             if ($matchingOption) {
                 return "Vous avez déjà voté pour l'option : " . $matchingOption->title;
@@ -66,7 +63,7 @@ class AnswerController extends Controller
         } else {
             foreach ($answers as $answer) {
                 if ($answer != null) {
-                    $option = Option::find($answer);
+                    $option = Option::where('id', $answer)->first();
 
                     if ($option) {
                         if ($user->options()->where('id', $option->id)->exists()) {
