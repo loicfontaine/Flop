@@ -123,13 +123,13 @@ class PollController extends Controller
             }
         }
 
-        // for ($i = 0; $i < count($options); $i++) {
-        //     Option::create([
-        //         'title' => $options[$i]->title,
-        //         'poll_id' => $result->id,
-        //         'song_id' => $options[$i]->id,
-        //     ]);
-        // }
+        for ($i = 0; $i < count($options); $i++) {
+            Option::create([
+                'title' => $options[$i]->title,
+                'poll_id' => $result->id,
+                'song_id' => $options[$i]->id,
+            ]);
+        }
 
         return dd($options);
     }
