@@ -58,7 +58,7 @@ class ChallengeController extends Controller
             'name' => $request->input('title'),
             'description' => $request->input('description'),
             'end_time' => $request->input('end_time'),
-            'colorCoins' => $request->input('ColorCoins_earned_by_participation'),
+            'colorCoins' => $request->input('ColorCoins'),
             'is_contest' => $contest,
         ]);
         if ($request->input("type-audio") == "on") {
@@ -74,20 +74,6 @@ class ChallengeController extends Controller
         if ($request->input("type-text") == "on") {
             $challenge->participation_types()->attach(4);
         }
-
-
-
-        Article::all()->each(function ($article) use ($request, $challenge) {
-            if ($request->input("quantity-" . $article->id)) {
-                Reward::create(
-                    [
-                        "quantity" => $request->input("quantity-" . $article->id),
-                        "article_id" => $article->id,
-                        "challenge_id" => $challenge->id,
-                    ]
-                );
-            }
-        });
 
         if ($contest) {
             Article::all()->each(function ($article) use ($request, $challenge) {
