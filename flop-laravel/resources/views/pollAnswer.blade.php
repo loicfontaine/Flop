@@ -17,11 +17,6 @@
       <br>
 @endfor
 
-<label>Options :</label>
-      <div id="conteneur-options">
-        <input type="text" name="options[]" placeholder="Option" required>
-      </div>
-
 <input type="submit" value="Valider">
 </form>
 </div>
