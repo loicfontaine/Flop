@@ -109,11 +109,14 @@ hr#separation {
   #bouton-valider{
     background-color: #E60099; 
     color: white;
-   width: auto;
+    width: 50%;
+    border: none;
     height: 40px;
     border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
   }
   
@@ -182,16 +185,6 @@ hr#separation {
   margin-bottom: 15px;
 }
 
-#btn-valider {
-  background-color: #E60096; 
-    font-size: 18px;
-    color: white;
-    border:none;
-    border-radius: 8px;
-    height: 40px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 
 .imgLogin {
   width: 80px;
