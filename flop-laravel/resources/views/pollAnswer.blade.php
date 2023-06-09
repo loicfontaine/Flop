@@ -8,13 +8,13 @@
 <p>{{$dernierSondage->title}}</p>
 <p>{{$dernierSondage->description}}</p>
 
-for ($i = 0; $i < count($reponses); $i++) {
+@for ($i = 0; $i < count($reponses); $i++)
     <label>
         <input type="radio" name="option" value="{{ $i }}">
         {{ $reponses[$i]->title }}
     </label>
     <br>
-}
+@endfor
 
 <input type="submit" value="Valider">
 </form>
