@@ -48,7 +48,7 @@ hr#separation {
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
-    width: 359px;
+    width: 80%;
     padding-top: 20px;
     background-color: white;
 }
@@ -197,7 +197,7 @@ hr#separation {
   color: white;
   border:none;
   border-radius: 8px;
-  width:290px;
+  width:80%;
   height: 40px;
   margin-top: 0px;
   margin-bottom: 20px;
@@ -221,7 +221,7 @@ hr#separation {
 
 #container-infos {
   border-radius : 8px;
-  width:340px;
+  width:80%;
   background-color: white;
   margin-bottom: 20px;
 }
@@ -234,7 +234,7 @@ hr#separation {
 
 #container-participation {
   border-radius : 8px;
-  width:340px;
+  width:80%;
   background-color: white;
 }
 
@@ -265,7 +265,7 @@ hr#separation {
 }
 
 #informations {
-  width:340px;
+  width:80%;
 }
 
 #participation {
