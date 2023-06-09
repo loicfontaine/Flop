@@ -45,9 +45,7 @@ class AnswerController extends Controller
             $answers = $request->input('options');
 
             for ($i = 0; $i < count($answers); $i++) {
-                if ($request->input('option_user')[$i] == "on") {
-                    $user->options()->attach($i);
-                }
+                $user->options()->attach($answers[$i]);
             }
 
             $user->options;
