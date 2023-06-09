@@ -37,7 +37,6 @@ class ChallengeController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
         /*
         "title" => "dsa"
         "description" => "sd"
@@ -59,7 +58,7 @@ class ChallengeController extends Controller
             'name' => $request->input('title'),
             'description' => $request->input('description'),
             'end_time' => $request->input('end_time'),
-            'colorCoins' => $request->input('ColorCoins_earned_by_participation'),
+            'ColorCoins_earned_by_participation' => $request->input('colorCoins'),
             'is_contest' => $contest,
         ]);
         if ($request->input("type-audio") == "on") {
