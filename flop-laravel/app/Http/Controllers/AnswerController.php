@@ -60,12 +60,12 @@ class AnswerController extends Controller
                 // Si le tableau résultant n'est pas vide, l'utilisateur a déjà voté pour une des options de ce sondage
                 if (!$result->isEmpty()) {
                     return "Vous avez déjà voté pour ce sondage";
-                }
+                }else {
+                    $user->options()->attach($answers);
 
-            } else {
-                $user->options()->attach($answers);
-            }
-            return "Votre vote a bien été pris en compte.";
+                    return redirect()->route('answer.index');
+                }
+            } 
         } else {
             return "Vous devez être connecté pour voter";
         }
