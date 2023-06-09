@@ -3,18 +3,18 @@
         @csrf
 <div class="sondage">
 <p>Durée du sondage</p>
-<p id="duree">{{$duration}}</p>
+<p id="duree">{{$timeLeft}}</p>
 
-<p>{{$title}}</p>
-<p>{{$description}}</p>
+<p>{{$dernierSondage->title}}</p>
+<p>{{$dernierSondage->description}}</p>
 
-@foreach ($reponses as $index => $reponse)
+for ($i = 0; $i < count($reponses); $i++) {
     <label>
-        <input type="radio" name="option" value="{{ $index }}">
-        {{ $reponse->title }}
+        <input type="radio" name="option" value="{{ $i }}">
+        {{ $reponses[$i]->title }}
     </label>
     <br>
-@endforeach
+}
 
 <input type="submit" value="Valider">
 </form>

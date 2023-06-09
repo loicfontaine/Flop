@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\Option;
-
+use Carbon\Carbon;
 
 class AnswerController extends Controller
 {
@@ -29,11 +29,9 @@ class AnswerController extends Controller
     {
         $dernierSondage = DB::table('polls')->orderBy('id', 'desc')->first();
         $reponses = DB::table('options')->where('poll_id', $dernierSondage->id)->get();
-        $title = $dernierSondage->title;
-        $description = $dernierSondage->description;
-        $duration =  $dernierSondage->duration;
+        $timeLeft = Carbon::now()->diffInMinutes(Carbon::parse($dernierSondage->start_date)->addMinutes($dernierSondage->duration));
 
-        return dd($dernierSondage, $reponses, $title, $description, $duration);
+        return dd($dernierSondage, $reponses, $timeLeft);
         //return view('pollAnswer')->with(compact('dernierSondage', 'reponses', 'title', 'description', 'duration'));
     }
 
