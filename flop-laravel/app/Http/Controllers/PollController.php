@@ -99,7 +99,7 @@ class PollController extends Controller
      */
     public function show(string $id)
     {
-        $sondage = DB::table('polls')->where('id', $id)->first();
+        $sondage = DB::table('polls')->where('id', $id)->get();
         $reponses = DB::table('options')->where('poll_id', $id)->get();
 
         return view('pollList')->with(compact('sondage', 'reponses'));
