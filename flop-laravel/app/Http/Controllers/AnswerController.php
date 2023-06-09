@@ -46,8 +46,17 @@ class AnswerController extends Controller
             $optionUser = DB::table('option_user')->where('user_id', Auth::user()->id)->get();
             $answers = $request->input('options');
 
-            $matchingOptions = array_intersect($optionUser, $answers);
-            
+            $matchingOptions = [];
+
+            foreach ($optionUser as $optionUserItem) {
+                foreach ($answers as $answerItem) {
+                    if ($optionUserItem->option_id === $answerItem) {
+                        $matchingOptions[] = $optionUserItem;
+                        break;
+                    }
+                }
+            }       
+
             if (count($matchingOptions) > 0) {
                 return "Vous avez déjà voté";
             } else {
