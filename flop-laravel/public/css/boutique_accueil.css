@@ -123,14 +123,15 @@ svg {
     width: 22px;
     height: 22px;
     margin-left: 0.4em;
+    margin-bottom: 10px;
 
 }
 
 .price {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
-    margin-bottom:0px;
-    margin-bottom: 0px;
+    margin-bottom:10px;
+    margin-top: 0px;
 
     
 }
@@ -146,4 +147,5 @@ svg {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap:10px;
+    justify-items: center;
 }
