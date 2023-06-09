@@ -182,15 +182,15 @@ hr#separation {
   margin-bottom: 15px;
 }
 
-.renvoiLogin {
+#btn-valider {
   background-color: #E60096; 
     font-size: 18px;
     color: white;
     border:none;
     border-radius: 8px;
     height: 40px;
-    margin-top: 0px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .imgLogin {
@@ -236,10 +236,6 @@ hr#separation {
   margin-bottom:2px;
   background-color: white;
   border-radius : 8px;
-}
-
-.bloc input {
-  border:none;
 }
 
 #container-participation {
@@ -397,4 +393,9 @@ hr {
 
 hr#separation {
   color:white;
+}
+
+input {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
 }
