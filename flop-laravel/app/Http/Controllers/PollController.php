@@ -61,8 +61,8 @@ class PollController extends Controller
      */
     public function show(string $id)
     {
-        // List all the polls in the DB
-        $polls = DB::table('polls')->get();	
+        // List all the polls in the DB where the start date + duration is not expired
+        $polls = DB::table('polls')->where('start_date', '<=', Carbon::now())->get();
         return view('pollList')->with(compact('polls'));
     }
 
