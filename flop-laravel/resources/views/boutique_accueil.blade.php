@@ -21,7 +21,7 @@ Boutique | Couleur 3 Interact
     </div>
     <button id='compte'>Voir mon compte</button>
 </div>
-
+<div class="centre">
     <div class="grid-container">
             @foreach($articles as $article)
                 <div class='item'>
@@ -34,6 +34,7 @@ Boutique | Couleur 3 Interact
                 </div>
             @endforeach
     </div>
+</div>
 
 
 <script>
