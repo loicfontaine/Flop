@@ -16,7 +16,7 @@ class Challenge extends Model
         "start_time",
         "end_time",
         "is_contest",
-        "colorCoins_earned_by_participation",
+        "ColorCoins_earned_by_participation",
         "reward_id",
         "user_id",
     ];
@@ -29,9 +29,9 @@ class Challenge extends Model
     {
         return $this->hasMany(Participation::class);
     }
-    public function reward()
+    public function rewards()
     {
-        return $this->belongsTo(Reward::class);
+        return $this->hasMany(Reward::class);
     }
 
     public function participation_types()
