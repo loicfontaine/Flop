@@ -18,10 +18,10 @@ class PollController extends Controller
      */
     public function index()
     {
-        $polls = DB::table('polls')->where('start_date', '<=', Carbon::now())->get();
-        $reponses = DB::table('options')->get();
+        // Get all polls
+        $polls = DB::table('polls')->get();
 
-        return view('pollList')->with(compact('polls', 'reponses'));
+        return view('pollList')->with(compact('polls'));
     }
 
     /**
@@ -66,7 +66,7 @@ class PollController extends Controller
         }
 
         dd($options);
-        return back();
+        return view('admin_dashboard');
     }
 
     /**
@@ -103,7 +103,7 @@ class PollController extends Controller
         $sondage = DB::table('polls')->where('id', $id)->get();
         $reponses = DB::table('options')->where('poll_id', $id)->get();
 
-        return view('pollList')->with(compact('sondage', 'reponses'));
+        return view('pollShow')->with(compact('sondage', 'reponses'));
     }
 
     /**
