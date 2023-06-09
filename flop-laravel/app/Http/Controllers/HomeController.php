@@ -29,13 +29,15 @@ class HomeController extends Controller
     public function getInfo()
     {
         $challenges = Challenge::where("end_time", ">", date("Y-m-d H:i:s"))->get();
-        //foreach challenges get the participation types
 
-        $types = [];
+        $rewards = [];
         foreach ($challenges as $challenge) {
-            array_push($types, $challenge->participation_types);
+            if ($challenge->is_contest) {
+                array_push($rewards, $challenge->rewards);
+            }
         }
 
-        return response()->json($challenges);
+
+        return response()->json(array($challenges, $rewards));
     }
 }
