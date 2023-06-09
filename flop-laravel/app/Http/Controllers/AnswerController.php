@@ -55,20 +55,17 @@ class AnswerController extends Controller
                     }
                 }
             }       
-
+            dd($matchingOptions);
             if (count($matchingOptions) > 0) {
                 return "Vous avez déjà voté";
             } else {
                 for ($i = 0; $i < count($answers); $i++) {
-                    if($answers[$i] == null){
-                        return "Vous devez répondre à toutes les questions";
-                    }else{
+                    if($answers[$i] != null){
                         $user->options()->attach($answers[$i]);
                     }
                 }
                 $user->options;
 
-                
                 dd($matchingOptions);
 
                 return "Votre vote a bien été pris en compte";
