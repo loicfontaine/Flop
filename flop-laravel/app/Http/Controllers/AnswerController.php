@@ -31,8 +31,7 @@ class AnswerController extends Controller
         $reponses = DB::table('options')->where('poll_id', $dernierSondage->id)->get();
         $timeLeft = Carbon::now()->diffInMinutes(Carbon::parse($dernierSondage->start_date)->addMinutes($dernierSondage->duration));
 
-        return dd($dernierSondage, $reponses, $timeLeft);
-        //return view('pollAnswer')->with(compact('dernierSondage', 'reponses', 'title', 'description', 'duration'));
+        return view('pollAnswer')->with(compact($dernierSondage, $reponses, $timeLeft));
     }
 
     /**
