@@ -41,17 +41,30 @@ class AnswerController extends Controller
             $userId = Auth::user()->id;
             $user = User::find($userId);
             $answers = $request->input('options');
-            $pollID = DB::table('polls')->orderBy('id', 'desc')->first()->id;
+            // Poll le plus récent
+            $lastPoll = DB::table('polls')->orderBy('id', 'desc')->first();
+            // Retournes les options possibles pour le poll le plus récent
+            $pollOptions = DB::table('options')->where('poll_id', $lastPoll->id)->get();
+            // Retourne le tableau option_user qui contient l'ID de l'utilisateur concerné uniquement
             $existingVotes = DB::table('option_user')->where('user_id', $userId);
 
-            foreach ($answers as $answer) {
-                if ($existingVotes->where('option_id', $answer)->exists()) {
-                    return "Vous avez déjà voté pour cette option.";
+            // Si l'utilisateur a déjà voté pour une des options de ce sondage
+
+            if ($existingVotes->count() > 0) {
+                // On récupère les ID des options pour lesquelles l'utilisateur a déjà voté
+                $existingVotes = $existingVotes->pluck('option_id');
+                // On récupère les ID des options pour le sondage en cours
+                $pollOptions = $pollOptions->pluck('id');
+                // On compare les deux tableaux
+                $result = $existingVotes->intersect($pollOptions);
+                // Si le tableau résultant n'est pas vide, l'utilisateur a déjà voté pour une des options de ce sondage
+                if (!$result->isEmpty()) {
+                    return "Vous avez déjà voté pour ce sondage";
                 }
+
+            } else {
+                $user->options()->attach($answers);
             }
-            
-            $user->options()->attach($answers);
-            
             return "Votre vote a bien été pris en compte.";
         } else {
             return "Vous devez être connecté pour voter";
