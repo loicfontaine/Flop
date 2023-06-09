@@ -77,7 +77,7 @@ class ChallengeController extends Controller
 
         if ($contest) {
             Article::all()->each(function ($article) use ($request, $challenge) {
-                dd($challenge);
+                dd($challenge->id);
                 if ($request->input("quantity-" . $article->id)) {
                     Reward::create(
                         [
