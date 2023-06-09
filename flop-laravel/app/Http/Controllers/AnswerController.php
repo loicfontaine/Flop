@@ -42,22 +42,17 @@ class AnswerController extends Controller
             $user = User::find($userId);
             $answers = $request->input('options');
             $pollID = DB::table('polls')->orderBy('id', 'desc')->first()->id;
+            $existingVotes = DB::table('option_user')->where('user_id', $userId);
 
-    
-            $existingVotes = $user->options()->whereIn('poll_id', [$pollID])->pluck('option_id')->toArray();
-    
             foreach ($answers as $answer) {
-                if (in_array($answer, $existingVotes)) {
-                    $existingOption = Option::find($answer);
-                    return "Vous avez déjà voté pour l'option : " . $existingOption->title;
+                if ($existingVotes->where('option_id', $answer)->exists()) {
+                    return "Vous avez déjà voté pour cette option.";
+                }else{
+                    $user->options()->attach($answer);
                 }
             }
-    
-            foreach ($answers as $answer) {
-                $user->options()->attach($answer);
-            }
-    
-            return "Votre vote a bien été pris en compte";
+            
+            return "Votre vote a bien été pris en compte.";
         } else {
             return "Vous devez être connecté pour voter";
         }
