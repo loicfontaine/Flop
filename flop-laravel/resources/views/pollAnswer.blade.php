@@ -9,12 +9,18 @@
 <p>Choix:</p>
 
 @for ($i = 0; $i < count($reponses); $i++)
-    <label>
-        <input type="radio" name="options[]" value="{{ $i }}">
+    <label>Option {{ $i }}</label>
+      <div id="conteneur-options">
+        <input type="radio" name="options[]" value="{{ $i }}" required>
         {{ $reponses[$i]->title }}
-    </label>
-    <br>
+      </div>
+      <br>
 @endfor
+
+<label>Options :</label>
+      <div id="conteneur-options">
+        <input type="text" name="options[]" placeholder="Option" required>
+      </div>
 
 <input type="submit" value="Valider">
 </form>
