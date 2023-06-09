@@ -23,7 +23,7 @@ Boutique | Couleur 3 Interact
         <button id='compte'>Voir mon compte</button>
 </div>
 <div class="centre">
-    <div class="column-container">
+    <div class="grid-container">
         @foreach($articles as $article)
             <div class='item'>
             <img src="img/articles/{{$article->image}}" class='img-item'>
