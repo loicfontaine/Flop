@@ -96,3 +96,7 @@ Route::post('/messages', [MessageController::class, 'store']);
 
 
 Route::post('formSubmit', [FileController::class, 'formSubmit']);
+
+Route::get('/emission', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
