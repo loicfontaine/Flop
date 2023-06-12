@@ -51,17 +51,7 @@ export default {
       isRecording: false,
       mediaRecorder: null,
       chunks: [],
-      audioBlob: null,
-      selectedVideo: null,
-      selectedImage: null,
-      audioUrl: null,
       message: '',
-      form: {
-        video: null,
-        image: null,
-        message: '',
-        audioBlob: null,
-      },
     };
   },
   created() {
@@ -81,7 +71,7 @@ export default {
         const formData = new FormData();
         /* formData.append('audio', this.$refs.audio.files[0]); */
         formData.append('image', this.$refs.image.files[0]);
-        formData.append('message', this.textField);
+        formData.append('message', this.message);
         formData.append('video', this.$refs.video.files[0]);
         /* console.log(formData.get('audio')); */
         console.log(formData.get('image'));
