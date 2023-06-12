@@ -233,6 +233,9 @@ p.nomUtil {
     align-items: center;
     margin-bottom: 0;
     gap: 1em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: white;
 }
 
 .svgg,

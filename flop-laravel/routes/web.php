@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ParticipationController;
+use App\Http\Controllers\FileController;
 
 
 
@@ -47,13 +48,8 @@ Route::get('/home', function () {
 Route::get('/inscription', function () {
     return view('inscription');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [UserController::class, "getParticipations"])->name('dashboard');
 
-Route::get('/connexion', function () {
-    return view('connexion');
-});
 
 Route::post('/inscription', function () {
     return view('inscription');

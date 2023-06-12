@@ -87,13 +87,18 @@ class UserController extends Controller
 
     public function getParticipations()
     {
-        $userId = Auth::user()->id;
-        if ($userId == null) {
-            return redirect()->back();
-        } else {
-            $participations = User::findOrFail($userId)->participations;
+        //dd(Auth::user()->id);
 
-            return view("mes-participations", compact("participations"));
+        if (Auth::check() == false) {
+            return redirect("/login");
+        } else {
+            $participations = User::findOrFail(Auth::user()->id)->participations;
+            //get challenge from each participations
+            $challengesEtParticipations = [];
+            foreach ($participations as $participation) {
+                $challengesEtParticipations[$participation->id] = [$participation, $participation->challenge];
+            }
+            return view("dashboard", compact("challengesEtParticipations"));
         }
     }
 }

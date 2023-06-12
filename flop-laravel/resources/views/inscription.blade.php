@@ -5,6 +5,9 @@
 @section('js')
 <script src="{{asset('js/inscription.js')}}"></script>
 @section('content')
+@section('title')
+Inscription | Couleur 3 Interact
+@endsection
 <div class='FontInter'>
   <h1 class='titre'>Inscription</h1>
   <hr id='separation'>
@@ -53,18 +56,18 @@
           </label>
           <hr class='separation2'>
       </div>
-        <button type="submit" class='submit'>S'inscrire</button>
+        <button type="submit" class='submit pointer'>S'inscrire</button>
     </form>
   </div>
 </div>
 
 <div class='FontInter compte'>
-      <p class='p1'>Vous avez déjà un compte ? <a href='login' class='p2'>Connectez-vous</a></p>
+      <p class='p1'>Vous avez déjà un compte ? <a href='login' class='p2 pointer'>Connectez-vous</a></p>
       <p class='p1'>ou</p>
       <div class='bouton FontInter'>
-        <button class='apple'>Connexion avec Apple</button>
-        <button class='facebook'>Connexion avec Facebook</button>
-        <button class='google'>Connexion avec Google</button>
+        <button class='apple pointer'>Connexion avec Apple</button>
+        <button class='facebook pointer'>Connexion avec Facebook</button>
+        <button class='google pointer'>Connexion avec Google</button>
       </div>
 </div>
 
