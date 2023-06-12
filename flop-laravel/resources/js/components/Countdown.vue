@@ -92,12 +92,13 @@ export default {
       formData.append('audioBlob', this.form.audioBlob);
       
 
-   axios.post('/participer', formData, config)
+    axios.post('/participation', formData, config)
                 .then(function (response) {
                     currentObj.success = response.data.success;
                 })
                 .catch(function (error) {
                     currentObj.output = error;
+                    console.error(error.response.data);
                 });
       
     },
