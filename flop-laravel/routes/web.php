@@ -73,11 +73,11 @@ Route::resource('user', UserController::class);
 Route::post('/createMusic', [PollController::class, 'createMusic'])->name('createMusic');
 Route::resource('poll', PollController::class);
 Route::resource('answer', AnswerController::class);
-
+Route::post('participer', [ParticipationController::class, 'participate']);
 Route::resource('challenge', ChallengeController::class);
 Route::resource('article', ArticleController::class);
 Route::resource('participation', ParticipationController::class);
-Route::post('participer', [ParticipationController::class, 'participate']);
+
 
 Auth::routes();
 
@@ -92,3 +92,6 @@ Route::get('/emission', function () {
 
 Route::get('/messages', [MessageController::class, 'index']);
 Route::post('/messages', [MessageController::class, 'store']);
+
+
+Route::post('formSubmit', 'FileController@formSubmit');
