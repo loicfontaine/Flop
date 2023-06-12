@@ -112,7 +112,7 @@ Profil | Couleur 3 Interact
                         <p>{{$participation[1]->description}}</p>
                     </div>
                     <div class="coins">
-                        <p>{{$participation[1]->CouleurCoins_earned_by_participation}}</p>
+                        <p>{{$participation[1]->ColorCoins_earned_by_participation}}</p>
                         <svg class="cc" xmlns="http://www.w3.org/2000/svg" class="cc" viewBox="0 0 1061.26 1061.27">
                             <defs>
                                 <style>
