@@ -154,6 +154,7 @@
     const boxMessage = document.querySelector('.boxMessage');
     const boutonChat = document.querySelector('.bouton-chat');
 
+    @if(Auth::check())
     boutonChat.addEventListener('click', () => {
         const inputMessage = document.querySelector('.input-message').value;
         var html = `<div class='message'>
@@ -163,6 +164,7 @@
         boxMessage.innerHTML += html;
         document.querySelector('.input-message').value = '';
     });
+    @endif
     
 
 
