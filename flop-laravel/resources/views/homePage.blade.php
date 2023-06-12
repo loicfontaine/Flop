@@ -57,9 +57,9 @@
     <h1 class="FontInter">Vidéos</h1>
     <div class="videoContainer">
       <a href="https://www.youtube.com/watch?v=ftQmxlv3sUU&pp=ygUcY291bGV1ciAzIGJvbiBiZW4gdm9pbGEgbmV3cw%3D%3D">
-      <img src="{{asset('img/video1.jpg')}}" alt="Vidéo 1"></a>
+      <img id="video1" src="{{asset('img/video1.jpg')}}" alt="Vidéo 1"></a>
       <a href="https://www.youtube.com/watch?v=x8oiLuEG9sw&pp=ygUOY291bGV1cjMgZGlzaXo%3D">
-      <img src="{{asset('img/video2.jpg')}}" alt="Vidéo 2">
+      <img  id="video2" src="{{asset('img/video2.jpg')}}" alt="Vidéo 2">
       </a>  
     </div>
   </div>
