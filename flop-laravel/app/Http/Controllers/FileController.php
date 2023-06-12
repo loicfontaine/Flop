@@ -46,9 +46,23 @@ class FileController extends Controller
     dir: false
     link: false
         */
-        $fileName = time() . '.' . $request->image->getClientOriginalExtension();
-        $request->image->move('/home/projart/2023/50/flop/flop-laravel/storage/participation', $fileName);
 
+
+        if ($request->image != "undefined") {
+            $this->storeFile($request->image);
+        }
+        if ($request->video != "undefined") {
+            $this->storeFile($request->video);
+        }
+        if ($request->audio != "undefined") {
+            $this->storeFile($request->audio);
+        }
+    }
+
+    private function storeFile($file)
+    {
+        $fileName = time() . '.' . $file->getClientOriginalExtension();
+        $file->move('/home/projart/2023/50/flop/flop-laravel/storage/participation', $fileName);
         return response()->json(['success' => 'You have successfully uploaded file.']);
     }
 }
