@@ -51,7 +51,17 @@ export default {
       isRecording: false,
       mediaRecorder: null,
       chunks: [],
+      audioBlob: null,
+      selectedVideo: null,
+      selectedImage: null,
+      audioUrl: null,
       message: '',
+      form: {
+        video: null,
+        image: null,
+        message: '',
+        audioBlob: null,
+      },
     };
   },
   created() {
