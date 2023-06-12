@@ -149,6 +149,23 @@
         programme.style.display = 'none'; // Masque  programme
     });
 
+    //ajouter message au chat
+    
+    const boxMessage = document.querySelector('.boxMessage');
+    const boutonChat = document.querySelector('.bouton-chat');
+
+    boutonChat.addEventListener('click', () => {
+        const inputMessage = document.querySelector('.input-message').value;
+        var html = `<div class='message'>
+                        <p class='pseudo'> : {{Auth::user()->firstname}} </p>
+                        <p class='texte'>${inputMessage}</p>
+                    </div> `;
+        boxMessage.innerHTML += html;
+
+    });
+    
+
+
     // Ajoutez un écouteur d'événement au SVG "X"
     boutonSvgX.addEventListener('click', () => {
         chat.classList.add('hidden'); // Masque le chat
