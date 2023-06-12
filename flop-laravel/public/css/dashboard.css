@@ -381,8 +381,12 @@ hr#separation {
 }
 
 hr {
-  border: 1px solid #E60096;
+  border: 1px solid;
   margin: 0px;
+}
+
+.pink {
+  color: #E60096;
 }
 
 .hidden {

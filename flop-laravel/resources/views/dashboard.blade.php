@@ -41,22 +41,22 @@ Profil | Couleur 3 Interact
                     <h1>E-mail</h1>
                     <p>{{Auth::user()->email}}</p>
                 </div>
-                <hr>
+                <hr class="pink">
                 <div class="bloc">
                     <h1>Prénom</h1>
                     <p>{{Auth::user()->firstname}}</p>
                 </div>
-                <hr>
+                <hr class="pink">
                 <div class="bloc">
                     <h1>Nom</h1>
                     <p>{{Auth::user()->lastname}}</p>
                 </div>
-                <hr>
+                <hr class="pink">
                 <div class="bloc">
                     <h1>Adresse</h1>
                     <p>{{Auth::user()->address}}</p>
                 </div>
-                <hr>
+                <hr class="pink">
                 <div class="bloc">
                     <h1>Numéro de téléphone</h1>
                     <p>{{Auth::user()->phone_number}}</p>
@@ -97,9 +97,10 @@ Profil | Couleur 3 Interact
 
         <div id="participation">
             <h1 class="title">Mes participations</h1>
+            @foreach($participations as $participation)
             <div id="container-participation">
                 <div class="entete">
-                    <h1>Challenge</h1>
+                    <h1>{{Challenge}}</h1>
                     <p>08.06.2023</p>
                 </div>
                 <div class="row">
@@ -135,6 +136,7 @@ Profil | Couleur 3 Interact
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </div>
