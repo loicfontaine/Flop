@@ -170,27 +170,30 @@ export default {
       }
     },
     startRecording() {
-      this.isRecording = true;
-      this.chunks = [];
-
       navigator.mediaDevices.getUserMedia({ audio: true })
-        .then((stream) => {
+        .then(stream => {
           this.mediaRecorder = new MediaRecorder(stream);
-          this.mediaRecorder.addEventListener('dataavailable', this.onDataAvailable);
-          this.mediaRecorder.addEventListener('stop', this.onRecordingStop);
+          this.mediaRecorder.addEventListener('dataavailable', (event) => {
+            this.chunks.push(event.data);
+          });
           this.mediaRecorder.start();
+          this.recording = true;
         })
-        .catch((error) => {
-          console.error('Erreur lors de l\'accès à l\'enregistrement audio :', error);
+        .catch(error => {
+          console.error(error);
         });
     },
     stopRecording() {
-      this.isRecording = false;
       this.mediaRecorder.stop();
+      this.recording = false;
+
       const audioBlob = new Blob(this.chunks, { type: 'audio/webm' });
       const audioFile = new File([audioBlob], 'recording.webm');
 
-      this.$refs.audio.files = [audioFile];
+      const dataTransfer = new DataTransfer();
+      dataTransfer.items.add(audioFile);
+
+      this.$refs.audio.files = dataTransfer.files;
       this.chunks = [];
     },
     onDataAvailable(event) {
