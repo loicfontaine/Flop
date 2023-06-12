@@ -15,7 +15,7 @@
 
 <div class="square-container">
 
-  <div class="square">
+  <div id="directAudio" class="square">
     <img src="{{asset('img/directAudio.jpg')}}" alt="Image" class="square-image">
     <div class="gray-bar gris">
       <img src="{{asset('img/iconeDirectAudio.png')}}"/>
@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  <div class="square">
+  <div id="directVideo" class="square">
     <img src="{{asset('img/directVideo.jpg')}}" alt="Image" class="square-image">
     <div class="gray-bar gris"> 
       <img src="{{asset('img/iconeDirectVideo.png')}}"/>
@@ -70,6 +70,23 @@
 <div class="buttonContainer">
 <button class="FontMontserrat rose"><a href="https://www.youtube.com/@Couleur3">Toutes les vidéos</a></button>
 </div>
+<script>
+  //selectionner directAudio
+  var directAudio = document.getElementById("directAudio");
+  //Selectionner directVideo
+  var directVideo = document.getElementById("directVideo");
+
+  //Ajouter un event listener sur directAudio
+  directAudio.addEventListener("click", function(){
+    window.location.href = "https://www.youtube.com/watch?v=ftQmxlv3sUU&pp=ygUcY291bGV1ciAzIGJvbiBiZW4gdm9pbGEgbmV3cw%3D%3D";
+  });
+
+  //Ajouter un event listener sur directVideo
+  directVideo.addEventListener("click", function(){
+    window.location.href = "emission";
+  });
+
+</script>
 @endsection
 
 
