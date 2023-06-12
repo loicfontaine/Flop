@@ -47,9 +47,7 @@ Route::get('/home', function () {
 Route::get('/inscription', function () {
     return view('inscription');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [UserController::class, "getParticipations"])->name('dashboard');
 
 Route::get('/connexion', function () {
     return view('connexion');
