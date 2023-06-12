@@ -17,6 +17,7 @@ use App\Http\Controllers\FileController;
 
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ChallengeController;
+use App\Http\Controllers\ChatsController;
 use App\Models\Participation;
 
 /*
@@ -87,15 +88,12 @@ Route::get('/chat', function () {
     return view('chat');
 });
 
-Route::get('/emission', function () {
-    return view('emission');
-});
-
 Route::get('/messages', [MessageController::class, 'index']);
 Route::post('/messages', [MessageController::class, 'store']);
 
 
 Route::post('formSubmit', [FileController::class, 'formSubmit']);
 
-Route::get('messages', 'ChatsController@fetchMessages');
-Route::post('messages', 'ChatsController@sendMessage');
+Route::get('/chat', [ChatsController::class, 'index']);
+Route::get('messages', [ChatsController::class, 'fetchMessages']);
+Route::post('messages', [ChatsController::class, 'sendMessage']);
