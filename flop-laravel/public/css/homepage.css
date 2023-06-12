@@ -1,24 +1,34 @@
 /*-------- HomePage --------*/
-@media only screen and (min-width: 992px) {
+@media screen and (min-width: 64em) {
 .actualiteContainer {
-  display:flex;
-  flex-direction: row;
+  display:flex !important;
+  flex-direction: row !important;
 }
 .articleContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-  width: 50%;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center!important;
+  align-items: center!important;
+  margin: 10px!important;
+  width: 50% !important;
+
 }
+
+.titreInfo {
+  text-align: center!important;
+  height: min-content !important;
 }
+
+
+
+}
+
 
 .actualiteContainer img,
 .videoContainer img {
   max-width: 500px;
   max-height: 100%;
-  margin: 10px;
+
 }
 
 
@@ -143,3 +153,6 @@ button a {
   margin-right: 10px;
 }
 
+.articleContainer {
+  margin-bottom: 20px;
+}

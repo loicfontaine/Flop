@@ -37,7 +37,7 @@
 <h1 class="FontInter">Actualité</h1>
 <div class="actualiteContainer">
   <div class="articleContainer">
-    <img src="{{asset('img/article1.jpg')}}" alt="Article 1">
+    <img id="article1" src="{{asset('img/article1.jpg')}}" alt="Article 1">
     <h2 class="titreInfo">Nouvelle émission radio</h2>
     <p class="texteInfo">Le DJ et producteur DC Salas vous fait découvrir le meilleur de la scène belge sur Couleur 3. 
       En collaboration avec Jam, la nouvelle radio musicale de la RTBF, une heure de 
@@ -45,7 +45,7 @@
   </div>
 
   <div class="articleContainer">
-    <img src="{{asset('img/article2.jpg')}}" alt="Article 2">
+    <img id="article2" src="{{asset('img/article2.jpg')}}" alt="Article 2">
     <h2 class="titreInfo">Les joueurs mettent les buts, Couleur 3 met l’ambiance!</h2>
     <p class="texteInfo">Footaises est de retour à l’occasion des matchs de la Suisse, des 
         demi-finales et de la finale de la Coupe du Monde! Fidèles au poste, Fantin Moreno, Blaise Bersinger et 

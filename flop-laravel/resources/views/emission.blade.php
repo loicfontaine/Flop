@@ -134,8 +134,6 @@ COMEDY CLUB | Couleur 3 Interact
 </div>
 
 <script>
-<<<<<<< HEAD
-=======
     if (document.getElementById('sub') != null) {
     var connexionBtn = document.getElementById('sub');
 
@@ -146,7 +144,6 @@ COMEDY CLUB | Couleur 3 Interact
     }
 }
 
->>>>>>> main
     // Sélectionnez les éléments nécessaires
     const boutonFermer = document.getElementById('accesChat');
     const boutonSvgX = document.querySelector('.X');
