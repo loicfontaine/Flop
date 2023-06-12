@@ -95,4 +95,4 @@ Route::get('/messages', [MessageController::class, 'index']);
 Route::post('/messages', [MessageController::class, 'store']);
 
 
-Route::post('formSubmit', 'FileController@formSubmit');
+Route::post('formSubmit', [FileController::class, 'formSubmit']);
