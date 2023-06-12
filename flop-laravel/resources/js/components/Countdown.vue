@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submit">
+  <form @submit.prevent="uploadFiles">
     <div class="countdown-container" :class="{ 'expanded': isExpanded }" >
       <div class="arrow-container" @click="toggleExpand">
         <i class="arrow-icon" :class="{ 'expanded': isExpanded }" @click="isArrowClicked = true"></i>
@@ -14,13 +14,13 @@
       <div class="expanded-content" v-if="isExpanded">
         <label for="video-upload" class="custom-file-upload FontMonserrat">
           Choisir une vidéo
-          <input id="video-upload" class="expanded-input FontMonserrat champsVideo" type="file" accept="video/*" name="video" @change="handleVideoUpload">
+          <input id="video-upload" class="expanded-input FontMonserrat champsVideo" type="file" accept="video/*" ref="video" name="video" @change="handleVideoUpload">
           <video class="selectedMedia" v-if="selectedVideo" :src="selectedVideo" controls></video>
         </label>
 
         <label for="image-upload" class="custom-file-upload FontMonserrat">
           Choisir une image
-          <input id="image-upload" class="expanded-input FontMonserrat champsImage" type="file" accept="image/*" name="image" @change="handleImageUpload">
+          <input id="image-upload" class="expanded-input FontMonserrat champsImage" type="file" ref="image" accept="image/*" name="image" @change="handleImageUpload">
           <img class="selectedMedia" v-if="selectedImage" :src="selectedImage" alt="Image">
         </label>
         <audio v-if="audioBlob" controls>
@@ -29,8 +29,8 @@
         </audio>
         <button class="expanded-button audio FontMonserrat" @click="startRecording" v-if="!isRecording">Enregistrer</button>
         <button class="expanded-button audio FontMonserrat" @click="stopRecording" v-if="isRecording">Arrêter l'enregistrement</button>
-        <input class="expanded-input FontMonserrat champsTexte" type="text" placeholder="Envoyer un message..." name="message" v-model="form.message" ref="expandedInput">
-        <input type="hidden" name="audioBlob">
+        <input class="expanded-input FontMonserrat champsTexte" type="text" placeholder="Envoyer un message..." name="message" v-model="message" ref="expandedInput">
+        <input type="hidden" ref="audio" name="audioBlob">
         <button class="expanded-button envoi FontMonserrat" type="submit">Envoyer ma participation</button>
         
       </div>
@@ -55,10 +55,11 @@ export default {
       selectedVideo: null,
       selectedImage: null,
       audioUrl: null,
+      message: '',
       form: {
         video: null,
         image: null,
-        message: null,
+        message: '',
         audioBlob: null,
       },
     };
@@ -76,7 +77,28 @@ export default {
         });
 },
   methods: {
-    submit() {
+    uploadFiles() {
+        const formData = new FormData();
+        formData.append('audio', this.$refs.audio.files[0]);
+        formData.append('image', this.$refs.image.files[0]);
+        formData.append('message', this.textField);
+        formData.append('video', this.$refs.video.files[0]);
+        console.log(formData.get('audio'));
+        console.log(formData.get('image'));
+        console.log(formData.get('message'));
+        console.log(formData.get('video'));
+        axios.post('/formSubmit', formData)
+          .then(response => {
+            console.log(response.data);
+            // Traitez la réponse du serveur ici
+          })
+          .catch(error => {
+            console.error(error);
+            // Traitez les erreurs ici
+          });
+      },
+
+    /* submit() {
       this.$emit('submit', this.form)
       console.log(this.form)
       console.log("test");
@@ -85,7 +107,7 @@ export default {
       const formData = new FormData();
       files.forEach(file=>{
         formData.append('filesName', file);
-      })
+      }) */
 
       /* axios({
         method: 'post',
@@ -97,7 +119,7 @@ export default {
         console.log(error);
       }); */
 
-      const config = {
+      /* const config = {
                     headers: { 'content-type': 'multipart/form-data' }
                 }
      /*  let formData = new FormData();
@@ -107,15 +129,14 @@ export default {
       formData.append('audioBlob', this.form.audioBlob);
        */
 
-      axios.post('/participer', formData, config)
+      /* axios.post('/participer', formData, config)
       .then(function (response) {
         console.log(response);
       })
       .catch(function (error) {
         console.log(error.response);
-      });
+      }); */ 
       
-    },
     startCountdown() {
       const currentDate = new Date();
       const targetDate = new Date(currentDate.getFullYear(), 5, 16, 0, 0, 0); // 1er juin (mois indexé à partir de zéro)
