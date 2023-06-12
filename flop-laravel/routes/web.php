@@ -87,15 +87,12 @@ Route::get('/chat', function () {
     return view('chat');
 });
 
-Route::get('/emission', function () {
-    return view('emission');
-});
-
 Route::get('/messages', [MessageController::class, 'index']);
 Route::post('/messages', [MessageController::class, 'store']);
 
 
 Route::post('formSubmit', [FileController::class, 'formSubmit']);
 
+Route::get('/emission', 'ChatsController@index');
 Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
