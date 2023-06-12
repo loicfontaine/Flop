@@ -197,11 +197,10 @@ hr.separation2 {
     display: none;
 }
 
-.checkbox-input:checked {
+.checkbox-input:checked + .checkbox-tile{
     display: none;
     background-color: #E60096;
 }
-
 
 fieldset {
     border: none;
