@@ -118,7 +118,9 @@
     <div>
         <p class="texteDeConnexion">Vous n'êtes actuellement pas connecté. Connectez-vous pour pouvoir intéragir sur le chat</h1>
     </div>
-    <button type="submit" class='submit' id="sub">Se connecter</button>
+    <a href="https://flop-pingouin.heig-vd.ch/login">
+        <button type="submit" class="submit" id="sub">Se connecter</button>
+    </a>
 </div>
 </div>
 @endif
@@ -128,13 +130,6 @@
 
 
 <script>
-    var connexionBtn = document.getElementById('sub');
-    {
-        connexionBtn.addEventListener('click', function() {
-            window.location.href = "login";
-        });
-    }
-
     // Sélectionnez les éléments nécessaires
     const boutonFermer = document.getElementById('accesChat');
     const boutonSvgX = document.querySelector('.X');
