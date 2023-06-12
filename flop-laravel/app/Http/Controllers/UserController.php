@@ -93,6 +93,7 @@ class UserController extends Controller
             return redirect("/login");
         } else {
             $participations = User::findOrFail(Auth::user()->id)->participations;
+            dd($participations);
             return view("dashboard", compact("participations"));
         }
     }
