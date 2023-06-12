@@ -88,7 +88,8 @@ class UserController extends Controller
     public function getParticipations()
     {
         //dd(Auth::user()->id);
-        if (Auth::user()->id === null) {
+
+        if (Auth::check() == false) {
             return view("login");
         } else {
             $participations = User::findOrFail(Auth::user()->id)->participations;
