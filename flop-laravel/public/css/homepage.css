@@ -1,4 +1,18 @@
 /*-------- HomePage --------*/
+@media only screen and (min-width: 992px) {
+.actualiteContainer {
+  display:flex;
+  flex-direction: row;
+}
+.articleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  width: 50%;
+}
+}
 
 .actualiteContainer img,
 .videoContainer img {
@@ -8,8 +22,10 @@
 }
 
 
+p {
+  font-size: 2em;
+}
 
-@media screen and (max-width: 767px) {
 
   .actualiteContainer,
   .videoContainer {
@@ -27,7 +43,7 @@
     height: 100%;
     vertical-align: top;
   }
-}
+
 
 .actualiteContainer {
   display: flex;
