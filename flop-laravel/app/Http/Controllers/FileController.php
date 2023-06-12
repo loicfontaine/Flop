@@ -54,9 +54,11 @@ class FileController extends Controller
         if ($request->video != "undefined") {
             $this->storeFile($request->video);
         }
+        /*
         if ($request->audio != "undefined") {
             $this->storeFile($request->audio);
         }
+        */
     }
 
     private function storeFile($file)
