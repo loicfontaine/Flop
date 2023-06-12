@@ -76,7 +76,7 @@ export default {
         });
 },
   methods: {
-    async submit() {
+    submit() {
       this.$emit('submit', this.form)
       console.log(this.form)
       console.log("test");
@@ -85,12 +85,13 @@ export default {
       formData.append('form', this.form);
       
 
-      await axios.post('/participation', formData, config)
+    axios.post('/participation', formData, config)
                 .then(function (response) {
                     currentObj.success = response.data.success;
                 })
                 .catch(function (error) {
                     currentObj.output = error;
+                    console.error(error.response.data);
                 });
       
     },
