@@ -122,8 +122,6 @@ class PollController extends Controller
             array_push($options, $song);
         }
 
-        return dd($options);
-
         for ($i = 0; $i < count($options); $i++) {
             Option::create([
                 'title' => $options[$i]->artist . ' - ' . $options[$i]->name,
