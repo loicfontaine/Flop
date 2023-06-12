@@ -322,3 +322,16 @@ input[type="datetime-local"] {
 #createPoll {
     width: 100%;
 }
+
+
+/** réponse aux défis */
+
+.adminDashboardDéfiShow {
+    background-color: #303030;
+    border-radius: 10px;
+    display: flex;
+    height: auto;
+    width: 100%;
+    margin: 20px 50px 20px 50px;
+    padding: 5em;
+}
