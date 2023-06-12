@@ -16,7 +16,7 @@ use App\Http\Controllers\ParticipationController;
 
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ChallengeController;
-
+use App\Models\Participation;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +82,7 @@ Route::resource('answer', AnswerController::class);
 Route::resource('challenge', ChallengeController::class);
 Route::resource('article', ArticleController::class);
 Route::resource('participation', ParticipationController::class);
+Route::resource('participer', [ParticipationController::class, 'participate']);
 
 Auth::routes();
 
