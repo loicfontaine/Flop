@@ -93,8 +93,13 @@ class UserController extends Controller
             return redirect("/login");
         } else {
             $participations = User::findOrFail(Auth::user()->id)->participations;
-            dd($participations);
-            return view("dashboard", compact("participations"));
+            //get challenge from each participations
+            $challengesEtParticipations = [];
+            foreach ($participations as $participation) {
+                $challengesEtParticipations[$participation->id] = [$participation, $participation->challenge];
+            }
+            dd($challengesEtParticipations);
+            return view("dashboard", compact("challengesEtParticipations"));
         }
     }
 }
