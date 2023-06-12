@@ -157,6 +157,7 @@ COMEDY CLUB | Couleur 3 Interact
     const boxMessage = document.querySelector('.boxMessage');
     const boutonChat = document.querySelector('.bouton-chat');
 
+    @if(Auth::check())
     boutonChat.addEventListener('click', () => {
         const inputMessage = document.querySelector('.input-message').value;
         var html = `<div class='message'>
@@ -166,6 +167,7 @@ COMEDY CLUB | Couleur 3 Interact
         boxMessage.innerHTML += html;
         document.querySelector('.input-message').value = '';
     });
+    @endif
     
 
 
