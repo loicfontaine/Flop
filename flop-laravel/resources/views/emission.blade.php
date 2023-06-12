@@ -157,11 +157,11 @@
     boutonChat.addEventListener('click', () => {
         const inputMessage = document.querySelector('.input-message').value;
         var html = `<div class='message'>
-                        <p class='pseudo'> : {{Auth::user()->firstname}} </p>
+                        <p class='pseudo'>{{Auth::user()->firstname}} : </p>
                         <p class='texte'>${inputMessage}</p>
                     </div> `;
         boxMessage.innerHTML += html;
-
+        document.querySelector('.input-message').value = '';
     });
     
 
