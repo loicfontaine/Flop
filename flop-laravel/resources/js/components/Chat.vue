@@ -5,7 +5,6 @@
 </template>
 
 <script>
-// resources/assets/js/app.js
 
 require('./bootstrap');
 
