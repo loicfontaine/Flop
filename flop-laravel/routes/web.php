@@ -10,13 +10,14 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ParticipationController;
+use App\Http\Controllers\FileController;
 
 
 
 
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ChallengeController;
-
+use App\Models\Participation;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,13 +48,8 @@ Route::get('/home', function () {
 Route::get('/inscription', function () {
     return view('inscription');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [UserController::class, "getParticipations"])->name('dashboard');
 
-Route::get('/connexion', function () {
-    return view('connexion');
-});
 
 Route::post('/inscription', function () {
     return view('inscription');
@@ -78,10 +74,11 @@ Route::resource('user', UserController::class);
 Route::post('/createMusic', [PollController::class, 'createMusic'])->name('createMusic');
 Route::resource('poll', PollController::class);
 Route::resource('answer', AnswerController::class);
-
+Route::post('participer', [ParticipationController::class, 'participate']);
 Route::resource('challenge', ChallengeController::class);
 Route::resource('article', ArticleController::class);
 Route::resource('participation', ParticipationController::class);
+
 
 Auth::routes();
 
@@ -96,3 +93,6 @@ Route::get('/emission', function () {
 
 Route::get('/messages', [MessageController::class, 'index']);
 Route::post('/messages', [MessageController::class, 'store']);
+
+
+Route::post('formSubmit', [FileController::class, 'formSubmit']);

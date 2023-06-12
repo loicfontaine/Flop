@@ -6,6 +6,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{asset('js/emission.js')}}"></script>
 @endsection
+@section('title')
+COMEDY CLUB | Couleur 3 Interact
+@endsection
 @section('content')
 <div id='frame'>
     <div class='container-video'>
@@ -127,9 +130,20 @@
 </div>
 </div>
 
-
-
 <script>
+<<<<<<< HEAD
+=======
+    if (document.getElementById('sub') != null) {
+    var connexionBtn = document.getElementById('sub');
+
+    {
+        connexionBtn.addEventListener('click', function() {
+            window.location.href = "login";
+        });
+    }
+}
+
+>>>>>>> main
     // Sélectionnez les éléments nécessaires
     const boutonFermer = document.getElementById('accesChat');
     const boutonSvgX = document.querySelector('.X');
@@ -140,14 +154,33 @@
     boutonFermer.addEventListener('click', () => {
         chat.classList.remove('hidden'); // Affiche le chat
         boutonFermer.style.display = 'none'; // Masque le bouton d'ouverture
-        programme.style.display = 'none'; // Masque la div programme
+        programme.style.display = 'none'; // Masque  programme
     });
+
+   
+     //ajouter message au chat
+    const boxMessage = document.querySelector('.boxMessage');
+    const boutonChat = document.querySelector('.bouton-chat');
+
+    @if(Auth::check())
+    boutonChat.addEventListener('click', () => {
+        const inputMessage = document.querySelector('.input-message').value;
+        var html = `<div class='message'>
+                        <p class='pseudo'>{{Auth::user()->firstname}} : </p>
+                        <p class='texte'>${inputMessage}</p>
+                    </div> `;
+        boxMessage.innerHTML += html;
+        document.querySelector('.input-message').value = '';
+    });
+    @endif
+    
+
 
     // Ajoutez un écouteur d'événement au SVG "X"
     boutonSvgX.addEventListener('click', () => {
         chat.classList.add('hidden'); // Masque le chat
         boutonFermer.style.display = 'block'; // Affiche le bouton d'ouverture
-        programme.style.display = 'block'; // Affiche la div programme
+        programme.style.display = 'block'; // Affiche programme
     });
 </script>
 

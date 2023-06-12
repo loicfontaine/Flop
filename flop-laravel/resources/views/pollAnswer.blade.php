@@ -9,10 +9,9 @@
 <p>Choix:</p>
 
 @for ($i = 0; $i < count($reponses); $i++)
-    <label>Option {{ $i }}</label>
       <div id="conteneur-options">
+        <label for="">{{ $reponses[$i]->title }}</label>
         <input type="radio" name="options[]" value="{{ $reponses[$i]->id }}" required>
-        {{ $reponses[$i]->title }}
       </div>
       <br>
 @endfor

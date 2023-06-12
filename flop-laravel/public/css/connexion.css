@@ -13,6 +13,9 @@
     background-color: white;
 }
 
+.pointer{
+    cursor: pointer;
+}
 
 input.connexion {
     display:flex;

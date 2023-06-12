@@ -2,9 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Song;
 use Faker\Factory as FakerFactory;
 use Illuminate\Support\Facades\DB;
 
@@ -15,8 +13,8 @@ class SongsTableSeeder extends Seeder
         $faker = FakerFactory::create();
 
         // Générer des données aléatoires pour remplir la table "songs"
-        for ($i = 0; $i < 10; $i++) {
-            Song::create([
+        for ($i = 0; $i < 100; $i++) {
+            DB::table('songs')->insert([
                 'name' => $faker->word,
                 'artist' => $faker->name,
                 'duration' => $faker->time('i:s'),

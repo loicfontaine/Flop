@@ -76,10 +76,45 @@ export default {
         });
 },
   methods: {
-    async submit() {
+    submit() {
       this.$emit('submit', this.form)
       console.log(this.form)
-      console.log("test")
+      console.log("test");
+
+      let files = [this.form.video, this.form.image, this.form.message, this.form.audioBlob]
+      const formData = new FormData();
+      files.forEach(file=>{
+        formData.append('filesName', file);
+      })
+
+      /* axios({
+        method: 'post',
+        url: '/participer',
+        data: formData,
+        headers: {'Content-Type': 'multipart/form-data' }
+      })
+      .catch(function (error) {
+        console.log(error);
+      }); */
+
+      const config = {
+                    headers: { 'content-type': 'multipart/form-data' }
+                }
+     /*  let formData = new FormData();
+      formData.append('video', this.form.video);
+      formData.append('image', this.form.image);
+      formData.append('message', this.form.message);
+      formData.append('audioBlob', this.form.audioBlob);
+       */
+
+      axios.post('/participer', formData, config)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error.response);
+      });
+      
     },
     startCountdown() {
       const currentDate = new Date();

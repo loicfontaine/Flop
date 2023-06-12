@@ -6,10 +6,8 @@ use App\Http\Requests\CreatePollRequest;
 use Illuminate\Http\Request;
 use App\Models\Poll;
 use App\Models\Option;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use PhpParser\Node\Expr\Cast\Bool_;
 
 class PollController extends Controller
 {
@@ -102,35 +100,46 @@ class PollController extends Controller
     public function createMusic()
     {
         Poll::create([
-            'title' => 'Prochaine musique',
-            'description' => 'Choisissez la prochaine musique grâce à ce sondage automatique :D',
+            'title' => 'Quelle musique voulez-vous écouter ?',
+            'description' => '',
             'duration' => '5',
             'user_id' => Auth::user()->id,
             'start_date' => now(),
         ]);
 
         $result = DB::table('polls')->orderBy('id', 'desc')->first();
-        $songs = DB::table('songs')->get();
         $options = array();
-
-        // add random songs to the options array
-        for ($i = 0; $i < count($songs); $i++) {
-
-            $option = $songs[rand(1,count($songs))];
-
-            if (!in_array($option, $options)) {
-                array_push($options, $option);
+        //get 20 songs by most played
+        $mostPlayed = DB::table('songs')->orderBy('id', 'asc')->limit(20)->get();
+        // pushes two random mostPlayed
+        for ($i = 0; $i < 2; $i++) {
+            $randomized = $mostPlayed[rand(0, 19)];
+            // checks if the song is already in the array
+            while (in_array($randomized, $options)) {
+                $randomized = $mostPlayed[rand(0, 19)];
             }
+            array_push($options, $randomized);
+        }
+        //get 20 songs by least played
+        $leastPlayed = DB::table('songs')->orderBy('id', 'desc')->limit(20)->get();
+        // pushes two random leastPlayed songs
+        for ($i = 0; $i < 2; $i++) {
+            $randomized = $leastPlayed[rand(0, 19)];
+            // checks if the song is already in the array
+            while (in_array($randomized, $options)) {
+                $randomized = $leastPlayed[rand(0, 19)];
+            }
+            array_push($options, $randomized);
         }
 
         for ($i = 0; $i < count($options); $i++) {
             Option::create([
-                'title' => $options[$i]->title,
+                'title' => $options[$i]->artist . ' - ' . $options[$i]->name,
                 'poll_id' => $result->id,
                 'song_id' => $options[$i]->id,
             ]);
         }
 
-        return dd($options);
+        return 'Le sondage a bien été créé !';
     }
 }

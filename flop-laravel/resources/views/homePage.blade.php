@@ -7,6 +7,7 @@
 
 <div>
   <div id="app"></div>
+  <div id="test-form"></div>
 <div class="square-container">
   <div class="square">
   

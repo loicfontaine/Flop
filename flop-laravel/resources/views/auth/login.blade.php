@@ -27,7 +27,7 @@
                 </span>
                 @enderror
                 <div class='basForm'>
-                    <button type="submit" class='submit'>Se connecter</button>
+                    <button type="submit" class='submit pointer'>Se connecter</button>
                 </div>
             </form>
         </div>
@@ -35,13 +35,13 @@
     <hr class='separation3'>
     <div class='FontInter compte'>
       <h2 class='p1'>Pas encore de compte ?</h2>
-      <button id='create'>Créer un compte</button>
+      <button id='create' class="pointer">Créer un compte</button>
       <span id='cc'>Gagne 25 ColorCoins</span>
       <h2 class='p1'>Ou</h2>
         <div class='bouton FontInter'>
-            <button class='apple'>Connexion avec Apple</button>
-            <button class='facebook'>Connexion avec Facebook</button>
-            <button class='google'>Connexion avec Google</button>
+            <button class='apple pointer'>Connexion avec Apple</button>
+            <button class='facebook pointer'>Connexion avec Facebook</button>
+            <button class='google pointer'>Connexion avec Google</button>
       </div>
     </div>
 </div>
