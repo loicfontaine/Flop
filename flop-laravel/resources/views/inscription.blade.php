@@ -56,7 +56,7 @@ Inscription | Couleur 3 Interact
           </label>
           <hr class='separation2'>
       </div>
-        <button type="submit" class='submit'>S'inscrire</button>
+        <button type="submit pointer" class='submit'>S'inscrire</button>
     </form>
   </div>
 </div>
@@ -65,9 +65,9 @@ Inscription | Couleur 3 Interact
       <p class='p1'>Vous avez déjà un compte ? <a href='login' class='p2'>Connectez-vous</a></p>
       <p class='p1'>ou</p>
       <div class='bouton FontInter'>
-        <button class='apple'>Connexion avec Apple</button>
-        <button class='facebook'>Connexion avec Facebook</button>
-        <button class='google'>Connexion avec Google</button>
+        <button class='apple pointer'>Connexion avec Apple</button>
+        <button class='facebook pointer'>Connexion avec Facebook</button>
+        <button class='google pointer'>Connexion avec Google</button>
       </div>
 </div>
 
