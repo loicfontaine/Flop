@@ -19,6 +19,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
+    padding-top:10px;
 }
 
 h1.titre {
@@ -51,6 +52,7 @@ iframe {
     background-color: #303030;
     width: 360px;
     border-radius: 8px;
+    padding-top:15px;
 }
 
 .titre-programme {
@@ -112,8 +114,16 @@ p.p1 {
     margin: 15px;
     padding-top: 10px;
     padding-left: 20px;
+    padding-right: 20px;
     border-radius: 8px;
     padding-bottom: 20px;
+}
+
+.container-chat hr {
+    border-color: white;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .titre-chat {
@@ -121,7 +131,22 @@ p.p1 {
     font-size: 22px;
     text-align: left;
     color: white;
+}   
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+  .titre-chat {
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+
+  .X {
+    margin-top: 25px;
+  }
 
 .viewer {
     display: flex;
@@ -137,23 +162,33 @@ p.p1 {
     font-size: 14px;
 }
 
-hr {
-    color: white;
+.boxMessage {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    margin-bottom: 0em;
+}
+
+.hrTop {
+    border-color: orange;
     /* centrer le hr */
-    margin-left: auto;
-    margin-right: auto;
+}
+
+.hrBottom{
+    border-color: red;
+    /* centrer le hr */
 }
 
 .message {
     display:flex;
     flex-direction: row;
-
 }
 
 .message p {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     color:white;
+    margin-bottom: 10px;
 }
 
 p.pseudo {
@@ -166,11 +201,12 @@ p.pseudo {
 
 .input-message {
     border:none;
+    font-size: 18px;
     border-radius: 8px;
+    width: 355px;
     height: 57px;
-    width: 340px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .bouton-chat {
@@ -183,6 +219,52 @@ p.pseudo {
     background-color: #E60096;
     border:none;
     border-radius: 8px;
-    width: 340px;
+    width: 20em;
     height: 60px;
 }
+
+p.nomUtil {
+    font-size: 20px;
+    color: white;   
+}
+
+.nomDeUtilisateur {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    gap: 1em;
+}
+
+.svgg,
+.nomutilchat {
+    flex: 0 0 auto;
+}
+
+input[type="text"]::placeholder {
+    text-align: left;
+    text-indent: 10px; /* Décalage vers la droite */
+}
+
+.connexion {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.texteDeConnexion {
+    font-size: 18px;
+    text-align: center;
+    color: white;
+}
+
+.submit {
+    background-color: #E60096; 
+    font-size: 18px;
+    color: white;
+    border:none;
+    border-radius: 8px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}       
+
+

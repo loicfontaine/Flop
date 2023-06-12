@@ -16,7 +16,7 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
-    width: 359px;
+    width: 80%;
     background-color: white;
 }
 
@@ -55,7 +55,7 @@
     margin-right: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 266px;
+    width: 70%;
 }
 
 .bouton {
@@ -77,10 +77,9 @@ hr.separation {
     color:white;
 }
 
-.column-container {
-    width: 359px;
-    column-count: 2; /* Nombre de colonnes */
-    column-gap: 20px;
+.row {
+    display:flex;
+    flex-direction: row;
 }
 
 .column-item {
@@ -90,9 +89,9 @@ hr.separation {
 
 .img-item {
     width: 100%;
-    height: 183px;
-    width: 173px;
-    border-radius: 8px 8px 0px 0px;
+    /**height: 183px;
+    width: 173px;*/
+    border-radius: 8px;
 }
 
 .centre {
@@ -104,12 +103,14 @@ hr.separation {
 .item {
     background-color: white;
     width: 173px;
+    height: fit-content;
     border-radius: 8px;
-    margin-bottom:15px;
+    margin: 15px 15px 15px 15px;
 }
 
 .item-title {
     font-family: 'Montserrat', sans-serif;
+    color: black;
     font-size: 18px;
     text-align: center;
     font-weight: bold;
@@ -118,16 +119,19 @@ hr.separation {
     height: min-content;
 }
 
-#cc {
+svg {
     width: 22px;
-    height: min-content;
-    margin-left: 10px;
+    height: 22px;
+    margin-left: 0.4em;
+    margin-bottom: 10px;
 
 }
 
 .price {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
+    margin-bottom:10px;
+    margin-top: 0px;
 
     
 }
@@ -137,4 +141,11 @@ hr.separation {
     flex-direction: row;
     padding-left: 50px;
 
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:10px;
+    justify-items: center;
 }

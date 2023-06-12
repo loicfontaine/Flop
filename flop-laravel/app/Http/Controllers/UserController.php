@@ -71,7 +71,8 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         User::findOrFail($id)->update($request->all());
-        //return view('dashboard')->withOk("L'utilisateur " . $request->input('name') . " a été modifié");
+        // return view('dashboard')->withOk("L'utilisateur " . $request->input('name') . " a été modifié");
+        return redirect('dashboard');
     }
 
     /**

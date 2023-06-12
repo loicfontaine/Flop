@@ -14,7 +14,8 @@ class Reward extends Model
         'quantity',
         "article_id",
         "user_id",
-        "participation_id"
+        "participation_id",
+        "challenge_id"
     ];
 
     public function user()

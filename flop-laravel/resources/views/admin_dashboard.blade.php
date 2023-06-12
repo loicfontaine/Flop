@@ -3,6 +3,10 @@
 <link rel="stylesheet" href="{{asset('css/admin_dashboard.css')}}">
 @endsection
 
+@section('title')
+Dashboard animateur | Couleur 3 Interact
+@endsection
+
 @section('content')
 <div id="adminDashboardContainer">
     <div id="adminDashboardMenu">
@@ -68,9 +72,6 @@
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un sondage</h2>
                 <form method="POST" action="{{route('poll.store')}}" accept-charset="UTF-8">
                     @csrf
-                
-                    <span class='FontInter formLabel'>Nom</span>
-                    <input class='form' required="required" type="text" name="title" v-model="name">
                     
                     <span class='FontInter formLabel'>Titre</span>
                     <input required="required" name="title" id="title" type="text" class="validate form">
@@ -89,20 +90,26 @@
               
                     <span class='FontInter formLabel'>Options</span>
                     <div id="conteneur-options">
-                      <input type="text" name="options[]" placeholder="Option" class="form" required="required">
+                      <input type="text" name="options[]" placeholder="Option" class="form optionForm" required="required">
                     </div>
-                    
-                    <section>
-                      <button class="submit buttonLabel" type="button" onclick="ajouterOption()">Ajouter une option</button>
-                      <button class="submit buttonLabel" type="button" onclick="supprimerOption()">Supprimer une option</button>
+                    <section class="addDeleteOptions">
+                        <button class="submit optionButtonLabel" type="button" onclick="ajouterOption()">Ajouter une option</button>
+                        <button class="submit optionButtonLabel" type="button" onclick="supprimerOption()">Supprimer une option
+                        </button>
                     </section>
               
-                    <section>
-                      <button class="submit buttonLabel" type="submit">Soumettre</button>
-                    </section>
+                    <div class="form-submit">
+                        <button type="submit" class='submit buttonLabel'>Créer un sondage</button>
+                    </div>
               
-                </div>
                 </form>
+                <form method="POST" action="{{ route('createMusic') }}">
+                    @csrf
+                    <div class="form-submit">
+                        <button type="submit" class="submit buttonLabel">Créer un sondage de musique</button>
+                    </div>
+                </form>
+
             </div>
         </div>
         <!-- FORMULAIRE CHALLENGE -->
@@ -338,6 +345,7 @@
     nouvelInput.type = 'text';
     nouvelInput.name = 'options[]';
     nouvelInput.placeholder = 'Option';
+    nouvelInput.classList.add('form', 'optionForm');
 
     // Ajouter le nouvel élément au conteneur d'options
     conteneurOptions.appendChild(nouvelInput);
@@ -356,7 +364,7 @@
 
 
   function supprimerOption() {
-    var conteneurOptions = document.getElementById('conteneur-options');
+    var conteneurOptions = document.querySelector('#conteneur-options');
 
     // Vérifier s'il y a plus d'une option
     if (conteneurOptions.children.length > 1) {

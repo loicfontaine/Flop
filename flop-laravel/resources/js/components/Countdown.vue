@@ -81,8 +81,15 @@ export default {
       console.log(this.form)
       console.log("test");
       let currentObj = this;
+
+      const config = {
+                    headers: { 'content-type': 'multipart/form-data' }
+                }
       let formData = new FormData();
-      formData.append('form', this.form);
+      formData.append('video', this.form.video);
+      formData.append('image', this.form.image);
+      formData.append('message', this.form.message);
+      formData.append('audioBlob', this.form.audioBlob);
       
 
     axios.post('/participation', formData, config)

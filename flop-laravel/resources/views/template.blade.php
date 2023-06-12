@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-ch">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,16 +11,15 @@
     @yield('css')
     @yield('js')
 
-
-
-    <title>Document</title>
+    <title>
+        @yield('title')
+    </title>
 </head>
 <body>
-        <nav id="navigationHeader" class="noir">
-        @if (Auth::check())
+    <nav id="navigationHeader" class="noir">
         <div class="navigationHeaderItem">
             <a href="/dashboard">
-                <svg width="35" height="35" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="navigationIcons" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_31_161)">
                     <path d="M12.2648 5.78668H12.7358C14.2713 5.78668 15.5165 7.03191 15.5165 8.5674V10.921C15.5165 12.4565 14.2713 13.7017 12.7358 13.7017H12.2648C10.7294 13.7017 9.48413 12.4565 9.48413 10.921V8.5674C9.48413 7.03182 10.7288 5.78668 12.2648 5.78668Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
                     <path d="M12.5 15.9286C15.6054 15.9286 17.9389 18.0492 17.9988 20.4692L17.2793 23.1263C17.2345 23.1443 17.1853 23.1637 17.1322 23.1844C16.8266 23.3031 16.39 23.4622 15.8709 23.6212C14.8225 23.9424 13.4807 24.25 12.2154 24.25C10.9578 24.25 9.7815 23.9455 8.90851 23.6324C8.47471 23.4768 8.12268 23.3215 7.88144 23.2065C7.84675 23.1899 7.81439 23.1742 7.78444 23.1595L7.00135 20.4626C7.06534 18.0446 9.39738 15.9286 12.5 15.9286Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
@@ -31,27 +30,17 @@
                     <rect width="25" height="25" fill="white"/>
                     </clipPath>
                     </defs>
-                    </svg>
+                </svg>
             </a>
+            @can('isAdmin')
+                <a href="/admin_dashboard">
+                    <svg class="navigationIcons" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M31.75 42.1667H2.58333C1.33333 42.1667 0.5 43 0.5 44.25V73.4167C0.5 74.6667 1.33333 75.5 2.58333 75.5H31.75C33 75.5 33.8333 74.6667 33.8333 73.4167V44.25C33.8333 43 33 42.1667 31.75 42.1667ZM29.6667 71.3333H4.66667V46.3333H29.6667V71.3333ZM31.75 0.5H2.58333C1.33333 0.5 0.5 1.33333 0.5 2.58333V31.75C0.5 33 1.33333 33.8333 2.58333 33.8333H31.75C33 33.8333 33.8333 33 33.8333 31.75V2.58333C33.8333 1.33333 33 0.5 31.75 0.5ZM29.6667 29.6667H4.66667V4.66667H29.6667V29.6667ZM73.4167 0.5H44.25C43 0.5 42.1667 1.33333 42.1667 2.58333V31.75C42.1667 33 43 33.8333 44.25 33.8333H73.4167C74.6667 33.8333 75.5 33 75.5 31.75V2.58333C75.5 1.33333 74.6667 0.5 73.4167 0.5ZM71.3333 29.6667H46.3333V4.66667H71.3333V29.6667ZM73.4167 56.75H60.9167V44.25C60.9167 43 60.0833 42.1667 58.8333 42.1667C57.5833 42.1667 56.75 43 56.75 44.25V56.75H44.25C43 56.75 42.1667 57.5833 42.1667 58.8333C42.1667 60.0833 43 60.9167 44.25 60.9167H56.75V73.4167C56.75 74.6667 57.5833 75.5 58.8333 75.5C60.0833 75.5 60.9167 74.6667 60.9167 73.4167V60.9167H73.4167C74.6667 60.9167 75.5 60.0833 75.5 58.8333C75.5 57.5833 74.6667 56.75 73.4167 56.75Z" fill="white"/>
+                        </svg>
+                        
+                </a>
+            @endcan
         </div>
-        @else
-        <div class="navigationHeaderItem">
-            <a href="/login">
-                <svg width="35" height="35" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_31_161)">
-                    <path d="M12.2648 5.78668H12.7358C14.2713 5.78668 15.5165 7.03191 15.5165 8.5674V10.921C15.5165 12.4565 14.2713 13.7017 12.7358 13.7017H12.2648C10.7294 13.7017 9.48413 12.4565 9.48413 10.921V8.5674C9.48413 7.03182 10.7288 5.78668 12.2648 5.78668Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
-                    <path d="M12.5 15.9286C15.6054 15.9286 17.9389 18.0492 17.9988 20.4692L17.2793 23.1263C17.2345 23.1443 17.1853 23.1637 17.1322 23.1844C16.8266 23.3031 16.39 23.4622 15.8709 23.6212C14.8225 23.9424 13.4807 24.25 12.2154 24.25C10.9578 24.25 9.7815 23.9455 8.90851 23.6324C8.47471 23.4768 8.12268 23.3215 7.88144 23.2065C7.84675 23.1899 7.81439 23.1742 7.78444 23.1595L7.00135 20.4626C7.06534 18.0446 9.39738 15.9286 12.5 15.9286Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
-                    <path d="M24.25 12.5C24.25 18.9893 18.9893 24.25 12.5 24.25C6.01065 24.25 0.75 18.9893 0.75 12.5C0.75 6.01065 6.01065 0.75 12.5 0.75C18.9893 0.75 24.25 6.01065 24.25 12.5Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                    </g>
-                    <defs>
-                    <clipPath id="clip0_31_161">
-                    <rect width="25" height="25" fill="white"/>
-                    </clipPath>
-                    </defs>
-                    </svg>
-            </a>
-        </div>
-        @endif
         <div class="navigationHeaderItem">
             <a href="/">
                 <svg width="91" height="33" viewBox="0 0 91 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,39 +61,32 @@
             </a>
         </div>
         <div class="navigationHeaderItem">
-        <svg id='home-icon' width="25" height="23" viewBox="0 0 25 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M3.125 20.3714H7.8125V12.4857H17.1875V20.3714H21.875V8.54286L12.5 2.62857L3.125 8.54286V20.3714ZM3.125 23C2.26563 23 1.52969 22.7424 0.91719 22.2272C0.30469 21.712 -0.00103901 21.0934 2.6528e-06 20.3714V8.54286C2.6528e-06 8.12667 0.11094 7.73238 0.332815 7.36C0.55469 6.98762 0.860419 6.68095 1.25 6.44L10.625 0.525714C10.9115 0.350476 11.2109 0.219047 11.5234 0.131428C11.8359 0.0438094 12.1615 0 12.5 0C12.8385 0 13.1641 0.0438094 13.4766 0.131428C13.7891 0.219047 14.0885 0.350476 14.375 0.525714L23.75 6.44C24.1406 6.68095 24.4469 6.98762 24.6687 7.36C24.8906 7.73238 25.001 8.12667 25 8.54286V20.3714C25 21.0943 24.6937 21.7133 24.0812 22.2285C23.4687 22.7437 22.7333 23.0009 21.875 23H14.0625V15.1143H10.9375V23H3.125Z" fill="white"/>
-</svg>
-
-                
+            <a href="/">
+                <svg class="pointer navigationIcons" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.1708 22.559V15.3539H15.8229V22.559C15.8229 23.3515 16.4588 24 17.236 24H21.4751C22.2522 24 22.8881 23.3515 22.8881 22.559V12.4719H25.2902C25.9402 12.4719 26.2511 11.6506 25.7565 11.2183L13.9436 0.367457C13.4066 -0.122486 12.5871 -0.122486 12.0501 0.367457L0.23718 11.2183C-0.243251 11.6506 0.0534859 12.4719 0.703481 12.4719H3.10564V22.559C3.10564 23.3515 3.7415 24 4.51867 24H8.75776C9.53493 24 10.1708 23.3515 10.1708 22.559Z" fill="white"/>
+                    </svg>  
+            </a>
         </div>
     </nav>
     <img class="logoC3" src="img/RTSCouleur3.png" alt="logo couleur 3">
         @yield("content")
     <footer id="footer">
         <div class="footerNav">
-            <a class="footerLink FontMonserrat" href="/help">Aide et support</a>
-        </div>
-        <div class="footerNav">
-            @if (Auth::check())
             <a class="footerLink FontMonserrat" href="/dashboard">Mon compte</a>
-            @else
-            <a class="footerLink FontMonserrat" href="/login">Mon compte</a>
-            @endif
         </div>
         <div class="footerNav">
             <a class="footerLink FontMonserrat" href="#top">Retour en haut</a>
         </div>
         <div class="footerNav footerNavLast">
             <a class="footerIcons" href="https://www.youtube.com/@Couleur3" target="blank">
-                <svg class="footerIconsItem" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="footerIconsItem" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="27" height="27" rx="8" fill="#6E6C6F"/>
                 <rect x="3" y="3" width="21" height="21" rx="2.30928" fill="#6E6C6F"/>
                 <path d="M22.1017 8.98712C21.8922 8.17993 21.277 7.5456 20.4943 7.32952C19.0754 6.9375 13.3895 6.9375 13.3895 6.9375C13.3895 6.9375 7.70365 6.9375 6.28629 7.32952C5.50353 7.5456 4.8884 8.17993 4.67886 8.98712C4.29871 10.4487 4.29871 13.5 4.29871 13.5C4.29871 13.5 4.29871 16.5513 4.67886 18.0129C4.8884 18.8201 5.50353 19.4544 6.28629 19.6705C7.70365 20.0625 13.3895 20.0625 13.3895 20.0625C13.3895 20.0625 19.0754 20.0625 20.4928 19.6705C21.2755 19.4544 21.8907 18.8201 22.1002 18.0129C22.4804 16.5513 22.4804 13.5 22.4804 13.5C22.4804 13.5 22.4804 10.4487 22.1002 8.98712H22.1017ZM11.5711 16.3121V10.6879L16.2946 13.5L11.5711 16.3121Z" fill="white"/>
                 </svg>
             </a>
             <a class="footerIcons" href="https://www.instagram.com/couleur3/" target="blank">
-                <svg class="footerIconsItem" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="footerIconsItem" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="27" height="27" rx="8" fill="#6E6C6F"/>
                 <rect x="3" y="3" width="21" height="21" rx="2.4375" fill="#6E6C6F"/>
                 <rect x="5.59741" y="5.625" width="15.5843" height="15.7501" rx="3.65625" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
@@ -113,7 +95,7 @@
                 </svg>                    
             </a>
             <a class="footerIcons" href="https://twitter.com/Couleur3" target="blank">
-                <svg class="footerIconsItem" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="footerIconsItem" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="27" height="27" rx="8" fill="#6E6C6F"/>
                 <rect x="3" y="3" width="21" height="21" rx="2.30928" fill="#6E6C6F"/>
                 <g clip-path="url(#clip0_0_1)">
@@ -127,7 +109,7 @@
                 </svg>                    
             </a>
             <a class="footerIcons" href="https://www.facebook.com/couleur3" target="blank">
-                <svg class="footerIconsItem" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="footerIconsItem" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="27" height="27" rx="8" fill="#6E6C6F"/>
                 <rect x="3" y="3" width="21" height="21" rx="2.30928" fill="#6E6C6F"/>
                 <g clip-path="url(#clip0_0_1)">
@@ -144,12 +126,3 @@
     </footer>
 </body>
 </html>
-
-<script>
-    var homeicon = document.getElementById("home-icon");
-    homeicon.addEventListener("click", function(){
-        window.location.href = "/";
-    });
-    
-
-</script>

@@ -25,6 +25,7 @@
 /*-------- Séparation --------*/
 
 hr#separation {
+  color:white !important;
     width: 226px;
     margin-top: 25px;
     margin-bottom: 25px;
@@ -35,10 +36,7 @@ hr#separation {
 
 /*-------- Pannel avec nombre de coins --------*/
 
-.FontInterBlack {  
-    font-family: 'Inter', sans-serif;
-    color: rgb(0, 0, 0);
-}
+
 
 
 .input-container {
@@ -50,7 +48,7 @@ hr#separation {
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
-    width: 359px;
+    width: 80%;
     padding-top: 20px;
     background-color: white;
 }
@@ -107,6 +105,20 @@ hr#separation {
     margin-left: auto;
     margin-right: auto;
     width: 150px;
+  }
+
+  #bouton-valider{
+    background-color: #E60099; 
+    color: white;
+    width: 50%;
+    border: none;
+    height: 40px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
   }
   
   .input-button button {
@@ -174,28 +186,18 @@ hr#separation {
   margin-bottom: 15px;
 }
 
-.renvoiLogin {
-  background-color: #E60096; 
-    font-size: 18px;
-    color: white;
-    border:none;
-    border-radius: 8px;
-    height: 40px;
-    margin-top: 0px;
-    margin-bottom: 20px;
-}
 
 .imgLogin {
   width: 80px;
 }
 
-.boutique {
+#boutique {
   background-color: #E60096; 
   font-size: 18px;
   color: white;
   border:none;
   border-radius: 8px;
-  width:290px;
+  width:80%;
   height: 40px;
   margin-top: 0px;
   margin-bottom: 20px;
@@ -205,23 +207,34 @@ hr#separation {
   font-size:20px;
   color:#E60096;
   font-family: 'Inter', sans-serif;
+  margin-top:5px;
+  margin-left:5px;
+  margin-bottom: 0px;
 }
 
 .bloc p {
   font-size: 18px;
   font-family:'Montserrat', sans-serif;
   color:black;
+  margin: 0px 5px;
 }
 
 #container-infos {
   border-radius : 8px;
-  width:340px;
+  width:100%;
   background-color: white;
+  margin-bottom: 20px;
+}
+
+#container-modif-infos {
+  margin-bottom:2px;
+  background-color: white;
+  border-radius : 8px;
 }
 
 #container-participation {
   border-radius : 8px;
-  width:340px;
+  width:100%;
   background-color: white;
 }
 
@@ -252,11 +265,11 @@ hr#separation {
 }
 
 #informations {
-  width:340px;
+  width:80%;
 }
 
 #participation {
-  width:340px;
+  width:80%;
 }
 
 .coins span {
@@ -275,15 +288,20 @@ hr#separation {
 }
 
 .entete h1 {
-  font-size: 1.5rem;
+  font-size: 22px;
   font-family: 'Inter', sans-serif;
   color:  #E60096;
+  margin-top:5px;
+  margin-left:5px;
+  margin-bottom: 0px;
 }
+
 
 .entete p {
   font-size: 1.125rem;
   font-family:'Montserrat', sans-serif;
   color:black;
+  margin: 5px 0px 5px 0px;
 }
 
 .description h2 {
@@ -304,7 +322,7 @@ hr#separation {
   border-bottom: 1px #E60096;
 }
 
-.centrer {
+.centre {
   display:flex;
   flex-direction:column;
   align-items: center;
@@ -319,4 +337,60 @@ hr#separation {
   justify-content: space-between;
   padding-right: 5px;
   padding-left: 5px;
+}
+
+.blackInter {
+  font-size: 'Inter', sans-serif;
+  font-size: 22px;
+  color: black;
+}
+
+.whiteInter {
+  font-size: 'Inter', sans-serif;
+  font-size: 22px;
+  color: white;
+}
+
+.coins p {
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size: 18px;
+  margin:0px;
+  
+
+}
+
+.coins {
+  display:flex;
+  flex-direction:row;
+  height: min-content;
+}
+
+.description {
+  margin-left:5px;
+}
+
+.bloc {
+  padding:2px;
+  height:55px;
+  border-bottom: 1px #E60096;
+}
+
+hr {
+  border: 1px solid #E60096;
+  margin: 0px;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  cursor:pointer;
+}
+
+input {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  width: 98%;
 }

@@ -13,9 +13,10 @@ use App\Http\Controllers\ParticipationController;
 
 
 
+
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ChallengeController;
-
+use App\Models\Participation;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,18 +34,22 @@ use App\Http\Controllers\ChallengeController;
 
 Route::get('/boutique', [App\Http\Controllers\ArticleController::class, 'index'])->name("boutique");
 
+
+
 Route::get('/', function () {
     return redirect('/home');
 });
-Route::get('/admin_dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-Route::get('/home', [HomeController::class, 'getInfo'])->name('home');
+
+Route::get('/home', function () {
+    return view('homePage');
+})->name('home');
 
 Route::get('/inscription', function () {
     return view('inscription');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->name('dashboard');
 
 Route::get('/connexion', function () {
     return view('connexion');
@@ -66,20 +71,18 @@ Route::get('/admin', function () {
 
 Route::get('/admin_dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
-//Route::get('/admin_dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::resource('user', UserController::class);
 
+Route::post('/createMusic', [PollController::class, 'createMusic'])->name('createMusic');
 Route::resource('poll', PollController::class);
-Route::resource('answerPoll', AnswerController::class);
-
-Route::post('pollsend', [PollController::class, 'store'])->name('pollsend');
+Route::resource('answer', AnswerController::class);
 
 Route::resource('challenge', ChallengeController::class);
 Route::resource('article', ArticleController::class);
 Route::resource('participation', ParticipationController::class);
+Route::post('participer', [ParticipationController::class, 'participate']);
 
 Auth::routes();
 

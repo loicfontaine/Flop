@@ -13,10 +13,9 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $route = $request->route()->getName();
 
-        //return all articles
-        $articles = Article::all();
+
+        $articles = Article::where("nb_stock", ">", 0)->where("is_displayed", "=", 1)->get();
 
         return view("boutique_accueil", compact("articles"));
     }
