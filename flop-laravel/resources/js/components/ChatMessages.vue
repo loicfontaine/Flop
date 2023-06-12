@@ -1,5 +1,3 @@
-// resources/assets/js/components/ChatMessages.vue
-
 <template>
     <ul class="chat">
         <li class="left clearfix" v-for="message in messages">
@@ -18,7 +16,7 @@
 </template>
 
 <script>
-  export default {
+  export default { 
     props: ['messages']
   };
 </script>
