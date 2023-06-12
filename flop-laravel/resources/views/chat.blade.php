@@ -1,7 +1,4 @@
 <!-- resources/views/chat.blade.php -->
-
-@extends('layouts.app')
-
 @section('content')
 
 <div class="container">
