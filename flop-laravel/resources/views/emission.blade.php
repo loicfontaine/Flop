@@ -2,6 +2,9 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('css/emission.css')}}">
 @endsection
+@section('title')
+Live | Couleur 3 Interact
+@endsection
 @section('js')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{asset('js/emission.js')}}"></script>
@@ -121,7 +124,9 @@ COMEDY CLUB | Couleur 3 Interact
     <div>
         <p class="texteDeConnexion">Vous n'êtes actuellement pas connecté. Connectez-vous pour pouvoir intéragir sur le chat</h1>
     </div>
-    <button type="submit" class='submit' id="sub">Se connecter</button>
+    <a href="https://flop-pingouin.heig-vd.ch/login">
+        <button type="submit" class="submit" id="sub">Se connecter</button>
+    </a>
 </div>
 </div>
 @endif
@@ -129,6 +134,8 @@ COMEDY CLUB | Couleur 3 Interact
 </div>
 
 <script>
+<<<<<<< HEAD
+=======
     if (document.getElementById('sub') != null) {
     var connexionBtn = document.getElementById('sub');
 
@@ -139,6 +146,7 @@ COMEDY CLUB | Couleur 3 Interact
     }
 }
 
+>>>>>>> main
     // Sélectionnez les éléments nécessaires
     const boutonFermer = document.getElementById('accesChat');
     const boutonSvgX = document.querySelector('.X');
