@@ -13,7 +13,7 @@ class SongsTableSeeder extends Seeder
         $faker = FakerFactory::create();
 
         // Générer des données aléatoires pour remplir la table "songs"
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             DB::table('songs')->insert([
                 'name' => $faker->word,
                 'artist' => $faker->name,
