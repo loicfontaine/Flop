@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-ch">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +10,6 @@
    @vite('resources/js/app.js')
     @yield('css')
     @yield('js')
-
-
 
     <title>
         @yield('title')
@@ -32,7 +30,8 @@
                     <rect width="25" height="25" fill="white"/>
                     </clipPath>
                     </defs>
-                    </svg>
+                </svg>
+            </a>
             @can('isAdmin')
                 <a href="/admin_dashboard">
                     <svg class="navigationIcons" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">

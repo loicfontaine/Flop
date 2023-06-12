@@ -185,12 +185,23 @@ hr.separation2 {
 	margin-bottom: 1.25rem;
 }
 
-.checkbox-input {
+/* .checkbox-input {
     display: none;
     &:checked + .checkbox-tile {
 		background-color: #E60096;
 	}
+} */
+
+/** TEST */
+.checkbox-input {
+    display: none;
 }
+
+.checkbox-input:checked {
+    display: none;
+    background-color: #E60096;
+}
+
 
 fieldset {
     border: none;
@@ -209,10 +220,10 @@ fieldset {
 	cursor: pointer;
 	position: relative;
     margin: 0.5rem;
+}
 
-	&:hover {
-        scale: 1.03;
-	}
+.checkbox-tile:hover {
+    scale: 1.03;
 }
 
 .checkbox-label {
