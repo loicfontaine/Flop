@@ -34,7 +34,7 @@ Profil | Couleur 3 Interact
         <div id="informations">
             <div id="titre">
                 <h1 class="title">Mes informations</h1>
-                <bouton class="bouton" id="bouton-modifier">Modifier</bouton>
+                <bouton class="bouton pointer" id="bouton-modifier">Modifier</bouton>
             </div>
             <div id="container-infos">
                 <div class="bloc">

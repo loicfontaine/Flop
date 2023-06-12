@@ -21,7 +21,7 @@ Connexion | Couleur 3 Interact
         <span class='placeholder-haut FontInter'>Mot de passe</span>
 
         <div class='basForm'>
-          <button type="submit" class='submit'>Se connecter</button>
+          <button type="submit pointer" class='submit'>Se connecter</button>
         </div>
       </form>
     </div>
@@ -30,13 +30,13 @@ Connexion | Couleur 3 Interact
 
     <div class='FontInter compte'>
       <h2 class='p1'>Pas encore de compte ?</h2>
-      <button id='create'>Créer un compte</button>
+      <button class="pointer" id='create'>Créer un compte</button>
       <span id='cc'>Gagne 25 ColorCoins</span>
       <h2 class='p1'>Ou</h2>
         <div class='bouton FontInter'>
-        <button class='apple'>Connexion avec Apple</button>
-        <button class='facebook'>Connexion avec Facebook</button>
-        <button class='google'>Connexion avec Google</button>
+        <button class='apple pointer'>Connexion avec Apple</button>
+        <button class='facebook pointer'>Connexion avec Facebook</button>
+        <button class='google pointer'>Connexion avec Google</button>
       </div>
     </div>
 
