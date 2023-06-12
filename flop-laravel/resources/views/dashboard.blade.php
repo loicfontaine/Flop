@@ -97,6 +97,9 @@ Profil | Couleur 3 Interact
 
         <div id="participation">
             <h1 class="title">Mes participations</h1>
+            @if (count($challengesEtParticipations) == 0)
+            <p class="noParticipation">Vous n'avez pas encore participé à un challenge</p>
+            @endif
             @foreach($challengesEtParticipations as $participation)
             <div id="container-participation">
                 <div class="entete">
