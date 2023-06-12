@@ -14,7 +14,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ChallengeController;
 use App\Models\Participation;
-use App\Models\ChatsController;
+use App\Http\Controllers\ChatsController;
 
 /*
 |--------------------------------------------------------------------------
