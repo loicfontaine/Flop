@@ -11,8 +11,18 @@
   align-items: center!important;
   margin: 10px!important;
   width: 50% !important;
-
 }
+
+#video1, #video2 {
+  width: 50% !important;
+  height: 50% !important;
+  margin: 20px !important;
+}
+
+
+
+
+
 
 .titreInfo {
   text-align: center!important;
