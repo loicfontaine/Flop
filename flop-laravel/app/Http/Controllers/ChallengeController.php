@@ -99,7 +99,6 @@ class ChallengeController extends Controller
      */
     public function show(string $id)
     {
-        //   
     }
 
     /**
