@@ -27,7 +27,7 @@ class ParticipationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function participer(Request $request)
+    public function participate(Request $request)
     {
 
         dd("test");
