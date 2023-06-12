@@ -79,7 +79,20 @@ export default {
     async submit() {
       this.$emit('submit', this.form)
       console.log(this.form)
-      console.log("test")
+      console.log("test");
+      let currentObj = this;
+      let formData = new FormData();
+      formData.append('form', this.form);
+      
+
+      await axios.post('/participation', formData, config)
+                .then(function (response) {
+                    currentObj.success = response.data.success;
+                })
+                .catch(function (error) {
+                    currentObj.output = error;
+                });
+      
     },
     startCountdown() {
       const currentDate = new Date();
