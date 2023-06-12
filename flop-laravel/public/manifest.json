@@ -9,7 +9,7 @@
     "icons": [
         {
             "src": "img/logoPWA.png",
-            "sizes": "512x512",
+            "sizes": "513x513",
             "type": "image/png"
         }
     ]
