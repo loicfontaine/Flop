@@ -151,7 +151,11 @@ Profil | Couleur 3 Interact
     var bouton6 = document.getElementById('logout');
     {
         bouton6.addEventListener('click', function() {
-            window.location.href = "logout";
+            //pop up de confirmation
+            var r = confirm("Voulez-vous vraiment vous déconnecter ?");
+            if (r == true) {
+                window.location.href = "logout";
+            }
         });
     }
 
