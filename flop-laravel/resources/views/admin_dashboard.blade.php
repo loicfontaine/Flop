@@ -172,34 +172,49 @@ Dashboard animateur | Couleur 3 Interact
                 </form>
             </div>
         </div>
+        <!-- LISTE CHALLENGE EN COURS -->
+        <div class="adminDashboardDéfiShow">
+            <div id="listChallenges">
+                <h2 class="adminDashboardContentItemsTitle FontInter">Les challenges en cours sont</h2>
+                @foreach ($challenges as $challenge)
+                <div>
+                    <p>{{ $challenge->name }}</p>
+                    <p>{{ $challenge->description }}</p>
+                    <p>{{ $challenge->end_time }}</p>
+                    <p>{{ $challenge->colorCoins }}</p>
+                    <p>{{ $challenge->type }}</p>
+                </div>
+                @endforeach
+            </div>
+        </div>
         <!-- CHALLENGE REPONSES -->
         <div class="adminDashboardDéfiShow">
-            <h2 class="adminDashboardContentItemsTitle FontInter">{{ $title }}</h2>
-            En cours
-            Countdown
-            @foreach ($participations as $participation)
-            <div>
-                <p>{{ $userName }}</p>
-                @if ($challenge_type) === 1)
-                <audio>
-                    <source src="{{ $content }}" type="audio/mpeg">
-                </audio>
-                @elseif ($challenge_type) === 2)
-                <img src="{{$content}}" alt="">
-                @elseif ($challenge_type) === 3)
-                <video>
-                    <source src="{{ $content }}" type="audio/mpeg">
-                </video>
-                @elseif ($challenge_type) === 4)
-                <p>{{$content}}</p>
-                @else
-                I don't have any records!
-                @endif
+            <div id="showChallenge">
+                @foreach ($participations as $participation)
+                <h2 class="adminDashboardContentItemsTitle FontInter">{{$title}}</h2>
+                En cours
+                Countdown
+                <div>
+                    <p>{{ $userName }}</p>
 
-
+                    @if ($challenge_type) === 1)
+                    <audio>
+                        <source src="{{ $content }}" type="audio/mpeg">
+                    </audio>
+                    @elseif ($challenge_type) === 2)
+                    <img src="{{$content}}" alt="">
+                    @elseif ($challenge_type) === 3)
+                    <video>
+                        <source src="{{ $content }}" type="audio/mpeg">
+                    </video>
+                    @elseif ($challenge_type) === 4)
+                    <p>{{$content}}</p>
+                    @else
+                    I don't have any records!
+                    @endif
+                </div>
+                @endforeach
             </div>
-            @endforeach
-
         </div>
         <!-- FORMULAIRE CONTEST -->
         <div class="adminDashboardContentItems">
@@ -360,6 +375,7 @@ Dashboard animateur | Couleur 3 Interact
     // Select menu item
     var menuItems = document.getElementsByClassName('adminDashboardMenuItems');
     var contentItems = document.getElementsByClassName('adminDashboardContentItems');
+    var createChallenge = document.getElementById('createChallenge');
 
     // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
     for (let i = 0; i < menuItems.length; i++) {
@@ -370,6 +386,26 @@ Dashboard animateur | Couleur 3 Interact
             }
             menuItems[i].classList.add('active');
             contentItems[i].classList.add('display');
+        })
+    }
+
+    for (let i = 0; i < menuItems.length; i++) {
+        
+        menuItems[i].addEventListener('click', () => {
+            for (let j = 0; j < menuItems.length; j++) {
+                menuItems[j].classList.remove('active');
+                contentItems[j].classList.remove('display');
+            }
+            if($challenges){
+                menuItems[i].classList.add('active');
+                listChallenge.classList.add('display');
+            }else if(!$challenges){
+                menuItems[i].classList.add('active');
+                createChallenge.classList.add('display');
+            }else{
+                menuItems[i].classList.add('active');
+                contentItems[i].classList.add('display');
+            }
         })
     }
 
