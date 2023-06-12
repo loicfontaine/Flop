@@ -125,15 +125,16 @@
 </div>
 </div>
 
-
-
 <script>
+    if (document.getElementById('sub') != null) {
     var connexionBtn = document.getElementById('sub');
+
     {
         connexionBtn.addEventListener('click', function() {
             window.location.href = "login";
         });
     }
+}
 
     // Sélectionnez les éléments nécessaires
     const boutonFermer = document.getElementById('accesChat');
@@ -145,14 +146,14 @@
     boutonFermer.addEventListener('click', () => {
         chat.classList.remove('hidden'); // Affiche le chat
         boutonFermer.style.display = 'none'; // Masque le bouton d'ouverture
-        programme.style.display = 'none'; // Masque la div programme
+        programme.style.display = 'none'; // Masque  programme
     });
 
     // Ajoutez un écouteur d'événement au SVG "X"
     boutonSvgX.addEventListener('click', () => {
         chat.classList.add('hidden'); // Masque le chat
         boutonFermer.style.display = 'block'; // Affiche le bouton d'ouverture
-        programme.style.display = 'block'; // Affiche la div programme
+        programme.style.display = 'block'; // Affiche programme
     });
 </script>
 

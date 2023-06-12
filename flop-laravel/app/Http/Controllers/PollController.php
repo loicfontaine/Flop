@@ -8,8 +8,6 @@ use App\Models\Poll;
 use App\Models\Option;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Date;
 
 class PollController extends Controller
 {
@@ -111,15 +109,27 @@ class PollController extends Controller
 
         $result = DB::table('polls')->orderBy('id', 'desc')->first();
         $options = array();
-        //songs by most played
-        $mostPlayed = DB::table('songs')->orderBy('id', 'asc')->limit(20)->inRandomOrder()->limit(2)->get();
-        foreach ($mostPlayed as $song) {
-            array_push($options, $song);
+        //get 20 songs by most played
+        $mostPlayed = DB::table('songs')->orderBy('id', 'asc')->limit(20)->get();
+        // pushes two random mostPlayed
+        for ($i = 0; $i < 2; $i++) {
+            $randomized = $mostPlayed[rand(0, 19)];
+            // checks if the song is already in the array
+            while (in_array($randomized, $options)) {
+                $randomized = $mostPlayed[rand(0, 19)];
+            }
+            array_push($options, $randomized);
         }
-        //songs by least played
-        $leastPlayed = DB::table('songs')->orderBy('id', 'desc')->limit(20)->inRandomOrder()->limit(2)->get();
-        foreach ($leastPlayed as $song) {
-            array_push($options, $song);
+        //get 20 songs by least played
+        $leastPlayed = DB::table('songs')->orderBy('id', 'desc')->limit(20)->get();
+        // pushes two random leastPlayed songs
+        for ($i = 0; $i < 2; $i++) {
+            $randomized = $leastPlayed[rand(0, 19)];
+            // checks if the song is already in the array
+            while (in_array($randomized, $options)) {
+                $randomized = $leastPlayed[rand(0, 19)];
+            }
+            array_push($options, $randomized);
         }
 
         for ($i = 0; $i < count($options); $i++) {
