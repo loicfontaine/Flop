@@ -98,7 +98,6 @@ class UserController extends Controller
             foreach ($participations as $participation) {
                 $challengesEtParticipations[$participation->id] = [$participation, $participation->challenge];
             }
-            dd($challengesEtParticipations);
             return view("dashboard", compact("challengesEtParticipations"));
         }
     }
