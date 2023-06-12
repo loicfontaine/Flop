@@ -10,7 +10,6 @@ use App\Events\MessageSent;
 
 class ChatsController extends Controller
 {
-    // app/Http/Controllers/ChatsController.php
 
     public function __construct()
     {
@@ -43,6 +42,7 @@ class ChatsController extends Controller
      * @param  Request $request
      * @return Response
      */
+    
     public function sendMessage(Request $request)
     {
         $user = Auth::user();
