@@ -6,10 +6,8 @@ use App\Http\Requests\CreatePollRequest;
 use Illuminate\Http\Request;
 use App\Models\Poll;
 use App\Models\Option;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use PhpParser\Node\Expr\Cast\Bool_;
 
 class PollController extends Controller
 {
@@ -113,10 +111,12 @@ class PollController extends Controller
         $songs = [];
         $options = array();
         //songs by most played
-        $mostPlayed = DB::table('songs')->orderBy('id', 'asc')->limit(10)->random(2);
+        $mostPlayed = DB::table('songs')->orderBy('id', 'asc')->limit(10);
+        $randomMostPlayed = $mostPlayed->random(2);
         array_push($songs, $mostPlayed);
         //songs by least played
-        $leastPlayed = DB::table('songs')->orderBy('id', 'desc')->limit(10)->random(2);
+        $leastPlayed = DB::table('songs')->orderBy('id', 'desc')->limit(10);
+        $randomLeastPlayed = $leastPlayed->random(2);
         array_push($songs, $leastPlayed);
 
         for ($i = 0; $i < count($options); $i++) {
