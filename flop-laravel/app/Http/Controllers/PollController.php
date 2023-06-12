@@ -110,18 +110,14 @@ class PollController extends Controller
         ]);
 
         $result = DB::table('polls')->orderBy('id', 'desc')->first();
-        $songs = DB::table('songs')->get();
+        $songs = [];
         $options = array();
-
-        // add random songs to the options array
-        for ($i = 0; $i < count($songs); $i++) {
-
-            $option = $songs[rand(1,count($songs))];
-
-            if (!in_array($option, $options)) {
-                array_push($options, $option);
-            }
-        }
+        //songs by most played
+        $mostPlayed = DB::table('songs')->orderBy('id', 'asc')->limit(10)->random(2);
+        array_push($songs, $mostPlayed);
+        //songs by least played
+        $leastPlayed = DB::table('songs')->orderBy('id', 'desc')->limit(10)->random(2);
+        array_push($songs, $leastPlayed);
 
         for ($i = 0; $i < count($options); $i++) {
             Option::create([
