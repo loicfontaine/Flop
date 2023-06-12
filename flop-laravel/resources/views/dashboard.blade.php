@@ -100,16 +100,16 @@ Profil | Couleur 3 Interact
             @foreach($challengesEtParticipations as $participation)
             <div id="container-participation">
                 <div class="entete">
-                    <h1>{{$participation->name}}</h1>
-                    <p>{{$participation->start_time}}</p>
+                    <h1>{{$participation[1]->name}}</h1>
+                    <p>{{$participation[1]->start_time}}</p>
                 </div>
                 <div class="row">
                     <div class="description">
-                        <h2>{{$participation->name}}</h2>
-                        <p>{{$participation->description}}</p>
+                        <h2>{{$participation[1]->name}}</h2>
+                        <p>{{$participation[1]->description}}</p>
                     </div>
                     <div class="coins">
-                        <p>{{$participation->ColorCoins_earned_by_participation}}</p>
+                        <p>{{$participation[1]->CouleurCoins_earned_by_participation}}</p>
                         <svg class="cc" xmlns="http://www.w3.org/2000/svg" class="cc" viewBox="0 0 1061.26 1061.27">
                             <defs>
                                 <style>
