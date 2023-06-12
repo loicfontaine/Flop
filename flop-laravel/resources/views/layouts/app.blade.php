@@ -55,7 +55,6 @@
     background-color: #555;
   }
 </style>
-
 </head>
 <body>
     <div id="app">

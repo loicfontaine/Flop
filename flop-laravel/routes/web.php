@@ -11,13 +11,8 @@ use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ParticipationController;
 use App\Http\Controllers\FileController;
-
-
-
-
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ChallengeController;
-use App\Http\Controllers\ChatsController;
 use App\Models\Participation;
 
 /*
@@ -86,6 +81,10 @@ Auth::routes();
 
 Route::get('/chat', function () {
     return view('chat');
+});
+
+Route::get('/emission', function () {
+    return view('emission');
 });
 
 Route::get('/messages', [MessageController::class, 'index']);
