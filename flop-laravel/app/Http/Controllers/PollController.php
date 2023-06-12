@@ -113,10 +113,14 @@ class PollController extends Controller
         $options = array();
         //songs by most played
         $mostPlayed = DB::table('songs')->orderBy('id', 'asc')->limit(20)->inRandomOrder()->limit(2)->get();
-        array_push($options, $mostPlayed);
+        foreach ($mostPlayed as $song) {
+            array_push($options, $song);
+        }
         //songs by least played
         $leastPlayed = DB::table('songs')->orderBy('id', 'desc')->limit(20)->inRandomOrder()->limit(2)->get();
-        array_push($options, $leastPlayed);
+        foreach ($leastPlayed as $song) {
+            array_push($options, $song);
+        }
 
         return dd($options);
 
