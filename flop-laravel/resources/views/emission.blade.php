@@ -2,6 +2,9 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('css/emission.css')}}">
 @endsection
+@section('title')
+Live | Couleur 3 Interact
+@endsection
 @section('js')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{asset('js/emission.js')}}"></script>

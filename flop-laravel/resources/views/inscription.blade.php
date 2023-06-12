@@ -2,6 +2,9 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('css/inscription.css')}}">
 @endsection
+@section('title')
+Inscription | Couleur 3 Interact
+@endsection
 @section('js')
 <script src="{{asset('js/inscription.js')}}"></script>
 @section('content')
