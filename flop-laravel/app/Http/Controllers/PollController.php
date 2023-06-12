@@ -8,6 +8,8 @@ use App\Models\Poll;
 use App\Models\Option;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 class PollController extends Controller
 {
@@ -108,16 +110,17 @@ class PollController extends Controller
         ]);
 
         $result = DB::table('polls')->orderBy('id', 'desc')->first();
-        $songs = [];
         $options = array();
         //songs by most played
-        $mostPlayed = DB::table('songs')->orderBy('id', 'asc')->limit(10);
-        $randomMostPlayed = $mostPlayed->random(2);
-        array_push($songs, $mostPlayed);
+        $mostPlayed = DB::table('songs')->orderBy('id', 'asc')->limit(20)->inRandomOrder()->limit(2)->get();
+        foreach ($mostPlayed as $song) {
+            array_push($options, $song);
+        }
         //songs by least played
-        $leastPlayed = DB::table('songs')->orderBy('id', 'desc')->limit(10);
-        $randomLeastPlayed = $leastPlayed->random(2);
-        array_push($songs, $leastPlayed);
+        $leastPlayed = DB::table('songs')->orderBy('id', 'desc')->limit(20)->inRandomOrder()->limit(2)->get();
+        foreach ($leastPlayed as $song) {
+            array_push($options, $song);
+        }
 
         for ($i = 0; $i < count($options); $i++) {
             Option::create([
@@ -127,6 +130,6 @@ class PollController extends Controller
             ]);
         }
 
-        return dd($options);
+        return 'Le sondage a bien été créé !';
     }
 }

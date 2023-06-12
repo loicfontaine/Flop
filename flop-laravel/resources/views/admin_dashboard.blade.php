@@ -3,6 +3,10 @@
 <link rel="stylesheet" href="{{asset('css/admin_dashboard.css')}}">
 @endsection
 
+@section('title')
+Dashboard animateur | Couleur 3 Interact
+@endsection
+
 @section('content')
 <div id="adminDashboardContainer">
     <div id="adminDashboardMenu">
