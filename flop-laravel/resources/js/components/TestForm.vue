@@ -47,7 +47,7 @@ import axios from 'axios';
             formSubmit(e) {
                 e.preventDefault();
                 let currentObj = this;
-                console.log(e.target.files);
+                console.log("Mes fichiers: ", this.files);
    
                 const config = {
                     headers: { 'content-type': 'multipart/form-data' }
