@@ -5,6 +5,9 @@
 @section('js')
 <script src="{{asset('js/inscription.js')}}"></script>
 @section('content')
+@section('title')
+Inscription | Couleur 3 Interact
+@endsection
 <div class='FontInter'>
   <h1 class='titre'>Inscription</h1>
   <hr id='separation'>

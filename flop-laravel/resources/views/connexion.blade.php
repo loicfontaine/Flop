@@ -6,6 +6,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{asset('js/connexion.js')}}"></script>
 @endsection
+@section('title')
+Connexion | Couleur 3 Interact
+@endsection
 @section('content')
 <div class='FontInter'>
     <h1 class='titre'>Connexion</h1>

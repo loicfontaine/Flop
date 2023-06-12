@@ -6,6 +6,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{asset('js/emission.js')}}"></script>
 @endsection
+@section('title')
+COMEDY CLUB | Couleur 3 Interact
+@endsection
 @section('content')
 <div id='frame'>
     <div class='container-video'>
