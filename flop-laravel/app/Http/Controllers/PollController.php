@@ -102,8 +102,8 @@ class PollController extends Controller
     public function createMusic()
     {
         Poll::create([
-            'title' => 'Prochaine musique',
-            'description' => 'Choisissez la prochaine musique grâce à ce sondage automatique :D',
+            'title' => 'Quelle musique voulez-vous écouter ?',
+            'description' => '',
             'duration' => '5',
             'user_id' => Auth::user()->id,
             'start_date' => now(),
