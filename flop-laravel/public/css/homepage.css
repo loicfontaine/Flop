@@ -11,8 +11,18 @@
   align-items: center!important;
   margin: 10px!important;
   width: 50% !important;
-
 }
+
+#video1, #video2 {
+  width: 50% !important;
+  height: 50% !important;
+  margin: 20px !important;
+}
+
+
+
+
+
 
 .titreInfo {
   text-align: center!important;
@@ -44,6 +54,8 @@ p {
   .videoContainer {
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin: 15px;
   }
 
   .actualiteContainer img,
@@ -72,11 +84,11 @@ p {
 
 h1 {
   text-align: center;
+  font-size: 2.5em;
 }
 
 .texteInfo {
   text-align: justify;
-  margin: 10px;
 }
 
 p.texteInfo {
@@ -87,8 +99,7 @@ p.texteInfo {
 .titreInfo {
   font-family: 'Inter', sans-serif;
   color: white;
-  font-size: 2rem;
-  margin: 10px;
+  font-size: 2em;
 }
 
 .buttonContainer {
@@ -157,5 +168,12 @@ button a {
 }
 
 .articleContainer {
+  width: 80%;
   margin-bottom: 20px;
+}
+
+
+
+hr {
+  color: white;
 }

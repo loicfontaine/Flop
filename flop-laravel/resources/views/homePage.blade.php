@@ -36,6 +36,7 @@
 
 <h1 class="FontInter">Actualité</h1>
 <div class="actualiteContainer">
+
   <div class="articleContainer">
     <img id="article1" src="{{asset('img/article1.jpg')}}" alt="Article 1">
     <h2 class="titreInfo">Nouvelle émission radio</h2>
