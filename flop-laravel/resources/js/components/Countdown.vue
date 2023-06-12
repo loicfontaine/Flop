@@ -80,26 +80,40 @@ export default {
       this.$emit('submit', this.form)
       console.log(this.form)
       console.log("test");
-      let currentObj = this;
+
+      let files = [this.form.video, this.form.image, this.form.message, this.form.audioBlob]
+      const formData = new FormData();
+      files.forEach(file=>{
+        formData.append('filesName', file);
+      })
+
+      /* axios({
+        method: 'post',
+        url: '/participer',
+        data: formData,
+        headers: {'Content-Type': 'multipart/form-data' }
+      })
+      .catch(function (error) {
+        console.log(error);
+      }); */
 
       const config = {
                     headers: { 'content-type': 'multipart/form-data' }
                 }
-      let formData = new FormData();
+     /*  let formData = new FormData();
       formData.append('video', this.form.video);
       formData.append('image', this.form.image);
       formData.append('message', this.form.message);
       formData.append('audioBlob', this.form.audioBlob);
-      
+       */
 
-    axios.post('/participation', formData, config)
-                .then(function (response) {
-                    currentObj.success = response.data.success;
-                })
-                .catch(function (error) {
-                    currentObj.output = error;
-                    console.error(error.response.data);
-                });
+      axios.post('/participer', formData, config)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error.response);
+      });
       
     },
     startCountdown() {

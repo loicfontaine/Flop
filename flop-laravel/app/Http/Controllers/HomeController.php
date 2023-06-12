@@ -38,6 +38,6 @@ class HomeController extends Controller
         }
 
 
-        return response()->json(array($challenges, $rewards));
+        return response()->json(array("challenges" => $challenges, "rewards" => $rewards));
     }
 }
