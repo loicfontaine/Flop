@@ -112,7 +112,7 @@ class PollController extends Controller
         //get 20 songs by most played
         $mostPlayed = DB::table('songs')->orderBy('id', 'asc')->limit(20)->get();
         // pushes two random mostPlayed
-        for ($i = 0; $i < 1; $i++) {
+        for ($i = 0; $i < 2; $i++) {
             array_push($options, $mostPlayed[rand(0, 19)]);
         }
         //get 20 songs by least played
