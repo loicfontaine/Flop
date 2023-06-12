@@ -1,4 +1,7 @@
 /*-------- Utilisateur et notif --------*/
+p {
+  font-size: 1em;
+}
 
 .text-image-container {
     display: flex;
