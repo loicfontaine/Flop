@@ -18,6 +18,6 @@ class FileController extends Controller
         $fileName = time() . '.' . $request->file->getClientOriginalExtension();
         $request->file->move(public_path('upload'), $fileName);
 
-        return response()->json(['success' => 'You have successfully upload file.']);
+        return response()->json(['success' => 'You have successfully uploaded file.']);
     }
 }
