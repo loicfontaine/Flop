@@ -14,7 +14,8 @@
                         <input type="text" class="form-control" v-model="name">
                         <strong>File:</strong>
                         <input type="file" class="form-control" v-on:change="onFileChange">
-    
+                        <strong>File:</strong>
+                        <input type="file" class="form-control" v-on:change="onFileChange">
                         <button class="btn btn-success">Submit</button>
                         </form>
                     </div>
@@ -41,10 +42,12 @@ import axios from 'axios';
             onFileChange(e){
                 console.log(e.target.files[0]);
                 this.file = e.target.files[0];
+                
             },
             formSubmit(e) {
                 e.preventDefault();
                 let currentObj = this;
+                console.log(e.target.files);
    
                 const config = {
                     headers: { 'content-type': 'multipart/form-data' }
