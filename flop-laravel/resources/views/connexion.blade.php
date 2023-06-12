@@ -21,7 +21,7 @@ Connexion | Couleur 3 Interact
         <span class='placeholder-haut FontInter'>Mot de passe</span>
 
         <div class='basForm'>
-          <button type="submit pointer" class='submit'>Se connecter</button>
+          <button type="submit" class='submit pointer'>Se connecter</button>
         </div>
       </form>
     </div>
