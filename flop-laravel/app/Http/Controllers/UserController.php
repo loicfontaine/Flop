@@ -87,11 +87,13 @@ class UserController extends Controller
 
     public function getParticipations()
     {
-        dd(Auth::user()->id != null);
-        if (Auth::user()->id != null) {
-            return view("login");
+        //dd(Auth::user()->id);
+
+        if (Auth::check() == false) {
+            return redirect("/login");
         } else {
             $participations = User::findOrFail(Auth::user()->id)->participations;
+            dd($participations);
             return view("dashboard", compact("participations"));
         }
     }
