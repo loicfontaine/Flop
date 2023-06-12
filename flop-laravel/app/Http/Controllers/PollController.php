@@ -118,6 +118,8 @@ class PollController extends Controller
         $leastPlayed = DB::table('songs')->orderBy('id', 'desc')->limit(20)->inRandomOrder()->limit(2)->get();
         array_push($options, $leastPlayed);
 
+        return dd($options);
+
         for ($i = 0; $i < count($options); $i++) {
             Option::create([
                 'title' => $options[$i]->artist . ' - ' . $options[$i]->name,
