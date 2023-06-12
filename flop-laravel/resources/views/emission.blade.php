@@ -152,8 +152,8 @@ COMEDY CLUB | Couleur 3 Interact
         programme.style.display = 'none'; // Masque  programme
     });
 
-    //ajouter message au chat
-    
+   
+     //ajouter message au chat
     const boxMessage = document.querySelector('.boxMessage');
     const boutonChat = document.querySelector('.bouton-chat');
 
