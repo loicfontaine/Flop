@@ -5,25 +5,24 @@
 </template>
 
 <script>
-
 require('./bootstrap');
 
 Vue.component('chat-messages', require('./components/ChatMessages.vue'));
 Vue.component('chat-form', require('./components/ChatForm.vue'));
 
-const app = new Vue({
-    el: '#chatRoom',
+export default {
+        props: ['user'],
 
-    data: {
-        messages: []
-    },
-
-    created() {
+        data() {
+            return {
+                messages: []
+            }
+        },
+        created() {
         this.fetchMessages();
     },
-
-    methods: {
-        fetchMessages() {
+        methods: {
+            fetchMessages() {
             axios.get('/messages').then(response => {
                 this.messages = response.data;
             });
@@ -36,9 +35,8 @@ const app = new Vue({
               console.log(response.data);
             });
         }
+        }    
     }
-});
-
 </script>
 
 <style>
