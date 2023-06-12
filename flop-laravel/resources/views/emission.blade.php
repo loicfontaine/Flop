@@ -131,7 +131,7 @@ COMEDY CLUB | Couleur 3 Interact
 </div>
 @endif
 </div>
-<div id="chatRoom">
+<div id="chat">
 
 </div>
 </div>
