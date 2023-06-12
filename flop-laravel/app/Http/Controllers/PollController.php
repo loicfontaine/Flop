@@ -8,6 +8,8 @@ use App\Models\Poll;
 use App\Models\Option;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 class PollController extends Controller
 {
@@ -111,12 +113,10 @@ class PollController extends Controller
         $songs = [];
         $options = array();
         //songs by most played
-        $mostPlayed = DB::table('songs')->orderBy('id', 'asc')->limit(10);
-        $randomMostPlayed = $mostPlayed->random(2);
+        $mostPlayed = DB::table('songs')->orderBy('id', 'asc')->limit(20)->inRandomOrder()->limit(2)->get();
         array_push($songs, $mostPlayed);
         //songs by least played
-        $leastPlayed = DB::table('songs')->orderBy('id', 'desc')->limit(10);
-        $randomLeastPlayed = $leastPlayed->random(2);
+        $leastPlayed = DB::table('songs')->orderBy('id', 'desc')->limit(20)->inRandomOrder()->limit(2)->get();
         array_push($songs, $leastPlayed);
 
         for ($i = 0; $i < count($options); $i++) {
