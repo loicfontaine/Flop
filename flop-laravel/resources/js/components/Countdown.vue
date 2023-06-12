@@ -83,7 +83,7 @@ export default {
         formData.append('image', this.$refs.image.files[0]);
         formData.append('message', this.message);
         formData.append('video', this.$refs.video.files[0]);
-        /* console.log(formData.get('audio')); */
+        console.log(formData.get('audio'));
         console.log(formData.get('image'));
         console.log(formData.get('message'));
         console.log(formData.get('video'));
@@ -187,6 +187,11 @@ export default {
     stopRecording() {
       this.isRecording = false;
       this.mediaRecorder.stop();
+      const audioBlob = new Blob(this.chunks, { type: 'audio/webm' });
+      const audioFile = new File([audioBlob], 'recording.webm');
+
+      this.$refs.audio.files = [audioFile];
+      this.chunks = [];
     },
     onDataAvailable(event) {
       if (event.data.size > 0) {
