@@ -13,6 +13,8 @@ class FileController extends Controller
      */
     public function formSubmit(Request $request)
     {
+
+        dd("requestAll:", $request->all(), "requestFile:", $request->file, "requestInput:", $request->input, "requestInputFile:", $request->input('file'));
         $fileName = time() . '.' . $request->file->getClientOriginalExtension();
         $request->file->move('/home/projart/2023/50/flop/flop-laravel/storage/participation', $fileName);
 
