@@ -92,7 +92,7 @@ export default {
       formData.append('audioBlob', this.form.audioBlob);
       
 
-      await axios.post('/participation', formData, config)
+      await axios.post('/participer', formData, config)
                 .then(function (response) {
                     currentObj.success = response.data.success;
                 })
