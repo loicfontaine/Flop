@@ -90,7 +90,6 @@ Route::get('/emission', function () {
 Route::get('/messages', [MessageController::class, 'index']);
 Route::post('/messages', [MessageController::class, 'store']);
 
-
 Route::post('formSubmit', [FileController::class, 'formSubmit']);
 
 Route::get('/chat', [ChatsController::class, 'index']);
