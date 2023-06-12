@@ -49,9 +49,6 @@ Route::get('/inscription', function () {
 });
 Route::get('/dashboard', [UserController::class, "getParticipations"])->name('dashboard');
 
-Route::get('/connexion', function () {
-    return view('connexion');
-});
 
 Route::post('/inscription', function () {
     return view('inscription');
