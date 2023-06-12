@@ -130,6 +130,6 @@ class PollController extends Controller
             ]);
         }
 
-        return dd($options);
+        return 'Le sondage a bien été créé !';
     }
 }
