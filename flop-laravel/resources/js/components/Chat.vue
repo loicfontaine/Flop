@@ -5,9 +5,8 @@
 </template>
 
 <script>
-
-const chat = new Vue({
-    el: "#chat",
+const app = new Vue({
+    el: "#app",
 
     data: {
         messages: [],
