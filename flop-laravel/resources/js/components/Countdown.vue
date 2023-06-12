@@ -76,7 +76,7 @@ export default {
         });
 },
   methods: {
-    async submit() {
+    submit() {
       this.$emit('submit', this.form)
       console.log(this.form)
       console.log("test");
@@ -92,7 +92,7 @@ export default {
       formData.append('audioBlob', this.form.audioBlob);
       
 
-      await axios.post('/participer', formData, config)
+   axios.post('/participer', formData, config)
                 .then(function (response) {
                     currentObj.success = response.data.success;
                 })
