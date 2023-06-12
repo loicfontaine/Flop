@@ -82,7 +82,7 @@ Route::resource('answer', AnswerController::class);
 Route::resource('challenge', ChallengeController::class);
 Route::resource('article', ArticleController::class);
 Route::resource('participation', ParticipationController::class);
-Route::resource('participer', [ParticipationController::class, 'participate']);
+Route::post('participer', [ParticipationController::class, 'participate']);
 
 Auth::routes();
 
