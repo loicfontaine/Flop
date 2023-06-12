@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/svg" href="img/favicon.svg">
+
+    <!-- PWA  -->
+    <meta name="theme-color" content="#303030"/>
+    <link rel="apple-touch-icon" href="{{ asset('img/logoPWA.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
     
 <!-- mettre css et js -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
@@ -125,5 +130,13 @@
             </a>
         </div>
     </footer>
+    <script src="{{ asset('/sw.js') }}"></script>
+    <script>
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+    </script>
 </body>
 </html>

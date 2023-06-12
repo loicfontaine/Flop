@@ -1,0 +1,16 @@
+{
+    "name": "Couleur 3 Interact",
+    "short_name": "Couleur 3",
+    "start_url": "/",
+    "background_color": "#000000",
+    "description": "Couleur 3 Interact l'application",
+    "display": "fullscreen",
+    "theme_color": "#303030",
+    "icons": [
+        {
+            "src": "img/logoPWA.png",
+            "sizes": "513x513",
+            "type": "image/png"
+        }
+    ]
+}
