@@ -121,7 +121,7 @@ class PollController extends Controller
 
         for ($i = 0; $i < count($options); $i++) {
             Option::create([
-                'title' => $options[$i]->title,
+                'title' => $options[$i]->artist . ' - ' . $options[$i]->name,
                 'poll_id' => $result->id,
                 'song_id' => $options[$i]->id,
             ]);
