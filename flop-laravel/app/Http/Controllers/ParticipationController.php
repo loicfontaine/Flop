@@ -27,7 +27,7 @@ class ParticipationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function participate(Request $request)
     {
 
         dd("test");
@@ -35,7 +35,8 @@ class ParticipationController extends Controller
         $participation = Participation::create([
             "user_id" => $request->input("user_id"),
             "event_id" => $request->input("event_id"),
-        ]);;
+        ]);
+        ;
         $content = Content::create([
             "texte" => $request->input("contenu"),
         ]);

@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Challenge;
-
-use App\Http\Requests\ChallengeRequest;
+// use carbon
 use App\Models\Reward;
 use App\Models\Article;
 use App\Models\Participation_type;
+use App\Models\Participation;
 
 class ChallengeController extends Controller
 {
@@ -17,7 +17,6 @@ class ChallengeController extends Controller
      */
     public function index()
     {
-
         $challenges = Challenge::where("end_time", ">", date("Y-m-d H:i:s"))->get();
         $types = $challenges->participation_types;
         return view("emission", compact("challenges, types"));
@@ -100,7 +99,7 @@ class ChallengeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //   
     }
 
     /**
