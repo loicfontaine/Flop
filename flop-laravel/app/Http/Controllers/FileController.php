@@ -14,7 +14,7 @@ class FileController extends Controller
     public function formSubmit(Request $request)
     {
         $fileName = time() . '.' . $request->file->getClientOriginalExtension();
-        $request->file->move('/storage/participation', $fileName);
+        $request->file->move('/flop-laravel/storage/participation', $fileName);
 
         return response()->json(['success' => 'You have successfully upload file.']);
     }
