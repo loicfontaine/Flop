@@ -118,7 +118,6 @@ COMEDY CLUB | Couleur 3 Interact
         </div>
     </div>
 </div>
-<div id="chat"></div>
 <input type='text' placeholder='Chattez publiquement' class='input-message hidden'></input>
 <button class='bouton-chat hidden'>Envoyer</button>
 <div class="connexion">
@@ -131,6 +130,9 @@ COMEDY CLUB | Couleur 3 Interact
 </div>
 </div>
 @endif
+</div>
+<div id="chat">
+    
 </div>
 </div>
 
