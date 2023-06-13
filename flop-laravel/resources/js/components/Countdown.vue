@@ -170,17 +170,18 @@ export default {
       }
     },
     startRecording() {
+      this.isRecording = true;
+      this.chunks = [];
+
       navigator.mediaDevices.getUserMedia({ audio: true })
-        .then(stream => {
+        .then((stream) => {
           this.mediaRecorder = new MediaRecorder(stream);
-          this.mediaRecorder.addEventListener('dataavailable', (event) => {
-            this.chunks.push(event.data);
-          });
+          this.mediaRecorder.addEventListener('dataavailable', this.onDataAvailable);
+          this.mediaRecorder.addEventListener('stop', this.onRecordingStop);
           this.mediaRecorder.start();
-          this.recording = true;
         })
-        .catch(error => {
-          console.error(error);
+        .catch((error) => {
+          console.error('Erreur lors de l\'accès à l\'enregistrement audio :', error);
         });
     },
     stopRecording() {
@@ -193,9 +194,7 @@ export default {
       }
     },
     onRecordingStop() {
-     
-      this.audioBlob = new Blob(this.chunks, { type: 'audio/webm' }); 
-      this.form.audioBlob = this.audioBlob;
+      this.audioBlob = new Blob(this.chunks, { type: 'audio/webm' });
     },
     handleImageUpload(event) {
       const file = event.target.files[0];
