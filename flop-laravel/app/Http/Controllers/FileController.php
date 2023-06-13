@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Participation;
+use App\Models\Content;
 
 class FileController extends Controller
 {
@@ -47,25 +49,48 @@ class FileController extends Controller
     link: false
         */
 
+        $participation = Participation::create([
+            "user_id" => $request->input("user_id"),
+            "event_id" => $request->input("event_id"),
+        ]);
+
         if ($request->image != "undefined") {
-            $this->storeFile($request->image);
+            $fileName = $this->storeFile($request->image);
+            $content = Content::create([
+                "texte" => $fileName,
+            ]);
+            $content->participation()->associate($participation);
+            $content->save();
+            return response()->json(['success' => 'You have successfully uploaded image.']);
         }
+
         if ($request->video != "undefined") {
-            $this->storeFile($request->video);
+            $fileName = $this->storeFile($request->video);
+            $content = Content::create([
+                "texte" => $fileName,
+            ]);
+            $content->participation()->associate($participation);
+            $content->save();
+            return response()->json(['success' => 'You have successfully uploaded video.']);
         }
 
         if ($request->audioBlob != "undefined") {
             $file = $request->audioBlob;
             $fileName = time() . '.' . $file->getClientOriginalExtension() . "wav";
-            $file->move('/home/projart/2023/50/flop/flop-laravel/storage/participation', $fileName);
-            return response()->json(['success' => 'You have successfully uploaded file.']);
+            $file->move('/home/projart/2023/50/flop/flop-laravel/storage/app/public/participation', $fileName);
+            $content = Content::create([
+                "texte" => $fileName,
+            ]);
+            $content->participation()->associate($participation);
+            $content->save();
+            return response()->json(['success' => 'You have successfully uploaded audio.']);
         }
     }
 
     private function storeFile($file)
     {
         $fileName = time() . '.' . $file->getClientOriginalExtension();
-        $file->move('/home/projart/2023/50/flop/flop-laravel/storage/participation', $fileName);
-        return response()->json(['success' => 'You have successfully uploaded file.']);
+        $file->move('/home/projart/2023/50/flop/flop-laravel/storage/app/public/participation', $fileName);
+        return $fileName;
     }
 }
