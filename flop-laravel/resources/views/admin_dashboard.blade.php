@@ -77,7 +77,6 @@ Dashboard animateur | Couleur 3 Interact
             </div>
         </div>
         <!-- LIST POLL -->
-        <div class="adminDashboardContentItems">
             <div id="listPoll">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Les sondages en cours sont</h2>
                 @foreach ($polls as $poll)
