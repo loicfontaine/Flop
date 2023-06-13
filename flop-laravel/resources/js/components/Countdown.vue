@@ -188,7 +188,7 @@ export default {
       this.isRecording = false;
       this.mediaRecorder.stop();
       this.mediaRecorder.stream.getAudioTracks()[0].stop();
-      this.mediaRecorder.exportWAV(createDownloadLink);
+      this.mediaRecorder.exportWAV(this.onRecordingStop);
     },
     
     onDataAvailable(event) {
