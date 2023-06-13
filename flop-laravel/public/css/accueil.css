@@ -213,7 +213,7 @@ h2.titre {
     #banniere {
         height: 300px;
         width: 100%;
-        background-color: white ;
+        background-image: url("../img/banniere_desktop.png");
     }
 
     #btn-boutique {
@@ -325,9 +325,10 @@ h2.titre {
     #banniere {
         display: flex;
         flex-direction: column;
-        height: 300px;
+        height: 100%;
         width: 100%;
-        background-color: white ;
+        border : none;
+        background-image: url("../img/banniere_mobile.png") ;
     }
 
     #btn-boutique {
