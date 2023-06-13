@@ -79,11 +79,11 @@ export default {
   methods: {
     uploadFiles() {
         const formData = new FormData();
-        formData.append('audio', this.$refs.audio.files[0]);
+        /* formData.append('audio', this.$refs.audio.files[0]); */
         formData.append('image', this.$refs.image.files[0]);
         formData.append('message', this.message);
         formData.append('video', this.$refs.video.files[0]);
-        console.log(formData.get('audio'));
+       /*  console.log(formData.get('audio')); */
         console.log(formData.get('image'));
         console.log(formData.get('message'));
         console.log(formData.get('video'));
