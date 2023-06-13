@@ -387,6 +387,8 @@ Dashboard animateur | Couleur 3 Interact
     var menuDefis = document.getElementById('menuDefis');
     var menuConcours = document.getElementById('menuConcours');
 
+    var challengesActionsButtons = document.getElementsByClassName('challengesActionsButtons');
+
     var createPollButton = document.getElementById('createPollButton');
     var createPoll = document.getElementById('createPoll');
 
@@ -403,25 +405,16 @@ Dashboard animateur | Couleur 3 Interact
     var showChallenge = document.getElementById('showChallenge');
 
     // on click, add active to menuPoll and remove active from others
-    menuPoll.addEventListener('click', () => {
-        menuPoll.classList.add('active');
-        menuDefis.classList.remove('active');
-        menuConcours.classList.remove('active');
-
-        createPollButton.classList.add('display');
-        listPollButton.classList.add('display');
-        createChallengeButton.classList.remove('display');
-        listChallengeButton.classList.remove('display');
-        showChallengeButton.classList.remove('display');
-
-        createPoll.classList.remove('display');
-        listPoll.classList.remove('display');
-        createChallenge.classList.remove('display');
-        listChallenge.classList.remove('display');
-        showChallenge.classList.remove('display');
-    });
-
-    
+    for (let i = 0; i < menuItems.length; i++) {
+        menuItems[i].addEventListener('click', () => {
+            for (let j = 0; j < menuItems.length; j++) {
+                menuItems[j].classList.remove('active');
+                contentItems[j].classList.remove('display');
+            }
+            menuItems[i].classList.add('active');
+            contentItems[i].classList.add('display');
+        })
+    }
 
     // Set value to actual time
     window.addEventListener('load', () => {
