@@ -403,6 +403,18 @@ Dashboard animateur | Couleur 3 Interact
         })
     }
 
+        createPollButton.classList.remove('active');
+        listPollButton.classList.remove('active');
+        createChallengeButton.classList.remove('active');
+        listChallengeButton.classList.remove('active');
+        showChallengeButton.classList.remove('active');
+
+        createPoll.classList.remove('display');
+        listPoll.classList.remove('display');
+        createChallenge.classList.remove('display');
+        listChallenge.classList.remove('display');
+        showChallenge.classList.remove('display');
+
     // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
     createPollButton.addEventListener('click', () => {
         createPollButton.classList.add('active');
