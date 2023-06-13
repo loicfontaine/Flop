@@ -66,31 +66,6 @@ Dashboard animateur | Couleur 3 Interact
                 @endif
             </div>
         </div>
-        <!-- LIST ACTIONS POLL CRUD buttons-->
-        <div class="adminDashboardContentItems">
-            <div id="pollActions">
-                <h2 class="adminDashboardContentItemsTitle FontInter">Sondages</h2>
-                <div class="pollActionsButtons">
-                        <button id="createPollButton" class="submit buttonLabel">Créer un sondage</button>
-                        <button id="listPollButton" class="submit buttonLabel">Voir les sondages</button>
-                </div>
-            </div>
-        </div>
-        <!-- LIST POLL -->
-        <div class="adminDashboardContentItems">
-            <div id="listPoll">
-                <h2 class="adminDashboardContentItemsTitle FontInter">Les sondages en cours sont</h2>
-                @foreach ($polls as $poll)
-                <div>
-                    <p>{{ $poll->title }}</p>
-                    <p>{{ $poll->description }}</p>
-                    <p>{{ $poll->duration }}</p>
-                    <p>{{ $poll->created_at }}</p>
-                    <p>{{ $poll->updated_at }}</p>
-                </div>
-                @endforeach
-            </div>
-        </div>
         <!-- FORMULAIRE CREATE POLL -->
         <div class="adminDashboardContentItems">
             <div id="createPoll">
@@ -137,16 +112,6 @@ Dashboard animateur | Couleur 3 Interact
 
             </div>
         </div>
-        <!-- LIST ACTIONS CHALLENGE CRUD buttons-->
-        <div class="adminDashboardContentItems">
-            <div id="challengeActions">
-                <h2 class="adminDashboardContentItemsTitle FontInter">Défis</h2>
-                <div class="challengeActionsButtons">
-                    <button id="createChallengeButton" class="submit buttonLabel">Créer un défi</button>
-                    <button id="listChallengeButton" class="submit buttonLabel">Liste les défis</button>
-                    <button id="showChallengeButton" class="submit buttonLabel">Voir un défi</button>
-                </div>
-            </div>
         <!-- FORMULAIRE CHALLENGE -->
         <div class="adminDashboardContentItems">
             <div id="createChallenge">
@@ -207,22 +172,6 @@ Dashboard animateur | Couleur 3 Interact
                 </form>
             </div>
         </div>
-        <!-- LISTE CHALLENGE EN COURS -->
-        <div class="adminDashboardContentItems">
-            <div id="listChallenges">
-                <h2 class="adminDashboardContentItemsTitle FontInter">Les challenges en cours sont</h2>
-                @foreach ($challenges as $challenge)
-                <div>
-                    <p>{{ $challenge->name }}</p>
-                    <p>{{ $challenge->description }}</p>
-                    <p>{{ $challenge->end_time }}</p>
-                    <p>{{ $challenge->colorCoins }}</p>
-                    <p>{{ $challenge->type }}</p>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        <!-- CHALLENGE REPONSES -->
         <!-- FORMULAIRE CONTEST -->
         <div class="adminDashboardContentItems">
             <div id="createContest">
@@ -387,6 +336,8 @@ Dashboard animateur | Couleur 3 Interact
     var menuDefis = document.getElementById('menuDefis');
     var menuConcours = document.getElementById('menuConcours');
 
+    var challengesActionsButtons = document.getElementsByClassName('challengesActionsButtons');
+
     var createPollButton = document.getElementById('createPollButton');
     var createPoll = document.getElementById('createPoll');
 
@@ -403,25 +354,16 @@ Dashboard animateur | Couleur 3 Interact
     var showChallenge = document.getElementById('showChallenge');
 
     // on click, add active to menuPoll and remove active from others
-    menuPoll.addEventListener('click', () => {
-        menuPoll.classList.add('active');
-        menuDefis.classList.remove('active');
-        menuConcours.classList.remove('active');
-
-        createPollButton.classList.add('display');
-        listPollButton.classList.add('display');
-        createChallengeButton.classList.remove('display');
-        listChallengeButton.classList.remove('display');
-        showChallengeButton.classList.remove('display');
-
-        createPoll.classList.remove('display');
-        listPoll.classList.remove('display');
-        createChallenge.classList.remove('display');
-        listChallenge.classList.remove('display');
-        showChallenge.classList.remove('display');
-    });
-
-    
+    for (let i = 0; i < menuItems.length; i++) {
+        menuItems[i].addEventListener('click', () => {
+            for (let j = 0; j < menuItems.length; j++) {
+                menuItems[j].classList.remove('active');
+                contentItems[j].classList.remove('display');
+            }
+            menuItems[i].classList.add('active');
+            contentItems[i].classList.add('display');
+        })
+    }
 
     // Set value to actual time
     window.addEventListener('load', () => {
