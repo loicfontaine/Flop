@@ -2,7 +2,9 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('css/homepage.css')}}">
  @endsection
-     
+@section('title')
+Accueil | Couleur 3 Interact
+@endsection
  @section('content')
 
 

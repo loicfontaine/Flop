@@ -52,7 +52,9 @@ Route::post('/inscription', function () {
     return view('inscription');
 });
 
-
+Route::get('/accueil_test', function () {
+    return view('accueil_test');
+});
 
 Route::get('/test', function () {
     return view('test');
