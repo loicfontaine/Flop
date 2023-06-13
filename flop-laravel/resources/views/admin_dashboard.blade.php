@@ -90,7 +90,9 @@ Dashboard animateur | Couleur 3 Interact
                 </div>
                 @endforeach
             </div>
+        </div>
         <!-- FORMULAIRE CREATE POLL -->
+        <div class="adminDashboardContentItems">
             <div id="createPoll">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un sondage</h2>
                 <form method="POST" action="{{route('poll.store')}}" accept-charset="UTF-8">
@@ -134,6 +136,7 @@ Dashboard animateur | Couleur 3 Interact
                 </form>
 
             </div>
+        </div>
         <!-- LIST ACTIONS CHALLENGE CRUD buttons-->
         <div class="adminDashboardContentItems">
             <div id="challengeActions">
@@ -145,6 +148,7 @@ Dashboard animateur | Couleur 3 Interact
                 </div>
             </div>
         <!-- FORMULAIRE CHALLENGE -->
+        <div class="adminDashboardContentItems">
             <div id="createChallenge">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un défi</h2>
                 <form method="POST" action="{{route('challenge.store')}}" accept-charset="UTF-8">
@@ -204,6 +208,7 @@ Dashboard animateur | Couleur 3 Interact
             </div>
         </div>
         <!-- LISTE CHALLENGE EN COURS -->
+        <div class="adminDashboardContentItems">
             <div id="listChallenges">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Les challenges en cours sont</h2>
                 @foreach ($challenges as $challenge)
@@ -216,6 +221,7 @@ Dashboard animateur | Couleur 3 Interact
                 </div>
                 @endforeach
             </div>
+        </div>
         <!-- CHALLENGE REPONSES -->
         <!-- FORMULAIRE CONTEST -->
         <div class="adminDashboardContentItems">
@@ -403,6 +409,18 @@ Dashboard animateur | Couleur 3 Interact
             contentItems[i].classList.add('display');
         })
     }
+
+        createPollButton.classList.remove('active');
+        listPollButton.classList.remove('active');
+        createChallengeButton.classList.remove('active');
+        listChallengeButton.classList.remove('active');
+        showChallengeButton.classList.remove('active');
+
+        createPoll.classList.remove('display');
+        listPoll.classList.remove('display');
+        createChallenge.classList.remove('display');
+        listChallenge.classList.remove('display');
+        showChallenge.classList.remove('display');
 
     // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
     createPollButton.addEventListener('click', () => {
