@@ -8,6 +8,7 @@ const app = createApp(App);
 const chatApp = createApp(Chat);
 const testFormApp = createApp(TestForm);
 
+app.mount("#app");
 // Enregistrer les composants
 app.component(
     "chat-messages",
@@ -15,6 +16,6 @@ app.component(
 );
 app.component("chat-form", require("./components/ChatForm.vue").default);
 
-app.mount("#app");
+
 chatApp.mount("#chat");
 testFormApp.mount("#test-form");
