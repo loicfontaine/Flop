@@ -186,15 +186,6 @@ export default {
     stopRecording() {
       this.mediaRecorder.stop();
       this.recording = false;
-
-      const audioBlob = new Blob(this.chunks, { type: 'audio/webm' });
-      const audioFile = new File([audioBlob], 'recording.webm');
-
-      const dataTransfer = new DataTransfer();
-      dataTransfer.items.add(audioFile);
-
-      this.$refs.audio.files = dataTransfer.files;
-      this.chunks = [];
     },
     onDataAvailable(event) {
       if (event.data.size > 0) {
