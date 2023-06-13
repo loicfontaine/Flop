@@ -33,7 +33,7 @@ class HomeController extends Controller
         $challenges = [];
         foreach ($challenges as $challenge) {
             if ($challenge->is_contest) {
-                $rewards[$challenge->id] = ["challenges" => $challenge, "rewards" => $challenge->rewards];
+                $challenges[$challenge->id] = ["challenges" => $challenge, "rewards" => $challenge->rewards];
             }
         }
 
