@@ -217,7 +217,7 @@ Dashboard animateur | Couleur 3 Interact
                 @endforeach
             </div>
         <!-- CHALLENGE REPONSES -->
-            <div id="showChallenge">
+            <!-- <div id="showChallenge">
                 @foreach ($participations as $participation)
                 <h2 class="adminDashboardContentItemsTitle FontInter">{{$title}}</h2>
                 En cours
@@ -242,7 +242,7 @@ Dashboard animateur | Couleur 3 Interact
                     @endif
                 </div>
                 @endforeach
-            </div>
+            </div> -->
         <!-- FORMULAIRE CONTEST -->
         <div class="adminDashboardContentItems">
             <div id="createContest">
