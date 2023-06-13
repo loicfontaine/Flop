@@ -13,21 +13,21 @@ Dashboard animateur | Couleur 3 Interact
         <div class="adminDashboardMenuItems active" style="display:none;">
         </div>
 
-        <div class="adminDashboardMenuItems">
+        <div class="adminDashboardMenuItems menuPoll">
             <svg class="adminDashboardMenuItemsIcons" width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.2222 0H2.77778C1.25 0 0 1.37511 0 3.0558V24.4464C0 26.1271 1.25 27.5022 2.77778 27.5022H22.2222C23.75 27.5022 25 26.1271 25 24.4464V3.0558C25 1.37511 23.75 0 22.2222 0ZM22.2222 24.4464H2.77778V3.0558H22.2222V24.4464ZM5.55556 10.6953H8.33333V21.3906H5.55556V10.6953ZM11.1111 6.11161H13.8889V21.3906H11.1111V6.11161ZM16.6667 15.279H19.4444V21.3906H16.6667V15.279Z" fill="white" />
             </svg>
             <h1 class="FontInter adminDashboardMenuItemsLabel">Lancer un sondage</h1>
         </div>
 
-        <div class="adminDashboardMenuItems">
+        <div class="adminDashboardMenuItems menuDefis">
             <svg class="adminDashboardMenuItemsIcons" width="30" height="32" viewBox="0 0 30 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7.59547 27.2731H12.4566C12.4566 28.7016 11.3628 29.8705 10.026 29.8705C8.68922 29.8705 7.59547 28.7016 7.59547 27.2731ZM5.16491 25.9743H14.8871V23.3769H5.16491V25.9743ZM19.1406 13.6365C19.1406 18.5976 15.908 21.247 14.559 22.0782H5.49303C4.14408 21.247 0.911438 18.5976 0.911438 13.6365C0.911438 8.25984 4.99477 3.89615 10.026 3.89615C15.0573 3.89615 19.1406 8.25984 19.1406 13.6365ZM16.71 13.6365C16.71 9.70142 13.7083 6.49359 10.026 6.49359C6.34373 6.49359 3.34199 9.70142 3.34199 13.6365C3.34199 16.8444 5.15276 18.6885 6.1979 19.4808H13.8541C14.8993 18.6885 16.71 16.8444 16.71 13.6365ZM25.059 10.8703L23.3941 11.6885L25.059 12.5066L25.8246 14.2859L26.5903 12.5066L28.2552 11.6885L26.5903 10.8703L25.8246 9.09102L25.059 10.8703ZM22.1788 9.09102L23.3212 6.41567L25.8246 5.19487L23.3212 3.97408L22.1788 1.29872L21.0364 3.97408L18.533 5.19487L21.0364 6.41567L22.1788 9.09102Z" fill="white" />
             </svg>
             <h1 class="FontInter adminDashboardMenuItemsLabel">Lancer un défi</h1>
         </div>
 
-        <div class="adminDashboardMenuItems">
+        <div class="adminDashboardMenuItems menuConcours">
             <svg class="adminDashboardMenuItemsIcons" width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M11.8811 0C9.31556 0 7.30556 7.45058e-08 5.73667 0.232241C4.13222 0.469372 2.86556 0.965634 1.87111 2.05839C0.876667 3.15237 0.426667 4.54581 0.211111 6.31207C7.45058e-08 8.03677 0 10.2479 0 13.0703V13.2096C0 16.032 7.45058e-08 18.2432 0.211111 19.9691C0.426667 21.7341 0.877778 23.1275 1.87111 24.2215C2.86556 25.3155 4.13222 25.8105 5.73778 26.0477C7.30556 26.2799 9.31556 26.2799 11.8811 26.2799H12.0078C14.5733 26.2799 16.5833 26.2799 18.1522 26.0477C19.7567 25.8105 21.0233 25.3143 22.0178 24.2215C23.0122 23.1275 23.4622 21.7341 23.6778 19.9678C23.8889 18.2432 23.8889 16.032 23.8889 13.2096V13.0703C23.8889 10.2479 23.8889 8.03677 23.6778 6.31085C23.4622 4.54581 23.0111 3.15237 22.0178 2.05839C21.0233 0.964412 19.7567 0.469372 18.1511 0.232241C16.5833 7.45058e-08 14.5733 0 12.0078 0H11.8811ZM11.1111 1.83348C8.89556 1.83593 7.24778 1.85793 5.96 2.04861C4.53889 2.25885 3.68222 2.65977 3.04889 3.35527C2.41667 4.052 2.05333 4.99318 1.86222 6.55653C1.69 7.9732 1.66889 9.78591 1.66667 12.2232H6.29333C5.89434 11.6749 5.6078 11.0382 5.45333 10.3567C4.85444 7.72507 7.02222 5.34032 9.41444 5.99916C10.0339 6.16916 10.6127 6.48437 11.1111 6.92323V1.83348ZM1.66667 14.0567C1.66889 16.494 1.68889 18.3067 1.86222 19.7234C2.05333 21.2867 2.41778 22.2291 3.05 22.9259C3.68333 23.6214 4.53889 24.0211 5.96 24.2313C7.24778 24.4208 8.89556 24.444 11.1111 24.4464V15.7362C10.6727 16.7009 9.99866 17.5122 9.16458 18.0792C8.33049 18.6461 7.36934 18.9463 6.38889 18.946C6.16788 18.946 5.95591 18.8494 5.79963 18.6775C5.64335 18.5056 5.55556 18.2724 5.55556 18.0292C5.55556 17.7861 5.64335 17.5529 5.79963 17.381C5.95591 17.2091 6.16788 17.1125 6.38889 17.1125C7.2018 17.1125 7.99095 16.8108 8.6287 16.2563C9.26646 15.7018 9.71555 14.9268 9.90333 14.0567H1.66667ZM12.7778 24.4464C14.9933 24.444 16.6411 24.422 17.9289 24.2313C19.35 24.0211 20.2067 23.6201 20.84 22.9246C21.4722 22.2279 21.8356 21.2867 22.0267 19.7234C22.1989 18.3067 22.22 16.494 22.2222 14.0567H13.9856C14.1733 14.9268 14.6224 15.7018 15.2602 16.2563C15.8979 16.8108 16.6871 17.1125 17.5 17.1125C17.721 17.1125 17.933 17.2091 18.0893 17.381C18.2455 17.5529 18.3333 17.7861 18.3333 18.0292C18.3333 18.2724 18.2455 18.5056 18.0893 18.6775C17.933 18.8494 17.721 18.946 17.5 18.946C16.5195 18.9463 15.5584 18.6461 14.7243 18.0792C13.8902 17.5122 13.2162 16.7009 12.7778 15.7362V24.4464ZM22.2222 12.2232H17.5956C17.9949 11.675 18.2818 11.0383 18.4367 10.3567C19.0344 7.72507 16.8667 5.34032 14.4744 5.99916C13.855 6.16908 13.2762 6.48431 12.7778 6.92323V1.83348C14.9933 1.83593 16.6411 1.85793 17.9289 2.04861C19.35 2.25885 20.2067 2.65977 20.84 3.35527C21.4722 4.052 21.8356 4.99318 22.0267 6.55653C22.1989 7.9732 22.22 9.78591 22.2222 12.2232ZM12.7778 12.2232V10.732C12.7791 10.0525 12.9865 9.39296 13.3671 8.85782C13.7477 8.32267 14.2797 7.94253 14.8789 7.77763C15.1469 7.704 15.4277 7.70796 15.6938 7.78911C15.96 7.87026 16.2026 8.02584 16.3979 8.24072C16.5933 8.45559 16.7347 8.72244 16.8085 9.01528C16.8822 9.30812 16.8858 9.61698 16.8189 9.91181C16.6691 10.5706 16.3239 11.1555 15.8379 11.5742C15.3519 11.9928 14.7528 12.2212 14.1356 12.2232H12.7778ZM11.1111 10.7283C11.109 10.0495 10.9013 9.39077 10.5208 8.85637C10.1403 8.32197 9.60863 7.94238 9.01 7.77763C8.742 7.704 8.46124 7.70796 8.19504 7.78911C7.92884 7.87026 7.68628 8.02584 7.49095 8.24072C7.29563 8.45559 7.1542 8.72244 7.08043 9.01528C7.00666 9.30812 7.00307 9.61698 7.07 9.91181C7.2198 10.5706 7.56502 11.1555 8.05103 11.5742C8.53703 11.9928 9.13607 12.2212 9.75333 12.2232H11.1111V10.7283Z" fill="white" />
             </svg>
@@ -382,7 +382,10 @@ Dashboard animateur | Couleur 3 Interact
     // Select menu item
     var menuItems = document.getElementsByClassName('adminDashboardMenuItems');
     var contentItems = document.getElementsByClassName('adminDashboardContentItems');
-    
+    var menuPoll = document.getElementsByClassName('menuPoll');
+    var menuDefis = document.getElementsByClassName('menuDefis');
+    var menuConcours = document.getElementsByClassName('menuConcours');
+
     var createPollButton = document.getElementById('createPollButton');
     var createPoll = document.getElementById('createPoll');
 
@@ -398,108 +401,26 @@ Dashboard animateur | Couleur 3 Interact
     var showChallengeButton = document.getElementById('showChallengeButton');
     var showChallenge = document.getElementById('showChallenge');
 
-    // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
-    for (let i = 0; i < menuItems.length; i++) {
-        menuItems[i].addEventListener('click', () => {
-            for (let j = 0; j < menuItems.length; j++) {
-                menuItems[j].classList.remove('active');
-                contentItems[j].classList.remove('display');
-            }
-            menuItems[i].classList.add('active');
-            contentItems[i].classList.add('display');
-        })
-    }
+    // on click, add active to menuPoll and remove active from others
+    menuPoll.addEventListener('click', () => {
+        menuPoll.classList.add('active');
+        menuDefis.classList.remove('active');
+        menuConcours.classList.remove('active');
 
-        createPollButton.classList.remove('active');
-        listPollButton.classList.remove('active');
-        createChallengeButton.classList.remove('active');
-        listChallengeButton.classList.remove('active');
-        showChallengeButton.classList.remove('active');
+        createPollButton.classList.add('display');
+        listPollButton.classList.add('display');
+        createChallengeButton.classList.remove('display');
+        listChallengeButton.classList.remove('display');
+        showChallengeButton.classList.remove('display');
 
         createPoll.classList.remove('display');
         listPoll.classList.remove('display');
         createChallenge.classList.remove('display');
         listChallenge.classList.remove('display');
         showChallenge.classList.remove('display');
+    });
 
-    // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
-    createPollButton.addEventListener('click', () => {
-        createPollButton.classList.add('active');
-        listPollButton.classList.remove('active');
-        createChallengeButton.classList.remove('active');
-        listChallengeButton.classList.remove('active');
-        showChallengeButton.classList.remove('active');
-
-        createPoll.classList.add('display');
-        listPoll.classList.remove('display');
-        createChallenge.classList.remove('display');
-        listChallenge.classList.remove('display');
-        showChallenge.classList.remove('display');
-    })
-
-    // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
-
-    listPollButton.addEventListener('click', () => {
-        createPollButton.classList.remove('active');
-        listPollButton.classList.add('active');
-        createChallengeButton.classList.remove('active');
-        listChallengeButton.classList.remove('active');
-        showChallengeButton.classList.remove('active');
-
-        createPoll.classList.remove('display');
-        listPoll.classList.add('display');
-        createChallenge.classList.remove('display');
-        listChallenge.classList.remove('display');
-        showChallenge.classList.remove('display');
-    })
-
-    // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
-
-    createChallengeButton.addEventListener('click', () => {
-        createPollButton.classList.remove('active');
-        listPollButton.classList.remove('active');
-        createChallengeButton.classList.add('active');
-        listChallengeButton.classList.remove('active');
-        showChallengeButton.classList.remove('active');
-
-        createPoll.classList.remove('display');
-        listPoll.classList.remove('display');
-        createChallenge.classList.add('display');
-        listChallenge.classList.remove('display');
-        showChallenge.classList.remove('display');
-    })
-
-    // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
-
-    listChallengeButton.addEventListener('click', () => {
-        createPollButton.classList.remove('active');
-        listPollButton.classList.remove('active');
-        createChallengeButton.classList.remove('active');
-        listChallengeButton.classList.add('active');
-        showChallengeButton.classList.remove('active');
-
-        createPoll.classList.remove('display');
-        listPoll.classList.remove('display');
-        createChallenge.classList.remove('display');
-        listChallenge.classList.add('display');
-        showChallenge.classList.remove('display');
-    })
-
-    // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
-
-    showChallengeButton.addEventListener('click', () => {
-        createPollButton.classList.remove('active');
-        listPollButton.classList.remove('active');
-        createChallengeButton.classList.remove('active');
-        listChallengeButton.classList.remove('active');
-        showChallengeButton.classList.add('active');
-
-        createPoll.classList.remove('display');
-        listPoll.classList.remove('display');
-        createChallenge.classList.remove('display');
-        listChallenge.classList.remove('display');
-        showChallenge.classList.add('display');
-    })
+    
 
     // Set value to actual time
     window.addEventListener('load', () => {
