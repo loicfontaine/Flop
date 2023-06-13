@@ -38,7 +38,7 @@ class AdminController extends Controller
         // get all polls
         $polls = Poll::all();
 
-         return view("admin_dashboard", compact("articles"));
+         return view("admin_dashboard", compact("articles", "polls"));
          //, "challenges", "participations", "contents"
     }
 }
