@@ -63,20 +63,31 @@ export default {
         message: '',
         audioBlob: null,
       },
+      data: null,
     };
   },
   created() {
     this.startCountdown();
   },
   mounted() {
-    axios.get('/api/home')
+  axios.get('https://flop-pingouin.heig-vd.ch/api/home')
+    .then(response => {
+      this.data = response.data;
+    })
+    .catch(error => {
+      console.error(error);
+    });
+    console.log(this.data);
+},
+
+    /* axios.get('/api/home')
         .then(response => {
             console.log(response.challenges);
         })
         .catch(error => {
             console.log(error);
-        });
-},
+        }); */
+
   methods: {
     uploadFiles() {
         const formData = new FormData();
@@ -99,45 +110,6 @@ export default {
             // Traitez les erreurs ici
           });
       },
-
-    /* submit() {
-      this.$emit('submit', this.form)
-      console.log(this.form)
-      console.log("test");
-
-      let files = [this.form.video, this.form.image, this.form.message, this.form.audioBlob]
-      const formData = new FormData();
-      files.forEach(file=>{
-        formData.append('filesName', file);
-      }) */
-
-      /* axios({
-        method: 'post',
-        url: '/participer',
-        data: formData,
-        headers: {'Content-Type': 'multipart/form-data' }
-      })
-      .catch(function (error) {
-        console.log(error);
-      }); */
-
-      /* const config = {
-                    headers: { 'content-type': 'multipart/form-data' }
-                }
-     /*  let formData = new FormData();
-      formData.append('video', this.form.video);
-      formData.append('image', this.form.image);
-      formData.append('message', this.form.message);
-      formData.append('audioBlob', this.form.audioBlob);
-       */
-
-      /* axios.post('/participer', formData, config)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error.response);
-      }); */ 
       
     startCountdown() {
       const currentDate = new Date();
@@ -223,6 +195,8 @@ export default {
   },
 };
 </script>
+
+
 
 <style>
 .countdown-container {
