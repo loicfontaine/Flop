@@ -270,4 +270,6 @@ input[type="text"]::placeholder {
     margin-bottom: 20px;
 }       
 
-
+#direct-live  {
+    width: 100%;
+}

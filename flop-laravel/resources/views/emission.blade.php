@@ -16,16 +16,16 @@ COMEDY CLUB | Couleur 3 Interact
 <div id='frame'>
     <div class='container-video'>
         <h1 class='titre'>Direct vidéo</h1>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/-XefQ9EYOmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <h2 class='titre2'>Thomas Wiesel</h2>
-        <h2 class='titre2'>Les interactions sociales</h2>
+        <img id="direct-live" src="{{asset('img/directVideo1.jpg')}}" alt="Image">
+        <h2 class='titre2'>Sum 41</h2>
+        <h2 class='titre2'>In to Deep</h2>
     </div>
     <div class='programme'>
         <h1 class='titre-programme'><span class='red'>LIVE</span><br>
             <span class='white'>09:00 - 10:00</span>
         </h1>
-        <h1 class='nom-emission'>COMEDY CLUB</h1>
-        <p class='p1'>Thomas Wiesel</p>
+        <h1 class='nom-emission'>OUI MAIS NON</h1>
+        <p class='p1'>Mickael Marquet, Michel Ndeze, Johannes Tchiakpe et Charles-Adamir Bernhard</p>
     </div>
     <button id='accesChat'>
         Accéder au chat

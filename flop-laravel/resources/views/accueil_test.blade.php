@@ -83,4 +83,12 @@ Accueil | Couleur 3 Interact
     </div>
 </div>
 
+<script>
+    video = document.getElementById("video")
+    //si clique sur video, redirige sur page emission
+    video.addEventListener("click", function(){
+        window.location.href = 'emission';
+    })
+
+</script>
 @endsection
