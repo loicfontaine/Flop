@@ -186,7 +186,9 @@ Dashboard animateur | Couleur 3 Interact
                         <button class="btn-challenge" data-challenge-id="{{ $challenge->id }}">Voir les détails</button>
                     </div>
 
-                    <div id="challenge-details"></div>
+                    <div id="challenge-details">
+                        coucou
+                    </div>
                     @endforeach
             </div>
             @endif
