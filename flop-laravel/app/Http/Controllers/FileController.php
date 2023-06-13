@@ -55,7 +55,10 @@ class FileController extends Controller
         }
 
         if ($request->audioBlob != "undefined") {
-            $this->storeFile($request->audioBlob . ".wav");
+            $file = $request->audioBlob;
+            $fileName = time() . '.' . $file->getClientOriginalExtension() . ".wav";
+            $file->move('/home/projart/2023/50/flop/flop-laravel/storage/participation', $fileName);
+            return response()->json(['success' => 'You have successfully uploaded file.']);
         }
     }
 
