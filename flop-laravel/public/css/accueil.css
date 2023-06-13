@@ -214,6 +214,8 @@ h2.titre {
         height: 300px;
         width: 100%;
         background-image: url("../img/banniere_desktop.png");
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     #btn-boutique {
@@ -226,6 +228,7 @@ h2.titre {
     .titre-live {
          margin-left: auto !important;
         margin-right: auto !important;
+        margin-top: 0px !important;
     }
 
     
@@ -301,6 +304,7 @@ h2.titre {
         font-size: 1.5em !important;
          margin-left: auto !important;
         margin-right: auto !important;
+        margin-top: 0px !important;
     }
 
     #audio-live {
@@ -329,6 +333,8 @@ h2.titre {
         width: 100%;
         border : none;
         background-image: url("../img/banniere_mobile.png") ;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     #btn-boutique {

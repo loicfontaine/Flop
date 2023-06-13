@@ -6,7 +6,7 @@
 Accueil | Couleur 3 Interact
 @endsection
 @section('content')
-<!-- <div id="app"></div> -->
+<div id="app"></div> 
 <div id="video-container">
     <div id="video">
         <img id="direct-live" src="{{asset('img/directVideo1.jpg')}}" alt="Image">
@@ -15,7 +15,7 @@ Accueil | Couleur 3 Interact
         <div id="texte-container">
             <div id="texte">
                 <h3 class="live red">LIVE</h3>
-                <h3 class="live">09:00 - 11:00<h3>
+                <h3 class="live">09:00 - 11:00</h3>
                 <h1 class="titre-live">OUI MAIS NON</h1>
                 <p class="texte-live">Mickael Marquet, Michel Ndeze, Johannes Tchiakpe et Charles-Adamir Bernhard</p>
             </div>
