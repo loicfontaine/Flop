@@ -25,6 +25,16 @@ Accueil | Couleur 3 Interact
         </div>
     </div>      
 </div>
+
+<div id="boutique">
+    <h1>Boutique</h1>
+    <div id="banniere">
+        <div id="btn-boutique">
+            <a href="#boutique">Découvre notre boutique</a>
+        </div>
+    </div>
+</div>
+
 <div id="actualite">
     <h1>Actualité</h1>
     <div class="container-article">
