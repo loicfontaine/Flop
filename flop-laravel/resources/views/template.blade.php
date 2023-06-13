@@ -76,6 +76,7 @@
     </nav>
     <img class="logoC3" src="img/RTSCouleur3.png" alt="logo couleur 3">
 
+    @dd(Session::all())
     @if (Session::has('success'))
         <div class="alert alert-success">
             <ul>
