@@ -42,7 +42,7 @@ class UserController extends Controller
             "color_coins" => 10,
         ]);
 
-        redirect("index")->with("success", "L'utilisateur " . $request->input('name') . " a été créé");
+        redirect("/home")->with("success", "L'utilisateur " . $request->input('name') . " a été créé");
     }
 
     /**
