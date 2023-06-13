@@ -72,8 +72,12 @@ Route::post('/createMusic', [PollController::class, 'createMusic'])->name('creat
 Route::resource('poll', PollController::class);
 Route::resource('answer', AnswerController::class);
 Route::post('participer', [ParticipationController::class, 'participate']);
+
 Route::resource('challenge', ChallengeController::class);
+Route::get('/challenge/{id}', [ChallengeController::class, 'show']);
+
 Route::resource('article', ArticleController::class);
+
 Route::resource('participation', ParticipationController::class);
 
 
