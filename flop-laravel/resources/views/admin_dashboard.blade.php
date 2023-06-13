@@ -77,6 +77,7 @@ Dashboard animateur | Couleur 3 Interact
             </div>
         </div>
         <!-- LIST POLL -->
+        <div class="adminDashboardContentItems">
             <div id="listPoll">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Les sondages en cours sont</h2>
                 @foreach ($polls as $poll)
@@ -89,7 +90,9 @@ Dashboard animateur | Couleur 3 Interact
                 </div>
                 @endforeach
             </div>
+        </div>
         <!-- FORMULAIRE CREATE POLL -->
+        <div class="adminDashboardContentItems">
             <div id="createPoll">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un sondage</h2>
                 <form method="POST" action="{{route('poll.store')}}" accept-charset="UTF-8">
@@ -133,6 +136,7 @@ Dashboard animateur | Couleur 3 Interact
                 </form>
 
             </div>
+        </div>
         <!-- LIST ACTIONS CHALLENGE CRUD buttons-->
         <div class="adminDashboardContentItems">
             <div id="challengeActions">
@@ -144,6 +148,7 @@ Dashboard animateur | Couleur 3 Interact
                 </div>
             </div>
         <!-- FORMULAIRE CHALLENGE -->
+        <div class="adminDashboardContentItems">
             <div id="createChallenge">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un défi</h2>
                 <form method="POST" action="{{route('challenge.store')}}" accept-charset="UTF-8">
@@ -203,6 +208,7 @@ Dashboard animateur | Couleur 3 Interact
             </div>
         </div>
         <!-- LISTE CHALLENGE EN COURS -->
+        <div class="adminDashboardContentItems">
             <div id="listChallenges">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Les challenges en cours sont</h2>
                 @foreach ($challenges as $challenge)
@@ -215,6 +221,7 @@ Dashboard animateur | Couleur 3 Interact
                 </div>
                 @endforeach
             </div>
+        </div>
         <!-- CHALLENGE REPONSES -->
         <!-- FORMULAIRE CONTEST -->
         <div class="adminDashboardContentItems">
