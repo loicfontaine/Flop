@@ -30,7 +30,8 @@ class AdminController extends Controller
             //where("end_time", ">", $now)
             $challenges = Challenge::where('is_contest', '=', 0)->get();
             // get all data from participation table where challenge_id = $challenges->id
-            $participations = Participation::where("challenge_id", "=", $challenges->id)->get();
+            //$participations = Participation::where("challenge_id", "=", $challenges->id)->get();
+            $participations = Participation::all();
             // get contents from table contents where participation_id = $participations->id
             $contents = Content::where("participation_id", "=", $participations->id)->get();
             // get all polls
