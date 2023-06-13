@@ -402,7 +402,21 @@ Dashboard animateur | Couleur 3 Interact
     // Select menu item
     var menuItems = document.getElementsByClassName('adminDashboardMenuItems');
     var contentItems = document.getElementsByClassName('adminDashboardContentItems');
+    
+    var createPollButton = document.getElementById('createPollButton');
+    var createPoll = document.getElementById('createPoll');
+
+    var listPollButton = document.getElementById('listPollButton');
+    var listPoll = document.getElementById('listPoll');
+
+    var createChallengeButton = document.getElementById('createChallengeButton');
     var createChallenge = document.getElementById('createChallenge');
+
+    var listChallengeButton = document.getElementById('listChallengeButton');
+    var listChallenge = document.getElementById('listChallenge');
+
+    var showChallengeButton = document.getElementById('showChallengeButton');
+    var showChallenge = document.getElementById('showChallenge');
 
     // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
     for (let i = 0; i < menuItems.length; i++) {
@@ -415,6 +429,85 @@ Dashboard animateur | Couleur 3 Interact
             contentItems[i].classList.add('display');
         })
     }
+
+    // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
+    createPollButton.addEventListener('click', () => {
+        createPollButton.classList.add('active');
+        listPollButton.classList.remove('active');
+        createChallengeButton.classList.remove('active');
+        listChallengeButton.classList.remove('active');
+        showChallengeButton.classList.remove('active');
+
+        createPoll.classList.add('display');
+        listPoll.classList.remove('display');
+        createChallenge.classList.remove('display');
+        listChallenge.classList.remove('display');
+        showChallenge.classList.remove('display');
+    })
+
+    // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
+
+    listPollButton.addEventListener('click', () => {
+        createPollButton.classList.remove('active');
+        listPollButton.classList.add('active');
+        createChallengeButton.classList.remove('active');
+        listChallengeButton.classList.remove('active');
+        showChallengeButton.classList.remove('active');
+
+        createPoll.classList.remove('display');
+        listPoll.classList.add('display');
+        createChallenge.classList.remove('display');
+        listChallenge.classList.remove('display');
+        showChallenge.classList.remove('display');
+    })
+
+    // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
+
+    createChallengeButton.addEventListener('click', () => {
+        createPollButton.classList.remove('active');
+        listPollButton.classList.remove('active');
+        createChallengeButton.classList.add('active');
+        listChallengeButton.classList.remove('active');
+        showChallengeButton.classList.remove('active');
+
+        createPoll.classList.remove('display');
+        listPoll.classList.remove('display');
+        createChallenge.classList.add('display');
+        listChallenge.classList.remove('display');
+        showChallenge.classList.remove('display');
+    })
+
+    // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
+
+    listChallengeButton.addEventListener('click', () => {
+        createPollButton.classList.remove('active');
+        listPollButton.classList.remove('active');
+        createChallengeButton.classList.remove('active');
+        listChallengeButton.classList.add('active');
+        showChallengeButton.classList.remove('active');
+
+        createPoll.classList.remove('display');
+        listPoll.classList.remove('display');
+        createChallenge.classList.remove('display');
+        listChallenge.classList.add('display');
+        showChallenge.classList.remove('display');
+    })
+
+    // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
+
+    showChallengeButton.addEventListener('click', () => {
+        createPollButton.classList.remove('active');
+        listPollButton.classList.remove('active');
+        createChallengeButton.classList.remove('active');
+        listChallengeButton.classList.remove('active');
+        showChallengeButton.classList.add('active');
+
+        createPoll.classList.remove('display');
+        listPoll.classList.remove('display');
+        createChallenge.classList.remove('display');
+        listChallenge.classList.remove('display');
+        showChallenge.classList.add('display');
+    })
 
     // Set value to actual time
     window.addEventListener('load', () => {
