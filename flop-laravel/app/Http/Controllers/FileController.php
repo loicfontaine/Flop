@@ -47,7 +47,6 @@ class FileController extends Controller
     link: false
         */
 
-        dd($request->all());
         if ($request->image != "undefined") {
             $this->storeFile($request->image);
         }
@@ -55,8 +54,8 @@ class FileController extends Controller
             $this->storeFile($request->video);
         }
 
-        if ($request->audio != "undefined") {
-            $this->storeFile($request->audio);
+        if ($request->audioBlob != "undefined") {
+            $this->storeFile($request->audioBlob);
         }
     }
 
