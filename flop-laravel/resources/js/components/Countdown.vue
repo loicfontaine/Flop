@@ -9,7 +9,7 @@
       </div>
       <div class="text-container">
         <p class="countdown FontInter rose">{{ formatTime(countdown) }}</p>
-        <div class="titre FontInter">Participe au défi en cours !</div>
+        <div class="titre FontInter">Participe au défi en cours ! hufhuhfeuhfeuh</div>
       </div>
       <div class="expanded-content" v-if="isExpanded">
         <label for="video-upload" class="custom-file-upload FontMonserrat">
