@@ -42,7 +42,7 @@ class UserController extends Controller
             "color_coins" => 10,
         ]);
 
-        return view("admin_dashboard");
+        return view("home")->with("success", "L'utilisateur " . $request->input('name') . " a été créé");
     }
 
     /**
