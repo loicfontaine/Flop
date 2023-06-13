@@ -66,8 +66,31 @@ Dashboard animateur | Couleur 3 Interact
                 @endif
             </div>
         </div>
-        <!-- FORMULAIRE POLL -->
+        <!-- LIST ACTIONS POLL CRUD buttons-->
         <div class="adminDashboardContentItems">
+            <div id="pollActions">
+                <h2 class="adminDashboardContentItemsTitle FontInter">Sondages</h2>
+                <div class="pollActionsButtons">
+                        <button id="createPollButton" class="submit buttonLabel">Créer un sondage</button>
+                        <button id="listPollButton" class="submit buttonLabel">Voir les sondages</button>
+                </div>
+            </div>
+        </div>
+        <!-- LIST POLL -->
+        <div class="adminDashboardContentItems">
+            <div id="listPoll">
+                <h2 class="adminDashboardContentItemsTitle FontInter">Les sondages en cours sont</h2>
+                @foreach ($polls as $poll)
+                <div>
+                    <p>{{ $poll->title }}</p>
+                    <p>{{ $poll->description }}</p>
+                    <p>{{ $poll->duration }}</p>
+                    <p>{{ $poll->created_at }}</p>
+                    <p>{{ $poll->updated_at }}</p>
+                </div>
+                @endforeach
+            </div>
+        <!-- FORMULAIRE CREATE POLL -->
             <div id="createPoll">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un sondage</h2>
                 <form method="POST" action="{{route('poll.store')}}" accept-charset="UTF-8">
@@ -111,9 +134,17 @@ Dashboard animateur | Couleur 3 Interact
                 </form>
 
             </div>
-        </div>
-        <!-- FORMULAIRE CHALLENGE -->
+        <!-- LIST ACTIONS CHALLENGE CRUD buttons-->
         <div class="adminDashboardContentItems">
+            <div id="challengeActions">
+                <h2 class="adminDashboardContentItemsTitle FontInter">Défis</h2>
+                <div class="challengeActionsButtons">
+                    <button id="createChallengeButton" class="submit buttonLabel">Créer un défi</button>
+                    <button id="listChallengeButton" class="submit buttonLabel">Liste les défis</button>
+                    <button id="showChallengeButton" class="submit buttonLabel">Voir un défi</button>
+                </div>
+            </div>
+        <!-- FORMULAIRE CHALLENGE -->
             <div id="createChallenge">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un défi</h2>
                 <form method="POST" action="{{route('challenge.store')}}" accept-charset="UTF-8">
@@ -173,7 +204,6 @@ Dashboard animateur | Couleur 3 Interact
             </div>
         </div>
         <!-- LISTE CHALLENGE EN COURS -->
-        <div class="adminDashboardDéfiShow">
             <div id="listChallenges">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Les challenges en cours sont</h2>
                 @foreach ($challenges as $challenge)
@@ -186,9 +216,7 @@ Dashboard animateur | Couleur 3 Interact
                 </div>
                 @endforeach
             </div>
-        </div>
         <!-- CHALLENGE REPONSES -->
-        <div class="adminDashboardDéfiShow">
             <div id="showChallenge">
                 @foreach ($participations as $participation)
                 <h2 class="adminDashboardContentItemsTitle FontInter">{{$title}}</h2>
@@ -215,7 +243,6 @@ Dashboard animateur | Couleur 3 Interact
                 </div>
                 @endforeach
             </div>
-        </div>
         <!-- FORMULAIRE CONTEST -->
         <div class="adminDashboardContentItems">
             <div id="createContest">
@@ -378,34 +405,14 @@ Dashboard animateur | Couleur 3 Interact
     var createChallenge = document.getElementById('createChallenge');
 
     // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
-    // for (let i = 0; i < menuItems.length; i++) {
-    //     menuItems[i].addEventListener('click', () => {
-    //         for (let j = 0; j < menuItems.length; j++) {
-    //             menuItems[j].classList.remove('active');
-    //             contentItems[j].classList.remove('display');
-    //         }
-    //         menuItems[i].classList.add('active');
-    //         contentItems[i].classList.add('display');
-    //     })
-    // }
-
     for (let i = 0; i < menuItems.length; i++) {
-        
         menuItems[i].addEventListener('click', () => {
             for (let j = 0; j < menuItems.length; j++) {
                 menuItems[j].classList.remove('active');
                 contentItems[j].classList.remove('display');
             }
-            if($challenges){
-                menuItems[i].classList.add('active');
-                listChallenge.classList.add('display');
-            }else if(!$challenges){
-                menuItems[i].classList.add('active');
-                createChallenge.classList.add('display');
-            }else{
-                menuItems[i].classList.add('active');
-                contentItems[i].classList.add('display');
-            }
+            menuItems[i].classList.add('active');
+            contentItems[i].classList.add('display');
         })
     }
 
