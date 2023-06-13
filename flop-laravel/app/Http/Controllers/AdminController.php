@@ -20,7 +20,7 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-    //     $articles = Article::all();
+        $articles = Article::all();
 
     //     // LIST OF CHALLENGES
     //     // get current datetime
@@ -34,6 +34,7 @@ class AdminController extends Controller
 
     //     return dd($contents);
 
-    //     return view("admin_dashboard", compact("articles", "challenges", "participations", "contents"));
+         return view("admin_dashboard", compact("articles"));
+         //, "challenges", "participations", "contents"
     }
 }
