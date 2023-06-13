@@ -66,9 +66,18 @@ Dashboard animateur | Couleur 3 Interact
                 @endif
             </div>
         </div>
-        <!-- FORMULAIRE CREATE POLL -->
+        <!-- FORMULAIRE POLL -->
         <div class="adminDashboardContentItems">
-            <div id="createPoll">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sélectionner une action
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#" data-target="createPoll">Créer</a>
+                <a class="dropdown-item" href="#" data-target="listPoll">Voir les sondages existants</a>
+            </div>
+        </div>
+            <div class="adminDiv" id="createPoll">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un sondage</h2>
                 <form method="POST" action="{{route('poll.store')}}" accept-charset="UTF-8">
                     @csrf
@@ -114,9 +123,8 @@ Dashboard animateur | Couleur 3 Interact
         </div>
         <!-- FORMULAIRE CHALLENGE -->
         <div class="adminDashboardContentItems">
-            @if (!$challenges)
-            <div id="createChallenge">
-                <h2 class=" FontInter">Lancer un défi</h2>
+            <div class="adminDiv" id="createChallenge">
+                <h2 class="adminDashboardContentTitle FontInter">Lancer un défi</h2>
                 <form method="POST" action="{{route('challenge.store')}}" accept-charset="UTF-8">
                     @csrf
                     <span class='FontInter formLabel'>Nom</span>
@@ -172,9 +180,8 @@ Dashboard animateur | Couleur 3 Interact
                     </div>
                 </form>
             </div>
-            @else
             <!-- liste tous les défis en cours -->
-            <div id="listChallenge">
+            <div class="adminDiv" id="listChallenge">
                 <h2 class=" FontInter">Défis en cours</h2>
                 <div class="challengeList">
                     @foreach($challenges as $challenge)
@@ -182,16 +189,38 @@ Dashboard animateur | Couleur 3 Interact
                         <h3 class="FontInter challengeTitle">{{$challenge->title}}</h3>
                         <p class="FontInter challengeDescription">{{$challenge->description}}</p>
                         <p class="FontInter challengeEndTime">{{$challenge->end_time}}</p>
-
-                        <a href="{{ route('challenge.show', ['id' => $challenge->id]) }}" class="btn-challenge">Voir les détails</a>
+                        <!-- div avec un id en fonction de l'id de la participation -->
+                        <div id="" hidden>
+                            @foreach($participations as $participation)
+                            <div id="participation">
+                                <p>{{ $participation->user->nickname }}</p>
+                                @foreach($contents as $content)
+                                    @if($content->participation_id == $participation->id)
+                                        @if($participation->challenge_id == $challenge->id)
+                                        <div id="content">
+                                            @if($content->type == "text")
+                                                <p class="FontInter challengeContent">{{$content->text}}</p>
+                                            @elseif($content->type == "photo")
+                                                <img class="challengeContent" src="img/contents/{{$content->text}}">
+                                            @elseif($content->type == "video")
+                                                <video class="challengeContent" src="img/contents/{{$content->text}}"></video>
+                                            @elseif($content->type == "audio")
+                                                <audio class="challengeContent" src="img/contents/{{$content->text}}"></audio>
+                                            @endif
+                                        </div>
+                                        @endif
+                                    @endif
+                                @endforeach
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                     @endforeach
             </div>
-            @endif
         </div>
         <!-- FORMULAIRE CONTEST -->
         <div class="adminDashboardContentItems">
-            <div id="createContest">
+            <div class="adminDiv" id="createContest">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un concours</h2>
                 <form method="POST" action="{{route('challenge.store')}}" accept-charset="UTF-8">
                     @csrf
@@ -411,5 +440,22 @@ Dashboard animateur | Couleur 3 Interact
         }
     }
     //FIN TEST SCRIPT POLL
+    document.addEventListener('DOMContentLoaded', function() {
+    var dropdownItems = document.querySelectorAll('.dropdown-item');
+    var myDivs = document.querySelectorAll('.adminDiv');
+
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+        var target = this.getAttribute('data-target');
+        myDivs.forEach(function(div) {
+            if (div.id === target) {
+            div.classList.add('display');
+            } else {
+            div.classList.remove('display');
+            }
+        });
+        });
+    });
+    });
 </script>
 @endsection
