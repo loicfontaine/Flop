@@ -183,11 +183,7 @@ Dashboard animateur | Couleur 3 Interact
                         <p class="FontInter challengeDescription">{{$challenge->description}}</p>
                         <p class="FontInter challengeEndTime">{{$challenge->end_time}}</p>
 
-                        <button class="btn-challenge" data-challenge-id="{{ $challenge->id }}">Voir les détails</button>
-                    </div>
-
-                    <div id="challenge-details">
-                        coucou
+                        <a href="{{ route('challenge.show', ['id' => $challenge->id]) }}" class="btn-challenge">Voir les détails</a>
                     </div>
                     @endforeach
             </div>
@@ -415,29 +411,5 @@ Dashboard animateur | Couleur 3 Interact
         }
     }
     //FIN TEST SCRIPT POLL
-
-    //onclick show challenge details
-    document.addEventListener('DOMContentLoaded', function() {
-    var buttons = document.getElementsByClassName('btn-challenge');
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', function() {
-            var challengeId = this.getAttribute('data-challenge-id');
-            fetch('/challenge/' + challengeId)
-                .then(function(response) {
-                    if (!response.ok) {
-                        throw new Error('Erreur de récupération des détails du challenge');
-                    }
-                    return response.text();
-                })
-                .then(function(data) {
-                    document.getElementById('challenge-details').innerHTML = data;
-                })
-                .catch(function(error) {
-                    console.error(error);
-                });
-        });
-    }
-});
-
 </script>
 @endsection
