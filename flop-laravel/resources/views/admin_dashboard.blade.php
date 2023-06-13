@@ -378,16 +378,16 @@ Dashboard animateur | Couleur 3 Interact
     var createChallenge = document.getElementById('createChallenge');
 
     // on click, add active to the clicked item and remove active from the others and add display to the corresponding content item
-    for (let i = 0; i < menuItems.length; i++) {
-        menuItems[i].addEventListener('click', () => {
-            for (let j = 0; j < menuItems.length; j++) {
-                menuItems[j].classList.remove('active');
-                contentItems[j].classList.remove('display');
-            }
-            menuItems[i].classList.add('active');
-            contentItems[i].classList.add('display');
-        })
-    }
+    // for (let i = 0; i < menuItems.length; i++) {
+    //     menuItems[i].addEventListener('click', () => {
+    //         for (let j = 0; j < menuItems.length; j++) {
+    //             menuItems[j].classList.remove('active');
+    //             contentItems[j].classList.remove('display');
+    //         }
+    //         menuItems[i].classList.add('active');
+    //         contentItems[i].classList.add('display');
+    //     })
+    // }
 
     for (let i = 0; i < menuItems.length; i++) {
         

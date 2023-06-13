@@ -15,6 +15,10 @@
         "vite": "^4.3.9"
     },
     "dependencies": {
+        "@prettier/plugin-php": "^0.19.6",
+        "laravel-echo": "^1.15.1",
+        "prettier": "^2.8.8",
+        "pusher-js": "^8.1.0",
         "sass": "^1.56.1",
         "vue": "^3.3.4"
     }

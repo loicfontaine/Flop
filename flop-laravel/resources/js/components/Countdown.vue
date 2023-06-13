@@ -79,7 +79,7 @@ export default {
   methods: {
     uploadFiles() {
         const formData = new FormData();
-        /* formData.append('audio', this.$refs.audio.files[0]); */
+        formData.append('audio', this.$refs.audio.files[0]);
         formData.append('image', this.$refs.image.files[0]);
         formData.append('message', this.message);
         formData.append('video', this.$refs.video.files[0]);
@@ -186,6 +186,16 @@ export default {
     stopRecording() {
       this.mediaRecorder.stop();
       this.recording = false;
+    },
+    onDataAvailable(event) {
+      if (event.data.size > 0) {
+        this.chunks.push(event.data);
+      }
+    },
+    onRecordingStop() {
+     
+      this.mediaRecorder.stop();
+      this.recording = false;
 
       const audioBlob = new Blob(this.chunks, { type: 'audio/webm' });
       const audioFile = new File([audioBlob], 'recording.webm');
@@ -195,16 +205,7 @@ export default {
 
       this.$refs.audio.files = dataTransfer.files;
       this.chunks = [];
-    },
-    onDataAvailable(event) {
-      if (event.data.size > 0) {
-        this.chunks.push(event.data);
-      }
-    },
-    onRecordingStop() {
-     
-      this.audioBlob = new Blob(this.chunks, { type: 'audio/webm' }); 
-      this.form.audioBlob = this.audioBlob;
+
     },
     handleImageUpload(event) {
       const file = event.target.files[0];
