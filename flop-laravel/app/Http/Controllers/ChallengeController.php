@@ -18,8 +18,13 @@ class ChallengeController extends Controller
     public function index()
     {
         $challenges = Challenge::where("end_time", ">", date("Y-m-d H:i:s"))->get();
-        $types = $challenges->participation_types;
-        return view("emission", compact("challenges, types"));
+        if (count($challenges) == 0) {
+            session()->flash('error', 'Il n\'y a pas de challenge en cours');
+            return view("emission");
+        } else {
+            $types = $challenges->participation_types;
+            return view("emission", compact("challenges, types"));
+        }
     }
 
     /**

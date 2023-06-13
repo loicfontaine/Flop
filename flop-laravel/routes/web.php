@@ -100,3 +100,4 @@ Route::post('formSubmit', [FileController::class, 'formSubmit']);
 Route::get('/chat', [ChatsController::class, 'index']);
 Route::get('messages', [ChatsController::class, 'fetchMessages']);
 Route::post('messages', [ChatsController::class, 'sendMessage']);
+Route::get('/testError', [FileController::class, 'testError']);
