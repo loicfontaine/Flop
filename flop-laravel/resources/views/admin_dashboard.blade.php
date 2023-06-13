@@ -181,22 +181,12 @@ Dashboard animateur | Couleur 3 Interact
                     <div class="challenge">
                         <h3 class="FontInter challengeTitle">{{$challenge->title}}</h3>
                         <p class="FontInter challengeDescription">{{$challenge->description}}</p>
-                        <p class="FontInter challengeType">{{$challenge->type}}</p>
                         <p class="FontInter challengeEndTime">{{$challenge->end_time}}</p>
-                        <p class="FontInter challengeColorCoins">{{$challenge->colorCoins}}</p>
 
-                        <form method="POST" action="{{route('challenge.show', $challenge->id)}}">
-                            @csrf
-                            @method('SHOW')
-                            <button type="submit" class="submit buttonLabel">Voir le défis</button>
-                        </form>
-
-                        <form method="POST" action="{{route('challenge.destroy', $challenge->id)}}">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="submit buttonLabel">Supprimer</button>
-                        </form>
+                        <button class="challenge-details-button" data-challenge-id="{{ $challenge->id }}">Afficher les détails</button>
                     </div>
+
+                    <div class="challenge-details-container" id="challenge-details-container-{{ $challenge->id }}"></div>
                     @endforeach
             </div>
             @endif
@@ -353,34 +343,13 @@ Dashboard animateur | Couleur 3 Interact
     </div>
 </div>
 <!-- Composants qui s'affichent et se cachent ici -->
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     //console.log($articles);
 
     // Select menu item
     var menuItems = document.getElementsByClassName('adminDashboardMenuItems');
     var contentItems = document.getElementsByClassName('adminDashboardContentItems');
-    
-    var menuPoll = document.getElementById('menuPoll');
-    var menuDefis = document.getElementById('menuDefis');
-    var menuConcours = document.getElementById('menuConcours');
-
-    var challengesActionsButtons = document.getElementsByClassName('challengesActionsButtons');
-
-    var createPollButton = document.getElementById('createPollButton');
-    var createPoll = document.getElementById('createPoll');
-
-    var listPollButton = document.getElementById('listPollButton');
-    var listPoll = document.getElementById('listPoll');
-
-    var createChallengeButton = document.getElementById('createChallengeButton');
-    var createChallenge = document.getElementById('createChallenge');
-
-    var listChallengeButton = document.getElementById('listChallengeButton');
-    var listChallenge = document.getElementById('listChallenge');
-
-    var showChallengeButton = document.getElementById('showChallengeButton');
-    var showChallenge = document.getElementById('showChallenge');
 
     // on click, add active to menuPoll and remove active from others
     for (let i = 0; i < menuItems.length; i++) {
@@ -445,5 +414,20 @@ Dashboard animateur | Couleur 3 Interact
         }
     }
     //FIN TEST SCRIPT POLL
+
+    //onclick show challenge details
+    $('.challenge-details-button').click(function() {
+    var challengeId = $(this).data('challenge-id');
+    $.ajax({
+        url: '/challenge/' + challengeId,
+        type: 'GET',
+        success: function(response) {
+            $('.challenge-details-container').html(response);
+        },
+        error: function(xhr) {
+            // Gérez les erreurs si nécessaire
+        }
+    });
+});
 </script>
 @endsection
