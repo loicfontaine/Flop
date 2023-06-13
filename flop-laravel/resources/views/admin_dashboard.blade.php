@@ -416,18 +416,20 @@ Dashboard animateur | Couleur 3 Interact
     //FIN TEST SCRIPT POLL
 
     //onclick show challenge details
-    $('.challenge-details-button').click(function() {
-    var challengeId = $(this).data('challenge-id');
-    $.ajax({
-        url: '/challenge/' + challengeId,
-        type: 'GET',
-        success: function(response) {
-            $('.challenge-details-container').html(response);
-        },
-        error: function(xhr) {
-            // Gérez les erreurs si nécessaire
-        }
-    });
+    $(document).ready(function() {
+        $('.challenge-details-button').click(function() {
+        var challengeId = $(this).data('challenge-id');
+        $.ajax({
+            url: '/challenge/' + challengeId,
+            type: 'GET',
+            success: function(response) {
+                $('.challenge-details-container').html(response);
+            },
+            error: function(xhr) {
+                // Gérez les erreurs si nécessaire
+            }
+        });
+    })
 });
 </script>
 @endsection
