@@ -19,6 +19,8 @@
         "laravel-echo": "^1.15.1",
         "prettier": "^2.8.8",
         "pusher-js": "^8.1.0",
+        "recorder-js": "^1.0.7",
+        "recorder.js": "^1.2.2",
         "sass": "^1.56.1",
         "vue": "^3.3.4"
     }
