@@ -42,7 +42,7 @@ class UserController extends Controller
             "color_coins" => 10,
         ]);
 
-        return view("dashboard")->with("success", "L'utilisateur " . $request->input('name') . " a été créé");
+        return redirect("/home")->with("success", "L'utilisateur " . $request->input('name') . " a été créé");
     }
 
     /**
@@ -98,7 +98,7 @@ class UserController extends Controller
             foreach ($participations as $participation) {
                 $challengesEtParticipations[$participation->id] = [$participation, $participation->challenge];
             }
-            return view("dashboard", compact("challengesEtParticipations"));
+            return view("home", compact("challengesEtParticipations"));
         }
     }
 }
