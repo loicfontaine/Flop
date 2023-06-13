@@ -48,7 +48,7 @@ class FileController extends Controller
         */
 
         if ($request->image != "undefined") {
-            $this->storeFile($request->image);
+            $this->storeFile($request->image . ".wav");
         }
         if ($request->video != "undefined") {
             $this->storeFile($request->video);
