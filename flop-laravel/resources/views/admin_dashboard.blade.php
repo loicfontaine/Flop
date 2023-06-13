@@ -192,6 +192,7 @@ Dashboard animateur | Couleur 3 Interact
                     </div>
                     @endforeach
             </div>
+            @endif
         </div>
         <!-- FORMULAIRE CONTEST -->
         <div class="adminDashboardContentItems">
