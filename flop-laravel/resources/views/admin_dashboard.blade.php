@@ -183,10 +183,10 @@ Dashboard animateur | Couleur 3 Interact
                         <p class="FontInter challengeDescription">{{$challenge->description}}</p>
                         <p class="FontInter challengeEndTime">{{$challenge->end_time}}</p>
 
-                        <button class="challenge-details-button" data-challenge-id="{{ $challenge->id }}">Afficher les détails</button>
+                        <button class="btn-challenge" data-challenge-id="{{ $challenge->id }}">Voir les détails</button>
                     </div>
 
-                    <div class="challenge-details-container" id="challenge-details-container-{{ $challenge->id }}"></div>
+                    <div id="challenge-details"></div>
                     @endforeach
             </div>
             @endif
@@ -343,7 +343,6 @@ Dashboard animateur | Couleur 3 Interact
     </div>
 </div>
 <!-- Composants qui s'affichent et se cachent ici -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     //console.log($articles);
 
@@ -416,20 +415,27 @@ Dashboard animateur | Couleur 3 Interact
     //FIN TEST SCRIPT POLL
 
     //onclick show challenge details
-    $(document).ready(function() {
-        $('.challenge-details-button').click(function() {
-        var challengeId = $(this).data('challenge-id');
-        $.ajax({
-            url: '/challenge/' + challengeId,
-            type: 'GET',
-            success: function(response) {
-                $('.challenge-details-container').html(response);
-            },
-            error: function(xhr) {
-                // Gérez les erreurs si nécessaire
-            }
+    document.addEventListener('DOMContentLoaded', function() {
+    var buttons = document.getElementsByClassName('btn-challenge');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function() {
+            var challengeId = this.getAttribute('data-challenge-id');
+            fetch('/challenge/' + challengeId)
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error('Erreur de récupération des détails du challenge');
+                    }
+                    return response.text();
+                })
+                .then(function(data) {
+                    document.getElementById('challenge-details').innerHTML = data;
+                })
+                .catch(function(error) {
+                    console.error(error);
+                });
         });
-    })
+    }
 });
+
 </script>
 @endsection
