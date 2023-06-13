@@ -101,7 +101,7 @@ class ChallengeController extends Controller
     {
         $challenge = Challenge::findOrFail($id);
         $participations = $challenge->participations;
-        return view('partials.challenge_details', compact('challenge', 'participations'));
+        return view('partials.challengeDetails', compact('challenge', 'participations'));
     }
 
     /**
