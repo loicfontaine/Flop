@@ -30,14 +30,14 @@ class HomeController extends Controller
     {
         $challenges = Challenge::where("end_time", ">", date("Y-m-d H:i:s"))->get();
 
-        $rewards = [];
+        $challenges = [];
         foreach ($challenges as $challenge) {
             if ($challenge->is_contest) {
-                $rewards[$challenge->id] = $challenge->rewards;
+                $rewards[$challenge->id] = ["challenges" => $challenge, "rewards" => $challenge->rewards];
             }
         }
 
 
-        return response()->json(array("challenges" => $challenges, "rewards" => $rewards));
+        return response()->json(array("challenges" => $challenges, "sondages" => []));
     }
 }
