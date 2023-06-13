@@ -10,6 +10,21 @@
 Connexion | Couleur 3 Interact
 @endsection
 @section('content')
+
+@if (Session::has('success'))
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! Session::get('success') !!}</li>
+        </ul>
+    </div>
+@elseif (Session::has('error'))
+    <div class="alert alert-error">
+        <ul>
+            <li>{!! Session::get('error') !!}</li>
+        </ul>
+    </div>
+@endif
+
 <div class='FontInter'>
     <h1 class='titre'>Connexion</h1>
     <hr class='separation'>
