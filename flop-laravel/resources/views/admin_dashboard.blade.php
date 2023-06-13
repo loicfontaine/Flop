@@ -116,7 +116,7 @@ Dashboard animateur | Couleur 3 Interact
         <div class="adminDashboardContentItems">
             @if (!$challenges)
             <div id="createChallenge">
-                <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un défi</h2>
+                <h2 class=" FontInter">Lancer un défi</h2>
                 <form method="POST" action="{{route('challenge.store')}}" accept-charset="UTF-8">
                     @csrf
                     <span class='FontInter formLabel'>Nom</span>
@@ -175,7 +175,7 @@ Dashboard animateur | Couleur 3 Interact
             @else
             <!-- liste tous les défis en cours -->
             <div id="listChallenge">
-                <h2 class="adminDashboardContentItemsTitle FontInter">Défis en cours</h2>
+                <h2 class=" FontInter">Défis en cours</h2>
                 <div class="challengeList">
                     @foreach($challenges as $challenge)
                     <div class="challenge">
