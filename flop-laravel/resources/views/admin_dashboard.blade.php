@@ -184,6 +184,13 @@ Dashboard animateur | Couleur 3 Interact
                         <p class="FontInter challengeType">{{$challenge->type}}</p>
                         <p class="FontInter challengeEndTime">{{$challenge->end_time}}</p>
                         <p class="FontInter challengeColorCoins">{{$challenge->colorCoins}}</p>
+
+                        <form method="POST" action="{{route('challenge.show', $challenge->id)}}">
+                            @csrf
+                            @method('SHOW')
+                            <button type="submit" class="submit buttonLabel">Voir le défis</button>
+                        </form>
+
                         <form method="POST" action="{{route('challenge.destroy', $challenge->id)}}">
                             @csrf
                             @method('DELETE')
