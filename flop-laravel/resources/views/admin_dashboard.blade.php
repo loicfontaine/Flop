@@ -217,32 +217,6 @@ Dashboard animateur | Couleur 3 Interact
                 @endforeach
             </div>
         <!-- CHALLENGE REPONSES -->
-            <!-- <div id="showChallenge">
-                @foreach ($participations as $participation)
-                <h2 class="adminDashboardContentItemsTitle FontInter">{{$title}}</h2>
-                En cours
-                Countdown
-                <div>
-                    <p>{{ $userName }}</p>
-
-                    @if ($challenge_type) === 1)
-                    <audio>
-                        <source src="{{ $content }}" type="audio/mpeg">
-                    </audio>
-                    @elseif ($challenge_type) === 2)
-                    <img src="{{$content}}" alt="">
-                    @elseif ($challenge_type) === 3)
-                    <video>
-                        <source src="{{ $content }}" type="audio/mpeg">
-                    </video>
-                    @elseif ($challenge_type) === 4)
-                    <p>{{$content}}</p>
-                    @else
-                    I don't have any records!
-                    @endif
-                </div>
-                @endforeach
-            </div> -->
         <!-- FORMULAIRE CONTEST -->
         <div class="adminDashboardContentItems">
             <div id="createContest">
