@@ -11,13 +11,10 @@ use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ParticipationController;
 use App\Http\Controllers\FileController;
-
-
-
-
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ChallengeController;
 use App\Models\Participation;
+use App\Http\Controllers\ChatsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,5 +91,8 @@ Route::get('/emission', function () {
 Route::get('/messages', [MessageController::class, 'index']);
 Route::post('/messages', [MessageController::class, 'store']);
 
-
 Route::post('formSubmit', [FileController::class, 'formSubmit']);
+
+Route::get('/chat', [ChatsController::class, 'index']);
+Route::get('messages', [ChatsController::class, 'fetchMessages']);
+Route::post('messages', [ChatsController::class, 'sendMessage']);
