@@ -76,16 +76,16 @@
     </nav>
     <img class="logoC3" src="img/RTSCouleur3.png" alt="logo couleur 3">
 
-    @if (Session::has('success'))
+    @if (/Session::has('success'))
         <div class="alert alert-success">
             <ul>
-                <li>{!! Session::get('success') !!}</li>
+                <li>{!! /Session::get('success') !!}</li>
             </ul>
         </div>
-        @elseif (Session::has('error'))
+        @elseif (/Session::has('error'))
         <div class="alert alert-error">
             <ul>
-                <li>{!! Session::get('error') !!}</li>
+                <li>{!! /Session::get('error') !!}</li>
             </ul>
         </div>
     @endif
