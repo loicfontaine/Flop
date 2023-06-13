@@ -33,7 +33,8 @@ class AdminController extends Controller
             //$participations = Participation::where("challenge_id", "=", $challenges->id)->get();
             $participations = Participation::all();
             // get contents from table contents where participation_id = $participations->id
-            $contents = Content::where("participation_id", "=", $participations->id)->get();
+            // $contents = Content::where("participation_id", "=", $participations->id)->get();
+            $contents = Content::all();
             // get all polls
             $polls = Poll::all();
             // get all challenges
