@@ -84,7 +84,7 @@ export default {
         formData.append('image', this.$refs.image.files[0]);
         formData.append('message', this.message);
         formData.append('video', this.$refs.video.files[0]);
-        formData.append('audioBlob', blob, this.audioBlob);
+        formData.append('audioBlob', this.audioBlob);
        /*  console.log(formData.get('audio')); */
         console.log(formData.get('image'));
         console.log(formData.get('message'));
