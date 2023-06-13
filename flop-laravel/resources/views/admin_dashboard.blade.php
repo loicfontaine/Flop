@@ -114,6 +114,7 @@ Dashboard animateur | Couleur 3 Interact
         </div>
         <!-- FORMULAIRE CHALLENGE -->
         <div class="adminDashboardContentItems">
+            @if (!$challenges)
             <div id="createChallenge">
                 <h2 class="adminDashboardContentItemsTitle FontInter">Lancer un défi</h2>
                 <form method="POST" action="{{route('challenge.store')}}" accept-charset="UTF-8">
@@ -170,6 +171,26 @@ Dashboard animateur | Couleur 3 Interact
                         <button type="submit" class='submit buttonLabel'>Créer un défi</button>
                     </div>
                 </form>
+            </div>
+            @else
+            <!-- liste tous les défis en cours -->
+            <div id="listChallenge">
+                <h2 class="adminDashboardContentItemsTitle FontInter">Défis en cours</h2>
+                <div class="challengeList">
+                    @foreach($challenges as $challenge)
+                    <div class="challenge">
+                        <h3 class="FontInter challengeTitle">{{$challenge->title}}</h3>
+                        <p class="FontInter challengeDescription">{{$challenge->description}}</p>
+                        <p class="FontInter challengeType">{{$challenge->type}}</p>
+                        <p class="FontInter challengeEndTime">{{$challenge->end_time}}</p>
+                        <p class="FontInter challengeColorCoins">{{$challenge->colorCoins}}</p>
+                        <form method="POST" action="{{route('challenge.destroy', $challenge->id)}}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="submit buttonLabel">Supprimer</button>
+                        </form>
+                    </div>
+                    @endforeach
             </div>
         </div>
         <!-- FORMULAIRE CONTEST -->

@@ -27,8 +27,7 @@ class AdminController extends Controller
             // get current datetime
             $now = date("Y-m-d H:i:s");
             // get challenges that end_time is greater than $now
-            //where("end_time", ">", $now)
-            $challenges = Challenge::where('is_contest', '=', 0)->get();
+            $challenges = Challenge::where("end_time", ">", $now)->where('is_contest', '=', 0)->get();
             // get all data from participation table where challenge_id = $challenges->id
             //$participations = Participation::where("challenge_id", "=", $challenges->id)->get();
             $participations = Participation::all();
